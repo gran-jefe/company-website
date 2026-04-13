@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" width="280" height="64" role="img">
+  <title>Gran Jefe — Logo (Light)</title>
+  <desc>Gran Jefe horizontal logo on light background</desc>
+
+  <rect x="0" y="8" width="46" height="46" rx="23" fill="#FDF4EE"/>
+  <rect x="0" y="8" width="46" height="46" rx="23" fill="none" stroke="#C4522A" stroke-width="2.5"/>
+  <text x="23" y="38" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="900" fill="#C4522A" text-anchor="middle">GJ</text>
+
+  <text x="58" y="38" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#1C1118" letter-spacing="-0.5">Gran Jefe</text>
+</svg>
