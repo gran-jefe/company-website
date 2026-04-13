@@ -48,10 +48,37 @@ body {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-@layer utilities {
-  /* Force dark mode to override media queries */
-  html.dark :is(body, body *) {
-    --lightningcss-light: ;
-    --lightningcss-dark: initial;
-  }
+/* ===== DARK MODE CLASS-BASED OVERRIDES ===== */
+.dark {
+  color-scheme: dark;
+  background-color: #1C1118;
+  color: #FFFFFF;
 }
+
+/* Background color overrides */
+.dark .bg-brand-cream { background-color: #1C1118 !important; }
+.dark .bg-white { background-color: #3D1F2E !important; }
+.dark .bg-brand-blush { background-color: #3D1F2E !important; }
+.dark .bg-brand-base { background-color: #1C1118 !important; }
+.dark .bg-brand-deep { background-color: #3D1F2E !important; }
+
+/* Text color overrides */
+.dark .text-brand-base { color: #FFFFFF !important; }
+.dark .text-brand-clay { color: #C4A0B8 !important; }
+.dark .text-black { color: #FFFFFF !important; }
+.dark .text-white { color: #FFFFFF !important; }
+
+/* Border color overrides */
+.dark .border-brand-blush { border-color: #3D1F2E !important; }
+.dark .border-b-brand-blush { border-bottom-color: #3D1F2E !important; }
+.dark .border-brand-clay { border-color: #C4A0B8 !important; }
+
+/* Header/navbar overrides */
+.dark header { background-color: #1C1118 !important; }
+.dark nav { background-color: #1C1118 !important; }
+
+/* Section overrides */
+.dark section { background-color: #1C1118 !important; }
+
+/* Card overrides */
+.dark .rounded-xl { background-color: inherit; }
