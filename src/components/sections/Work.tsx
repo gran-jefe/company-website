@@ -122,7 +122,7 @@ export function Work() {
                 }}
                 className="inline-flex items-center gap-2 text-brand-terra hover:text-brand-ember transition-colors font-medium group"
               >
-                Let's talk
+                Let&apos;s talk
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </p>

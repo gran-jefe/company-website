@@ -9,7 +9,7 @@ export function Contact() {
       <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
         <AnimatedSection>
           <h2 className="text-4xl md:text-5xl font-syne font-800 text-white">
-            Let's build{' '}
+            Let&apos;s build{' '}
             <span className="text-brand-terra">something great.</span>
           </h2>
         </AnimatedSection>
@@ -22,7 +22,7 @@ export function Contact() {
 
         <AnimatedSection delay={0.2}>
           <a
-            href="mailto:hello@granjefe.com"
+            href="mailto:granjefetech@gmail.com"
             className="mt-8 inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-brand-terra hover:bg-brand-ember text-white font-dm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-ember focus-visible:ring-offset-2 focus-visible:ring-offset-brand-base"
           >
             <Mail size={20} />
