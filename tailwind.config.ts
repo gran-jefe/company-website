@@ -6,12 +6,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'brand-base':     '#1C1118',
-        'brand-deep':     '#3D1F2E',
-        'brand-terra':    '#C4522A',
-        'brand-ember':    '#E8764A',
+        'brand-base':     '#1C1119',
+        'brand-deep':     '#3E1F2E',
+        'brand-terra':    '#C4532B',
+        'brand-ember':    '#E9764A',
         'brand-teal':     '#1D9E75',
-        'brand-cream':    '#FDF4EE',
+        'brand-cream':    '#FDF4ED',
         'brand-blush':    '#F0C8B0',
         'brand-clay':     '#7A4A38',
         'brand-mint':     '#E1F5EE',
@@ -19,8 +19,8 @@ const config: Config = {
         'brand-white':    '#FFFFFF',
       },
       fontFamily: {
-        syne: ['var(--font-syne)', 'sans-serif'],
-        dm:   ['var(--font-dm)', 'sans-serif'],
+        syne: ['Satoshi', 'sans-serif'],
+        dm:   ['Satoshi', 'sans-serif'],
       },
       animation: {
         'fade-up':   'fadeUp 0.6s ease forwards',

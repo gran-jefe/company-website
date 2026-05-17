@@ -2,6 +2,7 @@
 
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 interface LogoProps {
   variant?: 'dark' | 'light' | 'auto'
@@ -33,27 +34,13 @@ export function Logo({ variant = 'auto', size = 'md' }: LogoProps) {
     return <div style={{ width: dimensions.width, height: dimensions.height }} />
   }
 
-  const darkSvg = (
-    <svg viewBox="0 0 280 64" xmlns="http://www.w3.org/2000/svg">
-      <rect x="0" y="8" width="46" height="46" rx="23" fill="#3D1F2E" />
-      <rect x="0" y="8" width="46" height="46" rx="23" fill="none" stroke="#C4522A" strokeWidth="2.5" />
-      <text x="23" y="38" fontFamily="Arial, Helvetica, sans-serif" fontSize="17" fontWeight="900" fill="#E8764A" textAnchor="middle">GJ</text>
-      <text x="58" y="38" fontFamily="Arial, Helvetica, sans-serif" fontSize="26" fontWeight="700" fill="#FFFFFF" letterSpacing="-0.5">Gran Jefe</text>
-    </svg>
-  )
-
-  const lightSvg = (
-    <svg viewBox="0 0 280 64" xmlns="http://www.w3.org/2000/svg">
-      <rect x="0" y="8" width="46" height="46" rx="23" fill="#FDF4EE" />
-      <rect x="0" y="8" width="46" height="46" rx="23" fill="none" stroke="#C4522A" strokeWidth="2.5" />
-      <text x="23" y="38" fontFamily="Arial, Helvetica, sans-serif" fontSize="17" fontWeight="900" fill="#C4522A" textAnchor="middle">GJ</text>
-      <text x="58" y="38" fontFamily="Arial, Helvetica, sans-serif" fontSize="26" fontWeight="700" fill="#1C1118" letterSpacing="-0.5">Gran Jefe</text>
-    </svg>
-  )
-
   return (
-    <div style={{ width: dimensions.width, height: dimensions.height }}>
-      {actualVariant === 'dark' ? darkSvg : lightSvg}
-    </div>
+    <Image
+      src={actualVariant === 'dark' ? '/Logo_one.jpeg' : '/Logo_two.jpeg'}
+      alt="Gran Jefe"
+      width={dimensions.width}
+      height={dimensions.height}
+      style={{ objectFit: 'contain' }}
+    />
   )
 }

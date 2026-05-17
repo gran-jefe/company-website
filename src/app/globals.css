@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-base: #1C1118;
-  --color-brand-deep: #3D1F2E;
-  --color-brand-terra: #C4522A;
-  --color-brand-ember: #E8764A;
+  --color-brand-base: #1C1119;
+  --color-brand-deep: #3E1F2E;
+  --color-brand-terra: #C4532B;
+  --color-brand-ember: #E9764A;
   --color-brand-teal: #1D9E75;
-  --color-brand-cream: #FDF4EE;
+  --color-brand-cream: #FDF4ED;
   --color-brand-blush: #F0C8B0;
   --color-brand-clay: #7A4A38;
   --color-brand-mint: #E1F5EE;
@@ -28,7 +28,7 @@ html.dark {
 }
 
 body {
-  font-family: var(--font-dm), sans-serif;
+  font-family: 'Satoshi', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -37,11 +37,11 @@ body {
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #C4522A; border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: #E8764A; }
+::-webkit-scrollbar-thumb { background: #C4532B; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #E9764A; }
 
 /* Selection color */
-::selection { background: #C4522A; color: #FDF4EE; }
+::selection { background: #C4532B; color: #FDF4ED; }
 
 /* Smooth theme transition on all elements */
 *, *::before, *::after {
@@ -51,16 +51,16 @@ body {
 /* ===== DARK MODE CLASS-BASED OVERRIDES ===== */
 .dark {
   color-scheme: dark;
-  background-color: #1C1118;
+  background-color: #1C1119;
   color: #FFFFFF;
 }
 
 /* Background color overrides */
-.dark .bg-brand-cream { background-color: #1C1118 !important; }
-.dark .bg-white { background-color: #3D1F2E !important; }
-.dark .bg-brand-blush { background-color: #3D1F2E !important; }
-.dark .bg-brand-base { background-color: #1C1118 !important; }
-.dark .bg-brand-deep { background-color: #3D1F2E !important; }
+.dark .bg-brand-cream { background-color: #1C1119 !important; }
+.dark .bg-white { background-color: #3E1F2E !important; }
+.dark .bg-brand-blush { background-color: #3E1F2E !important; }
+.dark .bg-brand-base { background-color: #1C1119 !important; }
+.dark .bg-brand-deep { background-color: #3E1F2E !important; }
 
 /* Text color overrides */
 .dark .text-brand-base { color: #FFFFFF !important; }
@@ -69,16 +69,16 @@ body {
 .dark .text-white { color: #FFFFFF !important; }
 
 /* Border color overrides */
-.dark .border-brand-blush { border-color: #3D1F2E !important; }
-.dark .border-b-brand-blush { border-bottom-color: #3D1F2E !important; }
+.dark .border-brand-blush { border-color: #3E1F2E !important; }
+.dark .border-b-brand-blush { border-bottom-color: #3E1F2E !important; }
 .dark .border-brand-clay { border-color: #C4A0B8 !important; }
 
 /* Header/navbar overrides */
-.dark header { background-color: #1C1118 !important; }
-.dark nav { background-color: #1C1118 !important; }
+.dark header { background-color: #1C1119 !important; }
+.dark nav { background-color: #1C1119 !important; }
 
 /* Section overrides */
-.dark section { background-color: #1C1118 !important; }
+.dark section { background-color: #1C1119 !important; }
 
 /* Card overrides */
 .dark .rounded-xl { background-color: inherit; }

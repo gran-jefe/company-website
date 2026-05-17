@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 
@@ -12,44 +13,7 @@ export function About() {
           <AnimatedSection>
             <div className="flex flex-col items-center md:items-start">
               {/* GJ Monogram */}
-              <svg
-                viewBox="0 0 280 64"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-40 h-auto"
-              >
-                <rect
-                  x="0"
-                  y="8"
-                  width="46"
-                  height="46"
-                  rx="23"
-                  fill="currentColor"
-                  className="text-brand-deep dark:text-brand-deep"
-                />
-                <rect
-                  x="0"
-                  y="8"
-                  width="46"
-                  height="46"
-                  rx="23"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  className="text-brand-terra"
-                />
-                <text
-                  x="23"
-                  y="38"
-                  fontFamily="Arial, Helvetica, sans-serif"
-                  fontSize="17"
-                  fontWeight="900"
-                  fill="currentColor"
-                  textAnchor="middle"
-                  className="text-brand-terra"
-                >
-                  GJ
-                </text>
-              </svg>
+              <Image src="/favicon.png" alt="Gran Jefe" width={160} height={160} className="rounded-full" />
 
               {/* Founding year badge */}
               <div className="mt-6 inline-flex items-center px-3 py-1.5 rounded-full font-dm font-medium text-xs bg-brand-blush text-brand-clay dark:bg-brand-deep dark:text-brand-plumtext border border-brand-terra">

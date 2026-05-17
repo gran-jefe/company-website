@@ -1,19 +1,6 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-
-const syne = Syne({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-syne',
-});
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500'],
-  variable: '--font-dm',
-});
 
 export const metadata: Metadata = {
   title: 'Gran Jefe — We build the products others can\'t.',
@@ -25,7 +12,8 @@ export const metadata: Metadata = {
     type: 'website',
   },
   icons: {
-    icon: '/favicon.svg',
+    icon: [{ url: '/favicon.png', type: 'image/png' }],
+    apple: '/favicon.png',
   },
 };
 
@@ -37,10 +25,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${dmSans.variable}`}
       suppressHydrationWarning
     >
       <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
