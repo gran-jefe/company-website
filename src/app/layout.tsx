@@ -11,10 +11,6 @@ export const metadata: Metadata = {
     description: 'We build the products others can\'t.',
     type: 'website',
   },
-  icons: {
-    icon: [{ url: '/favicon.png', type: 'image/png' }],
-    apple: '/favicon.png',
-  },
 };
 
 export default function RootLayout({
@@ -29,6 +25,7 @@ export default function RootLayout({
     >
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         <link rel="preconnect" href="https://api.fontshare.com" />
         <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" />
         <script
