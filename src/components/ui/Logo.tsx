@@ -36,7 +36,7 @@ export function Logo({ variant = 'auto', size = 'md' }: LogoProps) {
 
   return (
     <Image
-      src={actualVariant === 'dark' ? '/Logo_one.jpeg' : '/Logo_two.jpeg'}
+      src={actualVariant === 'dark' ? '/new_logo_dark.png' : '/new_logo_light.png'}
       alt="Gran Jefe"
       width={dimensions.width}
       height={dimensions.height}
