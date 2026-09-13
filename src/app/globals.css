@@ -45,52 +45,56 @@ body {
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(196, 83, 43, 0.4); border-radius: 999px; }
+::-webkit-scrollbar-thumb { background: rgba(196, 83, 43, 0.5); border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover { background: #E9764A; }
 
 /* Selection color */
 ::selection { background: #C4532B; color: #FDF4ED; }
 
-/* Developer Grid Pattern Background */
-.bg-dev-grid {
-  background-image: radial-gradient(rgba(196, 83, 43, 0.15) 1px, transparent 1px);
-  background-size: 24px 24px;
+/* Futuristic Grid Backgrounds */
+.bg-cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(196, 83, 43, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(196, 83, 43, 0.06) 1px, transparent 1px);
+  background-size: 36px 36px;
 }
 
-.dark .bg-dev-grid {
-  background-image: radial-gradient(rgba(0, 240, 255, 0.12) 1px, transparent 1px);
-  background-size: 24px 24px;
+.dark .bg-cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 240, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.07) 1px, transparent 1px);
+  background-size: 36px 36px;
 }
 
-/* Terminal Glass Effect */
-.terminal-glass {
-  background: rgba(18, 18, 22, 0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* Glassmorphism Panel */
+.glass-panel-dark {
+  background: rgba(18, 18, 24, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.terminal-glass-light {
-  background: rgba(253, 244, 237, 0.85);
-  backdrop-filter: blur(12px);
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(196, 83, 43, 0.15);
 }
 
-/* Code font helper */
+/* Glowing utilities */
+.glow-terra-sm {
+  box-shadow: 0 0 15px rgba(196, 83, 43, 0.2);
+}
+
+.glow-cyan-sm {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+.glow-violet-sm {
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+}
+
+/* Code Font Helper */
 .font-mono-code {
   font-family: 'JetBrains Mono', 'Fira Code', 'Menlo', 'Monaco', 'Consolas', monospace;
-}
-
-/* Glow effects */
-.glow-terra {
-  box-shadow: 0 0 20px rgba(196, 83, 43, 0.25);
-}
-
-.glow-cyan {
-  box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
-}
-
-.glow-emerald {
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
 }
 
 /* Dark mode class-based overrides */
