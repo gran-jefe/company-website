@@ -1,128 +1,156 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Terminal, Shield, Zap, Activity, Smartphone, Layout, ShoppingBag } from 'lucide-react'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 
-interface ProjectCardProps {
-  colorClass: string
+interface Project {
+  id: string
   name: string
-  type: string
+  category: string
+  metricBadge: string
   description: string
+  architectureNote: string
   stack: string[]
-  delay?: number
+  icon: React.ReactNode
+  accentColor: string
+  borderColor: string
 }
 
-function ProjectCard({ colorClass, name, type, description, stack, delay = 0 }: ProjectCardProps) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
-      viewport={{ once: true, margin: '-80px' }}
-      className="rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-200 group"
-    >
-      {/* Top half: Color block */}
-      <div className={`h-48 ${colorClass} relative flex items-center justify-center`}>
-        <div className="text-white opacity-20">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="8" width="48" height="48" rx="4" stroke="currentColor" strokeWidth="2" />
-          </svg>
-        </div>
-      </div>
-
-      {/* Bottom half: Card body */}
-      <div className="bg-white dark:bg-brand-deep p-6">
-        <h3 className="font-syne font-700 text-brand-base dark:text-white">{name}</h3>
-
-        <div className="mt-3 flex items-center gap-2">
-          <span className="inline-block px-2 py-1 rounded text-xs font-dm font-medium bg-brand-blush text-brand-clay dark:bg-brand-base dark:text-brand-plumtext">
-            {type}
-          </span>
-        </div>
-
-        <p className="mt-3 text-sm font-dm font-light text-brand-clay dark:text-brand-plumtext line-clamp-1">
-          {description}
-        </p>
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          {stack.map((tech, index) => (
-            <span
-              key={index}
-              className="inline-block text-xs font-dm font-medium px-2 py-1 rounded bg-brand-cream dark:bg-brand-base text-brand-clay dark:text-brand-plumtext"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  )
-}
-
-const projects = [
+const projects: Project[] = [
   {
-    colorClass: 'bg-brand-deep',
-    name: 'Mobile Wallet App',
-    type: 'Fintech',
-    description: 'Secure financial transactions on mobile',
-    stack: ['React Native', 'Node.js', 'PostgreSQL'],
+    id: 'wallet',
+    name: 'Fintech Mobile Wallet Engine',
+    category: 'FINTECH & MOBILE',
+    metricBadge: 'P99 < 14ms • 100k+ Users',
+    description: 'Cross-platform mobile payment wallet featuring biometrics, real-time transaction streams, double-entry ledger verification, and instant bank payouts.',
+    architectureNote: 'Architected with zero-trust token auth, SQL row locking, and encrypted local state.',
+    stack: ['React Native', 'TypeScript', 'Node.js', 'PostgreSQL', 'Redis'],
+    icon: <Smartphone size={24} className="text-brand-terra" />,
+    accentColor: 'from-brand-terra/20 to-brand-ember/5',
+    borderColor: 'hover:border-brand-terra/60',
   },
   {
-    colorClass: 'bg-brand-terra opacity-30',
-    name: 'SaaS Dashboard',
-    type: 'Web App',
-    description: 'Analytics and management platform',
-    stack: ['Next.js', 'TypeScript', 'Firebase'],
+    id: 'saas',
+    name: 'High-Concurrency SaaS Analytics',
+    category: 'WEB APP & DASHBOARD',
+    metricBadge: 'Sub-100ms FCP • Live WS',
+    description: 'Real-time operations & telemetry dashboard rendering thousands of telemetry events per second with zero browser layout lag.',
+    architectureNote: 'Next.js App Router streaming server components paired with WebSockets fallback.',
+    stack: ['Next.js 16', 'TypeScript', 'Firebase', 'Tailwind CSS', 'Recharts'],
+    icon: <Layout size={24} className="text-dev-cyan" />,
+    accentColor: 'from-dev-cyan/20 to-dev-violet/5',
+    borderColor: 'hover:border-dev-cyan/60',
   },
   {
-    colorClass: 'bg-brand-teal opacity-20',
-    name: 'E-commerce Platform',
-    type: 'Web + Mobile',
-    description: 'Multi-platform shopping experience',
-    stack: ['React', 'React Native', 'Node.js'],
+    id: 'ecommerce',
+    name: 'Multi-Platform Commerce System',
+    category: 'WEB + MOBILE PLATFORM',
+    metricBadge: 'PCI-DSS Compliant • 99.99%',
+    description: 'Unified cross-platform commerce engine with inventory sync, automated payment Webhook processing, and instant checkout flow.',
+    architectureNote: 'Modular API gateway architecture connecting web storefronts and mobile apps.',
+    stack: ['React', 'React Native', 'Node.js', 'Stripe', 'Express'],
+    icon: <ShoppingBag size={24} className="text-dev-emerald" />,
+    accentColor: 'from-dev-emerald/20 to-brand-teal/5',
+    borderColor: 'hover:border-dev-emerald/60',
   },
 ]
 
 export function Work() {
   return (
-    <section id="work" className="bg-brand-cream dark:bg-brand-base py-20 md:py-28">
+    <section id="work" className="bg-white dark:bg-zinc-950 py-20 md:py-28 relative">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <AnimatedSection>
-          <SectionLabel>Work</SectionLabel>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <SectionLabel>Engineering Portfolio</SectionLabel>
+              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-zinc-900 dark:text-white tracking-tight">
+                Shipped production systems.{' '}
+                <span className="text-brand-terra">Tested at scale.</span>
+              </h2>
+            </div>
+            <div className="font-mono text-xs text-zinc-500 dark:text-zinc-400">
+              // 10+ projects delivered from 0 to live production
+            </div>
+          </div>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.1}>
-          <h2 className="mt-6 text-3xl md:text-4xl font-syne font-700 text-brand-base dark:text-white">
-            Projects that shipped.
-          </h2>
-        </AnimatedSection>
-
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Project Cards Grid */}
+        <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              {...project}
-              delay={index * 0.08}
-            />
+            <AnimatedSection key={project.id} delay={index * 0.1}>
+              <div
+                className={`h-full group rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-zinc-800/80 ${project.borderColor} transition-all duration-300 overflow-hidden flex flex-col justify-between hover:shadow-2xl`}
+              >
+                {/* Visual Header Block with Terminal Badge */}
+                <div
+                  className={`p-6 bg-gradient-to-br ${project.accentColor} border-b border-zinc-200/60 dark:border-zinc-800/60 relative`}
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-2.5 py-1 rounded text-[10px] font-mono font-bold tracking-wider uppercase bg-white/80 dark:bg-zinc-900/80 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 backdrop-blur-sm">
+                      {project.category}
+                    </span>
+                    <div className="p-2 rounded-xl bg-white dark:bg-zinc-900 shadow-md">
+                      {project.icon}
+                    </div>
+                  </div>
+
+                  <h3 className="font-syne font-extrabold text-xl text-zinc-900 dark:text-white group-hover:text-brand-terra transition-colors">
+                    {project.name}
+                  </h3>
+
+                  <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-medium">
+                    <Zap size={12} />
+                    <span>{project.metricBadge}</span>
+                  </div>
+                </div>
+
+                {/* Body Content */}
+                <div className="p-6 flex-1 flex flex-col justify-between space-y-6">
+                  <div className="space-y-3">
+                    <p className="font-dm text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <div className="p-3 rounded-lg bg-white dark:bg-zinc-950 border border-zinc-200/60 dark:border-zinc-800 text-xs font-mono text-zinc-500 dark:text-zinc-400 flex items-start gap-2">
+                      <Terminal size={14} className="text-brand-terra flex-shrink-0 mt-0.5" />
+                      <span>{project.architectureNote}</span>
+                    </div>
+                  </div>
+
+                  {/* Stack Footer Tags */}
+                  <div className="pt-4 border-t border-zinc-200/60 dark:border-zinc-800/60">
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.stack.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="px-2.5 py-1 rounded text-xs font-mono bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700/60"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
           ))}
         </div>
 
+        {/* Footer CTA */}
         <AnimatedSection delay={0.4}>
-          <div className="mt-12 text-center">
-            <p className="font-dm font-light text-brand-clay dark:text-brand-plumtext">
-              Have a project in mind?{' '}
+          <div className="mt-14 p-6 rounded-2xl bg-gradient-to-r from-brand-terra/10 via-zinc-900/5 to-dev-cyan/10 border border-brand-terra/20 text-center">
+            <p className="font-dm text-base text-zinc-700 dark:text-zinc-200 font-medium">
+              Need custom software, an MVP, or backend infrastructure for your product?{' '}
               <button
                 onClick={() => {
                   const contactSection = document.querySelector('#contact')
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth' })
-                  }
+                  if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="inline-flex items-center gap-2 text-brand-terra hover:text-brand-ember transition-colors font-medium group"
+                className="inline-flex items-center gap-1.5 text-brand-terra font-mono font-bold hover:text-brand-ember transition-colors underline underline-offset-4 ml-1 group"
               >
-                Let&apos;s talk
+                <span>Initialize project discussion</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </p>

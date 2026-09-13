@@ -2,7 +2,7 @@
 
 @theme {
   --color-brand-base: #1C1119;
-  --color-brand-deep: #3E1F2E;
+  --color-brand-deep: #291825;
   --color-brand-terra: #C4532B;
   --color-brand-ember: #E9764A;
   --color-brand-teal: #1D9E75;
@@ -12,6 +12,14 @@
   --color-brand-mint: #E1F5EE;
   --color-brand-plumtext: #C4A0B8;
   --color-brand-white: #FFFFFF;
+
+  --color-dev-cyan: #00F0FF;
+  --color-dev-emerald: #10B981;
+  --color-dev-violet: #8B5CF6;
+  --color-dev-amber: #F59E0B;
+  --color-dev-dark: #09090B;
+  --color-dev-card: #121216;
+  --color-dev-border: #27272A;
 }
 
 :root {
@@ -35,50 +43,59 @@ body {
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #C4532B; border-radius: 999px; }
+::-webkit-scrollbar-thumb { background: rgba(196, 83, 43, 0.4); border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover { background: #E9764A; }
 
 /* Selection color */
 ::selection { background: #C4532B; color: #FDF4ED; }
 
-/* Smooth theme transition on all elements */
-*, *::before, *::after {
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+/* Developer Grid Pattern Background */
+.bg-dev-grid {
+  background-image: radial-gradient(rgba(196, 83, 43, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-/* ===== DARK MODE CLASS-BASED OVERRIDES ===== */
+.dark .bg-dev-grid {
+  background-image: radial-gradient(rgba(0, 240, 255, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Terminal Glass Effect */
+.terminal-glass {
+  background: rgba(18, 18, 22, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terminal-glass-light {
+  background: rgba(253, 244, 237, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(196, 83, 43, 0.15);
+}
+
+/* Code font helper */
+.font-mono-code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Menlo', 'Monaco', 'Consolas', monospace;
+}
+
+/* Glow effects */
+.glow-terra {
+  box-shadow: 0 0 20px rgba(196, 83, 43, 0.25);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+}
+
+/* Dark mode class-based overrides */
 .dark {
   color-scheme: dark;
-  background-color: #1C1119;
+  background-color: #09090B;
   color: #FFFFFF;
 }
-
-/* Background color overrides */
-.dark .bg-brand-cream { background-color: #1C1119 !important; }
-.dark .bg-white { background-color: #3E1F2E !important; }
-.dark .bg-brand-blush { background-color: #3E1F2E !important; }
-.dark .bg-brand-base { background-color: #1C1119 !important; }
-.dark .bg-brand-deep { background-color: #3E1F2E !important; }
-
-/* Text color overrides */
-.dark .text-brand-base { color: #FFFFFF !important; }
-.dark .text-brand-clay { color: #C4A0B8 !important; }
-.dark .text-black { color: #FFFFFF !important; }
-.dark .text-white { color: #FFFFFF !important; }
-
-/* Border color overrides */
-.dark .border-brand-blush { border-color: #3E1F2E !important; }
-.dark .border-b-brand-blush { border-bottom-color: #3E1F2E !important; }
-.dark .border-brand-clay { border-color: #C4A0B8 !important; }
-
-/* Header/navbar overrides */
-.dark header { background-color: #1C1119 !important; }
-.dark nav { background-color: #1C1119 !important; }
-
-/* Section overrides */
-.dark section { background-color: #1C1119 !important; }
-
-/* Card overrides */
-.dark .rounded-xl { background-color: inherit; }
