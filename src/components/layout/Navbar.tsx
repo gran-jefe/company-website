@@ -125,7 +125,7 @@ export function Navbar() {
               className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-dm font-semibold bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-400 border border-amber-500/30 transition-all shadow-xs"
             >
               <Sparkles size={13} className="text-amber-500" />
-              <span>Bakery Samples</span>
+              <span>Samstasteedelight Samples</span>
             </a>
 
             <Button
@@ -175,7 +175,7 @@ export function Navbar() {
                   className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-xs font-dm font-semibold bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/30"
                 >
                   <Sparkles size={14} className="text-amber-500" />
-                  <span>View Bakery Samples Hub</span>
+                  <span>View Samstasteedelight Samples Hub</span>
                 </a>
 
                 <Button variant="filled" onClick={() => handleNavClick('#contact')} className="w-full">
