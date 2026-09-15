@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Search, Command } from 'lucide-react'
+import { Menu, X, Search, Command, Sparkles } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Button } from '@/components/ui/Button'
@@ -101,7 +101,7 @@ export function Navbar() {
             })}
           </div>
 
-          {/* Right Actions: Quick Search + Theme Toggle + Start Project CTA */}
+          {/* Right Actions: Quick Search + Theme Toggle + Bakery Samples Button + Start Project CTA */}
           <div className="flex items-center gap-3">
             <button
               onClick={() => setPaletteOpen(true)}
@@ -116,6 +116,17 @@ export function Navbar() {
             </button>
 
             <ThemeToggle />
+
+            {/* Bakery Samples Button */}
+            <a
+              href="/samstasteedelight-samples/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-dm font-semibold bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-400 border border-amber-500/30 transition-all shadow-xs"
+            >
+              <Sparkles size={13} className="text-amber-500" />
+              <span>Bakery Samples</span>
+            </a>
 
             <Button
               variant="filled"
@@ -156,6 +167,17 @@ export function Navbar() {
                     {item.label}
                   </button>
                 ))}
+                
+                <a
+                  href="/samstasteedelight-samples/index.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-xs font-dm font-semibold bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/30"
+                >
+                  <Sparkles size={14} className="text-amber-500" />
+                  <span>View Bakery Samples Hub</span>
+                </a>
+
                 <Button variant="filled" onClick={() => handleNavClick('#contact')} className="w-full">
                   Start a project
                 </Button>
