@@ -217,18 +217,35 @@ export function Stack() {
                   </div>
                 </div>
 
-                {/* Futuristic Code Snippet Inspector Window */}
-                <CodeWindow
-                  tabs={[
-                    {
-                      id: activeCategory.id,
-                      filename: activeCategory.sampleFilename,
-                      language: 'typescript',
-                      code: activeCategory.sampleCode,
-                    },
-                  ]}
-                  title={`granjefe-stack ~ ${activeCategory.sampleFilename}`}
-                />
+                {/* Business Outcome & Impact Card */}
+                <div className="p-6 rounded-2xl bg-zinc-900 border border-zinc-800 text-white space-y-4">
+                  <div className="flex items-center justify-between text-xs font-mono text-emerald-400">
+                    <span className="flex items-center gap-1.5 font-bold">
+                      <Check size={14} /> WHAT THIS MEANS FOR YOUR BUSINESS
+                    </span>
+                    <span className="text-zinc-500">// Real-World Impact</span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                    <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                      <div className="font-syne font-bold text-sm text-brand-terra">
+                        Sub-Second Page Speed
+                      </div>
+                      <div className="font-dm text-xs text-zinc-300 leading-relaxed">
+                        Visitors load pages instantly without waiting, boosting visitor retention and Google Search rankings.
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                      <div className="font-syne font-bold text-sm text-dev-cyan">
+                        Zero Downtime &amp; Security
+                      </div>
+                      <div className="font-dm text-xs text-zinc-300 leading-relaxed">
+                        Bank-grade encryption safeguards your business and customer data with 99.99% uptime guarantee.
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>
