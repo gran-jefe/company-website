@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Samstasteedelight | Midnight Cocoa & Gold Lounge</title>
+  <title>Samstasteedelight | Midnight Cocoa Lounge</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -37,133 +37,104 @@
 </head>
 <body class="bg-cocoa-950 text-cream font-sans antialiased selection:bg-gold-500 selection:text-cocoa-950">
 
-  <!-- TOP BAR -->
-  <div class="bg-gradient-to-r from-cocoa-900 via-cocoa-800 to-cocoa-900 text-gold-400 border-b border-gold-500/20 text-[11px] font-cinzel font-bold py-2.5 px-4 text-center tracking-[0.25em] uppercase flex items-center justify-center gap-3">
-    <i data-lucide="moon" class="w-3.5 h-3.5 text-gold-500"></i>
-    <span>Midnight Oven Batches &amp; Weekend Specialty Orders</span>
-    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-500"></i>
+  <!-- TOP STRIP -->
+  <div class="bg-gradient-to-r from-cocoa-900 via-cocoa-800 to-cocoa-900 text-gold-400 border-b border-gold-500/20 text-[10px] sm:text-[11px] font-cinzel font-bold py-2 px-3 text-center tracking-widest uppercase flex items-center justify-center gap-1.5">
+    <i data-lucide="moon" class="w-3.5 h-3.5 text-gold-500 flex-shrink-0"></i>
+    <span class="truncate">Midnight Oven Batches &amp; Weekend Specialty Orders</span>
   </div>
 
   <!-- HEADER -->
   <header class="bg-cocoa-950/90 backdrop-blur-md sticky top-0 z-40 border-b border-gold-500/15">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <div class="w-11 h-11 rounded-full border border-gold-500/50 bg-cocoa-900 text-gold-400 flex items-center justify-center font-cinzel font-bold text-2xl shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex justify-between items-center">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-full border border-gold-500/50 bg-cocoa-900 text-gold-400 flex items-center justify-center font-cinzel font-bold text-xl shadow-[0_0_15px_rgba(212,175,55,0.2)]">
           S
         </div>
         <div>
-          <span class="font-cinzel text-2xl font-bold tracking-widest text-cream block">SAMSTASTEEDELIGHT</span>
-          <span class="text-[9px] tracking-[0.3em] text-gold-500 uppercase block mt-0.5">Midnight Cocoa &amp; Gold</span>
+          <span class="font-cinzel text-lg sm:text-2xl font-bold tracking-widest text-cream block leading-none">SAMSTASTEEDELIGHT</span>
+          <span class="text-[8px] sm:text-[9px] tracking-[0.25em] text-gold-500 uppercase block mt-0.5">Midnight Cocoa &amp; Gold</span>
         </div>
       </div>
 
-      <nav class="hidden md:flex items-center gap-8 text-xs font-cinzel tracking-widest text-cream/70 font-semibold uppercase">
-        <a href="#signature" class="hover:text-gold-400 transition-colors">Specialties</a>
-        <a href="#experience" class="hover:text-gold-400 transition-colors">The Lounge</a>
-        <a href="#order" class="hover:text-gold-400 transition-colors">WhatsApp Dispatch</a>
-      </nav>
-
-      <a href="#signature" class="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-cocoa-950 px-6 py-2.5 rounded-full text-xs font-cinzel font-bold tracking-widest uppercase flex items-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all">
-        <i data-lucide="message-circle" class="w-4 h-4"></i>
-        <span>WhatsApp Order</span>
+      <a href="#signature" class="bg-gradient-to-r from-gold-500 to-gold-600 text-cocoa-950 px-4 py-2 rounded-full text-xs font-cinzel font-bold tracking-widest uppercase flex items-center gap-1.5 shadow">
+        <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+        <span>Order</span>
       </a>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="py-24 px-6 relative border-b border-gold-500/10 overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold-500/5 via-transparent to-transparent pointer-events-none"></div>
+  <section class="py-12 sm:py-20 px-4 sm:px-6 max-w-5xl mx-auto text-center space-y-4 border-b border-gold-500/10">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-[10px] sm:text-xs font-cinzel uppercase tracking-widest">
+      <i data-lucide="sparkle" class="w-3.5 h-3.5"></i> Dark Cocoa Craftsmanship
+    </div>
 
-    <div class="max-w-5xl mx-auto text-center space-y-6 relative z-10">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-cinzel uppercase tracking-[0.3em]">
-        <i data-lucide="sparkle" class="w-3.5 h-3.5"></i> Dark Cocoa Craftsmanship
-      </div>
+    <h1 class="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-bold text-cream tracking-tight leading-tight">
+      Indulgence Defined in <br/>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-500 to-gold-400">Cocoa &amp; Pure Gold</span>
+    </h1>
 
-      <h1 class="font-cinzel text-4xl sm:text-6xl lg:text-7xl font-bold text-cream tracking-tight leading-tight">
-        Indulgence Defined in <br/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-500 to-gold-400">Cocoa &amp; Pure Gold</span>
-      </h1>
+    <p class="text-cream/70 text-xs sm:text-base max-w-xl mx-auto leading-relaxed">
+      An intimate bakery experience crafted for discerning palates. Rich 70% dark chocolate tarts, golden caramel pastries, and handcrafted cakes.
+    </p>
 
-      <p class="text-cream/70 text-base sm:text-lg max-w-2xl mx-auto font-sans leading-relaxed">
-        An intimate bakery experience crafted for discerning palates. Rich 70% dark chocolate tarts, golden caramel pastries, and handcrafted celebration cakes.
-      </p>
-
-      <div class="pt-4 flex flex-wrap justify-center gap-4">
-        <a href="#signature" class="bg-gold-500 hover:bg-gold-400 text-cocoa-950 px-8 py-4 rounded-full text-xs font-cinzel font-bold tracking-widest uppercase shadow-xl transition-all">
-          Explore Midnight Menu
-        </a>
-        <button onclick="dispatchQuickWhatsApp('Custom Moody Midnight Bake Inquiry')" class="border border-gold-500/40 hover:bg-gold-500/10 text-gold-400 px-8 py-4 rounded-full text-xs font-cinzel font-bold tracking-widest uppercase transition-all flex items-center gap-2">
-          <i data-lucide="message-circle" class="w-4 h-4"></i> Direct WhatsApp Inquiry
-        </button>
-      </div>
+    <div class="pt-2 flex flex-col sm:flex-row justify-center gap-3">
+      <a href="#signature" class="bg-gold-500 text-cocoa-950 px-6 py-3.5 rounded-full text-xs font-cinzel font-bold tracking-widest uppercase shadow">
+        Explore Midnight Menu
+      </a>
     </div>
   </section>
 
-  <!-- SIGNATURE MIDNIGHT BAKES GRID -->
-  <section id="signature" class="py-20 px-6 max-w-7xl mx-auto">
-    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-      <span class="text-xs font-cinzel font-bold uppercase tracking-[0.3em] text-gold-400">Handcrafted Nightly</span>
-      <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-cream">Midnight Cocoa Signature Collection</h2>
+  <!-- SIGNATURE GRID -->
+  <section id="signature" class="py-12 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-10 space-y-1">
+      <span class="text-xs font-cinzel font-bold uppercase tracking-[0.25em] text-gold-400">Handcrafted Nightly</span>
+      <h2 class="font-cinzel text-2xl sm:text-4xl font-bold text-cream">Midnight Cocoa Signature Collection</h2>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
       
       <!-- CARD 1 -->
-      <div class="bg-cocoa-900/80 rounded-2xl p-5 border border-gold-500/20 shadow-2xl hover:border-gold-500/50 transition-all flex flex-col justify-between space-y-4 group">
-        <div>
-          <div class="relative overflow-hidden rounded-xl mb-4 h-60 border border-gold-500/10">
-            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Dark Chocolate Velvet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-cocoa-950/90 text-gold-400 border border-gold-500/40 text-[10px] font-cinzel font-bold uppercase tracking-wider px-3 py-1 rounded-full">
-              Signature Bake
-            </span>
-          </div>
+      <div class="bg-cocoa-900/80 rounded-2xl p-4 sm:p-5 border border-gold-500/20 shadow-2xl flex flex-col justify-between space-y-4">
+        <div class="space-y-3">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Dark Chocolate Velvet" class="w-full h-48 sm:h-56 object-cover rounded-xl border border-gold-500/10">
           <div class="flex justify-between items-start">
-            <h3 class="font-cinzel text-xl font-bold text-cream">Noir Velvet & Gold Leaf</h3>
-            <span class="font-cinzel text-gold-400 font-bold text-lg">$65</span>
+            <h3 class="font-cinzel text-lg font-bold text-cream">Noir Velvet &amp; Gold Leaf</h3>
+            <span class="font-cinzel text-gold-400 font-bold text-base sm:text-lg">$65</span>
           </div>
-          <p class="text-xs text-cream/60 leading-relaxed mt-2">70% Valrhona dark cocoa layers with espresso infused ganache and edible 24k gold leaf.</p>
+          <p class="text-xs text-cream/60 leading-relaxed">70% Valrhona dark cocoa layers with espresso infused ganache and 24k gold leaf.</p>
         </div>
-        <button onclick="dispatchQuickWhatsApp('Noir Velvet & Gold Leaf Cake ($65)')" class="w-full bg-gold-500 hover:bg-gold-400 text-cocoa-950 py-3 rounded-xl text-xs font-cinzel font-bold uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-[1.02]">
+        <button onclick="dispatchQuickWhatsApp('Noir Velvet & Gold Leaf Cake ($65)')" class="w-full bg-gold-500 hover:bg-gold-400 text-cocoa-950 py-3 rounded-xl text-xs font-cinzel font-bold uppercase tracking-widest flex items-center justify-center gap-2">
           <i data-lucide="message-circle" class="w-4 h-4"></i> Order via WhatsApp
         </button>
       </div>
 
       <!-- CARD 2 -->
-      <div class="bg-cocoa-900/80 rounded-2xl p-5 border border-gold-500/20 shadow-2xl hover:border-gold-500/50 transition-all flex flex-col justify-between space-y-4 group">
-        <div>
-          <div class="relative overflow-hidden rounded-xl mb-4 h-60 border border-gold-500/10">
-            <img src="https://images.unsplash.com/photo-1557925923-cd4648e211a0?auto=format&fit=crop&w=800&q=80" alt="Bourbon Caramel Tart" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-cocoa-950/90 text-gold-400 border border-gold-500/40 text-[10px] font-cinzel font-bold uppercase tracking-wider px-3 py-1 rounded-full">
-              Limited Edition
-            </span>
-          </div>
+      <div class="bg-cocoa-900/80 rounded-2xl p-4 sm:p-5 border border-gold-500/20 shadow-2xl flex flex-col justify-between space-y-4">
+        <div class="space-y-3">
+          <img src="https://images.unsplash.com/photo-1557925923-cd4648e211a0?auto=format&fit=crop&w=800&q=80" alt="Bourbon Caramel Tart" class="w-full h-48 sm:h-56 object-cover rounded-xl border border-gold-500/10">
           <div class="flex justify-between items-start">
-            <h3 class="font-cinzel text-xl font-bold text-cream">Salted Bourbon Truffle Tart</h3>
-            <span class="font-cinzel text-gold-400 font-bold text-lg">$48</span>
+            <h3 class="font-cinzel text-lg font-bold text-cream">Salted Bourbon Truffle Tart</h3>
+            <span class="font-cinzel text-gold-400 font-bold text-base sm:text-lg">$48</span>
           </div>
-          <p class="text-xs text-cream/60 leading-relaxed mt-2">Smokey Kentucky bourbon caramel in a dark cocoa tart shell topped with Fleur de Sel.</p>
+          <p class="text-xs text-cream/60 leading-relaxed">Smokey Kentucky bourbon caramel in a dark cocoa tart shell topped with Fleur de Sel.</p>
         </div>
-        <button onclick="dispatchQuickWhatsApp('Salted Bourbon Truffle Tart ($48)')" class="w-full bg-gold-500 hover:bg-gold-400 text-cocoa-950 py-3 rounded-xl text-xs font-cinzel font-bold uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-[1.02]">
+        <button onclick="dispatchQuickWhatsApp('Salted Bourbon Truffle Tart ($48)')" class="w-full bg-gold-500 hover:bg-gold-400 text-cocoa-950 py-3 rounded-xl text-xs font-cinzel font-bold uppercase tracking-widest flex items-center justify-center gap-2">
           <i data-lucide="message-circle" class="w-4 h-4"></i> Order via WhatsApp
         </button>
       </div>
 
       <!-- CARD 3 -->
-      <div class="bg-cocoa-900/80 rounded-2xl p-5 border border-gold-500/20 shadow-2xl hover:border-gold-500/50 transition-all flex flex-col justify-between space-y-4 group">
-        <div>
-          <div class="relative overflow-hidden rounded-xl mb-4 h-60 border border-gold-500/10">
-            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Artisanal Cinnamon Rolls" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-cocoa-950/90 text-gold-400 border border-gold-500/40 text-[10px] font-cinzel font-bold uppercase tracking-wider px-3 py-1 rounded-full">
-              Nightly Batch
-            </span>
-          </div>
+      <div class="bg-cocoa-900/80 rounded-2xl p-4 sm:p-5 border border-gold-500/20 shadow-2xl flex flex-col justify-between space-y-4">
+        <div class="space-y-3">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Artisanal Cinnamon Rolls" class="w-full h-48 sm:h-56 object-cover rounded-xl border border-gold-500/10">
           <div class="flex justify-between items-start">
-            <h3 class="font-cinzel text-xl font-bold text-cream">Midnight Cinnamon Brioche</h3>
-            <span class="font-cinzel text-gold-400 font-bold text-lg">$38 <span class="text-[10px] text-cream/50">/ Dozen</span></span>
+            <h3 class="font-cinzel text-lg font-bold text-cream">Midnight Cinnamon Brioche</h3>
+            <span class="font-cinzel text-gold-400 font-bold text-base sm:text-lg">$38</span>
           </div>
-          <p class="text-xs text-cream/60 leading-relaxed mt-2">Soft dark brown sugar brioche rolls with brown butter espresso icing.</p>
+          <p class="text-xs text-cream/60 leading-relaxed">Soft dark brown sugar brioche rolls with brown butter espresso icing (Dozen).</p>
         </div>
-        <button onclick="dispatchQuickWhatsApp('Midnight Cinnamon Brioche Dozen ($38)')" class="w-full bg-gold-500 hover:bg-gold-400 text-cocoa-950 py-3 rounded-xl text-xs font-cinzel font-bold uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-[1.02]">
+        <button onclick="dispatchQuickWhatsApp('Midnight Cinnamon Brioche Dozen ($38)')" class="w-full bg-gold-500 hover:bg-gold-400 text-cocoa-950 py-3 rounded-xl text-xs font-cinzel font-bold uppercase tracking-widest flex items-center justify-center gap-2">
           <i data-lucide="message-circle" class="w-4 h-4"></i> Order via WhatsApp
         </button>
       </div>
@@ -172,11 +143,10 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-cocoa-950 text-cream/60 py-10 px-6 border-t border-gold-500/15 text-center text-xs">
-    <div class="max-w-4xl mx-auto space-y-3">
-      <div class="font-cinzel text-2xl font-bold text-gold-400 tracking-widest">SAMSTASTEEDELIGHT</div>
-      <p class="font-cinzel text-[10px] uppercase tracking-widest text-cream/40">Midnight Cocoa &amp; Gold Dessert Lounge • US Orders</p>
-      <div class="text-[10px] text-cream/30 pt-4">© 2026 Samstasteedelight. Direct WhatsApp Order Prototype.</div>
+  <footer class="bg-cocoa-950 text-cream/60 py-8 px-4 border-t border-gold-500/15 text-center text-xs">
+    <div class="max-w-4xl mx-auto space-y-1">
+      <div class="font-cinzel text-xl font-bold text-gold-400 tracking-widest">SAMSTASTEEDELIGHT</div>
+      <p class="font-cinzel text-[9px] uppercase tracking-widest text-cream/40">Midnight Cocoa &amp; Gold Lounge • US Orders</p>
     </div>
   </footer>
 
