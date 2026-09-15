@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samstasteedelight | Sample 1: Artisanal Luxury</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cocoa: {
+              DEFAULT: '#2A1810',
+              dark: '#1C0F0A',
+              light: '#3D261A',
+              accent: '#523425'
+            },
+            cream: {
+              DEFAULT: '#FDF8F2',
+              soft: '#FAF3E0',
+              dark: '#F3E8D3',
+              card: '#FFFDF9'
+            },
+            gold: {
+              DEFAULT: '#D4AF37',
+              light: '#E5C158',
+              dark: '#AA8A22'
+            }
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #D4AF37 0%, #F5E096 50%, #AA8A22 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-cream text-cocoa font-sans antialiased selection:bg-gold selection:text-cocoa-dark">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-cocoa text-cream-soft px-4 py-2 text-xs text-center font-medium tracking-wide flex items-center justify-center gap-2 border-b border-gold/20">
+    <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+    <span>Freshly Baked Daily in the USA • Order Directly via WhatsApp for Local Pickup & Delivery</span>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-cocoa/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full bg-cocoa text-gold flex items-center justify-center font-serif font-bold text-xl shadow-md border border-gold/40 group-hover:scale-105 transition-transform">
+          S
+        </div>
+        <div>
+          <span class="font-serif font-bold text-2xl tracking-tight text-cocoa block leading-none">Samstasteedelight</span>
+          <span class="text-[10px] font-mono tracking-widest text-cocoa/60 uppercase">Artisanal Bakery • USA</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-cocoa/80">
+        <a href="#signature" class="hover:text-gold transition-colors">Signature Bakes</a>
+        <a href="#custom-cakes" class="hover:text-gold transition-colors">Custom Cakes</a>
+        <a href="#catering" class="hover:text-gold transition-colors">Event Catering</a>
+        <a href="#about" class="hover:text-gold transition-colors">Our Story</a>
+      </nav>
+
+      <!-- WhatsApp Direct CTA -->
+      <a href="https://wa.me/15551234567?text=Hello%20Samstasteedelight!%20I%20would%20like%20to%20inquire%20about%20a%20bakery%20order." target="_blank" class="px-5 py-2.5 rounded-full bg-cocoa hover:bg-cocoa-light text-cream font-medium text-xs sm:text-sm shadow-lg hover:shadow-cocoa/20 transition-all flex items-center gap-2 border border-gold/30">
+        <i data-lucide="message-circle" class="w-4 h-4 text-gold"></i>
+        <span>Order on WhatsApp</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-cocoa text-cream py-20 lg:py-28 overflow-hidden">
+    <!-- Background Texture Glow -->
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Text Content -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold/10 border border-gold/30 text-gold text-xs font-mono">
+            <i data-lucide="award" class="w-3.5 h-3.5"></i>
+            <span>PREMIUM ARTISANAL BAKERY</span>
+          </div>
+
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] text-cream">
+            Handcrafted bakes made with <span class="italic gold-gradient-text">love &amp; elegance.</span>
+          </h1>
+
+          <p class="text-cream-soft/80 text-base sm:text-lg max-w-xl font-light leading-relaxed">
+            From multi-tiered celebration cakes to delicate morning pastries and custom dessert platters. Baked fresh in the USA with rich butter, real cocoa, and timeless craftsmanship.
+          </p>
+
+          <!-- Badges -->
+          <div class="pt-2 grid grid-cols-3 gap-4 max-w-lg border-t border-cream/10">
+            <div>
+              <div class="font-serif font-bold text-xl text-gold">100%</div>
+              <div class="text-xs text-cream-soft/70">Made from Scratch</div>
+            </div>
+            <div>
+              <div class="font-serif font-bold text-xl text-gold">Fast</div>
+              <div class="text-xs text-cream-soft/70">WhatsApp Orders</div>
+            </div>
+            <div>
+              <div class="font-serif font-bold text-xl text-gold">Custom</div>
+              <div class="text-xs text-cream-soft/70">Event Styling</div>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="pt-4 flex flex-wrap gap-4">
+            <a href="#signature" class="px-7 py-3.5 rounded-full bg-gold hover:bg-gold-light text-cocoa-dark font-semibold text-sm shadow-xl transition-all flex items-center gap-2">
+              <span>Explore Bakery Menu</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <button onclick="openWhatsAppModal('Custom Order Inquiry', 'General Special Request')" class="px-7 py-3.5 rounded-full bg-cream/10 hover:bg-cream/20 text-cream font-medium text-sm border border-cream/20 transition-all flex items-center gap-2">
+              <i data-lucide="sparkles" class="w-4 h-4 text-gold"></i>
+              <span>Custom Cake Request</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Hero Image Frame -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <div class="absolute -inset-2 rounded-3xl bg-gradient-to-r from-gold via-cream/20 to-gold/40 opacity-30 blur-xl"></div>
+            <div class="relative rounded-3xl overflow-hidden border-2 border-gold/30 shadow-2xl bg-cocoa-light">
+              <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80" alt="Samstasteedelight Signature Cake" class="w-full h-[450px] object-cover hover:scale-105 transition-transform duration-700">
+              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-cocoa-dark via-cocoa/80 to-transparent p-6">
+                <span class="px-3 py-1 rounded-full bg-gold/20 text-gold border border-gold/30 text-xs font-mono">SIGNATURE ITEM</span>
+                <h3 class="font-serif text-xl font-bold text-cream mt-2">Velvet Cocoa &amp; Caramel Layer Cake</h3>
+                <p class="text-xs text-cream-soft/80 mt-1">Rich 4-tier dark chocolate sponge with salted caramel drizzle.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature Menu Section -->
+  <section id="signature" class="py-20 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-mono tracking-widest text-gold-dark uppercase font-bold">SAMPLE CONCEPT 1 • ARTISANAL LUXURY</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cocoa">Our Handcrafted Menu</h2>
+        <p class="text-cocoa/70 text-sm sm:text-base">
+          Click any treat to customize flavor, size, and dispatch your order directly to Samstasteedelight on WhatsApp.
+        </p>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Item 1 -->
+        <div class="bg-cream-card rounded-2xl border border-cocoa/10 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="relative h-60 overflow-hidden bg-cocoa-light">
+              <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=800&q=80" alt="Custom Celebration Cake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-cocoa/90 text-gold text-xs font-mono border border-gold/30">BESTSELLER</span>
+            </div>
+            <div class="p-6 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-gold-dark font-semibold">CUSTOM CELEBRATION</span>
+                <span class="font-serif font-bold text-lg text-cocoa">From $65</span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-cocoa group-hover:text-gold-dark transition-colors">Vanilla Bean &amp; Floral Drip Cake</h3>
+              <p class="text-xs text-cocoa/70 leading-relaxed">
+                Light vanilla chiffon layered with Swiss meringue buttercream and fresh organic edible floral accents.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="openWhatsAppModal('Vanilla Bean & Floral Drip Cake', '$65+')" class="w-full py-3 rounded-xl bg-cocoa hover:bg-cocoa-light text-cream font-medium text-xs transition-colors flex items-center justify-center gap-2 border border-gold/20">
+              <i data-lucide="message-circle" class="w-4 h-4 text-gold"></i>
+              <span>Order via WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="bg-cream-card rounded-2xl border border-cocoa/10 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="relative h-60 overflow-hidden bg-cocoa-light">
+              <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80" alt="Artisanal Cupcakes Box" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-cocoa/90 text-gold text-xs font-mono border border-gold/30">BOX OF 12</span>
+            </div>
+            <div class="p-6 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-gold-dark font-semibold">CUPCAKE COLLECTION</span>
+                <span class="font-serif font-bold text-lg text-cocoa">$42 / Box</span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-cocoa group-hover:text-gold-dark transition-colors">Gourmet Assorted Cupcakes</h3>
+              <p class="text-xs text-cocoa/70 leading-relaxed">
+                Selection of Red Velvet, Dark Chocolate Ganache, Salted Caramel, and Pistachio Cream cupcakes.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="openWhatsAppModal('Gourmet Assorted Cupcakes (Box of 12)', '$42')" class="w-full py-3 rounded-xl bg-cocoa hover:bg-cocoa-light text-cream font-medium text-xs transition-colors flex items-center justify-center gap-2 border border-gold/20">
+              <i data-lucide="message-circle" class="w-4 h-4 text-gold"></i>
+              <span>Order via WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="bg-cream-card rounded-2xl border border-cocoa/10 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="relative h-60 overflow-hidden bg-cocoa-light">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Artisanal Pastries & Croissants" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-cocoa/90 text-gold text-xs font-mono border border-gold/30">FRESH DAILY</span>
+            </div>
+            <div class="p-6 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-gold-dark font-semibold">MORNING PASTRIES</span>
+                <span class="font-serif font-bold text-lg text-cocoa">$36 / Dozen</span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-cocoa group-hover:text-gold-dark transition-colors">Butter Croissants &amp; Danishes</h3>
+              <p class="text-xs text-cocoa/70 leading-relaxed">
+                Flaky European-style butter croissants, pain au chocolat, and seasonal berry cream danishes.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="openWhatsAppModal('Butter Croissants & Danishes (Dozen)', '$36')" class="w-full py-3 rounded-xl bg-cocoa hover:bg-cocoa-light text-cream font-medium text-xs transition-colors flex items-center justify-center gap-2 border border-gold/20">
+              <i data-lucide="message-circle" class="w-4 h-4 text-gold"></i>
+              <span>Order via WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Order Modal -->
+  <div id="waModal" class="fixed inset-0 z-50 bg-cocoa-dark/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-cream rounded-2xl max-w-md w-full border border-gold/40 shadow-2xl p-6 sm:p-8 space-y-5 relative">
+      <button onclick="closeWhatsAppModal()" class="absolute top-4 right-4 text-cocoa/50 hover:text-cocoa">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-md">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="font-serif font-bold text-lg text-cocoa">Complete Order on WhatsApp</h3>
+          <p class="text-xs text-cocoa/70">Direct dispatch to Samstasteedelight</p>
+        </div>
+      </div>
+
+      <form id="waForm" onsubmit="dispatchWhatsApp(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-mono text-cocoa/70 uppercase mb-1">Selected Item</label>
+          <input type="text" id="modalItemName" readonly class="w-full px-3.5 py-2.5 rounded-xl bg-cream-dark/50 border border-cocoa/15 text-sm font-semibold text-cocoa">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-mono text-cocoa/70 uppercase mb-1">Quantity / Size</label>
+            <select id="modalQty" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-cocoa/20 text-xs font-medium text-cocoa">
+              <option value="1 Order">1 Order</option>
+              <option value="2 Orders">2 Orders</option>
+              <option value="Custom Event Size">Custom Event Size</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-mono text-cocoa/70 uppercase mb-1">Pickup / Delivery Date</label>
+            <input type="date" id="modalDate" required class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-cocoa/20 text-xs font-medium text-cocoa">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono text-cocoa/70 uppercase mb-1">Special Notes / Inscriptions</label>
+          <textarea id="modalNotes" rows="2" placeholder="e.g. 'Happy 30th Birthday Sarah!', Eggless preference, etc." class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-cocoa/20 text-xs font-medium text-cocoa placeholder:text-cocoa/40"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-lg transition-colors flex items-center justify-center gap-2">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          <span>Send Order Spec to WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-cocoa-dark text-cream/70 py-12 border-t border-gold/20 text-xs">
+    <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
+      <div class="font-serif font-bold text-xl text-cream">Samstasteedelight</div>
+      <p>Artisanal Bakery &amp; Custom Treats • Baked Fresh Daily in the USA</p>
+      <div class="text-[11px] text-gold/60">Sample Concept 1 of 5 • Designed by Gran Jefe Tech</div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    let currentItem = '';
+
+    function openWhatsAppModal(itemName, price) {
+      currentItem = itemName;
+      document.getElementById('modalItemName').value = itemName + ' (' + price + ')';
+      document.getElementById('waModal').classList.remove('hidden');
+      document.getElementById('waModal').classList.add('flex');
+    }
+
+    function closeWhatsAppModal() {
+      document.getElementById('waModal').classList.add('hidden');
+      document.getElementById('waModal').classList.remove('flex');
+    }
+
+    function dispatchWhatsApp(e) {
+      e.preventDefault();
+      const qty = document.getElementById('modalQty').value;
+      const date = document.getElementById('modalDate').value;
+      const notes = document.getElementById('modalNotes').value;
+
+      const text = `Hello Samstasteedelight! 👋\n\nI would like to place an order:\n\n🎂 Item: ${currentItem}\n📦 Qty: ${qty}\n📅 Needed Date: ${date || 'Flexible'}\n📝 Notes: ${notes || 'None'}\n\nPlease confirm availability!`;
+
+      const phone = "15551234567"; // Replace with client's USA WhatsApp number
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+      closeWhatsAppModal();
+    }
+  </script>
+</body>
+</html>

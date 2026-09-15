@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samstasteedelight — 9 Master Design Prototypes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cocoa: {
+              900: '#1C0E07',
+              800: '#2C1A11',
+              700: '#472B1E',
+            },
+            cream: {
+              50: '#FDFBF7',
+              100: '#FAF3E0',
+              200: '#F1E3C5',
+            },
+            gold: '#D4AF37',
+            terracotta: '#C86D51'
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-cocoa-900 text-cream-50 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- TOP HUB HEADER -->
+  <header class="bg-cocoa-800 border-b border-gold/25 px-6 py-4 sticky top-0 z-50 shadow-xl">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-gold text-cocoa-900 flex items-center justify-center font-serif font-bold text-xl shadow-md">
+          S
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-bold text-cream-50 leading-none">Samstasteedelight</h1>
+          <span class="text-[10px] uppercase tracking-[0.25em] text-gold block mt-0.5">9 Interactive Client Samples (Dark Brown & Cream)</span>
+        </div>
+      </div>
+
+      <!-- VIEWPORT TOGGLES -->
+      <div class="flex items-center gap-2 bg-cocoa-900 p-1.5 rounded-xl border border-gold/20 text-xs">
+        <button id="btnDesktop" onclick="setViewport('100%')" class="px-3 py-1.5 rounded-lg bg-gold text-cocoa-900 font-bold flex items-center gap-1.5 transition-all">
+          <i data-lucide="monitor" class="w-3.5 h-3.5"></i> Desktop
+        </button>
+        <button id="btnTablet" onclick="setViewport('768px')" class="px-3 py-1.5 rounded-lg text-cream-200 hover:text-white flex items-center gap-1.5 transition-all">
+          <i data-lucide="tablet" class="w-3.5 h-3.5"></i> Tablet
+        </button>
+        <button id="btnMobile" onclick="setViewport('390px')" class="px-3 py-1.5 rounded-lg text-cream-200 hover:text-white flex items-center gap-1.5 transition-all">
+          <i data-lucide="smartphone" class="w-3.5 h-3.5"></i> Mobile
+        </button>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a id="openDirectBtn" href="sample1-artisanal-luxury.html" target="_blank" class="bg-cream-100 hover:bg-white text-cocoa-900 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow transition-colors">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Open Sample Fullscreen
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- SAMPLE SELECTOR BAR -->
+  <nav class="bg-cocoa-900 border-b border-gold/20 px-4 py-3 overflow-x-auto shadow-inner">
+    <div class="max-w-7xl mx-auto flex items-center gap-2 min-w-max">
+      
+      <button onclick="loadSample('sample1-artisanal-luxury.html', this)" class="sample-tab active bg-gold text-cocoa-900 font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 border border-gold transition-all">
+        <span>01. Artisanal Luxury</span>
+      </button>
+
+      <button onclick="loadSample('sample2-modern-vibrant.html', this)" class="sample-tab bg-cocoa-800 text-cream-200 hover:text-white px-4 py-2 rounded-xl text-xs flex items-center gap-2 border border-gold/20 transition-all">
+        <span>02. Custom Box Builder</span>
+      </button>
+
+      <button onclick="loadSample('sample3-boutique-craft.html', this)" class="sample-tab bg-cocoa-800 text-cream-200 hover:text-white px-4 py-2 rounded-xl text-xs flex items-center gap-2 border border-gold/20 transition-all">
+        <span>03. Editorial Craft</span>
+      </button>
+
+      <button onclick="loadSample('sample4-celebration-event.html', this)" class="sample-tab bg-cocoa-800 text-cream-200 hover:text-white px-4 py-2 rounded-xl text-xs flex items-center gap-2 border border-gold/20 transition-all">
+        <span>04. Event Spec Generator</span>
+      </button>
+
+      <button onclick="loadSample('sample5-minimalist-showcase.html', this)" class="sample-tab bg-cocoa-800 text-cream-200 hover:text-white px-4 py-2 rounded-xl text-xs flex items-center gap-2 border border-gold/20 transition-all">
+        <span>05. Product Minimalist</span>
+      </button>
+
+      <button onclick="loadSample('sample6-vintage-heritage.html', this)" class="sample-tab bg-cocoa-800 text-cream-200 hover:text-white px-4 py-2 rounded-xl text-xs flex items-center gap-2 border border-gold/20 transition-all">
+        <span>06. Vintage Heritage</span>
+      </button>
+
+      <button onclick="loadSample('sample7-luxury-gifting.html', this)" class="sample-tab bg-cocoa-800 text-cream-200 hover:text-white px-4 py-2 rounded-xl text-xs flex items-center gap-2 border border-gold/20 transition-all">
+        <span>07. Corporate Catering</span>
+      </button>
+
+      <button onclick="loadSample('sample8-flavor-pairing.html', this)" class="sample-tab bg-cocoa-800 text-cream-200 hover:text-white px-4 py-2 rounded-xl text-xs flex items-center gap-2 border border-gold/20 transition-all">
+        <span>08. Flavor Studio</span>
+      </button>
+
+      <button onclick="loadSample('sample9-moody-dark-cocoa.html', this)" class="sample-tab bg-cocoa-800 text-cream-200 hover:text-white px-4 py-2 rounded-xl text-xs flex items-center gap-2 border border-gold/20 transition-all">
+        <span>09. Midnight Speakeasy</span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- LIVE PREVIEW CONTAINER -->
+  <main class="flex-1 bg-cocoa-950 p-4 sm:p-6 flex items-center justify-center overflow-auto">
+    <div id="previewFrameContainer" class="w-full h-[780px] max-w-full transition-all duration-300 rounded-2xl overflow-hidden shadow-2xl border border-gold/30 bg-white">
+      <iframe id="sampleIframe" src="sample1-artisanal-luxury.html" class="w-full h-full border-0"></iframe>
+    </div>
+  </main>
+
+  <script>
+    lucide.createIcons();
+
+    function loadSample(url, btn) {
+      document.getElementById('sampleIframe').src = url;
+      document.getElementById('openDirectBtn').href = url;
+
+      document.querySelectorAll('.sample-tab').forEach(t => {
+        t.className = "sample-tab bg-cocoa-800 text-cream-200 hover:text-white px-4 py-2 rounded-xl text-xs flex items-center gap-2 border border-gold/20 transition-all";
+      });
+
+      btn.className = "sample-tab active bg-gold text-cocoa-900 font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 border border-gold transition-all";
+    }
+
+    function setViewport(width) {
+      const frame = document.getElementById('previewFrameContainer');
+      frame.style.width = width;
+
+      const btns = {
+        '100%': 'btnDesktop',
+        '768px': 'btnTablet',
+        '390px': 'btnMobile'
+      };
+
+      Object.keys(btns).forEach(w => {
+        const btn = document.getElementById(btns[w]);
+        if (w === width) {
+          btn.className = "px-3 py-1.5 rounded-lg bg-gold text-cocoa-900 font-bold flex items-center gap-1.5 transition-all";
+        } else {
+          btn.className = "px-3 py-1.5 rounded-lg text-cream-200 hover:text-white flex items-center gap-1.5 transition-all";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -268,6 +268,25 @@ const allUserProjects: RealProject[] = [
     accentColor: 'border-t-4 border-t-dev-cyan',
     badgeText: '▲ Vercel App • Live',
   },
+  {
+    id: 'bexterybites',
+    name: 'Bextery Bites',
+    deployGroup: 'vercel',
+    category: 'beauty_retail',
+    categoryLabel: 'Gourmet Pastries & Bakery',
+    domain: 'bextery-bites.vercel.app',
+    liveUrl: 'https://bextery-bites.vercel.app/',
+    summary: 'Artisanal gourmet treats, custom celebration cakes, and event catering storefront engineered for effortless online ordering and customer delight.',
+    highlights: [
+      'Custom Cake & Pastry Catalog',
+      'Event Catering Order Portal',
+      '1-Click Mobile Checkout',
+    ],
+    stack: ['Next.js', 'React', 'Tailwind CSS', 'Vercel App'],
+    imagePath: '/projects/bexterybites.jpg',
+    accentColor: 'border-t-4 border-t-amber-500',
+    badgeText: '▲ Vercel App • Live',
+  },
 ]
 
 export function Work() {

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samstasteedelight | Sample 5: Minimalist Product Showcase</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cocoa: '#2C1A11',
+            cream: '#FDF8F2',
+            gold: '#D4AF37'
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-cream text-cocoa font-sans antialiased pb-20">
+
+  <div class="bg-cocoa text-cream text-center py-2 text-xs font-mono">
+    SAMPLE CONCEPT 5 • MINIMALIST PRODUCT SHOWCASE • USA
+  </div>
+
+  <header class="bg-cream/90 backdrop-blur-md sticky top-0 z-40 border-b border-cocoa/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <span class="font-extrabold text-xl tracking-tight text-cocoa">Samstasteedelight</span>
+
+      <a href="https://wa.me/15551234567?text=Hello%20Samstasteedelight!%20I%20want%20to%20place%20an%20order." target="_blank" class="px-4 py-2 rounded-lg bg-cocoa text-cream text-xs font-bold hover:bg-cocoa/90 transition-colors flex items-center gap-1.5">
+        <i data-lucide="message-circle" class="w-3.5 h-3.5 text-gold"></i>
+        <span>WhatsApp</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Minimalist Hero -->
+  <section class="py-12 bg-cream text-center max-w-3xl mx-auto px-4">
+    <span class="px-3 py-1 rounded-full bg-cocoa/5 text-cocoa font-mono text-xs font-bold">ARTISANAL BAKERY • USA</span>
+    <h1 class="text-3xl sm:text-5xl font-extrabold text-cocoa tracking-tight mt-3">
+      Freshly baked. Delivered to your doorstep.
+    </h1>
+    <p class="text-cocoa/70 text-sm sm:text-base mt-2">
+      Handcrafted cookies, layer cakes, cupcakes, and dessert platters. Tap any item to order on WhatsApp.
+    </p>
+  </section>
+
+  <!-- Product Showcase Grid -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+      
+      <!-- Product 1 -->
+      <div class="bg-white rounded-2xl border border-cocoa/10 overflow-hidden group flex flex-col justify-between p-3">
+        <div>
+          <div class="relative h-44 rounded-xl overflow-hidden bg-cocoa/5 mb-3">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80" alt="Cake" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+          </div>
+          <span class="text-[10px] font-mono text-gold font-bold">SIGNATURE</span>
+          <h3 class="font-bold text-sm text-cocoa leading-tight mt-0.5">Caramel Fudge Layer Cake</h3>
+          <p class="text-[11px] text-cocoa/60 mt-1">$65.00</p>
+        </div>
+        <button onclick="orderWhatsApp('Caramel Fudge Layer Cake ($65)')" class="mt-3 w-full py-2 rounded-lg bg-cocoa text-cream text-xs font-bold hover:bg-cocoa/90 transition-colors flex items-center justify-center gap-1">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-gold"></i>
+          <span>Order</span>
+        </button>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="bg-white rounded-2xl border border-cocoa/10 overflow-hidden group flex flex-col justify-between p-3">
+        <div>
+          <div class="relative h-44 rounded-xl overflow-hidden bg-cocoa/5 mb-3">
+            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=400&q=80" alt="Cookies" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+          </div>
+          <span class="text-[10px] font-mono text-gold font-bold">PACK OF 6</span>
+          <h3 class="font-bold text-sm text-cocoa leading-tight mt-0.5">Giant Stuffed Cookies</h3>
+          <p class="text-[11px] text-cocoa/60 mt-1">$32.00</p>
+        </div>
+        <button onclick="orderWhatsApp('Giant Stuffed Cookies - Pack of 6 ($32)')" class="mt-3 w-full py-2 rounded-lg bg-cocoa text-cream text-xs font-bold hover:bg-cocoa/90 transition-colors flex items-center justify-center gap-1">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-gold"></i>
+          <span>Order</span>
+        </button>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="bg-white rounded-2xl border border-cocoa/10 overflow-hidden group flex flex-col justify-between p-3">
+        <div>
+          <div class="relative h-44 rounded-xl overflow-hidden bg-cocoa/5 mb-3">
+            <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=400&q=80" alt="Cupcakes" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+          </div>
+          <span class="text-[10px] font-mono text-gold font-bold">BOX OF 12</span>
+          <h3 class="font-bold text-sm text-cocoa leading-tight mt-0.5">Gourmet Cupcakes Assortment</h3>
+          <p class="text-[11px] text-cocoa/60 mt-1">$42.00</p>
+        </div>
+        <button onclick="orderWhatsApp('Gourmet Cupcakes Assortment ($42)')" class="mt-3 w-full py-2 rounded-lg bg-cocoa text-cream text-xs font-bold hover:bg-cocoa/90 transition-colors flex items-center justify-center gap-1">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-gold"></i>
+          <span>Order</span>
+        </button>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="bg-white rounded-2xl border border-cocoa/10 overflow-hidden group flex flex-col justify-between p-3">
+        <div>
+          <div class="relative h-44 rounded-xl overflow-hidden bg-cocoa/5 mb-3">
+            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=400&q=80" alt="Cinnamon Rolls" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+          </div>
+          <span class="text-[10px] font-mono text-gold font-bold">HALF DOZEN</span>
+          <h3 class="font-bold text-sm text-cocoa leading-tight mt-0.5">Glazed Cinnamon Rolls</h3>
+          <p class="text-[11px] text-cocoa/60 mt-1">$28.00</p>
+        </div>
+        <button onclick="orderWhatsApp('Glazed Cinnamon Rolls ($28)')" class="mt-3 w-full py-2 rounded-lg bg-cocoa text-cream text-xs font-bold hover:bg-cocoa/90 transition-colors flex items-center justify-center gap-1">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-gold"></i>
+          <span>Order</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Sticky Bottom Mobile Order Bar -->
+  <div class="fixed bottom-0 inset-x-0 bg-cocoa text-cream p-3 border-t border-gold/30 shadow-2xl flex items-center justify-between z-50">
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span class="text-xs font-bold text-cream">Ordering Open Today</span>
+    </div>
+    <a href="https://wa.me/15551234567?text=Hi%20Samstasteedelight!%20I%20want%20to%20place%20a%20custom%20order." target="_blank" class="px-4 py-2 rounded-lg bg-gold text-cocoa font-bold text-xs flex items-center gap-1.5 shadow-md">
+      <i data-lucide="message-circle" class="w-4 h-4"></i>
+      <span>Order on WhatsApp</span>
+    </a>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    function orderWhatsApp(item) {
+      const text = `Hello Samstasteedelight! 👋\n\nI would like to order: ${item}\n\nPlease let me know available pickup/delivery dates!`;
+      window.open(`https://wa.me/15551234567?text=${encodeURIComponent(text)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
