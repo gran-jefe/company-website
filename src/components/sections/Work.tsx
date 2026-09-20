@@ -37,6 +37,7 @@ interface RealProject {
   imagePath: string
   accentColor: string
   badgeText: string
+  attribution?: string
 }
 
 const allUserProjects: RealProject[] = [
@@ -45,57 +46,60 @@ const allUserProjects: RealProject[] = [
     name: 'Nigeria High Commission Payment Platform',
     deployGroup: 'custom_domain',
     category: 'fintech',
-    categoryLabel: 'Sovereign Fintech • Solo Build',
-    domain: 'endoz.celergate.net',
-    liveUrl: 'https://endoz.celergate.net',
-    summary: 'Sovereign digital payment collection and consular platform for the Nigeria High Commission in London, UK. Solo-engineered full-stack architecture featuring consular checkout, Open Banking settlement, dynamic PDF receipts, and compliance auditing.',
+    categoryLabel: 'Sovereign Digital Payments',
+    domain: 'payments.nigeriahc.org.uk',
+    liveUrl: 'https://payments.nigeriahc.org.uk',
+    summary: 'Official digital payment collection portal for administrative and consular charges for the Nigeria High Commission United Kingdom. Engineered full-stack architecture featuring consular service cart, fast secure Open Banking settlement processed in minutes, and automated receipt generation. (Engineered for Mabilla Group, where I currently work as a Full-Stack Engineer).',
     highlights: [
       'Solo Full-Stack (Next.js 15 & NestJS API)',
       'Open Banking & Instant Bank Settlement',
       'Automated PDF Receipts & Audit Queue',
     ],
     stack: ['Next.js 15', 'NestJS', 'TypeScript', 'Prisma', 'PostgreSQL', 'Tailwind CSS', 'AWS S3'],
-    imagePath: '/projects/nhc_endoz.jpg',
+    imagePath: '/projects/nhc_london.png',
     accentColor: 'border-t-4 border-t-emerald-500',
     badgeText: '🏛️ Diplomatic Mission • Live',
+    attribution: 'Client: Nigeria High Commission UK • Developed at Mabilla Group (Full-Stack Engineer)',
   },
   {
     id: 'celergate_suite',
-    name: 'Celergate Open Banking Ecosystem',
+    name: 'Celergate Open Banking Platform',
     deployGroup: 'custom_domain',
     category: 'fintech',
-    categoryLabel: 'Multi-Product Fintech Suite',
+    categoryLabel: 'UK Open Banking Payments',
     domain: 'celergate.co.uk',
     liveUrl: 'https://celergate.co.uk',
-    summary: 'UK-based Account-to-Account (A2A) Open Banking payments platform. Built around the central "Account" identity hub powering sub-products Disbuz (enterprise payouts), Endoz (merchant collections), and Utility (bill payments).',
+    summary: 'Instant bank payment solution for modern businesses to accept payments directly from bank accounts with instant settlement and zero chargebacks. Built around the central "Account" identity hub powering sub-products Disbuz (enterprise payouts), Endoz (merchant collections), and Utility (bill payments). (Developed for Mabilla Group, where I currently work as a Full-Stack Engineer).',
     highlights: [
       'Central Account SSO & Identity Hub',
-      'Disbuz Automated High-Volume Payouts',
+      'Instant Settlement & Zero Chargebacks',
       'Modular Design System (40% Speedup)',
     ],
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'TanStack Query', 'Mantine'],
-    imagePath: '/projects/celergate.jpg',
+    imagePath: '/projects/celergate.png',
     accentColor: 'border-t-4 border-t-dev-cyan',
     badgeText: '🌐 UK Open Banking • Live',
+    attribution: 'Product of Mabilla Group • Full-Stack / Frontend Engineering',
   },
   {
     id: 'payceler_remit',
-    name: 'Payceler Remittance Platform & Agent App',
+    name: 'Payceler Global Payments & Remittance',
     deployGroup: 'custom_domain',
     category: 'fintech',
-    categoryLabel: 'Cross-Border Money Movement',
+    categoryLabel: 'Global Payments & Remittance',
     domain: 'payceler.com',
     liveUrl: 'https://payceler.com',
-    summary: 'Multi-tenant international money transfer ecosystem comprising a responsive sender web app, progressive web app (PWA), field agent mobile application (Expo), and an operations admin dashboard with RBAC and transaction monitoring.',
+    summary: 'Global payments, remittances, collections, and payouts platform built to deliver the 4S: Smart, Safe, Speed, Scale. Encompasses a multi-tenant sender web application, PWA, field agent mobile application (Expo), and operations dashboard. (Developed for Mabilla Group, where I currently work as a Full-Stack Engineer).',
     highlights: [
       'Multi-Tenant Remittance Web & PWA',
       'Solo Agent Mobile App (Expo / React Native)',
       'SumSub Biometric KYC & RBAC Admin',
     ],
     stack: ['Next.js', 'React Native', 'Expo', 'TypeScript', 'Redux Toolkit', 'SumSub SDK'],
-    imagePath: '/projects/payceler.jpg',
+    imagePath: '/projects/payceler.png',
     accentColor: 'border-t-4 border-t-brand-terra',
     badgeText: '📱 Web, PWA & Mobile • Live',
+    attribution: 'Product of Mabilla Group • Full-Stack / Frontend Engineering',
   },
   {
     id: 'shesandhers',
@@ -646,6 +650,13 @@ export function Work() {
                       {activeProject.summary}
                     </p>
 
+                    {activeProject.attribution && (
+                      <div className="p-3.5 rounded-xl bg-brand-terra/10 border border-brand-terra/30 font-mono text-xs text-brand-terra flex items-center gap-2">
+                        <ShieldCheck size={15} className="flex-shrink-0" />
+                        <span>{activeProject.attribution}</span>
+                      </div>
+                    )}
+
                     {/* Key Engineering Highlights */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                       {activeProject.highlights.map((h, i) => (
@@ -752,6 +763,13 @@ export function Work() {
                         <p className="font-dm font-normal text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed">
                           {project.summary}
                         </p>
+
+                        {project.attribution && (
+                          <div className="pt-2 text-[11px] font-mono text-brand-terra font-medium flex items-center gap-1.5">
+                            <ShieldCheck size={13} className="flex-shrink-0" />
+                            <span>{project.attribution}</span>
+                          </div>
+                        )}
                       </div>
                     </div>
 
@@ -817,7 +835,14 @@ export function Work() {
                           <span>{project.domain}</span>
                         </div>
                       </td>
-                      <td className="p-4 font-semibold text-white">{project.name}</td>
+                      <td className="p-4">
+                        <div className="font-semibold text-white">{project.name}</div>
+                        {project.attribution && (
+                          <div className="text-[10px] font-mono text-brand-terra mt-0.5">
+                            {project.attribution}
+                          </div>
+                        )}
+                      </td>
                       <td className="p-4 font-mono">
                         <span
                           className={`px-2 py-0.5 rounded text-[10px] ${
