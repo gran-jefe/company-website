@@ -27,21 +27,21 @@ export function About() {
             <div className="mt-8 grid grid-cols-3 gap-3 w-full max-w-md">
               <AnimatedSection delay={0.2}>
                 <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700/80 shadow-sm text-center">
-                  <div className="font-syne font-bold text-2xl text-brand-terra">2+</div>
+                  <div className="font-syne font-bold text-2xl text-brand-terra">3+</div>
                   <div className="font-dm text-xs text-zinc-700 dark:text-zinc-300 font-medium mt-1">Years in Fintech Eng</div>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection delay={0.3}>
                 <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700/80 shadow-sm text-center">
-                  <div className="font-syne font-bold text-2xl text-brand-terra">10+</div>
+                  <div className="font-syne font-bold text-2xl text-brand-terra">15+</div>
                   <div className="font-dm text-xs text-zinc-700 dark:text-zinc-300 font-medium mt-1">Shipped Projects</div>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection delay={0.4}>
                 <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700/80 shadow-sm text-center">
-                  <div className="font-syne font-bold text-2xl text-brand-terra">2</div>
+                  <div className="font-syne font-bold text-2xl text-brand-terra">3</div>
                   <div className="font-dm text-xs text-zinc-700 dark:text-zinc-300 font-medium mt-1">Core Platforms</div>
                 </div>
               </AnimatedSection>
@@ -61,13 +61,13 @@ export function About() {
             <AnimatedSection delay={0.1}>
               <div className="space-y-4 font-dm text-zinc-800 dark:text-zinc-200 text-base leading-relaxed">
                 <p>
-                  Since 2023, Gran Jefe has engineered production financial systems in fintech — performance-critical, security-aware, real-world scale applications that people depend on every day.
+                  Since 2023, Gran Jefe has engineered mission-critical financial systems—including sovereign digital payment collection platforms (Nigeria High Commission, London), UK Open Banking payment suites (Celergate Account, Disbuz, and Endoz), and cross-border remittance infrastructures (Payceler).
                 </p>
                 <p>
-                  Alongside production fintech engineering, we have built and launched multiple mobile applications and web platforms from zero to live deployment. Gran Jefe is the formal home for that craft.
+                  Alongside production fintech engineering, we build and deploy full-stack web platforms, mobile applications (React Native / Expo), and bespoke digital architectures from zero to live deployment.
                 </p>
                 <p>
-                  We partner with founders, businesses, and product teams who need custom software built right the first time — with clean code, modern user experience, and long-term reliability.
+                  We partner with founders, businesses, and engineering leaders who need custom software built right the first time—with clean component architecture, modern user experience, and long-term maintainability.
                 </p>
               </div>
             </AnimatedSection>

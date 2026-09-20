@@ -27,7 +27,7 @@ interface RealProject {
   id: string
   name: string
   deployGroup: 'custom_domain' | 'vercel'
-  category: 'edtech' | 'beauty_retail' | 'saas' | 'health_inst'
+  category: 'fintech' | 'edtech' | 'beauty_retail' | 'saas' | 'health_inst'
   categoryLabel: string
   domain: string
   liveUrl: string
@@ -40,6 +40,63 @@ interface RealProject {
 }
 
 const allUserProjects: RealProject[] = [
+  {
+    id: 'nhc_london',
+    name: 'Nigeria High Commission Payment Platform',
+    deployGroup: 'custom_domain',
+    category: 'fintech',
+    categoryLabel: 'Sovereign Fintech • Solo Build',
+    domain: 'endoz.celergate.net',
+    liveUrl: 'https://endoz.celergate.net',
+    summary: 'Sovereign digital payment collection and consular platform for the Nigeria High Commission in London, UK. Solo-engineered full-stack architecture featuring consular checkout, Open Banking settlement, dynamic PDF receipts, and compliance auditing.',
+    highlights: [
+      'Solo Full-Stack (Next.js 15 & NestJS API)',
+      'Open Banking & Instant Bank Settlement',
+      'Automated PDF Receipts & Audit Queue',
+    ],
+    stack: ['Next.js 15', 'NestJS', 'TypeScript', 'Prisma', 'PostgreSQL', 'Tailwind CSS', 'AWS S3'],
+    imagePath: '/projects/nhc_endoz.jpg',
+    accentColor: 'border-t-4 border-t-emerald-500',
+    badgeText: '🏛️ Diplomatic Mission • Live',
+  },
+  {
+    id: 'celergate_suite',
+    name: 'Celergate Open Banking Ecosystem',
+    deployGroup: 'custom_domain',
+    category: 'fintech',
+    categoryLabel: 'Multi-Product Fintech Suite',
+    domain: 'celergate.co.uk',
+    liveUrl: 'https://celergate.co.uk',
+    summary: 'UK-based Account-to-Account (A2A) Open Banking payments platform. Built around the central "Account" identity hub powering sub-products Disbuz (enterprise payouts), Endoz (merchant collections), and Utility (bill payments).',
+    highlights: [
+      'Central Account SSO & Identity Hub',
+      'Disbuz Automated High-Volume Payouts',
+      'Modular Design System (40% Speedup)',
+    ],
+    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'TanStack Query', 'Mantine'],
+    imagePath: '/projects/celergate.jpg',
+    accentColor: 'border-t-4 border-t-dev-cyan',
+    badgeText: '🌐 UK Open Banking • Live',
+  },
+  {
+    id: 'payceler_remit',
+    name: 'Payceler Remittance Platform & Agent App',
+    deployGroup: 'custom_domain',
+    category: 'fintech',
+    categoryLabel: 'Cross-Border Money Movement',
+    domain: 'payceler.com',
+    liveUrl: 'https://payceler.com',
+    summary: 'Multi-tenant international money transfer ecosystem comprising a responsive sender web app, progressive web app (PWA), field agent mobile application (Expo), and an operations admin dashboard with RBAC and transaction monitoring.',
+    highlights: [
+      'Multi-Tenant Remittance Web & PWA',
+      'Solo Agent Mobile App (Expo / React Native)',
+      'SumSub Biometric KYC & RBAC Admin',
+    ],
+    stack: ['Next.js', 'React Native', 'Expo', 'TypeScript', 'Redux Toolkit', 'SumSub SDK'],
+    imagePath: '/projects/payceler.jpg',
+    accentColor: 'border-t-4 border-t-brand-terra',
+    badgeText: '📱 Web, PWA & Mobile • Live',
+  },
   {
     id: 'shesandhers',
     name: "She's & Hers Beauty Palace",
@@ -291,16 +348,19 @@ const allUserProjects: RealProject[] = [
 
 export function Work() {
   const [viewMode, setViewMode] = useState<'workstation' | 'grid' | 'table'>('workstation')
-  const [activeDeployGroup, setActiveDeployGroup] = useState<'all' | 'custom_domain' | 'vercel'>('all')
+  const [activeDeployGroup, setActiveDeployGroup] = useState<'all' | 'fintech' | 'custom_domain' | 'vercel'>('all')
   const [selectedProjectId, setSelectedProjectId] = useState<string>(allUserProjects[0].id)
   const [isAutoRotating, setIsAutoRotating] = useState<boolean>(false)
 
+  const fintechProjects = allUserProjects.filter((p) => p.category === 'fintech')
   const customDomainProjects = allUserProjects.filter((p) => p.deployGroup === 'custom_domain')
   const vercelProjects = allUserProjects.filter((p) => p.deployGroup === 'vercel')
 
   const filteredProjects =
     activeDeployGroup === 'all'
       ? allUserProjects
+      : activeDeployGroup === 'fintech'
+      ? fintechProjects
       : allUserProjects.filter((p) => p.deployGroup === activeDeployGroup)
 
   const activeProject =
@@ -389,6 +449,18 @@ export function Work() {
                 }`}
               >
                 <span>All Deployments ({allUserProjects.length})</span>
+              </button>
+
+              <button
+                onClick={() => setActiveDeployGroup('fintech')}
+                className={`px-4 py-2 rounded-xl text-xs font-dm font-semibold transition-all flex items-center gap-2 ${
+                  activeDeployGroup === 'fintech'
+                    ? 'bg-amber-600 text-white shadow-md shadow-amber-600/20'
+                    : 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30 hover:bg-amber-500/20'
+                }`}
+              >
+                <ShieldCheck size={13} />
+                <span>Fintech & Banking ({fintechProjects.length})</span>
               </button>
 
               <button
