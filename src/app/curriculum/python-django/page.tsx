@@ -17,11 +17,72 @@ import {
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Logo } from '@/components/ui/Logo'
 import { CurriculumLeadCapture } from '@/components/curriculum/CurriculumLeadCapture'
+import { CurriculumChecklist, type CurriculumModuleGroup } from '@/components/curriculum/CurriculumChecklist'
 
 export const metadata: Metadata = {
   title: 'Python & Django Backend Curriculum | Gran Jefe Learning Hub',
   description: 'A targeted transition curriculum from frontend engineering (React/TypeScript) to batteries-included server-side architecture with Python, Django, and Django REST Framework. Curated for Big Dave.',
 }
+
+const pythonDjangoModules: CurriculumModuleGroup[] = [
+  {
+    moduleNumber: 1,
+    title: 'Python Fluency for JS/TS Developers',
+    duration: '2 to 3 Weeks',
+    milestones: [
+      { id: 'pd-uv', title: 'uv Tooling & Virtual Environments', description: 'Install Python 3.12, create isolated environments with uv venv, and manage pyproject.toml.' },
+      { id: 'pd-oop', title: 'Python Idioms & Object-Oriented Architecture', description: 'Master classes, inheritance, dunder methods (__init__, __str__), and list comprehensions.' },
+      { id: 'pd-types', title: 'Type Hints & Structured Validation', description: 'Use typing module (Optional, Union, Generic) for type safety.' },
+      { id: 'pd-p1-project', title: 'Phase 1 Checkmark: Public API CLI Aggregator', description: 'Build an httpx script transforming live data into clean typed JSON reports.' },
+    ],
+  },
+  {
+    moduleNumber: 2,
+    title: 'Django Fundamentals & The Database ORM',
+    duration: '3 to 4 Weeks',
+    milestones: [
+      { id: 'pd-apps', title: 'Django Architecture & App Segregation', description: 'Understand settings.py, modular apps (manage.py startapp), and dependency flow.' },
+      { id: 'pd-models', title: 'Model Design & Schema Migrations', description: 'Model relations (ForeignKey, ManyToMany), makemigrations, and sqlmigrate inspection.' },
+      { id: 'pd-querysets', title: 'QuerySet Optimization & N+1 Prevention', description: 'Use select_related (JOIN) and prefetch_related to eliminate redundant database hits.' },
+      { id: 'pd-admin', title: 'Production Admin Customization', description: 'Register models with list_display, list_filter, search_fields, and bulk actions.' },
+      { id: 'pd-p2-project', title: 'Phase 2 Checkmark: Multi-Table Content Platform', description: 'Ship an editorial platform with authors, posts, categories, and moderation flow.' },
+    ],
+  },
+  {
+    moduleNumber: 3,
+    title: 'Django REST Framework (DRF) & API Architecture',
+    duration: '3 to 4 Weeks',
+    milestones: [
+      { id: 'pd-serializers', title: 'ModelSerializers & Field Validation', description: 'Validate incoming request payloads, sanitize inputs, and model nested relationships.' },
+      { id: 'pd-viewsets', title: 'ModelViewSets & DefaultRouter', description: 'Auto-generate RESTful CRUD endpoints following clean REST conventions.' },
+      { id: 'pd-cors', title: 'CORS & Frontend Handshake', description: 'Configure django-cors-headers to connect with local Next.js client seamlessly.' },
+      { id: 'pd-swagger', title: 'OpenAPI 3 / Swagger Generation', description: 'Generate interactive API documentation schemas with drf-spectacular.' },
+      { id: 'pd-p3-project', title: 'Phase 3 Checkmark: Secure Headless REST API', description: 'Deploy a tested DRF API consumed by a React / Next.js client with pagination.' },
+    ],
+  },
+  {
+    moduleNumber: 4,
+    title: 'Authentication, Security & Background Workers',
+    duration: '3 to 4 Weeks',
+    milestones: [
+      { id: 'pd-jwt', title: 'SimpleJWT Token Authentication', description: 'Implement access and refresh tokens with HTTP-only cookie transport.' },
+      { id: 'pd-postgres', title: 'PostgreSQL Production Configuration', description: 'Migrate from SQLite to PostgreSQL with connection pooling and SSL.' },
+      { id: 'pd-celery', title: 'Asynchronous Tasks with Celery & Redis', description: 'Offload long-running tasks, email dispatches, and reports to background queues.' },
+      { id: 'pd-p4-project', title: 'Phase 4 Checkmark: Background Job & Auth System', description: 'Build an auth gateway with automated async email verification and webhook retries.' },
+    ],
+  },
+  {
+    moduleNumber: 5,
+    title: 'Final Capstone: Multi-Tenant Enterprise SaaS',
+    duration: 'Final Phase',
+    milestones: [
+      { id: 'pd-tenant', title: 'Multi-Tenant Isolation & Row-Level Security', description: 'Enforce tenant boundaries across all queries to prevent data leakage.' },
+      { id: 'pd-tests', title: 'Automated Pytest & Coverage Suite', description: 'Write unit and integration tests with pytest-django and model factories.' },
+      { id: 'pd-docker', title: 'Production Dockerization & CI/CD', description: 'Multi-stage Dockerfile with Gunicorn, WhiteNoise static files, and GitHub Actions.' },
+    ],
+  },
+]
+
 
 export default function PythonDjangoCurriculumPage() {
   return (
@@ -142,6 +203,15 @@ export default function PythonDjangoCurriculumPage() {
               </tbody>
             </table>
           </div>
+        </section>
+
+        {/* Interactive Milestone Progress Tracker */}
+        <section className="mb-14">
+          <CurriculumChecklist
+            trackId="python-django"
+            trackTitle="Python & Django Backend Engineering"
+            modules={pythonDjangoModules}
+          />
         </section>
 
         {/* Phase 1: Python Essentials */}

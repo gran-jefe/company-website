@@ -132,19 +132,27 @@ export function Stack() {
         {/* Category Tabs & Content Grid */}
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Category Selector Side Menu (4 cols) */}
-          <div className="lg:col-span-4 space-y-2">
+          <div className="lg:col-span-4 space-y-2.5">
             {stackCategories.map((cat) => {
               const isSelected = cat.id === activeCategory.id
               return (
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat)}
-                  className={`w-full text-left p-4 rounded-xl border transition-all duration-200 flex items-center justify-between group ${
+                  className={`relative w-full text-left p-4 rounded-xl border transition-all duration-200 flex items-center justify-between group overflow-hidden cursor-pointer ${
                     isSelected
-                      ? 'bg-white dark:bg-zinc-900 border-brand-terra dark:border-brand-terra shadow-sm'
-                      : 'bg-white/70 dark:bg-zinc-900/60 border-zinc-200 dark:border-zinc-800 hover:bg-white dark:hover:bg-zinc-900'
+                      ? 'border-brand-terra/60 shadow-sm'
+                      : 'bg-white/70 dark:bg-zinc-900/60 border-zinc-200 dark:border-zinc-800 hover:bg-white dark:hover:bg-zinc-900/90'
                   }`}
                 >
+                  {isSelected && (
+                    <motion.div
+                      layoutId="activeStackCategory"
+                      className="absolute inset-0 bg-white dark:bg-zinc-900 border border-brand-terra rounded-xl -z-10 shadow-xs"
+                      transition={{ type: 'spring', stiffness: 450, damping: 30 }}
+                    />
+                  )}
+
                   <div className="flex items-center gap-3">
                     <div
                       className={`p-2.5 rounded-lg transition-colors ${
@@ -162,8 +170,8 @@ export function Stack() {
 
                   <Check
                     size={18}
-                    className={`transition-opacity ${
-                      isSelected ? 'opacity-100 text-brand-terra' : 'opacity-0'
+                    className={`transition-all ${
+                      isSelected ? 'opacity-100 text-brand-terra scale-100' : 'opacity-0 scale-75'
                     }`}
                   />
                 </button>
@@ -183,7 +191,7 @@ export function Stack() {
                 className="space-y-6"
               >
                 {/* Tech Overview Card */}
-                <div className="p-6 md:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700/80 shadow-sm space-y-6">
+                <div className="p-6 md:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-6 card-specular">
                   <div>
                     <h3 className="font-syne font-bold text-xl text-zinc-900 dark:text-white">
                       {activeCategory.title}
@@ -197,7 +205,7 @@ export function Stack() {
                     {activeCategory.technologies.map((tech, idx) => (
                       <div
                         key={idx}
-                        className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700/70 flex flex-col sm:flex-row sm:items-center justify-between gap-2"
+                        className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700/70 hover:border-brand-terra/40 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-2"
                       >
                         <div>
                           <div className="font-syne font-bold text-sm text-zinc-900 dark:text-white flex items-center gap-2">

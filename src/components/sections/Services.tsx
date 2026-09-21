@@ -95,13 +95,13 @@ export function Services() {
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <AnimatedSection key={service.id} delay={index * 0.06}>
-              <div className="h-full group relative p-7 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700/80 hover:border-brand-terra/60 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:shadow-brand-terra/5">
+              <div className="h-full group relative p-7 rounded-2xl bg-zinc-50 dark:bg-zinc-900/90 border border-zinc-200/90 dark:border-zinc-800 hover:border-brand-terra/60 dark:hover:border-brand-terra/60 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:shadow-brand-terra/10 hover:-translate-y-1.5 card-specular">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className="font-mono text-[11px] font-bold text-zinc-400 dark:text-zinc-500 group-hover:text-brand-terra transition-colors">
                       {service.codeTag}
                     </span>
-                    <div className="p-2.5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-sm">
+                    <div className="p-2.5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-xs group-hover:scale-105 transition-transform">
                       {service.icon}
                     </div>
                   </div>
@@ -124,7 +124,7 @@ export function Services() {
                     {service.techStack.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-2.5 py-1 rounded text-xs font-mono bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700"
+                        className="px-2.5 py-1 rounded text-xs font-mono bg-white dark:bg-zinc-800/80 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 hover:border-brand-terra/40 transition-colors"
                       >
                         {tech}
                       </span>
@@ -132,7 +132,7 @@ export function Services() {
                   </div>
 
                   <div className="font-mono text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 pt-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     <span>{service.highlight}</span>
                   </div>
                 </div>

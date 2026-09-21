@@ -26,10 +26,10 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[90vh] bg-brand-cream dark:bg-zinc-950 bg-cyber-grid pt-12 pb-20 md:py-24 overflow-hidden flex items-center">
-      {/* Ambient Glow Orbs */}
+      {/* Ambient Glow Orbs with GPU float animation */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-brand-terra/15 dark:bg-dev-cyan/15 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-0 w-96 h-96 bg-dev-violet/15 dark:bg-brand-terra/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-brand-terra/15 dark:bg-dev-cyan/15 rounded-full blur-3xl animate-float-slow" />
+        <div className="absolute bottom-10 right-0 w-96 h-96 bg-dev-violet/15 dark:bg-brand-terra/20 rounded-full blur-3xl animate-float-subtle" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-6 w-full">
@@ -70,21 +70,21 @@ export function Hero() {
               High-converting storefronts, interactive learning portals, SaaS web tools, and mobile applications. Engineered for sub-second speed, stunning design, and zero downtime.
             </motion.p>
 
-            {/* Proof Badges */}
+            {/* Proof Badges with interactive spring hover lift */}
             <motion.div variants={itemVariants} className="pt-2 grid grid-cols-3 gap-3 max-w-lg">
-              <div className="p-3 rounded-xl bg-white/80 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-700/80 backdrop-blur-md shadow-sm">
+              <div className="p-3 rounded-xl bg-white/80 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-700/80 backdrop-blur-md shadow-sm hover:-translate-y-1 transition-all duration-200 hover:border-brand-terra/50 cursor-default">
                 <div className="flex items-center gap-1.5 text-brand-terra text-xs font-mono font-bold">
                   <Zap size={14} /> SPEED SCORE
                 </div>
                 <div className="mt-1 text-sm font-mono font-extrabold text-zinc-900 dark:text-white">99/100 Verified</div>
               </div>
-              <div className="p-3 rounded-xl bg-white/80 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-700/80 backdrop-blur-md shadow-sm">
+              <div className="p-3 rounded-xl bg-white/80 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-700/80 backdrop-blur-md shadow-sm hover:-translate-y-1 transition-all duration-200 hover:border-emerald-500/50 cursor-default">
                 <div className="flex items-center gap-1.5 text-emerald-500 text-xs font-mono font-bold">
                   <ShieldCheck size={14} /> SECURITY
                 </div>
                 <div className="mt-1 text-sm font-mono font-extrabold text-zinc-900 dark:text-white">256-bit SSL</div>
               </div>
-              <div className="p-3 rounded-xl bg-white/80 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-700/80 backdrop-blur-md shadow-sm">
+              <div className="p-3 rounded-xl bg-white/80 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-700/80 backdrop-blur-md shadow-sm hover:-translate-y-1 transition-all duration-200 hover:border-dev-cyan/50 cursor-default">
                 <div className="flex items-center gap-1.5 text-dev-cyan text-xs font-mono font-bold">
                   <Smartphone size={14} /> MOBILE UX
                 </div>
