@@ -1,8 +1,9 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Search, Terminal, Code, Cpu, User, Mail, Moon, Sun, ArrowRight, X } from 'lucide-react'
+import { Search, Terminal, Code, Cpu, User, Mail, Moon, Sun, ArrowRight, X, Sparkles } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 interface CommandPaletteProps {
@@ -14,6 +15,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
   const [query, setQuery] = useState('')
   const { theme, setTheme } = useTheme()
   const [copied, setCopied] = useState(false)
+  const router = useRouter()
 
   // Listen for Cmd+K / Ctrl+K keyboard shortcut
   useEffect(() => {
@@ -36,6 +38,16 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
   }, [isOpen, onClose])
 
   const items = [
+    {
+      id: 'python-roadmap',
+      title: 'Python Roadmap for Big Dave',
+      subtitle: 'Targeted systems & backend engineering curriculum',
+      icon: <Terminal size={18} className="text-emerald-500" />,
+      action: () => {
+        router.push('/python-backend-roadmap-for-big-dave')
+        onClose()
+      },
+    },
     {
       id: 'services',
       title: 'Services & Capabilities',

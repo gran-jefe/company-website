@@ -1,8 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Search, Command, Sparkles } from 'lucide-react'
+import { Menu, X, Search, Command, Sparkles, Terminal } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Button } from '@/components/ui/Button'
@@ -117,6 +118,15 @@ export function Navbar() {
 
             <ThemeToggle />
 
+            {/* Python Roadmap for Big Dave */}
+            <Link
+              href="/python-backend-roadmap-for-big-dave"
+              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-dm font-semibold bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 transition-all shadow-xs"
+            >
+              <Terminal size={13} className="text-emerald-500" />
+              <span>Python Roadmap for Big Dave</span>
+            </Link>
+
             {/* Bakery Samples Button */}
             <a
               href="/samstasteedelight-samples/index.html"
@@ -168,6 +178,15 @@ export function Navbar() {
                   </button>
                 ))}
                 
+                <Link
+                  href="/python-backend-roadmap-for-big-dave"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-xs font-dm font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30"
+                >
+                  <Terminal size={14} className="text-emerald-500" />
+                  <span>Python Roadmap for Big Dave</span>
+                </Link>
+
                 <a
                   href="/samstasteedelight-samples/index.html"
                   target="_blank"

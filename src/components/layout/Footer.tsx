@@ -27,7 +27,7 @@ export function Footer() {
           </div>
 
           {/* Center: Links */}
-          <div className="flex justify-center gap-6">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             {footerLinks.map((link) => (
               <button
                 key={link.href}
@@ -37,6 +37,12 @@ export function Footer() {
                 {link.label}
               </button>
             ))}
+            <a
+              href="/python-backend-roadmap-for-big-dave"
+              className="text-brand-plumtext hover:text-emerald-400 text-xs font-dm transition-colors"
+            >
+              Python Roadmap
+            </a>
           </div>
 
           {/* Right: Copyright */}
