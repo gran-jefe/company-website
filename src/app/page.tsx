@@ -5,6 +5,7 @@ import { Services } from '@/components/sections/Services'
 import { Stack } from '@/components/sections/Stack'
 import { About } from '@/components/sections/About'
 import { Work } from '@/components/sections/Work'
+import { Curriculum } from '@/components/sections/Curriculum'
 import { Contact } from '@/components/sections/Contact'
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
         <Stack />
         <About />
         <Work />
+        <Curriculum />
         <Contact />
       </main>
       <Footer />

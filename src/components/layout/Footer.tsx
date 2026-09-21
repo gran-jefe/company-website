@@ -37,11 +37,29 @@ export function Footer() {
                 {link.label}
               </button>
             ))}
+            <button
+              onClick={() => handleNavClick('#curriculum')}
+              className="text-brand-plumtext hover:text-brand-terra text-xs font-dm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra rounded"
+            >
+              Curriculum
+            </button>
             <a
-              href="/python-backend-roadmap-for-big-dave"
+              href="/curriculum/python-django"
               className="text-brand-plumtext hover:text-emerald-400 text-xs font-dm transition-colors"
             >
-              Python Roadmap
+              Python &amp; Django
+            </a>
+            <a
+              href="/curriculum/fullstack-web"
+              className="text-brand-plumtext hover:text-blue-400 text-xs font-dm transition-colors"
+            >
+              Full-Stack Web
+            </a>
+            <a
+              href="/curriculum/frontend-engineering"
+              className="text-brand-plumtext hover:text-purple-400 text-xs font-dm transition-colors"
+            >
+              Frontend Engineering
             </a>
           </div>
 

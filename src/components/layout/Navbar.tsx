@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Search, Command, Sparkles, Terminal } from 'lucide-react'
+import { Menu, X, Search, Command, Sparkles, Terminal, BookOpen } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Button } from '@/components/ui/Button'
@@ -13,6 +13,7 @@ const navItems = [
   { label: 'Services', href: '#services' },
   { label: 'Work', href: '#work' },
   { label: 'Stack', href: '#stack' },
+  { label: 'Curriculum', href: '#curriculum' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -118,14 +119,14 @@ export function Navbar() {
 
             <ThemeToggle />
 
-            {/* Python Roadmap for Big Dave */}
-            <Link
-              href="/python-backend-roadmap-for-big-dave"
+            {/* Curriculums Hub Button */}
+            <button
+              onClick={() => handleNavClick('#curriculum')}
               className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-dm font-semibold bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 transition-all shadow-xs"
             >
-              <Terminal size={13} className="text-emerald-500" />
-              <span>Python Roadmap for Big Dave</span>
-            </Link>
+              <BookOpen size={13} className="text-emerald-500" />
+              <span>Curriculums &amp; Roadmaps</span>
+            </button>
 
             {/* Bakery Samples Button */}
             <a
@@ -178,14 +179,13 @@ export function Navbar() {
                   </button>
                 ))}
                 
-                <Link
-                  href="/python-backend-roadmap-for-big-dave"
-                  onClick={() => setIsOpen(false)}
+                <button
+                  onClick={() => handleNavClick('#curriculum')}
                   className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-xs font-dm font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30"
                 >
-                  <Terminal size={14} className="text-emerald-500" />
-                  <span>Python Roadmap for Big Dave</span>
-                </Link>
+                  <BookOpen size={14} className="text-emerald-500" />
+                  <span>Curriculums &amp; Roadmaps</span>
+                </button>
 
                 <a
                   href="/samstasteedelight-samples/index.html"

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Search, Terminal, Code, Cpu, User, Mail, Moon, Sun, ArrowRight, X, Sparkles } from 'lucide-react'
+import { Search, Terminal, Code, Cpu, User, Mail, Moon, Sun, ArrowRight, X, Sparkles, BookOpen } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 interface CommandPaletteProps {
@@ -39,12 +39,39 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
 
   const items = [
     {
-      id: 'python-roadmap',
-      title: 'Python Roadmap for Big Dave',
-      subtitle: 'Targeted systems & backend engineering curriculum',
+      id: 'curriculum-section',
+      title: 'Engineering Curriculums & Roadmaps',
+      subtitle: 'Open learning tracks for full-stack, frontend, and Python backend',
+      icon: <BookOpen size={18} className="text-emerald-500" />,
+      action: () => scrollToSection('#curriculum'),
+    },
+    {
+      id: 'python-django-curriculum',
+      title: 'Python & Django Backend Curriculum (for Big Dave)',
+      subtitle: 'Fast-track transition to production Django, DRF & PostgreSQL',
       icon: <Terminal size={18} className="text-emerald-500" />,
       action: () => {
-        router.push('/python-backend-roadmap-for-big-dave')
+        router.push('/curriculum/python-django')
+        onClose()
+      },
+    },
+    {
+      id: 'fullstack-web-curriculum',
+      title: 'Full-Stack Web Development Curriculum',
+      subtitle: 'Complete 70/30 project-based roadmap for adult learners',
+      icon: <Code size={18} className="text-blue-500" />,
+      action: () => {
+        router.push('/curriculum/fullstack-web')
+        onClose()
+      },
+    },
+    {
+      id: 'frontend-curriculum',
+      title: 'Modern Frontend Engineering Curriculum',
+      subtitle: 'TypeScript, React 19, Next.js 16 & Performance',
+      icon: <Sparkles size={18} className="text-purple-500" />,
+      action: () => {
+        router.push('/curriculum/frontend-engineering')
         onClose()
       },
     },
