@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Search, Command, Sparkles, Terminal, BookOpen } from 'lucide-react'
+import { Menu, X, Search, Command, Sparkles } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Button } from '@/components/ui/Button'
@@ -119,15 +119,6 @@ export function Navbar() {
 
             <ThemeToggle />
 
-            {/* Curriculums Hub Button */}
-            <button
-              onClick={() => handleNavClick('#curriculum')}
-              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-dm font-semibold bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 transition-all shadow-xs"
-            >
-              <BookOpen size={13} className="text-emerald-500" />
-              <span>Curriculums &amp; Roadmaps</span>
-            </button>
-
             {/* Bakery Samples Button */}
             <a
               href="/samstasteedelight-samples/index.html"
@@ -178,14 +169,6 @@ export function Navbar() {
                     {item.label}
                   </button>
                 ))}
-                
-                <button
-                  onClick={() => handleNavClick('#curriculum')}
-                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-xs font-dm font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30"
-                >
-                  <BookOpen size={14} className="text-emerald-500" />
-                  <span>Curriculums &amp; Roadmaps</span>
-                </button>
 
                 <a
                   href="/samstasteedelight-samples/index.html"
