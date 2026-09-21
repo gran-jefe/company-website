@@ -16,6 +16,7 @@ import {
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Logo } from '@/components/ui/Logo'
+import { CurriculumLeadCapture } from '@/components/curriculum/CurriculumLeadCapture'
 
 export const metadata: Metadata = {
   title: 'Python & Django Backend Curriculum | Gran Jefe Learning Hub',
@@ -451,6 +452,9 @@ export default function PythonDjangoCurriculumPage() {
             </div>
           </div>
         </section>
+
+        {/* Lead Capture */}
+        <CurriculumLeadCapture trackTitle="Python & Django Backend Engineering" />
 
         {/* Footer Navigation */}
         <div className="mt-14 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">

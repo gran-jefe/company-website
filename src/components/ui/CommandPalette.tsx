@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Search, Terminal, Code, Cpu, User, Mail, Moon, Sun, ArrowRight, X, Sparkles, BookOpen } from 'lucide-react'
+import { Search, Terminal, Code, Cpu, User, Mail, Moon, Sun, ArrowRight, X, Sparkles, BookOpen, Smartphone, CreditCard, Bot } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 interface CommandPaletteProps {
@@ -72,6 +72,36 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       icon: <Sparkles size={18} className="text-purple-500" />,
       action: () => {
         router.push('/curriculum/frontend-engineering')
+        onClose()
+      },
+    },
+    {
+      id: 'mobile-react-native-curriculum',
+      title: 'Mobile Engineering Curriculum (React Native & Expo)',
+      subtitle: 'Native iOS & Android apps, biometrics & offline sync',
+      icon: <Smartphone size={18} className="text-emerald-500" />,
+      action: () => {
+        router.push('/curriculum/mobile-react-native')
+        onClose()
+      },
+    },
+    {
+      id: 'fintech-architecture-curriculum',
+      title: 'Fintech Engineering & Payment Gateway Architecture',
+      subtitle: 'Double-entry ledgers, idempotency, HMAC webhooks & compliance',
+      icon: <CreditCard size={18} className="text-amber-500" />,
+      action: () => {
+        router.push('/curriculum/fintech-architecture')
+        onClose()
+      },
+    },
+    {
+      id: 'ai-systems-curriculum',
+      title: 'AI Systems & LLM Application Engineering',
+      subtitle: 'RAG pipelines, vector search with pgvector & multi-agent systems',
+      icon: <Bot size={18} className="text-cyan-500" />,
+      action: () => {
+        router.push('/curriculum/ai-systems')
         onClose()
       },
     },

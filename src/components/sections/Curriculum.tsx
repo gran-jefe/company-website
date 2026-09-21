@@ -1,5 +1,17 @@
 import Link from 'next/link'
-import { ArrowRight, BookOpen, Terminal, Code2, Sparkles, Layers, CheckCircle2, ShieldCheck } from 'lucide-react'
+import { 
+  ArrowRight, 
+  BookOpen, 
+  Terminal, 
+  Code2, 
+  Sparkles, 
+  Layers, 
+  CheckCircle2, 
+  Smartphone, 
+  CreditCard, 
+  Bot,
+  Compass
+} from 'lucide-react'
 
 interface CurriculumTrack {
   id: string
@@ -32,6 +44,57 @@ const tracks: CurriculumTrack[] = [
     ],
     href: '/curriculum/python-django',
     dedicatedFor: 'Curated for Big Dave',
+  },
+  {
+    id: 'fintech-architecture',
+    title: 'Fintech Engineering & Payment Architecture',
+    subtitle: 'Ledgers, Idempotency, Webhooks & Regulatory Security',
+    badge: 'High-Value Specialization',
+    badgeColor: 'bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/25',
+    description:
+      'The engineering principles behind multi-billion financial systems: immutable double-entry ledgers, idempotency keys, HMAC-SHA512 webhooks, and automated bank reconciliation.',
+    duration: '8 to 10 Weeks',
+    highlights: [
+      'Double-entry bookkeeping math (never store float money)',
+      'HMAC-SHA512 payment webhook verification pipelines',
+      'Redis distributed idempotency locks against double charges',
+      'Automated daily bank settlement reconciliation scripts',
+    ],
+    href: '/curriculum/fintech-architecture',
+  },
+  {
+    id: 'mobile-react-native',
+    title: 'Mobile Engineering with React Native & Expo',
+    subtitle: 'Cross-Platform iOS & Android Apps from Web Concepts',
+    badge: 'Native Mobile',
+    badgeColor: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/25',
+    description:
+      'Transition your React & TypeScript instincts to native mobile apps using Expo Router, NativeWind, Biometric Keychain security, and EAS App Store deployments.',
+    duration: '8 to 10 Weeks',
+    highlights: [
+      'Expo Router v4 file-based stacks, tabs & native modals',
+      'Biometric authentication with FaceID & Hardware Keystore',
+      'High-speed FlashList virtualization without frame drops',
+      'Offline state sync with MMKV & App Store cloud builds',
+    ],
+    href: '/curriculum/mobile-react-native',
+  },
+  {
+    id: 'ai-systems',
+    title: 'AI Systems & LLM Application Engineering',
+    subtitle: 'RAG Pipelines, Tool Calling & Autonomous Multi-Agents',
+    badge: 'Frontier Specialization',
+    badgeColor: 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border-cyan-500/25',
+    description:
+      'Engineer reliable AI software: structured outputs with Pydantic, hybrid vector search with pgvector, document chunking, and multi-agent coordination frameworks.',
+    duration: '8 to 10 Weeks',
+    highlights: [
+      'Deterministic structured JSON completions with Zod/Pydantic',
+      'Hybrid full-text & vector similarity search with pgvector',
+      'Document chunking, embedding generation & cross-encoders',
+      'Autonomous multi-agent workflows with state graphs & memory',
+    ],
+    href: '/curriculum/ai-systems',
   },
   {
     id: 'fullstack-web',
@@ -74,20 +137,32 @@ export function Curriculum() {
     <section id="curriculum" className="py-20 md:py-28 bg-brand-cream/60 dark:bg-zinc-950/60 border-t border-zinc-200/80 dark:border-zinc-800/80 transition-colors">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Section Header */}
-        <div className="max-w-3xl mb-14 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium bg-brand-terra/10 text-brand-terra dark:text-brand-ember border border-brand-terra/20">
-            <BookOpen size={14} /> Open Engineering Curriculums
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+          <div className="max-w-3xl space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium bg-brand-terra/10 text-brand-terra dark:text-brand-ember border border-brand-terra/20">
+              <BookOpen size={14} /> Open Engineering Curriculums
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
+              Engineering Curriculums &amp; Learning Hub
+            </h2>
+            <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 font-dm leading-relaxed">
+              Curated, project-first learning paths developed by Gran Jefe. Bridging the gap between tutorial theory and production-grade architectures. Free for all learners.
+            </p>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
-            Engineering Curriculums &amp; Roadmaps for Learners
-          </h2>
-          <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 font-dm leading-relaxed">
-            Curated, project-first learning paths developed by Gran Jefe. No fluff, no obsolete tutorials, just production-grade software engineering roadmaps.
-          </p>
+
+          <div className="shrink-0">
+            <Link
+              href="/curriculum"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-dm font-semibold bg-brand-terra hover:bg-brand-ember text-white transition-all shadow-xs"
+            >
+              <span>Explore All 6 Curriculums</span>
+              <ArrowRight size={14} />
+            </Link>
+          </div>
         </div>
 
-        {/* Tracks Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Tracks Grid (2 cols on tablet, 3 cols on desktop) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {tracks.map((track) => (
             <div
               key={track.id}
@@ -145,7 +220,7 @@ export function Curriculum() {
                   href={track.href}
                   className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl text-xs font-dm font-semibold bg-zinc-100 hover:bg-brand-terra hover:text-white dark:bg-zinc-800 dark:hover:bg-brand-terra dark:hover:text-white text-zinc-900 dark:text-white transition-all shadow-xs group/btn"
                 >
-                  <span>View Full Curriculum</span>
+                  <span>View Curriculum &amp; Projects</span>
                   <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
                 </Link>
               </div>

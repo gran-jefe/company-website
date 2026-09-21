@@ -61,6 +61,24 @@ export function Footer() {
             >
               Frontend Engineering
             </a>
+            <a
+              href="/curriculum/mobile-react-native"
+              className="text-brand-plumtext hover:text-emerald-400 text-xs font-dm transition-colors"
+            >
+              Mobile &amp; Expo
+            </a>
+            <a
+              href="/curriculum/fintech-architecture"
+              className="text-brand-plumtext hover:text-amber-400 text-xs font-dm transition-colors"
+            >
+              Fintech &amp; Payments
+            </a>
+            <a
+              href="/curriculum/ai-systems"
+              className="text-brand-plumtext hover:text-cyan-400 text-xs font-dm transition-colors"
+            >
+              AI Systems
+            </a>
           </div>
 
           {/* Right: Copyright */}
