@@ -53,6 +53,24 @@ const tracks: CurriculumTrack[] = [
     dedicatedFor: 'Curated for Big Dave',
   },
   {
+    id: 'node-backend',
+    title: 'Node.js & TypeScript Backend Engineering',
+    subtitle: 'NestJS, Prisma, PostgreSQL, Redis & BullMQ Queues',
+    category: 'backend',
+    badge: 'Enterprise Track',
+    badgeColor: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/25',
+    description:
+      'Architect enterprise-grade server infrastructure using Node.js, NestJS, TypeScript, Prisma ORM, PostgreSQL, and BullMQ queues. Based on real-world sovereign payment platforms.',
+    duration: '10 to 12 Weeks',
+    highlights: [
+      'NestJS modular architecture, Dependency Injection & Guards',
+      'Prisma ORM data modeling, migrations & ACID transactions',
+      'JWT authentication with Redis token revocation & rate limiting',
+      'BullMQ asynchronous job queues & HMAC webhook pipelines',
+    ],
+    href: '/curriculum/node-backend',
+  },
+  {
     id: 'fintech-architecture',
     title: 'Fintech Engineering & Payment Architecture',
     subtitle: 'Ledgers, Idempotency, Webhooks & Regulatory Security',
@@ -184,7 +202,7 @@ export function Curriculum() {
               href="/curriculum"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-dm font-semibold bg-brand-terra hover:bg-brand-ember text-white transition-all shadow-xs group"
             >
-              <span>Explore All 6 Curriculums</span>
+              <span>Explore All 7 Curriculums</span>
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

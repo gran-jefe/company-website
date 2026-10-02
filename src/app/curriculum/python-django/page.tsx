@@ -12,7 +12,8 @@ import {
   Layers, 
   CheckCircle2, 
   Zap, 
-  Compass
+  Compass,
+  Boxes
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Logo } from '@/components/ui/Logo'
@@ -115,6 +116,21 @@ export default function PythonDjangoCurriculumPage() {
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        {/* Path Switcher Banner */}
+        <div className="mb-8 p-3 sm:p-4 rounded-xl bg-blue-50 dark:bg-zinc-900/80 border border-blue-200 dark:border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-dm">
+          <div className="flex items-center gap-2 text-blue-900 dark:text-blue-300">
+            <Boxes size={16} className="text-brand-terra shrink-0" />
+            <span>Prefer TypeScript on the server? Explore our <strong>Node.js &amp; NestJS Enterprise Backend track</strong>.</span>
+          </div>
+          <Link
+            href="/curriculum/node-backend"
+            className="text-brand-terra dark:text-brand-ember font-semibold hover:underline flex items-center gap-1 shrink-0"
+          >
+            <span>View Node.js &amp; TypeScript Route</span>
+            <ExternalLink size={12} />
+          </Link>
+        </div>
+
         {/* Hero Section */}
         <div className="space-y-5 border-b border-zinc-200 dark:border-zinc-800 pb-10 mb-12">
           <div className="flex items-center gap-2">

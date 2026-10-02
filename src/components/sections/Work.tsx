@@ -49,7 +49,7 @@ const allUserProjects: RealProject[] = [
     categoryLabel: 'Sovereign Digital Payments',
     domain: 'payments.nigeriahc.org.uk',
     liveUrl: 'https://payments.nigeriahc.org.uk',
-    summary: 'Official digital payment collection portal for administrative and consular charges for the Nigeria High Commission United Kingdom. Engineered full-stack architecture featuring consular service cart, fast secure Open Banking settlement processed in minutes, and automated receipt generation. Engineered for Mabilla Group, where I currently work as a Full-Stack Engineer.',
+    summary: 'Official digital payment collection portal for administrative and consular charges for the Nigeria High Commission United Kingdom. Engineered full-stack architecture featuring consular service cart, fast secure Open Banking settlement processed in minutes, and automated receipt generation. Engineered in-house as Full-Stack Engineer at Mabilla Group.',
     highlights: [
       'Solo Full Stack (Next.js 15 & NestJS API)',
       'Open Banking & Instant Bank Settlement',
@@ -58,8 +58,8 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js 15', 'NestJS', 'TypeScript', 'Prisma', 'PostgreSQL', 'Tailwind CSS', 'AWS S3'],
     imagePath: '/projects/nhc_london.png',
     accentColor: 'border-t-4 border-t-emerald-500',
-    badgeText: '🏛️ Diplomatic Mission • Live',
-    attribution: 'Client: Nigeria High Commission UK | Developed at Mabilla Group (Full-Stack Engineer)',
+    badgeText: '🏢 In-House • Mabilla Group',
+    attribution: 'In-House Product of Mabilla Group | Full-Stack Engineering (Next.js 15 & NestJS)',
   },
   {
     id: 'celergate_suite',
@@ -69,7 +69,7 @@ const allUserProjects: RealProject[] = [
     categoryLabel: 'UK Open Banking Payments',
     domain: 'celergate.co.uk',
     liveUrl: 'https://celergate.co.uk',
-    summary: 'Instant bank payment solution for modern businesses to accept payments directly from bank accounts with instant settlement and zero chargebacks. Built around the central Account identity hub powering sub-products Disbuz for enterprise payouts, Endoz for merchant collections, and Utility for bill payments. Developed for Mabilla Group, where I currently work as a Full-Stack Engineer.',
+    summary: 'Instant bank payment solution for modern businesses to accept payments directly from bank accounts with instant settlement and zero chargebacks. Built around the central Account identity hub powering sub-products Disbuz for enterprise payouts, Endoz for merchant collections, and Utility for bill payments. Engineered in-house as Full-Stack Engineer at Mabilla Group.',
     highlights: [
       'Central Account SSO & Identity Hub',
       'Instant Settlement & Zero Chargebacks',
@@ -78,8 +78,8 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'TanStack Query', 'Mantine'],
     imagePath: '/projects/celergate.png',
     accentColor: 'border-t-4 border-t-dev-cyan',
-    badgeText: '🌐 UK Open Banking • Live',
-    attribution: 'Product of Mabilla Group | Full-Stack / Frontend Engineering',
+    badgeText: '🏢 In-House • Mabilla Group',
+    attribution: 'In-House Product of Mabilla Group | Full-Stack & Frontend Engineering',
   },
   {
     id: 'remglo_agent',
@@ -89,7 +89,7 @@ const allUserProjects: RealProject[] = [
     categoryLabel: 'Remittance Mobile App | Solo Build',
     domain: 'agentapi.payceler.net',
     liveUrl: 'https://payceler.com',
-    summary: 'Dedicated cross-platform remittance field agent mobile application for Payceler and Remglo. Solo-engineered with React Native and Expo, featuring dynamic multi-tenant configuration, biometric KYC identity verification using SumSub Mobile SDK, transaction authorization, and real-time cross-border transfer processing. Developed for Mabilla Group, where I currently work as a Full-Stack Engineer.',
+    summary: 'Dedicated cross-platform remittance field agent mobile application for Payceler and Remglo. Solo-engineered with React Native and Expo in-house at Mabilla Group, featuring dynamic multi-tenant configuration, biometric KYC identity verification using SumSub Mobile SDK, transaction authorization, and real-time cross-border transfer processing.',
     highlights: [
       'Solo Mobile Engineer (React Native & Expo)',
       'SumSub Biometric KYC Mobile SDK',
@@ -98,8 +98,8 @@ const allUserProjects: RealProject[] = [
     stack: ['React Native', 'Expo', 'TypeScript', 'Redux Toolkit', 'SumSub Mobile SDK', 'EAS Build'],
     imagePath: '/projects/remglo_agent.png',
     accentColor: 'border-t-4 border-t-brand-terra',
-    badgeText: '📱 iOS & Android App • Live',
-    attribution: 'Product of Mabilla Group | Solo Mobile Engineer',
+    badgeText: '🏢 In-House • Mabilla Group',
+    attribution: 'In-House Product of Mabilla Group | Solo Mobile Engineer',
   },
   {
     id: 'payceler_remit',
@@ -109,7 +109,7 @@ const allUserProjects: RealProject[] = [
     categoryLabel: 'Global Payments & Remittance',
     domain: 'payceler.com',
     liveUrl: 'https://payceler.com',
-    summary: 'Global payments, remittances, collections, and payouts web platform built to deliver the 4S: Smart, Safe, Speed, Scale. Encompasses a multi-tenant sender web application, PWA, and enterprise operations admin dashboard with role-based access control and live transaction monitoring. Developed for Mabilla Group, where I currently work as a Full-Stack Engineer.',
+    summary: 'Global payments, remittances, collections, and payouts web platform built to deliver the 4S: Smart, Safe, Speed, Scale. Encompasses a multi-tenant sender web application, PWA, and enterprise operations admin dashboard with role-based access control and live transaction monitoring. Engineered in-house as Full-Stack Engineer at Mabilla Group.',
     highlights: [
       'Multi-Tenant Remittance Web & PWA',
       'Role-Based Operations Console (RBAC)',
@@ -118,8 +118,8 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'SumSub WebSDK'],
     imagePath: '/projects/payceler.png',
     accentColor: 'border-t-4 border-t-amber-500',
-    badgeText: '🌐 Web Platform & PWA • Live',
-    attribution: 'Product of Mabilla Group | Full-Stack / Frontend Engineering',
+    badgeText: '🏢 In-House • Mabilla Group',
+    attribution: 'In-House Product of Mabilla Group | Full-Stack & Frontend Engineering',
   },
   {
     id: 'shesandhers',
@@ -484,7 +484,7 @@ export function Work() {
                 }`}
               >
                 <ShieldCheck size={13} />
-                <span>Fintech & Banking ({fintechProjects.length})</span>
+                <span>In-House Track Record ({fintechProjects.length})</span>
               </button>
 
               <button

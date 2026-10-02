@@ -56,6 +56,25 @@ const allTracks: Track[] = [
     dedicatedFor: 'Curated for Big Dave',
   },
   {
+    id: 'node-backend',
+    title: 'Node.js & TypeScript Backend Engineering',
+    subtitle: 'NestJS, Prisma, PostgreSQL, Redis & BullMQ Queues',
+    category: 'backend',
+    categoryLabel: 'Backend Systems',
+    badge: 'Enterprise Track',
+    badgeColor: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/25',
+    description:
+      'Architect enterprise-grade server infrastructure using Node.js, NestJS, TypeScript, Prisma ORM, PostgreSQL, and BullMQ queues. Based on real-world sovereign payment platforms.',
+    duration: '10 to 12 Weeks',
+    highlights: [
+      'NestJS modular architecture, Dependency Injection & Guards',
+      'Prisma ORM data modeling, migrations & ACID transactions',
+      'JWT authentication with Redis token revocation & rate limiting',
+      'BullMQ asynchronous job queues & HMAC webhook pipelines',
+    ],
+    href: '/curriculum/node-backend',
+  },
+  {
     id: 'fullstack-web',
     title: 'Full-Stack Web Development Curriculum',
     subtitle: 'End-to-End Modern Engineering for Adult Learners',
@@ -254,7 +273,7 @@ export default function CurriculumHubPage() {
           {filteredTracks.map((track) => (
             <div
               key={track.id}
-              className="flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs hover:border-brand-terra/40 dark:hover:border-brand-terra/40 transition-all group"
+              className="flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs hover:border-brand-terra/40 dark:hover:border-brand-terra/40 transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-brand-terra/10 group card-specular"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between gap-2">

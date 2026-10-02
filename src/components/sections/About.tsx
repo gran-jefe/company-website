@@ -61,10 +61,10 @@ export function About() {
             <AnimatedSection delay={0.1}>
               <div className="space-y-4 font-dm text-zinc-800 dark:text-zinc-200 text-base leading-relaxed">
                 <p>
-                  Since 2023, our engineering leadership has developed mission-critical financial systems at Mabilla Group, serving as Full-Stack Engineer. This work includes sovereign payment platforms for the Nigeria High Commission UK, Open Banking payment ecosystems for Celergate, and multi-tenant remittance platforms including the Remglo Payceler Agent mobile application.
+                  Since 2023, our engineering leadership has developed mission-critical financial systems in-house at Mabilla Group as Full-Stack Engineer. This internal engineering tenure includes sovereign payment platforms for the Nigeria High Commission UK, Open Banking payment ecosystems for Celergate, and multi-tenant remittance platforms including the Remglo Payceler Agent mobile application.
                 </p>
                 <p>
-                  Alongside enterprise fintech engineering, Gran Jefe designs, builds, and deploys high-converting web applications, mobile platforms built with React Native and Expo, and bespoke digital software for businesses and founders.
+                  Backed by this enterprise fintech pedigree, Gran Jefe operates as an independent software engineering studio and learning academy. We design, build, and deploy high-converting web applications, mobile platforms built with React Native and Expo, and bespoke digital software for businesses and founders.
                 </p>
                 <p>
                   We partner with founders, businesses, and engineering leaders who need custom software built right the first time, prioritizing clean component architecture, modern user experience, and long-term maintainability.
