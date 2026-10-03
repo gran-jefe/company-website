@@ -14,10 +14,11 @@ export function Contact() {
   const [messageInput, setMessageInput] = useState('')
 
   const availableServices = [
-    'Mobile App',
-    'Web Platform',
-    'Backend API',
-    'Fintech Integration',
+    '⚡ 7-Day Rebuild Sprint',
+    'Web Platform / Next.js',
+    'Mobile App (React Native)',
+    'Fintech & Payments',
+    'Backend API Architecture',
     'Product Strategy',
   ]
 
@@ -30,7 +31,7 @@ export function Contact() {
   }
 
   const handleCopyCli = () => {
-    navigator.clipboard.writeText('mailto:granjefetech@gmail.com')
+    navigator.clipboard.writeText('granjefetech@gmail.com')
     setCopiedCli(true)
     setTimeout(() => setCopiedCli(false), 2000)
   }
@@ -159,25 +160,32 @@ export function Contact() {
               )}
             </form>
 
-            {/* Direct Email & Developer Quick Copy Bar */}
+            {/* Direct Email & Response Guarantee Bar */}
             <div className="pt-6 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-dm text-zinc-300">
               <div className="flex items-center gap-2">
-                <Mail size={16} className="text-brand-terra" />
-                <span>Direct email:</span>
-                <a href="mailto:granjefetech@gmail.com" className="text-white hover:text-brand-terra font-medium transition-colors">
-                  granjefetech@gmail.com
-                </a>
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="font-mono text-zinc-400">Response time:</span>
+                <span className="text-white font-medium">&lt; 4 hours direct reply</span>
               </div>
 
-              <button
-                onClick={handleCopyCli}
-                className="px-3 py-1.5 rounded-lg bg-zinc-950 hover:bg-zinc-800 text-zinc-300 font-mono text-[11px] border border-zinc-800 flex items-center gap-2 transition-colors"
-                title="Copy email address"
-              >
-                <Terminal size={12} className="text-brand-terra" />
-                <span>granjefetech@gmail.com</span>
-                {copiedCli ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
-              </button>
+              <div className="flex items-center gap-3">
+                <a
+                  href="mailto:granjefetech@gmail.com"
+                  className="px-3.5 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-dm text-xs flex items-center gap-1.5 transition-colors"
+                >
+                  <Mail size={13} className="text-brand-terra" />
+                  <span>granjefetech@gmail.com</span>
+                </a>
+
+                <button
+                  onClick={handleCopyCli}
+                  className="px-3 py-1.5 rounded-lg bg-zinc-950 hover:bg-zinc-800 text-zinc-300 font-mono text-[11px] border border-zinc-800 flex items-center gap-1.5 transition-colors"
+                  title="Copy email address"
+                >
+                  {copiedCli ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                  <span>{copiedCli ? 'Copied!' : 'Copy'}</span>
+                </button>
+              </div>
             </div>
           </div>
         </AnimatedSection>

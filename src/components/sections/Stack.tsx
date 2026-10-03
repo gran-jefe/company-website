@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
-import { CodeWindow } from '@/components/ui/CodeWindow'
 import { Layers, Cpu, Server, Database, Check } from 'lucide-react'
 
 interface TechCategory {
@@ -12,8 +11,6 @@ interface TechCategory {
   title: string
   icon: React.ReactNode
   description: string
-  sampleFilename: string
-  sampleCode: string
   technologies: {
     name: string
     purpose: string
@@ -27,18 +24,6 @@ const stackCategories: TechCategory[] = [
     title: 'Frontend & Web',
     icon: <Layers size={20} className="stroke-current" />,
     description: 'We build modern, accessible, and fast web user interfaces using Next.js 16 and React 19.',
-    sampleFilename: 'app/api/metrics/route.ts',
-    sampleCode: `import { NextResponse } from 'next/server'
-import { getSystemMetrics } from '@/lib/metrics'
-
-export const runtime = 'edge'
-
-export async function GET() {
-  const metrics = await getSystemMetrics()
-  return NextResponse.json(metrics, {
-    headers: { 'Cache-Control': 's-maxage=60, stale-while-revalidate' }
-  })
-}`,
     technologies: [
       { name: 'React 19', purpose: 'Component-driven UI development' },
       { name: 'TypeScript', purpose: 'End-to-end type safety & bug prevention', badge: 'Standard' },
@@ -51,19 +36,6 @@ export async function GET() {
     title: 'Mobile Engineering',
     icon: <Cpu size={20} className="stroke-current" />,
     description: 'Cross-platform native mobile applications delivering smooth 60fps performance on both iOS and Android.',
-    sampleFilename: 'hooks/useBiometrics.ts',
-    sampleCode: `import * as LocalAuthentication from 'expo-local-authentication'
-
-export async function authenticateBiometrics() {
-  const hasHardware = await LocalAuthentication.hasHardwareAsync()
-  if (!hasHardware) return false
-
-  const result = await LocalAuthentication.authenticateAsync({
-    promptMessage: 'Unlock Gran Jefe Wallet',
-    fallbackLabel: 'Use PIN',
-  })
-  return result.success
-}`,
     technologies: [
       { name: 'React Native', purpose: 'Native iOS & Android compilation from a unified codebase' },
       { name: 'Expo', purpose: 'Rapid mobile deployment & OTA updates' },
@@ -75,14 +47,6 @@ export async function authenticateBiometrics() {
     title: 'Backend & APIs',
     icon: <Server size={20} className="stroke-current" />,
     description: 'Robust server architecture, authentication mechanisms, and REST/GraphQL APIs.',
-    sampleFilename: 'server/queueWorker.ts',
-    sampleCode: `import { Worker } from 'bullmq'
-import { processWebhook } from './webhookEngine'
-
-export const worker = new Worker('webhookQueue', async (job) => {
-  const result = await processWebhook(job.data)
-  console.log(\`[JOB_COMPLETE] ID: \${job.id} Latency: \${result.durationMs}ms\`)
-}, { concurrency: 20 })`,
     technologies: [
       { name: 'Node.js', purpose: 'High-throughput event-driven microservices' },
       { name: 'Python & FastAPI', purpose: 'Data validation, automation, and algorithmic backends' },
@@ -94,13 +58,6 @@ export const worker = new Worker('webhookQueue', async (job) => {
     title: 'Databases & Cloud',
     icon: <Database size={20} className="stroke-current" />,
     description: 'Relational and document storage, caching layers, and automated cloud deployments.',
-    sampleFilename: 'db/ledger.sql',
-    sampleCode: `-- Atomic transaction transfer with row-level locks
-BEGIN;
-SELECT balance FROM accounts WHERE id = sender_id FOR UPDATE;
-UPDATE accounts SET balance = balance - transfer_amount WHERE id = sender_id;
-UPDATE accounts SET balance = balance + transfer_amount WHERE id = receiver_id;
-COMMIT;`,
     technologies: [
       { name: 'PostgreSQL', purpose: 'Relational data storage with ACID guarantees' },
       { name: 'Firebase', purpose: 'Realtime database, auth, and backend services' },

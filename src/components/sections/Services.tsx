@@ -3,7 +3,7 @@
 import React from 'react'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
-import { Smartphone, Layout, Server, ShieldCheck, Cpu, Rocket, ArrowUpRight } from 'lucide-react'
+import { Smartphone, Layout, Server, ShieldCheck, Cpu, Rocket, ArrowUpRight, Zap, Clock, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react'
 
 interface ServiceItem {
   id: string
@@ -88,6 +88,74 @@ export function Services() {
             <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400 max-w-xs">
               // Strict engineering standards, clean modular architecture, zero technical debt.
             </p>
+          </div>
+        </AnimatedSection>
+
+        {/* Featured Rapid Rebuild Sprint Card */}
+        <AnimatedSection delay={0.03}>
+          <div className="mt-10 p-6 md:p-8 rounded-3xl bg-gradient-to-br from-zinc-900 via-zinc-950 to-zinc-900 border-2 border-brand-terra/40 text-white shadow-2xl relative overflow-hidden group">
+            {/* Ambient Lighting */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-brand-terra/15 rounded-full blur-3xl pointer-events-none group-hover:bg-brand-terra/25 transition-colors" />
+            
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+              <div className="lg:col-span-8 space-y-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-terra/20 border border-brand-terra/40 text-brand-terra dark:text-brand-ember text-xs font-mono font-bold">
+                  <Sparkles size={13} />
+                  <span>FEATURED SPRINT // 7-DAY DELIVERY</span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-syne font-extrabold text-white tracking-tight">
+                  The 7-Day Performance &amp; Conversion Rebuild
+                </h3>
+
+                <p className="text-sm sm:text-base font-dm text-zinc-300 leading-relaxed max-w-2xl">
+                  Is a slow, dated, or clunky website draining your paid ad budget and losing customers? We completely rebuild your landing page or web application into an ultra-fast, interactive Next.js 16 experience in 7 business days flat.
+                </p>
+
+                {/* Value Checkpoints */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+                  <div className="flex items-center gap-2 text-xs font-dm text-zinc-200">
+                    <CheckCircle2 size={15} className="text-brand-terra flex-shrink-0" />
+                    <span><strong>95+ Core Web Vitals:</strong> Sub-second mobile load speeds</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs font-dm text-zinc-200">
+                    <CheckCircle2 size={15} className="text-brand-terra flex-shrink-0" />
+                    <span><strong>Conversion-Optimized UX:</strong> Clear hierarchy &amp; zero layout shift</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs font-dm text-zinc-200">
+                    <CheckCircle2 size={15} className="text-brand-terra flex-shrink-0" />
+                    <span><strong>Fluid Interactions:</strong> Smooth 60fps micro-animations</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs font-dm text-zinc-200">
+                    <CheckCircle2 size={15} className="text-brand-terra flex-shrink-0" />
+                    <span><strong>Fixed Timeline:</strong> Production-ready in 7 business days</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-3 pt-4 lg:pt-0 border-t lg:border-t-0 lg:border-l border-zinc-800 lg:pl-8">
+                <div className="space-y-1 text-left lg:text-right">
+                  <div className="text-xs font-mono text-zinc-400">Fixed-Scope Engagement</div>
+                  <div className="text-2xl font-syne font-bold text-white flex items-center gap-2 lg:justify-end">
+                    <Clock size={20} className="text-brand-terra" />
+                    <span>7 Business Days</span>
+                  </div>
+                  <div className="text-xs font-dm text-emerald-400 font-semibold">100% Milestone Satisfaction Guarantee</div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    const contactSection = document.querySelector('#contact')
+                    if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="mt-2 w-full sm:w-auto py-3 px-6 rounded-xl bg-brand-terra hover:bg-brand-ember text-white font-dm font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-terra/20 transition-all hover:scale-[1.02]"
+                >
+                  <span>Book a 7-Day Rebuild Sprint</span>
+                  <ArrowRight size={15} />
+                </button>
+              </div>
+            </div>
           </div>
         </AnimatedSection>
 
