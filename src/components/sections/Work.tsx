@@ -402,18 +402,18 @@ export function Work() {
   }, [isAutoRotating, selectedProjectId, filteredProjects])
 
   return (
-    <section id="work" className="bg-white dark:bg-zinc-950 py-20 md:py-28 relative border-t border-zinc-200/60 dark:border-zinc-800/60">
-      {/* Background Cyber Glow */}
-      <div className="absolute inset-0 bg-cyber-grid bg-[size:32px_32px] opacity-[0.03] dark:opacity-[0.07] pointer-events-none" />
+    <section id="work" className="bg-zinc-950 py-20 md:py-28 relative border-t border-zinc-800 text-white">
+      {/* Background Ambient Glow */}
+      <div className="absolute inset-0 bg-cyber-grid bg-[size:32px_32px] opacity-[0.05] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         <AnimatedSection>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div>
-              <SectionLabel>Production Engineering Studio</SectionLabel>
-              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-bold text-zinc-900 dark:text-white tracking-tight">
-                Engineering Showcase.{' '}
-                <span className="text-brand-terra">Interactive Workstation.</span>
+              <SectionLabel>Selected Work &amp; Case Studies</SectionLabel>
+              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-white tracking-tight">
+                Crafted for impact.{' '}
+                <span className="font-serif italic font-normal text-brand-terra">Engineered to scale.</span>
               </h2>
             </div>
 

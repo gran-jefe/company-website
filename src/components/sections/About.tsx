@@ -3,46 +3,69 @@
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { Logo } from '@/components/ui/Logo'
+import { ShieldCheck, Award, MapPin, Globe, Sparkles } from 'lucide-react'
 
 export function About() {
   return (
-    <section id="about" className="bg-brand-cream dark:bg-zinc-950 py-20 md:py-28 relative border-t border-zinc-200/60 dark:border-zinc-800/60">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <section id="about" className="bg-zinc-950 py-20 md:py-28 relative border-t border-zinc-800 text-white">
+      {/* Ambient background glow */}
+      <div className="absolute top-1/3 right-10 w-96 h-96 bg-brand-terra/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Logo & Stat Badges (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
+          {/* Left Column: Studio Badges & Registry Card (5 cols) */}
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
             <AnimatedSection>
-              <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700/80 shadow-md inline-flex items-center justify-center">
+              <div className="p-6 rounded-2xl bg-zinc-900 border border-zinc-800 shadow-xl inline-flex items-center justify-center">
                 <Logo variant="auto" size="md" />
               </div>
             </AnimatedSection>
 
+            {/* Official CAC Certified Seal Card */}
             <AnimatedSection delay={0.1}>
-              <div className="mt-6 inline-flex items-center px-4 py-1.5 rounded-full font-dm font-medium text-xs bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 shadow-sm">
-                Est. 2025 • Based in Abuja, Nigeria
+              <div className="w-full max-w-md p-5 rounded-2xl bg-zinc-900/90 border border-emerald-500/30 shadow-lg text-left space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                    <ShieldCheck size={14} /> CERTIFIED CORPORATE ENTITY
+                  </span>
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                    ACTIVE
+                  </span>
+                </div>
+
+                <div className="space-y-1">
+                  <div className="font-syne font-bold text-base text-white">GRAN JEFE SOLUTIONS</div>
+                  <div className="text-xs font-mono text-zinc-400">CAC Registration No: BN 9529101</div>
+                  <div className="text-xs font-dm text-zinc-300">Proprietor: Adeleke Sherifdeen</div>
+                </div>
+
+                <div className="pt-2.5 border-t border-zinc-800 text-[11px] font-dm text-zinc-400 flex items-center gap-1.5">
+                  <MapPin size={12} className="text-brand-terra flex-shrink-0" />
+                  <span>Ibadan &amp; Abuja, Nigeria • Serving Clients Globally</span>
+                </div>
               </div>
             </AnimatedSection>
 
-            {/* Stat Cards Grid */}
-            <div className="mt-8 grid grid-cols-3 gap-3 w-full max-w-md">
+            {/* Studio Metrics */}
+            <div className="grid grid-cols-3 gap-3 w-full max-w-md">
               <AnimatedSection delay={0.2}>
-                <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700/80 shadow-sm text-center">
+                <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 text-center">
                   <div className="font-syne font-bold text-2xl text-brand-terra">3+</div>
-                  <div className="font-dm text-xs text-zinc-700 dark:text-zinc-300 font-medium mt-1">Years in Fintech Eng</div>
+                  <div className="font-dm text-xs text-zinc-400 font-medium mt-1">Years Enterprise</div>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection delay={0.3}>
-                <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700/80 shadow-sm text-center">
+                <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 text-center">
                   <div className="font-syne font-bold text-2xl text-brand-terra">15+</div>
-                  <div className="font-dm text-xs text-zinc-700 dark:text-zinc-300 font-medium mt-1">Shipped Projects</div>
+                  <div className="font-dm text-xs text-zinc-400 font-medium mt-1">Live Deployments</div>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection delay={0.4}>
-                <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700/80 shadow-sm text-center">
-                  <div className="font-syne font-bold text-2xl text-brand-terra">3</div>
-                  <div className="font-dm text-xs text-zinc-700 dark:text-zinc-300 font-medium mt-1">Core Platforms</div>
+                <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 text-center">
+                  <div className="font-syne font-bold text-2xl text-brand-terra">99/100</div>
+                  <div className="font-dm text-xs text-zinc-400 font-medium mt-1">Speed Benchmark</div>
                 </div>
               </AnimatedSection>
             </div>
@@ -51,30 +74,30 @@ export function About() {
           {/* Right Column: Narrative & Values (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             <AnimatedSection>
-              <SectionLabel>About Gran Jefe</SectionLabel>
-              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-bold text-zinc-900 dark:text-white tracking-tight">
+              <SectionLabel>The Studio</SectionLabel>
+              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-bold text-white tracking-tight">
                 Craftsmanship first.{' '}
                 <span className="text-brand-terra">No shortcuts.</span>
               </h2>
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
-              <div className="space-y-4 font-dm text-zinc-800 dark:text-zinc-200 text-base leading-relaxed">
+              <div className="space-y-4 font-dm text-zinc-300 text-base leading-relaxed">
                 <p>
-                  Since 2023, our engineering leadership has developed mission-critical financial systems in-house at Mabilla Group as Full-Stack Engineer. This internal engineering tenure includes sovereign payment platforms for the Nigeria High Commission UK, Open Banking payment ecosystems for Celergate, and multi-tenant remittance platforms including the Remglo Payceler Agent mobile application.
+                  Founded by <strong className="text-white">Sherifdeen Adeleke</strong>, Gran Jefe is an independent digital product and creative engineering studio. We combine world-class visual aesthetics with high-integrity software engineering, building websites, web applications, and mobile products that convert visitors into revenue.
                 </p>
                 <p>
-                  Backed by this enterprise fintech pedigree, Gran Jefe operates as an independent software engineering studio and learning academy. We design, build, and deploy high-converting web applications, mobile platforms built with React Native and Expo, and bespoke digital software for businesses and founders.
+                  Our founder's background includes engineering sovereign financial infrastructure as Full-Stack Engineer at Mabilla Group—architecting digital consular payment systems for the <strong className="text-white">Nigeria High Commission United Kingdom</strong>, UK Open Banking payment engines for <strong className="text-white">Celergate</strong>, and cross-border remittance platforms with biometric verification.
                 </p>
                 <p>
-                  We partner with founders, businesses, and engineering leaders who need custom software built right the first time, prioritizing clean component architecture, modern user experience, and long-term maintainability.
+                  Today, Gran Jefe operates as a registered corporate entity under Nigerian law (<strong>GRAN JEFE SOLUTIONS, BN: 9529101</strong>). We partner with ambitious founders, brands, and companies in the UK, US, Europe, and Nigeria who demand products built with obsessive speed, fluid micro-interactions, and zero technical debt.
                 </p>
               </div>
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <div className="p-5 rounded-xl bg-white dark:bg-zinc-900 border-l-4 border-brand-terra border-y border-r border-zinc-200 dark:border-zinc-700/80 font-dm text-sm text-zinc-800 dark:text-zinc-200 shadow-sm">
-                <span className="font-bold text-zinc-900 dark:text-white">Our Commitment:</span> Clear communication, honest timelines, zero technical bloat, and software that delivers real business value.
+              <div className="p-5 rounded-2xl bg-zinc-900 border-l-4 border-brand-terra border-y border-r border-zinc-800 font-dm text-sm text-zinc-300">
+                <span className="font-bold text-white">Our Guarantee:</span> Transparent pricing, daily asynchronous Loom updates, zero fluff, and production deployments delivered on strict milestones.
               </div>
             </AnimatedSection>
           </div>

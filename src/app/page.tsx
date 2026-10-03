@@ -4,25 +4,31 @@ import { Hero } from '@/components/sections/Hero'
 import { TrustBar } from '@/components/sections/TrustBar'
 import { Services } from '@/components/sections/Services'
 import { Stack } from '@/components/sections/Stack'
-import { About } from '@/components/sections/About'
 import { Work } from '@/components/sections/Work'
-import { Curriculum } from '@/components/sections/Curriculum'
+import { About } from '@/components/sections/About'
 import { Contact } from '@/components/sections/Contact'
+import { InteractiveCanvas } from '@/components/ui/InteractiveCanvas'
+import { CustomCursor } from '@/components/ui/CustomCursor'
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-brand-cream dark:bg-brand-base text-brand-base dark:text-white">
+    <div className="relative min-h-screen bg-zinc-950 text-white selection:bg-brand-terra selection:text-white">
+      {/* Cerebrium-style Ambient Depth Canvas & Magnetic Cursor */}
+      <InteractiveCanvas />
+      <CustomCursor />
+
       <Navbar />
-      <main className="flex-1">
+
+      <main className="relative z-10 flex-1">
         <Hero />
         <TrustBar />
+        <Work />
         <Services />
         <Stack />
         <About />
-        <Work />
-        <Curriculum />
         <Contact />
       </main>
+
       <Footer />
     </div>
   )

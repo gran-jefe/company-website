@@ -1,8 +1,7 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
-import { Landmark, ShieldCheck, Zap, Globe, Building2, ArrowUpRight } from 'lucide-react'
+import { Landmark, ShieldCheck, Zap, Globe, Building2, ArrowUpRight, Award } from 'lucide-react'
 
 interface TrustItem {
   id: string
@@ -18,10 +17,10 @@ const trustItems: TrustItem[] = [
   {
     id: 'nhc',
     entity: 'Nigeria High Commission (UK)',
-    role: 'Sovereign Digital Payments & Consular Portal',
+    role: 'Sovereign Consular Payments & Administrative Portal',
     location: 'London, UK',
     icon: <Landmark size={18} className="text-emerald-500" />,
-    badge: 'Sovereign State',
+    badge: 'Sovereign Entity',
     link: 'https://payments.nigeriahc.org.uk',
   },
   {
@@ -36,16 +35,16 @@ const trustItems: TrustItem[] = [
   {
     id: 'payceler',
     entity: 'Payceler Global Remittance',
-    role: 'Cross-Border Payments & Biometric KYC',
-    location: 'Global / UK',
+    role: 'Cross-Border Payments & Biometric KYC Identity',
+    location: 'UK & Global',
     icon: <Globe size={18} className="text-amber-500" />,
-    badge: 'Fintech Infrastructure',
+    badge: 'Fintech Engine',
     link: 'https://payceler.com',
   },
   {
     id: 'projectcatalogue',
     entity: 'Project Catalogue Limited',
-    role: 'Luxury Real Estate & Architectural Showcase',
+    role: 'Luxury Architectural Showcase & Real Estate Dev',
     location: 'Nigeria',
     icon: <Building2 size={18} className="text-brand-terra" />,
     badge: 'Luxury Property',
@@ -55,60 +54,65 @@ const trustItems: TrustItem[] = [
 
 export function TrustBar() {
   return (
-    <section className="relative py-8 bg-zinc-100/80 dark:bg-zinc-950 border-y border-zinc-200/80 dark:border-zinc-800/80 overflow-hidden">
+    <section className="relative py-7 bg-zinc-950/80 border-y border-zinc-800/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-          {/* Section Indicator */}
-          <div className="flex-shrink-0 lg:max-w-xs space-y-1">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-bold">
-                Proven Track Record
-              </span>
-            </div>
-            <p className="text-xs font-dm text-zinc-700 dark:text-zinc-300 font-medium">
-              Engineered platforms powering sovereign entities, UK Open Banking, and fast-scaling brands.
-            </p>
+        {/* Top Official Registry Strip */}
+        <div className="mb-5 pb-4 border-b border-zinc-900 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-400">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-white font-bold">CERTIFIED CORPORATE ENTITY:</span>
+            <span className="text-emerald-400 font-semibold">GRAN JEFE SOLUTIONS</span>
+            <span className="text-zinc-600">//</span>
+            <span className="text-zinc-300">CAC BN: 9529101</span>
           </div>
 
-          {/* Trust Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 flex-1">
-            {trustItems.map((item) => (
-              <a
-                key={item.id}
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group p-3.5 rounded-xl bg-white dark:bg-zinc-900/90 border border-zinc-200/80 dark:border-zinc-800 hover:border-brand-terra/50 dark:hover:border-brand-terra/50 transition-all duration-200 shadow-xs hover:shadow-md flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <div className="p-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                      {item.icon}
-                    </div>
-                    <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
-                      {item.location}
-                    </span>
+          <div className="flex items-center gap-2 text-[11px] text-zinc-400">
+            <Award size={14} className="text-brand-terra" />
+            <span>Sole Proprietorship • Active Status • Founded by Adeleke Sherifdeen</span>
+          </div>
+        </div>
+
+        {/* Proven Track Record Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          {trustItems.map((item) => (
+            <a
+              key={item.id}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-4 rounded-2xl bg-zinc-900/70 border border-zinc-800/90 hover:border-brand-terra/60 transition-all duration-300 flex flex-col justify-between hover:shadow-lg hover:shadow-brand-terra/10 hover:-translate-y-0.5"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2.5">
+                  <div className="p-2 rounded-xl bg-zinc-950 border border-zinc-800 text-brand-terra group-hover:scale-105 transition-transform">
+                    {item.icon}
                   </div>
-                  <h4 className="font-syne font-bold text-sm text-zinc-900 dark:text-white group-hover:text-brand-terra transition-colors flex items-center gap-1">
-                    <span>{item.entity}</span>
-                    <ArrowUpRight
-                      size={13}
-                      className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-brand-terra"
-                    />
-                  </h4>
-                  <p className="mt-1 text-xs font-dm text-zinc-600 dark:text-zinc-400 line-clamp-2">
-                    {item.role}
-                  </p>
+                  <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-zinc-950 text-zinc-300 border border-zinc-800">
+                    {item.location}
+                  </span>
                 </div>
 
-                <div className="mt-3 pt-2 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-[10px] font-mono text-zinc-500">
-                  <span>{item.badge}</span>
-                  <span className="text-emerald-600 dark:text-emerald-400 font-semibold">● Verified Live</span>
-                </div>
-              </a>
-            ))}
-          </div>
+                <h4 className="font-syne font-bold text-sm text-white group-hover:text-brand-terra transition-colors flex items-center justify-between">
+                  <span>{item.entity}</span>
+                  <ArrowUpRight
+                    size={14}
+                    className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-brand-terra"
+                  />
+                </h4>
+
+                <p className="mt-1 text-xs font-dm text-zinc-400 line-clamp-2 leading-relaxed">
+                  {item.role}
+                </p>
+              </div>
+
+              <div className="mt-3.5 pt-2.5 border-t border-zinc-800/80 flex items-center justify-between text-[10px] font-mono text-zinc-500">
+                <span>{item.badge}</span>
+                <span className="text-emerald-400 font-semibold flex items-center gap-1">
+                  ● Verified Live
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>

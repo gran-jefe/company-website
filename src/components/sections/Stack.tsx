@@ -71,16 +71,16 @@ export function Stack() {
   const [activeCategory, setActiveCategory] = useState<TechCategory>(stackCategories[0])
 
   return (
-    <section id="stack" className="bg-brand-cream dark:bg-zinc-950 py-20 md:py-28 relative border-t border-zinc-200/60 dark:border-zinc-800/60">
+    <section id="stack" className="bg-zinc-950 py-20 md:py-28 relative border-t border-zinc-800 text-white">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <AnimatedSection>
           <div className="max-w-2xl">
-            <SectionLabel>Our Tech Stack</SectionLabel>
-            <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-bold text-zinc-900 dark:text-white tracking-tight">
+            <SectionLabel>Our Tech Architecture</SectionLabel>
+            <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-white tracking-tight">
               Tools chosen for durability.{' '}
-              <span className="text-brand-terra">Not hype.</span>
+              <span className="font-serif italic font-normal text-brand-terra">Not hype.</span>
             </h2>
-            <p className="mt-4 font-dm text-base text-zinc-700 dark:text-zinc-200">
+            <p className="mt-4 font-dm text-base text-zinc-300">
               Every framework and library in our stack is selected for performance, maintainability, and real-world stability.
             </p>
           </div>
