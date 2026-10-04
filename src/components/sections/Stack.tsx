@@ -71,16 +71,16 @@ export function Stack() {
   const [activeCategory, setActiveCategory] = useState<TechCategory>(stackCategories[0])
 
   return (
-    <section id="stack" className="bg-zinc-950 py-20 md:py-28 relative border-t border-zinc-800 text-white">
+    <section id="stack" className="bg-transparent py-20 md:py-28 relative border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3]">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <AnimatedSection>
           <div className="max-w-2xl">
             <SectionLabel>Our Tech Architecture</SectionLabel>
-            <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-white tracking-tight">
+            <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
               Tools chosen for durability.{' '}
-              <span className="font-serif italic font-normal text-brand-terra">Not hype.</span>
+              <span className="font-serif italic font-normal text-brand-terra dark:text-brand-ember">Not hype.</span>
             </h2>
-            <p className="mt-4 font-dm text-base text-zinc-300">
+            <p className="mt-4 font-dm text-base text-[#6C4B59] dark:text-[#E6D0C2]">
               Every framework and library in our stack is selected for performance, maintainability, and real-world stability.
             </p>
           </div>
@@ -99,13 +99,13 @@ export function Stack() {
                   className={`relative w-full text-left p-4 rounded-xl border transition-all duration-200 flex items-center justify-between group overflow-hidden cursor-pointer ${
                     isSelected
                       ? 'border-brand-terra/60 shadow-sm'
-                      : 'bg-white/70 dark:bg-zinc-900/60 border-zinc-200 dark:border-zinc-800 hover:bg-white dark:hover:bg-zinc-900/90'
+                      : 'bg-[#FAF0E6] dark:bg-[#1D0E17] border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:bg-[#F3E2D5] dark:hover:bg-[#25121E]'
                   }`}
                 >
                   {isSelected && (
                     <motion.div
                       layoutId="activeStackCategory"
-                      className="absolute inset-0 bg-white dark:bg-zinc-900 border border-brand-terra rounded-xl -z-10 shadow-xs"
+                      className="absolute inset-0 bg-[#2E0E1D] dark:bg-[#25121E] border border-brand-terra rounded-xl -z-10 shadow-xs"
                       transition={{ type: 'spring', stiffness: 450, damping: 30 }}
                     />
                   )}
@@ -115,12 +115,12 @@ export function Stack() {
                       className={`p-2.5 rounded-lg transition-colors ${
                         isSelected
                           ? 'bg-brand-terra text-white'
-                          : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 group-hover:text-brand-terra'
+                          : 'bg-[#FFF0E3] dark:bg-[#25121E] text-[#7A4A38] dark:text-[#E6D0C2] group-hover:text-brand-terra'
                       }`}
                     >
                       {cat.icon}
                     </div>
-                    <span className="font-syne font-bold text-sm text-zinc-900 dark:text-white">
+                    <span className={`font-syne font-bold text-sm ${isSelected ? 'text-[#FFF0E3]' : 'text-[#2E0E1D] dark:text-[#FFF0E3]'}`}>
                       {cat.title}
                     </span>
                   </div>
@@ -148,12 +148,12 @@ export function Stack() {
                 className="space-y-6"
               >
                 {/* Tech Overview Card */}
-                <div className="p-6 md:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-6 card-specular">
+                <div className="p-6 md:p-8 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-sm space-y-6 card-specular">
                   <div>
-                    <h3 className="font-syne font-bold text-xl text-zinc-900 dark:text-white">
+                    <h3 className="font-syne font-bold text-xl text-[#2E0E1D] dark:text-[#FFF0E3]">
                       {activeCategory.title}
                     </h3>
-                    <p className="mt-1 font-dm text-sm text-zinc-700 dark:text-zinc-300">
+                    <p className="mt-1 font-dm text-sm text-[#6C4B59] dark:text-[#E6D0C2]">
                       {activeCategory.description}
                     </p>
                   </div>
@@ -162,10 +162,10 @@ export function Stack() {
                     {activeCategory.technologies.map((tech, idx) => (
                       <div
                         key={idx}
-                        className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700/70 hover:border-brand-terra/40 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-2"
+                        className="p-4 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/40 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-2"
                       >
                         <div>
-                          <div className="font-syne font-bold text-sm text-zinc-900 dark:text-white flex items-center gap-2">
+                          <div className="font-syne font-bold text-sm text-[#2E0E1D] dark:text-[#FFF0E3] flex items-center gap-2">
                             <span>{tech.name}</span>
                             {tech.badge && (
                               <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-brand-terra/10 text-brand-terra border border-brand-terra/20 font-medium">
@@ -173,7 +173,7 @@ export function Stack() {
                               </span>
                             )}
                           </div>
-                          <div className="font-dm text-xs text-zinc-700 dark:text-zinc-300 font-medium mt-1">
+                          <div className="font-dm text-xs text-[#6C4B59] dark:text-[#E6D0C2] font-medium mt-1">
                             {tech.purpose}
                           </div>
                         </div>
@@ -183,29 +183,29 @@ export function Stack() {
                 </div>
 
                 {/* Business Outcome & Impact Card */}
-                <div className="p-6 rounded-2xl bg-zinc-900 border border-zinc-800 text-white space-y-4">
-                  <div className="flex items-center justify-between text-xs font-mono text-emerald-400">
+                <div className="p-6 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] space-y-4">
+                  <div className="flex items-center justify-between text-xs font-mono text-[#0E6247] dark:text-emerald-400">
                     <span className="flex items-center gap-1.5 font-bold">
                       <Check size={14} /> WHAT THIS MEANS FOR YOUR BUSINESS
                     </span>
-                    <span className="text-zinc-500">// Real-World Impact</span>
+                    <span className="text-[#7A4A38] dark:text-[#B88E7D]">// Real-World Impact</span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-                    <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
+                    <div className="p-4 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 space-y-1">
                       <div className="font-syne font-bold text-sm text-brand-terra">
                         Sub-Second Page Speed
                       </div>
-                      <div className="font-dm text-xs text-zinc-300 leading-relaxed">
+                      <div className="font-dm text-xs text-[#5A3846] dark:text-[#E6D0C2] leading-relaxed">
                         Visitors load pages instantly without waiting, boosting visitor retention and Google Search rankings.
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
-                      <div className="font-syne font-bold text-sm text-dev-cyan">
+                    <div className="p-4 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 space-y-1">
+                      <div className="font-syne font-bold text-sm text-[#0E6247] dark:text-emerald-400">
                         Zero Downtime &amp; Security
                       </div>
-                      <div className="font-dm text-xs text-zinc-300 leading-relaxed">
+                      <div className="font-dm text-xs text-[#5A3846] dark:text-[#E6D0C2] leading-relaxed">
                         Bank-grade encryption safeguards your business and customer data with 99.99% uptime guarantee.
                       </div>
                     </div>

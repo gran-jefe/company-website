@@ -194,26 +194,26 @@ export default function CurriculumHubPage() {
   })
 
   return (
-    <div className="min-h-screen bg-brand-cream dark:bg-brand-base text-brand-base dark:text-white selection:bg-brand-terra selection:text-white transition-colors duration-300 font-sans">
+    <div className="min-h-screen bg-[#FFF0E3] dark:bg-[#11070D] text-[#2E0E1D] dark:text-[#FFF0E3] selection:bg-brand-terra selection:text-white transition-colors duration-300 font-sans">
       {/* Top Header */}
-      <header className="sticky top-0 z-40 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800/80">
+      <header className="sticky top-0 z-40 bg-[#FFF0E3]/90 dark:bg-[#11070D]/90 backdrop-blur-md border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 sm:gap-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-[#5A3846] dark:text-[#E6D0C2] hover:text-brand-terra dark:hover:text-brand-terra transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-[#FAF0E6] hover:bg-[#F3E2D5] dark:bg-[#1D0E17] dark:hover:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15"
             >
               <ArrowLeft size={14} />
               <span>Back to Gran Jefe</span>
             </Link>
-            <div className="hidden sm:block h-4 w-px bg-zinc-300 dark:bg-zinc-700" />
+            <div className="hidden sm:block h-4 w-px bg-[#EAD3C4] dark:bg-[#EAD3C4]/20" />
             <Link href="/" className="hidden sm:block">
               <Logo variant="auto" size="sm" />
             </Link>
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-brand-terra/10 text-brand-terra dark:text-brand-ember border border-brand-terra/20">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-brand-terra/10 text-brand-terra dark:text-[#FF5528] border border-brand-terra/20">
               <Sparkles size={13} /> Open Learning Hub
             </span>
             <ThemeToggle />
@@ -225,19 +225,19 @@ export default function CurriculumHubPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
         {/* Hub Hero Banner */}
         <div className="max-w-3xl mb-12 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-brand-terra/10 text-brand-terra dark:text-brand-ember border border-brand-terra/20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-brand-terra/10 text-brand-terra dark:text-[#FF5528] border border-brand-terra/20">
             <BookOpen size={14} /> Production Engineering Curriculums
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold tracking-tight text-[#2E0E1D] dark:text-[#FFF0E3] leading-tight">
             Gran Jefe Engineering Learning Hub
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 font-dm leading-relaxed">
+          <p className="text-base sm:text-lg text-[#5A3846] dark:text-[#E6D0C2] font-dm leading-relaxed">
             Curated, project-first engineering curriculums built by senior practitioners. Each track bridges the gap between tutorial theory and production-grade architectures. Free today, built to scale your engineering career.
           </p>
         </div>
 
         {/* Filters & Search */}
-        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-10 pb-6 border-b border-zinc-200 dark:border-zinc-800">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-10 pb-6 border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15">
           {/* Category Tabs */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
             {categories.map((cat) => (
@@ -247,7 +247,7 @@ export default function CurriculumHubPage() {
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-dm font-semibold transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                   selectedCategory === cat.id
                     ? 'bg-brand-terra text-white shadow-xs'
-                    : 'bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300'
+                    : 'bg-[#FAF0E6] dark:bg-[#1D0E17] hover:bg-[#F3E2D5] dark:hover:bg-[#25121E] text-[#5A3846] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15'
                 }`}
               >
                 {cat.label}
@@ -257,13 +257,13 @@ export default function CurriculumHubPage() {
 
           {/* Search Box */}
           <div className="relative w-full md:w-72">
-            <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400" />
+            <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#7A4A38] dark:text-[#B88E7D]" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search tracks, skills, tech..."
-              className="w-full pl-9 pr-4 py-2 text-xs font-dm rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:border-brand-terra focus:ring-1 focus:ring-brand-terra transition-all"
+              className="w-full pl-9 pr-4 py-2 text-xs font-dm rounded-xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] placeholder:text-[#7A4A38]/60 dark:placeholder:text-[#B88E7D]/60 focus:outline-none focus:border-brand-terra focus:ring-1 focus:ring-brand-terra transition-all"
             />
           </div>
         </div>
@@ -273,45 +273,45 @@ export default function CurriculumHubPage() {
           {filteredTracks.map((track) => (
             <div
               key={track.id}
-              className="flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs hover:border-brand-terra/40 dark:hover:border-brand-terra/40 transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-brand-terra/10 group card-specular"
+              className="flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-xs hover:border-brand-terra dark:hover:border-brand-terra/60 transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-brand-clay/10 dark:hover:shadow-black/50 group card-specular"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between gap-2">
                   <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold border ${track.badgeColor}`}>
                     {track.badge}
                   </span>
-                  <span className="text-xs font-mono text-zinc-500">
+                  <span className="text-xs font-mono text-[#7A4A38] dark:text-[#B88E7D]">
                     {track.duration}
                   </span>
                 </div>
 
                 {track.dedicatedFor && (
-                  <div className="inline-flex items-center gap-1.5 text-[11px] font-mono text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
+                  <div className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[#0E6247] dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
                     <Sparkles size={12} /> {track.dedicatedFor}
                   </div>
                 )}
 
                 <div>
-                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-brand-terra dark:group-hover:text-brand-ember transition-colors">
+                  <h3 className="text-xl font-syne font-bold text-[#2E0E1D] dark:text-[#FFF0E3] group-hover:text-brand-terra dark:group-hover:text-[#FF5528] transition-colors">
                     {track.title}
                   </h3>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400 font-mono mt-1">
+                  <p className="text-xs text-[#7A4A38] dark:text-[#B88E7D] font-mono mt-1">
                     {track.subtitle}
                   </p>
                 </div>
 
-                <p className="text-sm text-zinc-600 dark:text-zinc-300 font-dm leading-relaxed">
+                <p className="text-sm text-[#5A3846] dark:text-[#E6D0C2] font-dm leading-relaxed">
                   {track.description}
                 </p>
 
                 {/* Highlights */}
-                <div className="space-y-2 pt-2 border-t border-zinc-100 dark:border-zinc-800">
-                  <p className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-400">
+                <div className="space-y-2 pt-2 border-t border-[#EAD3C4]/60 dark:border-[#EAD3C4]/15">
+                  <p className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#7A4A38] dark:text-[#B88E7D]">
                     What You Will Build &amp; Master
                   </p>
                   <ul className="space-y-1.5">
                     {track.highlights.map((h, i) => (
-                      <li key={i} className="text-xs text-zinc-600 dark:text-zinc-400 flex items-start gap-2 font-dm">
+                      <li key={i} className="text-xs text-[#5A3846] dark:text-[#E6D0C2] flex items-start gap-2 font-dm">
                         <CheckCircle2 size={13} className="text-brand-terra shrink-0 mt-0.5" />
                         <span>{h}</span>
                       </li>
@@ -321,10 +321,10 @@ export default function CurriculumHubPage() {
               </div>
 
               {/* Action Link */}
-              <div className="pt-6 mt-6 border-t border-zinc-100 dark:border-zinc-800">
+              <div className="pt-6 mt-6 border-t border-[#EAD3C4]/60 dark:border-[#EAD3C4]/15">
                 <Link
                   href={track.href}
-                  className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl text-xs font-dm font-semibold bg-zinc-100 hover:bg-brand-terra hover:text-white dark:bg-zinc-800 dark:hover:bg-brand-terra dark:hover:text-white text-zinc-900 dark:text-white transition-all shadow-xs group/btn"
+                  className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl text-xs font-dm font-semibold bg-[#FAF0E6] hover:bg-brand-terra hover:text-white dark:bg-[#25121E] dark:hover:bg-brand-terra dark:hover:text-white text-[#2E0E1D] dark:text-[#FFF0E3] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 transition-all shadow-xs group/btn"
                 >
                   <span>View Full Curriculum &amp; Projects</span>
                   <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
@@ -335,14 +335,14 @@ export default function CurriculumHubPage() {
         </div>
 
         {/* Global Footer Navigation */}
-        <div className="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-16 pt-8 border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex flex-col sm:flex-row items-center justify-between gap-4">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra dark:text-brand-ember hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra dark:text-[#FF5528] hover:underline"
           >
             <ArrowLeft size={16} /> Return to Gran Jefe Homepage
           </Link>
-          <span className="text-xs text-zinc-500 font-mono">
+          <span className="text-xs text-[#7A4A38] dark:text-[#B88E7D] font-mono">
             Gran Jefe Engineering Curriculum Hub &bull; 2025
           </span>
         </div>

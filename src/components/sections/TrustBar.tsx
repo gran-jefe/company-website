@@ -54,19 +54,19 @@ const trustItems: TrustItem[] = [
 
 export function TrustBar() {
   return (
-    <section className="relative py-7 bg-white dark:bg-zinc-950 border-y border-zinc-200/80 dark:border-zinc-800/80 overflow-hidden text-zinc-900 dark:text-white">
+    <section className="relative py-7 bg-[#FAF0E6] dark:bg-[#140A10] border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 overflow-hidden text-[#2E0E1D] dark:text-[#FFF0E3]">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Top Official Registry Strip */}
-        <div className="mb-5 pb-4 border-b border-zinc-100 dark:border-zinc-900 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-600 dark:text-zinc-400">
+        <div className="mb-5 pb-4 border-b border-[#EAD3C4]/70 dark:border-[#EAD3C4]/15 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#7A4A38] dark:text-[#E6D0C2]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-zinc-900 dark:text-white font-bold">CERTIFIED CORPORATE ENTITY:</span>
-            <span className="text-emerald-700 dark:text-emerald-400 font-bold">GRAN JEFE SOLUTIONS</span>
-            <span className="text-zinc-400 dark:text-zinc-600">//</span>
-            <span className="text-zinc-700 dark:text-zinc-300 font-semibold">CAC BN: 9529101</span>
+            <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-bold">CERTIFIED CORPORATE ENTITY:</span>
+            <span className="text-[#0E6247] dark:text-emerald-400 font-bold">GRAN JEFE SOLUTIONS</span>
+            <span className="text-[#C4A0B8] dark:text-[#7A4A38]">//</span>
+            <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-semibold">CAC BN: 9529101</span>
           </div>
 
-          <div className="flex items-center gap-2 text-[11px] text-zinc-500">
+          <div className="flex items-center gap-2 text-[11px] text-[#7A4A38] dark:text-[#B88E7D]">
             <Award size={14} className="text-brand-terra" />
             <span>Sole Proprietorship • Active Status • Founded by Adeleke Sherifdeen</span>
           </div>
@@ -80,19 +80,19 @@ export function TrustBar() {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-4 rounded-2xl bg-zinc-50/70 dark:bg-zinc-900/70 border border-zinc-200/80 dark:border-zinc-800 hover:border-brand-terra/60 transition-all duration-300 flex flex-col justify-between hover:shadow-lg hover:shadow-brand-terra/5 hover:-translate-y-0.5"
+              className="group p-4 rounded-2xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/60 dark:hover:border-brand-terra/60 transition-all duration-300 flex flex-col justify-between hover:shadow-lg hover:shadow-brand-clay/10 dark:hover:shadow-black/50 hover:-translate-y-0.5"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2.5">
-                  <div className="p-2 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-brand-terra group-hover:scale-105 transition-transform shadow-xs">
+                  <div className="p-2 rounded-xl bg-[#FAF0E6] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-brand-terra group-hover:scale-105 transition-transform shadow-xs">
                     {item.icon}
                   </div>
-                  <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-white dark:bg-zinc-950 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800">
+                  <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-[#FAF0E6] dark:bg-[#25121E] text-[#7A4A38] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15">
                     {item.location}
                   </span>
                 </div>
 
-                <h4 className="font-syne font-bold text-sm text-zinc-900 dark:text-white group-hover:text-brand-terra transition-colors flex items-center justify-between">
+                <h4 className="font-syne font-bold text-sm text-[#2E0E1D] dark:text-[#FFF0E3] group-hover:text-brand-terra transition-colors flex items-center justify-between">
                   <span>{item.entity}</span>
                   <ArrowUpRight
                     size={14}
@@ -100,14 +100,14 @@ export function TrustBar() {
                   />
                 </h4>
 
-                <p className="mt-1 text-xs font-dm text-zinc-600 dark:text-zinc-400 line-clamp-2 leading-relaxed">
+                <p className="mt-1 text-xs font-dm text-[#6C4B59] dark:text-[#E6D0C2] line-clamp-2 leading-relaxed">
                   {item.role}
                 </p>
               </div>
 
-              <div className="mt-3.5 pt-2.5 border-t border-zinc-200/60 dark:border-zinc-800/80 flex items-center justify-between text-[10px] font-mono text-zinc-500">
+              <div className="mt-3.5 pt-2.5 border-t border-[#EAD3C4]/60 dark:border-[#EAD3C4]/15 flex items-center justify-between text-[10px] font-mono text-[#7A4A38] dark:text-[#B88E7D]">
                 <span>{item.badge}</span>
-                <span className="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
+                <span className="text-[#0E6247] dark:text-emerald-400 font-semibold flex items-center gap-1">
                   ● Verified Live
                 </span>
               </div>

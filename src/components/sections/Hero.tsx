@@ -56,9 +56,9 @@ const heroShowcase: HeroProject[] = [
 
 export function Hero() {
   const [activePersona, setActivePersona] = useState<'all' | 'startups' | 'fintech' | 'luxury'>('all')
-  const [activeProjectId, setActiveProjectId] = useState<string>(heroShowcase[0].id)
+  const [activeProjectId, setActiveProjectId] = useState<string>('nhc')
 
-  const activeProject = heroShowcase.find((p) => p.id === activeProjectId) || heroShowcase[0]
+  const activeProject = heroShowcase.find((p) => p.id === activeProjectId) || heroShowcase[1]
 
   // 3D Perspective Tilt on Mouse Move
   const mouseX = useMotionValue(0)
@@ -81,29 +81,29 @@ export function Hero() {
   }
 
   return (
-    <section className="relative min-h-[92vh] pt-8 pb-16 md:py-20 overflow-hidden flex items-center bg-[#FCFCFA] dark:bg-zinc-950 text-zinc-900 dark:text-white transition-colors duration-300">
+    <section className="relative min-h-[92vh] pt-8 pb-16 md:py-20 overflow-hidden flex items-center bg-transparent text-[#2E0E1D] dark:text-[#FFF0E3] transition-colors duration-300">
       {/* Luminous Ambient Background Glows */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-10 left-1/4 w-[600px] h-[600px] bg-brand-terra/[0.06] rounded-full blur-[140px]" />
-        <div className="absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-amber-500/[0.05] rounded-full blur-[150px]" />
+        <div className="absolute top-10 left-1/4 w-[600px] h-[600px] bg-brand-terra/[0.10] dark:bg-brand-terra/[0.16] rounded-full blur-[140px]" />
+        <div className="absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-brand-blush/[0.14] dark:bg-brand-ember/[0.12] rounded-full blur-[150px]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-6 w-full z-10">
         {/* Wispr Flow-style Persona Selector Pills */}
         <div className="mb-6 flex flex-wrap items-center gap-2">
-          <span className="text-[11px] font-mono text-zinc-700 dark:text-zinc-300 font-bold uppercase tracking-wider mr-1">
+          <span className="text-[11px] font-mono text-[#7A4A38] dark:text-[#B88E7D] font-bold uppercase tracking-wider mr-1">
             Engineered For:
           </span>
 
           <button
             onClick={() => {
               setActivePersona('all')
-              setActiveProjectId('projectcatalogue')
+              setActiveProjectId('nhc')
             }}
             className={`px-3 py-1 rounded-full text-xs font-dm font-semibold transition-all ${
               activePersona === 'all'
-                ? 'bg-zinc-900 text-white shadow-sm dark:bg-white dark:text-zinc-900'
-                : 'bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400'
+                ? 'bg-[#2E0E1D] text-[#FFF0E3] shadow-sm dark:bg-[#FFF0E3] dark:text-[#2E0E1D] font-bold shadow-brand-cream/10'
+                : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/50 dark:hover:text-[#FFF0E3]'
             }`}
           >
             All Work
@@ -117,7 +117,7 @@ export function Hero() {
             className={`px-3 py-1 rounded-full text-xs font-dm font-semibold transition-all flex items-center gap-1.5 ${
               activePersona === 'startups'
                 ? 'bg-brand-terra text-white shadow-sm'
-                : 'bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-brand-terra/50'
+                : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/50 dark:hover:text-[#FFF0E3]'
             }`}
           >
             <Zap size={12} className="text-amber-500" />
@@ -131,8 +131,8 @@ export function Hero() {
             }}
             className={`px-3 py-1 rounded-full text-xs font-dm font-semibold transition-all flex items-center gap-1.5 ${
               activePersona === 'fintech'
-                ? 'bg-emerald-600 text-white shadow-sm'
-                : 'bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500/50'
+                ? 'bg-[#0E6247] text-white shadow-sm'
+                : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-emerald-500/50 dark:hover:text-[#FFF0E3]'
             }`}
           >
             <ShieldCheck size={12} className="text-emerald-500" />
@@ -147,7 +147,7 @@ export function Hero() {
             className={`px-3 py-1 rounded-full text-xs font-dm font-semibold transition-all flex items-center gap-1.5 ${
               activePersona === 'luxury'
                 ? 'bg-brand-terra text-white shadow-sm'
-                : 'bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:border-brand-terra/50'
+                : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/50 dark:hover:text-[#FFF0E3]'
             }`}
           >
             <Sparkles size={12} className="text-brand-terra" />
@@ -159,52 +159,52 @@ export function Hero() {
           {/* Left Column: Bold Typography & Narrative (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             {/* Studio Badge */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-mono shadow-xs">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-xs font-mono shadow-xs">
               <span className="w-2 h-2 rounded-full bg-brand-terra animate-pulse" />
-              <span className="text-zinc-700 dark:text-zinc-300 font-bold">CREATIVE ENGINEERING STUDIO</span>
-              <span className="text-zinc-400">//</span>
-              <span className="text-zinc-800 dark:text-zinc-200 font-bold">EST. 2025</span>
+              <span className="text-[#7A4A38] dark:text-[#E6D0C2] font-bold">CREATIVE ENGINEERING STUDIO</span>
+              <span className="text-[#C4A0B8] dark:text-[#7A4A38]">//</span>
+              <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-bold">EST. 2025</span>
             </div>
 
-            {/* Giant Hero Headline (Wispr Flow High-Contrast Style) */}
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-syne font-extrabold text-zinc-950 dark:text-white leading-[1.05] tracking-tight">
+            {/* Giant Hero Headline (Editorial Brand Style) */}
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-syne font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3] leading-[1.05] tracking-tight">
               We build websites &amp; digital products that make brands{' '}
-              <span className="font-serif italic font-normal text-brand-terra underline decoration-brand-terra/30 underline-offset-8">
+              <span className="font-serif italic font-normal text-brand-terra dark:text-[#FF5528] underline decoration-brand-terra/40 underline-offset-8">
                 impossible
               </span>{' '}
               to ignore.
             </h1>
 
             {/* Plain-English Outcome-Driven Sub-headline */}
-            <p className="text-base sm:text-lg md:text-xl font-dm text-zinc-800 dark:text-zinc-200 leading-relaxed max-w-2xl font-normal">
+            <p className="text-base sm:text-lg md:text-xl font-dm text-[#6C4B59] dark:text-[#E6D0C2] leading-relaxed max-w-2xl font-normal">
               High-converting web platforms, sovereign payment engines, and mobile applications. Engineered for sub-second speed, editorial visual finish, and measurable revenue growth.
             </p>
 
             {/* Key Business Outcome Proof Badges */}
             <div className="grid grid-cols-3 gap-3 max-w-lg pt-1">
-              <div className="p-3.5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 shadow-xs hover:border-brand-terra/40 transition-colors">
-                <div className="flex items-center gap-1.5 text-brand-terra text-xs font-mono font-bold">
+              <div className="p-3.5 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-xs hover:border-brand-terra/50 transition-colors">
+                <div className="flex items-center gap-1.5 text-brand-terra dark:text-[#FF5528] text-xs font-mono font-bold">
                   <Zap size={14} /> SPEED SCORE
                 </div>
-                <div className="mt-1 text-sm font-mono font-extrabold text-zinc-900 dark:text-white">
+                <div className="mt-1 text-sm font-mono font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3]">
                   99/100 Core Web Vitals
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 shadow-xs hover:border-emerald-500/40 transition-colors">
-                <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-bold">
+              <div className="p-3.5 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-xs hover:border-emerald-500/50 transition-colors">
+                <div className="flex items-center gap-1.5 text-[#0E6247] dark:text-emerald-400 text-xs font-mono font-bold">
                   <ShieldCheck size={14} /> CAC CERTIFIED
                 </div>
-                <div className="mt-1 text-sm font-mono font-extrabold text-zinc-900 dark:text-white">
+                <div className="mt-1 text-sm font-mono font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3]">
                   BN: 9529101
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 shadow-xs hover:border-dev-cyan/40 transition-colors">
-                <div className="flex items-center gap-1.5 text-blue-600 dark:text-dev-cyan text-xs font-mono font-bold">
+              <div className="p-3.5 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-xs hover:border-brand-terra/50 transition-colors">
+                <div className="flex items-center gap-1.5 text-brand-terra dark:text-[#FF5528] text-xs font-mono font-bold">
                   <Globe size={14} /> TRACK RECORD
                 </div>
-                <div className="mt-1 text-sm font-mono font-extrabold text-zinc-900 dark:text-white">
+                <div className="mt-1 text-sm font-mono font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3]">
                   UK &amp; Global Clients
                 </div>
               </div>
@@ -230,7 +230,7 @@ export function Hero() {
                   const workSection = document.querySelector('#work')
                   if (workSection) workSection.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="py-4 px-8 text-sm font-dm font-semibold flex items-center justify-center gap-2 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 transition-all shadow-xs"
+                className="py-4 px-8 text-sm font-dm font-semibold flex items-center justify-center gap-2 bg-[#FAF0E6] hover:bg-[#F3E2D5] border-[#EAD3C4] dark:bg-[#1D0E17] dark:hover:bg-[#25121E] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] transition-all shadow-xs"
               >
                 <span>Explore Selected Work ↓</span>
               </Button>
@@ -241,33 +241,32 @@ export function Hero() {
           <div className="lg:col-span-5 w-full">
             <div className="relative">
               {/* Rotating "Available for Q4 Sprints" Badge */}
-              <div className="absolute -top-5 -right-3 sm:-right-5 z-20">
+              <div className="absolute -top-7 -right-3 sm:-right-5 z-20 pointer-events-none">
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
-                  className="w-24 h-24 rounded-full border border-dashed border-brand-terra/50 bg-white/90 dark:bg-zinc-900/90 text-zinc-800 dark:text-zinc-200 backdrop-blur-md flex items-center justify-center text-[9px] font-mono uppercase tracking-widest text-center shadow-xl p-2 select-none"
+                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                  className="w-20 h-20 rounded-full border border-dashed border-brand-terra/50 bg-[#FAF0E6]/95 dark:bg-[#1D0E17]/95 text-[#2E0E1D] dark:text-[#FFF0E3] backdrop-blur-md flex items-center justify-center text-[8px] font-mono uppercase tracking-widest text-center shadow-lg p-2 select-none"
                 >
-                  <span className="leading-tight font-bold">● AVAILABLE FOR Q4 SPRINTS ●</span>
+                  <span className="leading-tight font-bold">● Q4 SPRINTS ● AVAILABLE</span>
                 </motion.div>
               </div>
 
-              {/* 3D Tilted Interactive Card (Wispr Flow Bright Aesthetic) */}
+              {/* 3D Tilted Interactive Card (Brand Editorial Aesthetic) */}
               <motion.div
-                style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
+                style={{ rotateX, rotateY }}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
-                className="rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 shadow-2xl shadow-zinc-200/60 dark:shadow-black/50 overflow-hidden text-zinc-900 dark:text-white backdrop-blur-2xl transition-shadow duration-300 hover:shadow-brand-terra/15"
-                data-cursor-project="true"
+                className="rounded-3xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-2xl shadow-brand-clay/15 dark:shadow-black/70 overflow-hidden text-[#2E0E1D] dark:text-[#FFF0E3] transition-shadow duration-300 hover:shadow-brand-terra/20"
               >
                 {/* Browser Stage Header */}
-                <div className="px-5 py-3.5 bg-zinc-50 dark:bg-zinc-950 border-b border-zinc-200/80 dark:border-zinc-800 flex items-center justify-between text-xs font-mono select-none">
+                <div className="px-5 py-3.5 bg-[#F3E2D5] dark:bg-[#25121E] border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center justify-between text-xs font-mono select-none">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
                     <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                   </div>
 
-                  <div className="px-3 py-0.5 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[11px] text-zinc-600 dark:text-zinc-400 font-mono truncate max-w-[210px]">
+                  <div className="px-3 py-0.5 rounded-full bg-[#FFF0E3] dark:bg-[#170A13] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[11px] text-[#6C4B59] dark:text-[#E6D0C2] font-mono truncate max-w-[200px]">
                     {activeProject.url.replace('https://', '')}
                   </div>
 
@@ -275,7 +274,7 @@ export function Hero() {
                     href={activeProject.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-[11px] font-bold text-brand-terra hover:text-brand-ember transition-colors"
+                    className="flex items-center gap-1 text-[11px] font-bold text-brand-terra dark:text-[#FF5528] hover:text-brand-ember transition-colors relative z-10"
                   >
                     <span>Visit Live</span>
                     <ExternalLink size={12} />
@@ -283,28 +282,20 @@ export function Hero() {
                 </div>
 
                 {/* Screenshot Viewport with Smooth Image Crossfade */}
-                <div className="relative w-full h-64 sm:h-72 bg-zinc-100 dark:bg-zinc-950 overflow-hidden group">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={activeProject.id}
-                      initial={{ opacity: 0, scale: 1.04 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.98 }}
-                      transition={{ duration: 0.35 }}
-                      className="absolute inset-0"
-                    >
-                      <Image
-                        src={activeProject.image}
-                        alt={activeProject.title}
-                        fill
-                        className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                        unoptimized
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/20 to-transparent" />
-                    </motion.div>
-                  </AnimatePresence>
+                <div className="relative w-full h-64 sm:h-72 bg-[#1D0E17] overflow-hidden group">
+                  <Image
+                    key={activeProject.id}
+                    src={activeProject.image}
+                    alt={activeProject.title}
+                    fill
+                    priority
+                    unoptimized
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-top transition-all duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
 
-                  <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between">
+                  <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between z-10 pointer-events-none">
                     <div>
                       <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-brand-terra text-white uppercase tracking-wider shadow-sm">
                         {activeProject.category}
@@ -316,21 +307,21 @@ export function Hero() {
                   </div>
                 </div>
 
-                {/* Demonstrable Value Panel (Wispr Flow Feature Style) */}
-                <div className="p-5 bg-white dark:bg-zinc-900 border-t border-zinc-200/80 dark:border-zinc-800 space-y-4">
+                {/* Demonstrable Value Panel */}
+                <div className="p-5 bg-[#FAF0E6] dark:bg-[#1D0E17] border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 space-y-4">
                   <div className="flex items-center justify-between text-[11px] font-mono">
-                    <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1.5">
+                    <span className="text-[#0E6247] dark:text-emerald-400 font-bold flex items-center gap-1.5">
                       <Zap size={13} /> {activeProject.metric}
                     </span>
-                    <span className="text-zinc-600 dark:text-zinc-400 font-medium">Verified Shipped Build</span>
+                    <span className="text-[#7A4A38] dark:text-[#B88E7D] font-medium">Verified Shipped Build</span>
                   </div>
 
-                  <p className="text-xs font-dm text-zinc-700 dark:text-zinc-300 leading-relaxed font-medium">
+                  <p className="text-xs font-dm text-[#5A3846] dark:text-[#E6D0C2] leading-relaxed font-medium">
                     {activeProject.tagline}
                   </p>
 
                   {/* Interactive Project Switcher Chips */}
-                  <div className="grid grid-cols-3 gap-2 pt-1 border-t border-zinc-100 dark:border-zinc-800">
+                  <div className="grid grid-cols-3 gap-2 pt-1 border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15">
                     {heroShowcase.map((p) => {
                       const isSelected = p.id === activeProject.id
                       return (
@@ -339,14 +330,16 @@ export function Hero() {
                           onClick={() => setActiveProjectId(p.id)}
                           className={`p-2.5 rounded-xl text-left transition-all ${
                             isSelected
-                              ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-md font-semibold'
-                              : 'bg-zinc-50 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200/70 dark:border-zinc-800'
+                              ? 'bg-[#2E0E1D] text-[#FFF0E3] dark:bg-brand-terra dark:text-[#FFF0E3] shadow-md font-semibold dark:shadow-brand-terra/20'
+                              : 'bg-[#FFF0E3] dark:bg-[#25121E] text-[#6C4B59] dark:text-[#E6D0C2] hover:bg-[#F3E2D5] dark:hover:bg-[#301627] border border-[#EAD3C4] dark:border-[#EAD3C4]/15'
                           }`}
                         >
-                          <div className="truncate text-[9px] font-mono uppercase tracking-wider opacity-70">
+                          <div className={`truncate text-[9px] font-mono uppercase tracking-wider ${isSelected ? 'text-brand-ember dark:text-white/80 font-bold' : 'text-[#7A4A38] dark:text-[#B88E7D]'}`}>
                             {p.id === 'projectcatalogue' ? 'Luxury Dev' : p.id === 'nhc' ? 'Sovereign' : 'Fintech'}
                           </div>
-                          <div className="truncate text-xs font-syne font-bold mt-0.5">{p.title.split(' ')[0]}</div>
+                          <div className={`truncate text-xs font-syne font-bold mt-0.5 ${isSelected ? 'text-[#FFF0E3]' : 'text-[#2E0E1D] dark:text-[#FFF0E3]'}`}>
+                            {p.title.split(' ')[0]}
+                          </div>
                         </button>
                       )
                     })}

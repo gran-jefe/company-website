@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/Button'
 const navItems = [
   { label: 'Work', href: '#work' },
   { label: 'Services', href: '#services' },
+  { label: 'Process', href: '#process' },
   { label: 'Studio', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -60,8 +61,8 @@ export function Navbar() {
     <header
       className={`sticky top-0 z-40 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl border-b border-zinc-200/80 dark:border-zinc-800/80 shadow-xs'
-          : 'bg-white/70 dark:bg-zinc-950/70 backdrop-blur-md border-b border-zinc-100 dark:border-zinc-900'
+          ? 'bg-[#FFF0E3]/90 dark:bg-[#11070D]/90 backdrop-blur-xl border-b border-[#EAD3C4]/80 dark:border-[#EAD3C4]/15 shadow-xs'
+          : 'bg-[#FFF0E3]/75 dark:bg-[#11070D]/75 backdrop-blur-md border-b border-[#EAD3C4]/40 dark:border-[#EAD3C4]/10'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between gap-4">
@@ -75,10 +76,10 @@ export function Navbar() {
             <Logo variant="auto" size="sm" />
           </button>
 
-          <div className="hidden lg:flex items-center gap-2 pl-3 border-l border-zinc-200 dark:border-zinc-800 text-[11px] font-mono text-zinc-500">
+          <div className="hidden lg:flex items-center gap-2 pl-3 border-l border-[#EAD3C4] dark:border-[#EAD3C4]/20 text-[11px] font-mono text-[#7A4A38] dark:text-[#C4A0B8]">
             <span>STUDIO</span>
-            <span className="text-zinc-400">/</span>
-            <span className="text-zinc-800 dark:text-zinc-200 font-semibold">IBADAN &amp; LONDON</span>
+            <span className="text-[#C4A0B8] dark:text-[#7A4A38]">/</span>
+            <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-semibold">IBADAN &amp; LONDON</span>
           </div>
         </div>
 
@@ -93,7 +94,7 @@ export function Navbar() {
                 className={`font-dm text-sm tracking-wide transition-colors relative py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra rounded ${
                   isActive
                     ? 'text-brand-terra font-semibold dark:text-brand-ember'
-                    : 'text-zinc-600 dark:text-zinc-300 hover:text-brand-terra dark:hover:text-white'
+                    : 'text-[#6C4B59] dark:text-[#E6D0C2] hover:text-brand-terra dark:hover:text-[#FFF0E3]'
                 }`}
               >
                 {item.label}
@@ -112,7 +113,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           {/* CAC Official Registered Pill */}
           <div
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-[11px] font-mono text-emerald-800 dark:text-emerald-300"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E1F5EE] dark:bg-emerald-950/40 border border-[#A7E3D0] dark:border-emerald-500/30 text-[11px] font-mono text-[#0E6247] dark:text-emerald-300"
             title="Officially registered with the Corporate Affairs Commission (Federal Republic of Nigeria)"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -133,7 +134,7 @@ export function Navbar() {
           {/* Mobile menu trigger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-zinc-800 dark:text-white focus-visible:outline-none rounded"
+            className="md:hidden p-2 text-[#2E0E1D] dark:text-[#FFF0E3] focus-visible:outline-none rounded"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -149,10 +150,10 @@ export function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl"
+            className="md:hidden border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 bg-[#FFF0E3]/98 dark:bg-[#11070D]/98 backdrop-blur-xl"
           >
             <div className="px-4 py-6 space-y-4 max-w-7xl mx-auto">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-xs font-mono text-emerald-800 dark:text-emerald-300 mb-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E1F5EE] dark:bg-emerald-950/40 border border-[#A7E3D0] dark:border-emerald-800/60 text-xs font-mono text-[#0E6247] dark:text-emerald-300 mb-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span>Verified Entity: CAC BN 9529101</span>
               </div>
@@ -161,7 +162,7 @@ export function Navbar() {
                 <button
                   key={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className="block w-full text-left py-2 font-syne text-lg font-bold text-zinc-900 dark:text-white hover:text-brand-terra dark:hover:text-brand-ember transition-colors"
+                  className="block w-full text-left py-2 font-syne text-lg font-bold text-[#2E0E1D] dark:text-[#FFF0E3] hover:text-brand-terra dark:hover:text-brand-ember transition-colors"
                 >
                   {item.label}
                 </button>

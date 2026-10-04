@@ -74,18 +74,18 @@ const services: ServiceItem[] = [
 
 export function Services() {
   return (
-    <section id="services" className="bg-white dark:bg-zinc-950 py-20 md:py-28 relative border-t border-zinc-200/80 dark:border-zinc-800 text-zinc-900 dark:text-white transition-colors duration-300">
+    <section id="services" className="bg-[#FAF0E6] dark:bg-[#140A10] py-20 md:py-28 relative border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <AnimatedSection>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <SectionLabel>What We Do</SectionLabel>
-              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-bold text-zinc-900 dark:text-white tracking-tight">
+              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-bold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
                 Full-spectrum software engineering.{' '}
                 <span className="text-brand-terra">Tailored to your needs.</span>
               </h2>
             </div>
-            <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400 max-w-xs">
+            <p className="font-mono text-xs text-[#7A4A38] dark:text-[#B88E7D] max-w-xs">
               // Strict engineering standards, clean modular architecture, zero technical debt.
             </p>
           </div>
@@ -93,50 +93,50 @@ export function Services() {
 
         {/* Featured Rapid Rebuild Sprint Card */}
         <AnimatedSection delay={0.03}>
-          <div className="mt-10 p-6 md:p-8 rounded-3xl bg-gradient-to-br from-zinc-900 via-zinc-950 to-zinc-900 border-2 border-brand-terra/40 text-white shadow-2xl relative overflow-hidden group">
+          <div className="mt-10 p-6 md:p-8 rounded-3xl bg-gradient-to-br from-[#1D0E17] via-[#25121E] to-[#1D0E17] border-2 border-brand-terra/50 text-[#FFF0E3] shadow-2xl relative overflow-hidden group">
             {/* Ambient Lighting */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-brand-terra/15 rounded-full blur-3xl pointer-events-none group-hover:bg-brand-terra/25 transition-colors" />
+            <div className="absolute top-0 right-0 w-80 h-80 bg-brand-terra/20 rounded-full blur-3xl pointer-events-none group-hover:bg-brand-terra/30 transition-colors" />
             
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
               <div className="lg:col-span-8 space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-terra/20 border border-brand-terra/40 text-brand-terra dark:text-brand-ember text-xs font-mono font-bold">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-terra/20 border border-brand-terra/40 text-brand-ember text-xs font-mono font-bold">
                   <Sparkles size={13} />
                   <span>FEATURED SPRINT // 7-DAY DELIVERY</span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-syne font-extrabold text-white tracking-tight">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-syne font-extrabold text-[#FFF0E3] tracking-tight">
                   The 7-Day Performance &amp; Conversion Rebuild
                 </h3>
 
-                <p className="text-sm sm:text-base font-dm text-zinc-300 leading-relaxed max-w-2xl">
+                <p className="text-sm sm:text-base font-dm text-[#EAD3C4] dark:text-[#E6D0C2] leading-relaxed max-w-2xl">
                   Is a slow, dated, or clunky website draining your paid ad budget and losing customers? We completely rebuild your landing page or web application into an ultra-fast, interactive Next.js 16 experience in 7 business days flat.
                 </p>
 
                 {/* Value Checkpoints */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                  <div className="flex items-center gap-2 text-xs font-dm text-zinc-200">
+                  <div className="flex items-center gap-2 text-xs font-dm text-[#FFF0E3] dark:text-[#E6D0C2]">
                     <CheckCircle2 size={15} className="text-brand-terra flex-shrink-0" />
                     <span><strong>95+ Core Web Vitals:</strong> Sub-second mobile load speeds</span>
                   </div>
-                  <div className="flex items-center gap-2 text-xs font-dm text-zinc-200">
+                  <div className="flex items-center gap-2 text-xs font-dm text-[#FFF0E3] dark:text-[#E6D0C2]">
                     <CheckCircle2 size={15} className="text-brand-terra flex-shrink-0" />
                     <span><strong>Conversion-Optimized UX:</strong> Clear hierarchy &amp; zero layout shift</span>
                   </div>
-                  <div className="flex items-center gap-2 text-xs font-dm text-zinc-200">
+                  <div className="flex items-center gap-2 text-xs font-dm text-[#FFF0E3] dark:text-[#E6D0C2]">
                     <CheckCircle2 size={15} className="text-brand-terra flex-shrink-0" />
                     <span><strong>Fluid Interactions:</strong> Smooth 60fps micro-animations</span>
                   </div>
-                  <div className="flex items-center gap-2 text-xs font-dm text-zinc-200">
+                  <div className="flex items-center gap-2 text-xs font-dm text-[#FFF0E3] dark:text-[#E6D0C2]">
                     <CheckCircle2 size={15} className="text-brand-terra flex-shrink-0" />
                     <span><strong>Fixed Timeline:</strong> Production-ready in 7 business days</span>
                   </div>
                 </div>
               </div>
 
-              <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-3 pt-4 lg:pt-0 border-t lg:border-t-0 lg:border-l border-zinc-800 lg:pl-8">
+              <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-3 pt-4 lg:pt-0 border-t lg:border-t-0 lg:border-l border-[#EAD3C4]/15 lg:pl-8">
                 <div className="space-y-1 text-left lg:text-right">
-                  <div className="text-xs font-mono text-zinc-400">Fixed-Scope Engagement</div>
-                  <div className="text-2xl font-syne font-bold text-white flex items-center gap-2 lg:justify-end">
+                  <div className="text-xs font-mono text-[#E6C5B8] dark:text-[#B88E7D]">Fixed-Scope Engagement</div>
+                  <div className="text-2xl font-syne font-bold text-[#FFF0E3] flex items-center gap-2 lg:justify-end">
                     <Clock size={20} className="text-brand-terra" />
                     <span>7 Business Days</span>
                   </div>
@@ -163,18 +163,18 @@ export function Services() {
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <AnimatedSection key={service.id} delay={index * 0.06}>
-              <div className="h-full group relative p-7 rounded-2xl bg-zinc-50 dark:bg-zinc-900/90 border border-zinc-200/90 dark:border-zinc-800 hover:border-brand-terra/60 dark:hover:border-brand-terra/60 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:shadow-brand-terra/10 hover:-translate-y-1.5 card-specular">
+              <div className="h-full group relative p-7 rounded-2xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/60 dark:hover:border-brand-terra/60 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:shadow-brand-clay/10 dark:hover:shadow-black/60 hover:-translate-y-1.5 card-specular">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-[11px] font-bold text-zinc-400 dark:text-zinc-500 group-hover:text-brand-terra transition-colors">
+                    <span className="font-mono text-[11px] font-bold text-[#7A4A38] dark:text-[#B88E7D] group-hover:text-brand-terra transition-colors">
                       {service.codeTag}
                     </span>
-                    <div className="p-2.5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-xs group-hover:scale-105 transition-transform">
+                    <div className="p-2.5 rounded-xl bg-[#FAF0E6] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-xs group-hover:scale-105 transition-transform text-brand-terra">
                       {service.icon}
                     </div>
                   </div>
 
-                  <h3 className="font-syne font-bold text-xl text-zinc-900 dark:text-white mb-2 flex items-center justify-between">
+                  <h3 className="font-syne font-bold text-xl text-[#2E0E1D] dark:text-[#FFF0E3] mb-2 flex items-center justify-between">
                     <span>{service.title}</span>
                     <ArrowUpRight
                       size={18}
@@ -182,24 +182,24 @@ export function Services() {
                     />
                   </h3>
 
-                  <p className="font-dm font-normal text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed mb-6">
+                  <p className="font-dm font-normal text-[#6C4B59] dark:text-[#E6D0C2] text-sm leading-relaxed mb-6">
                     {service.description}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-zinc-200 dark:border-zinc-800 space-y-3">
+                <div className="pt-4 border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 space-y-3">
                   <div className="flex flex-wrap gap-1.5">
                     {service.techStack.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-2.5 py-1 rounded text-xs font-mono bg-white dark:bg-zinc-800/80 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 hover:border-brand-terra/40 transition-colors"
+                        className="px-2.5 py-1 rounded text-xs font-mono bg-[#FAF0E6] dark:bg-[#25121E] text-[#2E0E1D] dark:text-[#FFF0E3] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/40 transition-colors"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  <div className="font-mono text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 pt-1">
+                  <div className="font-mono text-xs font-semibold text-[#0E6247] dark:text-emerald-400 flex items-center gap-1.5 pt-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     <span>{service.highlight}</span>
                   </div>

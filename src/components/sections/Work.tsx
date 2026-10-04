@@ -402,7 +402,7 @@ export function Work() {
   }, [isAutoRotating, selectedProjectId, filteredProjects])
 
   return (
-    <section id="work" className="bg-[#F8F8F5] dark:bg-zinc-950 py-20 md:py-28 relative border-t border-zinc-200/80 dark:border-zinc-800 text-zinc-900 dark:text-white transition-colors duration-300">
+    <section id="work" className="bg-transparent py-20 md:py-28 relative border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] transition-colors duration-300">
       {/* Background Ambient Glow */}
       <div className="absolute inset-0 bg-cyber-grid bg-[size:32px_32px] opacity-[0.03] dark:opacity-[0.05] pointer-events-none" />
 
@@ -411,21 +411,21 @@ export function Work() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div>
               <SectionLabel>Selected Work &amp; Case Studies</SectionLabel>
-              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-zinc-900 dark:text-white tracking-tight">
+              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
                 Crafted for impact.{' '}
-                <span className="font-serif italic font-normal text-brand-terra">Engineered to scale.</span>
+                <span className="font-serif italic font-normal text-brand-terra dark:text-brand-ember">Engineered to scale.</span>
               </h2>
             </div>
 
             {/* View Mode Switcher + Stats */}
             <div className="flex flex-wrap items-center gap-3">
-              <div className="p-1 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center gap-1">
+              <div className="p-1 rounded-xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center gap-1">
                 <button
                   onClick={() => setViewMode('workstation')}
                   className={`px-3.5 py-1.5 rounded-lg text-xs font-dm font-semibold transition-all flex items-center gap-1.5 ${
                     viewMode === 'workstation'
                       ? 'bg-brand-terra text-white shadow-sm'
-                      : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
+                      : 'text-[#6C4B59] dark:text-[#E6D0C2] hover:text-[#2E0E1D] dark:hover:text-[#FFF0E3]'
                   }`}
                 >
                   <Monitor size={14} />
@@ -437,7 +437,7 @@ export function Work() {
                   className={`px-3.5 py-1.5 rounded-lg text-xs font-dm font-semibold transition-all flex items-center gap-1.5 ${
                     viewMode === 'grid'
                       ? 'bg-brand-terra text-white shadow-sm'
-                      : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
+                      : 'text-[#6C4B59] dark:text-[#E6D0C2] hover:text-[#2E0E1D] dark:hover:text-[#FFF0E3]'
                   }`}
                 >
                   <LayoutGrid size={14} />
@@ -449,7 +449,7 @@ export function Work() {
                   className={`px-3.5 py-1.5 rounded-lg text-xs font-dm font-semibold transition-all flex items-center gap-1.5 ${
                     viewMode === 'table'
                       ? 'bg-brand-terra text-white shadow-sm'
-                      : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
+                      : 'text-[#6C4B59] dark:text-[#E6D0C2] hover:text-[#2E0E1D] dark:hover:text-[#FFF0E3]'
                   }`}
                 >
                   <Table size={14} />
@@ -462,14 +462,14 @@ export function Work() {
 
         {/* Group Filter Tabs */}
         <AnimatedSection delay={0.1}>
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-zinc-200 dark:border-zinc-800">
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15">
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setActiveDeployGroup('all')}
                 className={`px-4 py-2 rounded-xl text-xs font-dm font-semibold transition-all flex items-center gap-2 ${
                   activeDeployGroup === 'all'
-                    ? 'bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 shadow-md'
-                    : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border border-zinc-200/80 dark:border-zinc-800'
+                    ? 'bg-[#2E0E1D] text-[#FFF0E3] dark:bg-[#FFF0E3] dark:text-[#2E0E1D] shadow-md font-bold'
+                    : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] hover:text-[#2E0E1D] dark:hover:text-[#FFF0E3] border border-[#EAD3C4] dark:border-[#EAD3C4]/15'
                 }`}
               >
                 <span>All Deployments ({allUserProjects.length})</span>
@@ -479,8 +479,8 @@ export function Work() {
                 onClick={() => setActiveDeployGroup('fintech')}
                 className={`px-4 py-2 rounded-xl text-xs font-dm font-semibold transition-all flex items-center gap-2 ${
                   activeDeployGroup === 'fintech'
-                    ? 'bg-amber-600 text-white shadow-md shadow-amber-600/20'
-                    : 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30 hover:bg-amber-500/20'
+                    ? 'bg-brand-terra text-white shadow-md shadow-brand-terra/20'
+                    : 'bg-brand-terra/10 text-brand-terra border border-brand-terra/30 hover:bg-brand-terra/20'
                 }`}
               >
                 <ShieldCheck size={13} />
@@ -491,8 +491,8 @@ export function Work() {
                 onClick={() => setActiveDeployGroup('custom_domain')}
                 className={`px-4 py-2 rounded-xl text-xs font-dm font-semibold transition-all flex items-center gap-2 ${
                   activeDeployGroup === 'custom_domain'
-                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/20'
-                    : 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20'
+                    ? 'bg-[#0E6247] text-white shadow-md shadow-emerald-600/20'
+                    : 'bg-[#E1F5EE] text-[#0E6247] dark:bg-emerald-950/40 dark:text-emerald-300 border border-[#A7E3D0] dark:border-emerald-800/60 hover:opacity-90'
                 }`}
               >
                 <Globe size={13} />
@@ -503,8 +503,8 @@ export function Work() {
                 onClick={() => setActiveDeployGroup('vercel')}
                 className={`px-4 py-2 rounded-xl text-xs font-dm font-semibold transition-all flex items-center gap-2 ${
                   activeDeployGroup === 'vercel'
-                    ? 'bg-dev-cyan text-white shadow-md shadow-dev-cyan/20'
-                    : 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500/20'
+                    ? 'bg-brand-terra text-white shadow-md shadow-brand-terra/20'
+                    : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:text-[#2E0E1D] dark:hover:text-[#FFF0E3]'
                 }`}
               >
                 <Zap size={13} />
@@ -519,7 +519,7 @@ export function Work() {
                 className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5 ${
                   isAutoRotating
                     ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30'
-                    : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800'
+                    : 'bg-zinc-100 dark:bg-[#1D0E17] text-zinc-500 dark:text-[#B88E7D] border border-zinc-200 dark:border-[#EAD3C4]/15'
                 }`}
               >
                 {isAutoRotating ? <Pause size={13} /> : <Play size={13} />}
@@ -546,20 +546,20 @@ export function Work() {
                     whileHover={{ x: 4 }}
                     className={`w-full text-left p-4 rounded-2xl border transition-all duration-200 flex items-center justify-between gap-3 ${
                       isSelected
-                        ? 'bg-zinc-900 dark:bg-zinc-900 border-brand-terra text-white shadow-xl shadow-brand-terra/10'
-                        : 'bg-zinc-50 dark:bg-zinc-900/60 hover:bg-zinc-100 dark:hover:bg-zinc-900 border-zinc-200/80 dark:border-zinc-800/80 text-zinc-800 dark:text-zinc-200'
+                        ? 'bg-[#2E0E1D] border-brand-terra text-[#FFF0E3] shadow-xl shadow-brand-terra/20 dark:bg-brand-terra dark:text-white dark:border-brand-terra'
+                        : 'bg-[#FAF0E6] dark:bg-[#1D0E17] hover:bg-[#F3E2D5] dark:hover:bg-[#25121E] border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3]'
                     }`}
                   >
                     <div className="space-y-1 min-w-0 flex-1">
                       <div className="flex items-center gap-2">
                         <span
                           className={`w-2 h-2 rounded-full ${
-                            project.deployGroup === 'custom_domain' ? 'bg-emerald-500' : 'bg-cyan-500'
+                            project.deployGroup === 'custom_domain' ? 'bg-[#0E6247]' : 'bg-brand-terra'
                           }`}
                         />
                         <span
                           className={`text-[10px] font-mono uppercase tracking-wider ${
-                            isSelected ? 'text-brand-terra' : 'text-zinc-500 dark:text-zinc-400'
+                            isSelected ? 'text-brand-terra dark:text-white font-bold' : 'text-[#7A4A38] dark:text-[#B88E7D]'
                           }`}
                         >
                           {project.categoryLabel}
@@ -570,7 +570,7 @@ export function Work() {
                         {project.name}
                       </h4>
 
-                      <div className="text-xs font-mono text-zinc-500 dark:text-zinc-400 truncate flex items-center gap-1">
+                      <div className="text-xs font-mono text-[#7A4A38] dark:text-[#E6D0C2] truncate flex items-center gap-1">
                         <Globe size={11} className="text-brand-terra flex-shrink-0" />
                         <span className="truncate">{project.domain}</span>
                       </div>
@@ -580,8 +580,8 @@ export function Work() {
                       <span
                         className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${
                           project.deployGroup === 'custom_domain'
-                            ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/30'
-                            : 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/30'
+                            ? 'bg-[#E1F5EE] text-[#0E6247] dark:bg-emerald-950/40 dark:text-emerald-300 border-[#A7E3D0] dark:border-emerald-500/30'
+                            : 'bg-brand-terra/10 text-brand-terra border-brand-terra/30'
                         }`}
                       >
                         {project.deployGroup === 'custom_domain' ? 'Custom' : 'Vercel'}
@@ -589,7 +589,7 @@ export function Work() {
                       <ChevronRight
                         size={16}
                         className={`transition-transform ${
-                          isSelected ? 'text-brand-terra translate-x-1' : 'text-zinc-400'
+                          isSelected ? 'text-brand-terra translate-x-1 dark:text-white' : 'text-[#7A4A38] dark:text-[#B88E7D]'
                         }`}
                       />
                     </div>
@@ -607,24 +607,24 @@ export function Work() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -15, scale: 0.98 }}
                   transition={{ duration: 0.3 }}
-                  className="rounded-2xl bg-zinc-900 border border-zinc-800 shadow-2xl overflow-hidden text-white flex flex-col"
+                  className="rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-2xl overflow-hidden text-[#2E0E1D] dark:text-[#FFF0E3] flex flex-col"
                 >
                   {/* Browser Window Header */}
-                  <div className="px-4 py-3 bg-zinc-950 border-b border-zinc-800 flex items-center justify-between gap-3 text-xs font-mono select-none">
+                  <div className="px-4 py-3 bg-[#F3E2D5] dark:bg-[#25121E] border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center justify-between gap-3 text-xs font-mono select-none">
                     <div className="flex items-center gap-2">
                       <span className="w-3 h-3 rounded-full bg-rose-500" />
                       <span className="w-3 h-3 rounded-full bg-amber-500" />
                       <span className="w-3 h-3 rounded-full bg-emerald-500" />
                     </div>
 
-                    <div className="flex-1 max-w-md px-3 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-[11px] text-zinc-400 flex items-center justify-between gap-2">
+                    <div className="flex-1 max-w-md px-3 py-1 rounded-lg bg-[#FFF0E3] dark:bg-[#170A13] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[11px] text-[#6C4B59] dark:text-[#E6D0C2] flex items-center justify-between gap-2">
                       <div className="flex items-center gap-1.5 truncate">
-                        <ShieldCheck size={12} className="text-emerald-400 flex-shrink-0" />
-                        <span className="truncate text-zinc-300 font-mono">
+                        <ShieldCheck size={12} className="text-[#0E6247] dark:text-emerald-400 flex-shrink-0" />
+                        <span className="truncate text-[#2E0E1D] dark:text-[#FFF0E3] font-mono">
                           {activeProject.liveUrl}
                         </span>
                       </div>
-                      <span className="text-[10px] text-emerald-400 font-mono flex-shrink-0">
+                      <span className="text-[10px] text-[#0E6247] dark:text-emerald-400 font-mono flex-shrink-0">
                         SSL 256-bit
                       </span>
                     </div>
@@ -642,15 +642,17 @@ export function Work() {
                   </div>
 
                   {/* Live Screenshot Viewport */}
-                  <div className="relative w-full h-72 md:h-80 bg-zinc-950 overflow-hidden border-b border-zinc-800 group">
+                  <div className="relative w-full h-72 md:h-80 bg-[#1D0E17] overflow-hidden border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 group">
                     <Image
                       src={activeProject.imagePath}
                       alt={activeProject.name}
                       fill
+                      priority
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                       unoptimized
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
 
                     <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4">
                       <div>
@@ -665,8 +667,8 @@ export function Work() {
                   </div>
 
                   {/* Inspection Metadata Panel */}
-                  <div className="p-6 md:p-8 space-y-6 bg-zinc-900">
-                    <p className="font-dm text-zinc-300 text-sm md:text-base leading-relaxed">
+                  <div className="p-6 md:p-8 space-y-6 bg-[#FAF0E6] dark:bg-[#1D0E17]">
+                    <p className="font-dm text-[#5A3846] dark:text-[#E6D0C2] text-sm md:text-base leading-relaxed">
                       {activeProject.summary}
                     </p>
 
@@ -682,7 +684,7 @@ export function Work() {
                       {activeProject.highlights.map((h, i) => (
                         <div
                           key={i}
-                          className="p-3 rounded-xl bg-zinc-950/80 border border-zinc-800 flex items-center gap-2.5 text-xs font-dm text-zinc-200"
+                          className="p-3 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center gap-2.5 text-xs font-dm text-[#2E0E1D] dark:text-[#FFF0E3]"
                         >
                           <CheckCircle2 size={15} className="text-brand-terra flex-shrink-0" />
                           <span>{h}</span>
@@ -691,19 +693,19 @@ export function Work() {
                     </div>
 
                     {/* Tech Stack Matrix Tags */}
-                    <div className="pt-4 border-t border-zinc-800 flex flex-wrap items-center justify-between gap-4">
+                    <div className="pt-4 border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex flex-wrap items-center justify-between gap-4">
                       <div className="flex flex-wrap gap-2">
                         {activeProject.stack.map((tech, i) => (
                           <span
                             key={i}
-                            className="px-3 py-1 rounded-lg text-xs font-mono bg-zinc-950 text-zinc-300 border border-zinc-800"
+                            className="px-3 py-1 rounded-lg text-xs font-mono bg-[#FFF0E3] dark:bg-[#25121E] text-[#6C4B59] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15"
                           >
                             {tech}
                           </span>
                         ))}
                       </div>
 
-                      <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
+                      <div className="flex items-center gap-2 text-xs font-mono text-[#7A4A38] dark:text-[#B88E7D]">
                         <Cpu size={14} className="text-brand-terra" />
                         <span>Status: Operational</span>
                       </div>
@@ -730,12 +732,12 @@ export function Work() {
                   whileHover={{ y: -6, scale: 1.01 }}
                 >
                   <div
-                    className={`h-full group rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 ${project.accentColor} transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-2xl hover:shadow-brand-terra/10`}
+                    className={`h-full group rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 ${project.accentColor} transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-2xl hover:shadow-brand-clay/10 dark:hover:shadow-black/70`}
                   >
                     <div>
                       {/* Floating Header */}
-                      <div className="px-4 py-2.5 bg-zinc-100 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between gap-2 text-xs font-mono">
-                        <div className="truncate px-2.5 py-0.5 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[11px] text-zinc-500 dark:text-zinc-400 flex items-center gap-1">
+                      <div className="px-4 py-2.5 bg-[#F3E2D5] dark:bg-[#25121E] border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center justify-between gap-2 text-xs font-mono">
+                        <div className="truncate px-2.5 py-0.5 rounded bg-[#FFF0E3] dark:bg-[#1A0C15] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[11px] text-[#6C4B59] dark:text-[#E6D0C2] flex items-center gap-1">
                           <Globe size={11} className="text-brand-terra flex-shrink-0" />
                           <span className="truncate">{project.domain}</span>
                         </div>
@@ -743,18 +745,20 @@ export function Work() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-zinc-400 hover:text-brand-terra transition-colors"
+                          className="text-[#7A4A38] dark:text-[#E6D0C2] hover:text-brand-terra transition-colors"
                         >
                           <ExternalLink size={14} />
                         </a>
                       </div>
 
                       {/* Screenshot Image */}
-                      <div className="relative w-full h-48 bg-zinc-950 overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
+                      <div className="relative w-full h-48 bg-[#1D0E17] overflow-hidden border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15">
                         <Image
                           src={project.imagePath}
                           alt={project.name}
                           fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          priority={index < 3}
                           className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                           unoptimized
                         />
@@ -762,25 +766,25 @@ export function Work() {
 
                       <div className="p-6 space-y-4">
                         <div className="flex items-center justify-between gap-2">
-                          <span className="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700">
+                          <span className="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-[#FFF0E3] dark:bg-[#25121E] text-[#2E0E1D] dark:text-[#FFF0E3] border border-[#EAD3C4] dark:border-[#EAD3C4]/15">
                             {project.categoryLabel}
                           </span>
                           <span
                             className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-medium ${
                               project.deployGroup === 'custom_domain'
-                                ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30'
-                                : 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30'
+                                ? 'bg-[#E1F5EE] text-[#0E6247] dark:bg-emerald-950/40 dark:text-emerald-300 border-[#A7E3D0] dark:border-emerald-500/30'
+                                : 'bg-brand-terra/10 text-brand-terra border-brand-terra/30'
                             }`}
                           >
                             {project.badgeText}
                           </span>
                         </div>
 
-                        <h3 className="font-syne font-bold text-xl text-zinc-900 dark:text-white group-hover:text-brand-terra transition-colors">
+                        <h3 className="font-syne font-bold text-xl text-[#2E0E1D] dark:text-[#FFF0E3] group-hover:text-brand-terra transition-colors">
                           {project.name}
                         </h3>
 
-                        <p className="font-dm font-normal text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed">
+                        <p className="font-dm font-normal text-[#5A3846] dark:text-[#E6D0C2] text-sm leading-relaxed">
                           {project.summary}
                         </p>
 
@@ -793,12 +797,12 @@ export function Work() {
                       </div>
                     </div>
 
-                    <div className="p-6 pt-4 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between gap-3">
+                    <div className="p-6 pt-4 border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center justify-between gap-3">
                       <div className="flex flex-wrap gap-1.5 flex-1">
                         {project.stack.slice(0, 3).map((tech, i) => (
                           <span
                             key={i}
-                            className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700"
+                            className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-[#FFF0E3] dark:bg-[#25121E] text-[#2E0E1D] dark:text-[#FFF0E3] border border-[#EAD3C4] dark:border-[#EAD3C4]/15"
                           >
                             {tech}
                           </span>
@@ -822,8 +826,8 @@ export function Work() {
 
         {/* MODE 3: PRODUCTION CONSOLE MATRIX TABLE */}
         {viewMode === 'table' && (
-          <div className="mt-10 rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden shadow-2xl">
-            <div className="p-4 bg-zinc-950 border-b border-zinc-800 flex items-center justify-between gap-4 font-mono text-xs text-zinc-400">
+          <div className="mt-10 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 overflow-hidden shadow-2xl">
+            <div className="p-4 bg-[#F3E2D5] dark:bg-[#25121E] border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center justify-between gap-4 font-mono text-xs text-[#7A4A38] dark:text-[#E6D0C2]">
               <div className="flex items-center gap-2">
                 <Terminal size={14} className="text-brand-terra" />
                 <span>PRODUCTION_DEPLOYMENT_MATRIX.log</span>
@@ -834,7 +838,7 @@ export function Work() {
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-zinc-800 bg-zinc-900/80 font-mono text-xs text-zinc-400">
+                  <tr className="border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 bg-[#FAF0E6]/80 dark:bg-[#1D0E17]/80 font-mono text-xs text-[#7A4A38] dark:text-[#E6D0C2]">
                     <th className="p-4">Deployment Domain</th>
                     <th className="p-4">Project Name</th>
                     <th className="p-4">Group</th>
@@ -843,20 +847,20 @@ export function Work() {
                     <th className="p-4 text-right">Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-zinc-800 text-xs font-dm">
+                <tbody className="divide-y divide-[#EAD3C4] dark:divide-[#EAD3C4]/15 text-xs font-dm">
                   {filteredProjects.map((project) => (
                     <tr
                       key={project.id}
-                      className="hover:bg-zinc-800/50 transition-colors text-zinc-200"
+                      className="hover:bg-[#F3E2D5]/50 dark:hover:bg-[#25121E] transition-colors text-[#2E0E1D] dark:text-[#FFF0E3]"
                     >
                       <td className="p-4 font-mono text-brand-terra">
                         <div className="flex items-center gap-1.5">
-                          <Globe size={13} className="text-zinc-500" />
+                          <Globe size={13} className="text-[#7A4A38] dark:text-[#E6D0C2]" />
                           <span>{project.domain}</span>
                         </div>
                       </td>
                       <td className="p-4">
-                        <div className="font-semibold text-white">{project.name}</div>
+                        <div className="font-semibold text-[#2E0E1D] dark:text-[#FFF0E3]">{project.name}</div>
                         {project.attribution && (
                           <div className="text-[10px] font-mono text-brand-terra mt-0.5">
                             {project.attribution}
@@ -867,15 +871,15 @@ export function Work() {
                         <span
                           className={`px-2 py-0.5 rounded text-[10px] ${
                             project.deployGroup === 'custom_domain'
-                              ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
-                              : 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/30'
+                              ? 'bg-[#E1F5EE] text-[#0E6247] dark:bg-emerald-950/40 dark:text-emerald-300 border border-[#A7E3D0] dark:border-emerald-800/60'
+                              : 'bg-brand-terra/10 text-brand-terra border border-brand-terra/30'
                           }`}
                         >
                           {project.deployGroup === 'custom_domain' ? 'Custom Domain' : 'Vercel App'}
                         </span>
                       </td>
-                      <td className="p-4 text-zinc-400">{project.categoryLabel}</td>
-                      <td className="p-4 font-mono text-zinc-400">
+                      <td className="p-4 text-[#6C4B59] dark:text-[#E6D0C2]">{project.categoryLabel}</td>
+                      <td className="p-4 font-mono text-[#7A4A38] dark:text-[#E6D0C2]">
                         {project.stack.slice(0, 3).join(', ')}
                       </td>
                       <td className="p-4 text-right">
@@ -899,8 +903,8 @@ export function Work() {
 
         {/* Bottom Call to Action */}
         <AnimatedSection delay={0.3}>
-          <div className="mt-16 p-6 md:p-8 rounded-2xl bg-brand-cream dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700/80 text-center shadow-sm">
-            <p className="font-dm text-base text-zinc-800 dark:text-zinc-200 font-medium">
+          <div className="mt-16 p-6 md:p-8 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-center shadow-sm">
+            <p className="font-dm text-base text-[#2E0E1D] dark:text-[#E6D0C2] font-medium">
               Ready to construct your next web platform or production infrastructure?{' '}
               <button
                 onClick={() => {

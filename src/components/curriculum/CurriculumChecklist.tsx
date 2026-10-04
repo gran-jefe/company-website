@@ -87,18 +87,18 @@ export function CurriculumChecklist({
   const percentage = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0
 
   return (
-    <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm overflow-hidden transition-all">
+    <div className="rounded-2xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-sm overflow-hidden transition-all">
       {/* Tracker Header Bar */}
-      <div className="p-5 sm:p-6 bg-zinc-50 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="p-5 sm:p-6 bg-[#FAF0E6] dark:bg-[#25121E] border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono font-bold text-brand-terra dark:text-brand-ember">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold text-brand-terra dark:text-[#FF5528]">
             <Zap size={14} />
             <span>INTERACTIVE LEARNING TRACKER</span>
           </div>
-          <h3 className="text-lg sm:text-xl font-syne font-bold text-zinc-900 dark:text-white mt-1">
+          <h3 className="text-lg sm:text-xl font-syne font-bold text-[#2E0E1D] dark:text-[#FFF0E3] mt-1">
             Milestone Checklist &amp; Progress
           </h3>
-          <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm mt-0.5">
+          <p className="text-xs text-[#5A3846] dark:text-[#E6D0C2] font-dm mt-0.5">
             Your progress is saved in your browser. Check off items as you build.
           </p>
         </div>
@@ -107,7 +107,7 @@ export function CurriculumChecklist({
         <div className="flex items-center gap-2 self-start sm:self-auto">
           <button
             onClick={markAll}
-            className="px-3 py-1.5 rounded-lg text-xs font-dm font-semibold bg-white dark:bg-zinc-800 hover:bg-brand-terra hover:text-white dark:hover:bg-brand-terra text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 transition-colors flex items-center gap-1.5 shadow-xs"
+            className="px-3 py-1.5 rounded-lg text-xs font-dm font-semibold bg-[#FFF0E3] dark:bg-[#1D0E17] hover:bg-brand-terra hover:text-white dark:hover:bg-brand-terra text-[#2E0E1D] dark:text-[#FFF0E3] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
             title="Mark all milestones complete"
           >
             <CheckCheck size={14} />
@@ -116,7 +116,7 @@ export function CurriculumChecklist({
 
           <button
             onClick={resetAll}
-            className="px-3 py-1.5 rounded-lg text-xs font-dm font-medium bg-white dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 transition-colors flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-lg text-xs font-dm font-medium bg-[#FFF0E3] dark:bg-[#1D0E17] hover:bg-[#F3E2D5] dark:hover:bg-[#25121E] text-[#7A4A38] dark:text-[#B88E7D] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 transition-colors flex items-center gap-1.5 cursor-pointer"
             title="Reset milestone progress"
           >
             <RotateCcw size={13} />
@@ -126,22 +126,22 @@ export function CurriculumChecklist({
       </div>
 
       {/* Progress Bar Display */}
-      <div className="px-5 sm:px-6 py-4 bg-white dark:bg-zinc-900/60 border-b border-zinc-100 dark:border-zinc-800/80">
+      <div className="px-5 sm:px-6 py-4 bg-[#FFF0E3] dark:bg-[#1D0E17]/60 border-b border-[#EAD3C4]/60 dark:border-[#EAD3C4]/15">
         <div className="flex items-center justify-between text-xs font-mono mb-2">
-          <div className="flex items-center gap-2 text-zinc-700 dark:text-zinc-300 font-bold">
+          <div className="flex items-center gap-2 text-[#5A3846] dark:text-[#E6D0C2] font-bold">
             <span>Overall Track Progress:</span>
-            <span className="text-brand-terra dark:text-brand-ember">
+            <span className="text-brand-terra dark:text-[#FF5528]">
               {completedCount} of {totalCount} Milestones
             </span>
           </div>
-          <span className="font-extrabold text-sm text-zinc-900 dark:text-white">
+          <span className="font-extrabold text-sm text-[#2E0E1D] dark:text-[#FFF0E3]">
             {percentage}%
           </span>
         </div>
 
-        <div className="h-2.5 w-full bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden">
+        <div className="h-2.5 w-full bg-[#FAF0E6] dark:bg-[#140A10] rounded-full overflow-hidden border border-[#EAD3C4]/40 dark:border-[#EAD3C4]/10">
           <motion.div
-            className="h-full bg-gradient-to-r from-brand-terra via-brand-ember to-dev-cyan rounded-full"
+            className="h-full bg-gradient-to-r from-brand-terra via-[#FF5528] to-dev-cyan rounded-full"
             initial={{ width: 0 }}
             animate={{ width: `${percentage}%` }}
             transition={{ type: 'spring', stiffness: 100, damping: 20 }}
@@ -161,7 +161,7 @@ export function CurriculumChecklist({
       </div>
 
       {/* Modules Checklist */}
-      <div className="p-5 sm:p-6 divide-y divide-zinc-100 dark:divide-zinc-800/60">
+      <div className="p-5 sm:p-6 divide-y divide-[#EAD3C4]/60 dark:divide-[#EAD3C4]/15">
         {modules.map((mod, modIdx) => {
           const modMilestones = mod.milestones
           const modCompleted = modMilestones.filter((m) => completedIds[m.id]).length
@@ -174,12 +174,12 @@ export function CurriculumChecklist({
                   <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-brand-terra/10 text-brand-terra border border-brand-terra/25">
                     Module {mod.moduleNumber}
                   </span>
-                  <h4 className="font-syne font-bold text-base text-zinc-900 dark:text-white">
+                  <h4 className="font-syne font-bold text-base text-[#2E0E1D] dark:text-[#FFF0E3]">
                     {mod.title}
                   </h4>
                 </div>
 
-                <span className="text-xs font-mono text-zinc-500">
+                <span className="text-xs font-mono text-[#7A4A38] dark:text-[#B88E7D]">
                   {modCompleted}/{modTotal} completed
                 </span>
               </div>
@@ -193,10 +193,10 @@ export function CurriculumChecklist({
                     <button
                       key={item.id}
                       onClick={() => toggleMilestone(item.id)}
-                      className={`w-full text-left p-3 rounded-xl border transition-all duration-150 flex items-start gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra ${
+                      className={`w-full text-left p-3 rounded-xl border transition-all duration-150 flex items-start gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra cursor-pointer ${
                         done
-                          ? 'bg-brand-terra/5 dark:bg-brand-terra/10 border-brand-terra/30 text-zinc-900 dark:text-white'
-                          : 'bg-zinc-50/50 dark:bg-zinc-900/50 border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300'
+                          ? 'bg-brand-terra/5 dark:bg-brand-terra/10 border-brand-terra/30 text-[#2E0E1D] dark:text-[#FFF0E3]'
+                          : 'bg-[#FAF0E6]/60 dark:bg-[#25121E]/60 border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:bg-[#FAF0E6] dark:hover:bg-[#25121E] text-[#5A3846] dark:text-[#E6D0C2]'
                       }`}
                     >
                       <div className="shrink-0 mt-0.5">
@@ -206,23 +206,23 @@ export function CurriculumChecklist({
                             animate={{ scale: 1 }}
                             transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                           >
-                            <CheckCircle2 size={18} className="text-brand-terra dark:text-brand-ember fill-brand-terra/10" />
+                            <CheckCircle2 size={18} className="text-brand-terra dark:text-[#FF5528] fill-brand-terra/10" />
                           </motion.div>
                         ) : (
-                          <Circle size={18} className="text-zinc-400 group-hover:text-brand-terra transition-colors" />
+                          <Circle size={18} className="text-[#C4A0B8] dark:text-[#7A4A38] group-hover:text-brand-terra transition-colors" />
                         )}
                       </div>
 
                       <div className="flex-1">
                         <div
                           className={`text-xs sm:text-sm font-dm font-medium leading-tight ${
-                            done ? 'line-through text-zinc-400 dark:text-zinc-500' : 'text-zinc-900 dark:text-white'
+                            done ? 'line-through text-[#C4A0B8] dark:text-[#7A4A38]' : 'text-[#2E0E1D] dark:text-[#FFF0E3]'
                           }`}
                         >
                           {item.title}
                         </div>
                         {item.description && (
-                          <p className="text-xs text-zinc-500 dark:text-zinc-400 font-dm mt-0.5 leading-relaxed">
+                          <p className="text-xs text-[#7A4A38] dark:text-[#B88E7D] font-dm mt-0.5 leading-relaxed">
                             {item.description}
                           </p>
                         )}

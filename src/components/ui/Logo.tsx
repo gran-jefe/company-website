@@ -1,7 +1,5 @@
 'use client'
 
-import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 interface LogoProps {
@@ -10,37 +8,60 @@ interface LogoProps {
 }
 
 export function Logo({ variant = 'auto', size = 'md' }: LogoProps) {
-  const { theme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  let actualVariant = variant
-  if (variant === 'auto') {
-    actualVariant = theme === 'dark' ? 'dark' : 'light'
-  }
-
   const sizeMap = {
-    sm: { width: 140, height: 32 },
-    md: { width: 280, height: 64 },
-    lg: { width: 420, height: 96 },
+    sm: { width: 135, height: 54 },
+    md: { width: 200, height: 80 },
+    lg: { width: 280, height: 112 },
   }
 
   const dimensions = sizeMap[size]
 
-  if (!mounted) {
-    return <div style={{ width: dimensions.width, height: dimensions.height }} />
+  if (variant === 'dark') {
+    return (
+      <Image
+        src="/logo_dark_clean.png"
+        alt="Gran Jefe"
+        width={dimensions.width}
+        height={dimensions.height}
+        style={{ objectFit: 'contain' }}
+        priority
+      />
+    )
+  }
+
+  if (variant === 'light') {
+    return (
+      <Image
+        src="/logo_light_clean.png"
+        alt="Gran Jefe"
+        width={dimensions.width}
+        height={dimensions.height}
+        style={{ objectFit: 'contain' }}
+        priority
+      />
+    )
   }
 
   return (
-    <Image
-      src={actualVariant === 'dark' ? '/new_logo_dark.png' : '/new_logo_light.png'}
-      alt="Gran Jefe"
-      width={dimensions.width}
-      height={dimensions.height}
-      style={{ objectFit: 'contain' }}
-    />
+    <div className="relative inline-flex items-center" style={{ width: dimensions.width, height: dimensions.height }}>
+      <Image
+        src="/logo_light_clean.png"
+        alt="Gran Jefe"
+        width={dimensions.width}
+        height={dimensions.height}
+        style={{ objectFit: 'contain' }}
+        className="dark:hidden block"
+        priority
+      />
+      <Image
+        src="/logo_dark_clean.png"
+        alt="Gran Jefe"
+        width={dimensions.width}
+        height={dimensions.height}
+        style={{ objectFit: 'contain' }}
+        className="hidden dark:block"
+        priority
+      />
+    </div>
   )
 }

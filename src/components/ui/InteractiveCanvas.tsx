@@ -52,7 +52,7 @@ export function InteractiveCanvas() {
 
       ctx.clearRect(0, 0, width, height)
 
-      // Luminous warm aura that follows the mouse (bright theme)
+      // Luminous warm aura that follows the mouse (brand theme)
       const gradient = ctx.createRadialGradient(
         mouseX,
         mouseY,
@@ -61,9 +61,9 @@ export function InteractiveCanvas() {
         mouseY,
         Math.max(width * 0.45, 450)
       )
-      gradient.addColorStop(0, 'rgba(196, 83, 43, 0.07)') // Warm terracotta
-      gradient.addColorStop(0.5, 'rgba(240, 200, 176, 0.04)') // Soft peach
-      gradient.addColorStop(1, 'rgba(255, 255, 255, 0)')
+      gradient.addColorStop(0, 'rgba(213, 48, 0, 0.08)') // Warm vermilion / terracotta
+      gradient.addColorStop(0.5, 'rgba(240, 200, 176, 0.05)') // Soft blush
+      gradient.addColorStop(1, 'rgba(255, 240, 227, 0)')
 
       ctx.fillStyle = gradient
       ctx.fillRect(0, 0, width, height)
@@ -91,7 +91,7 @@ export function InteractiveCanvas() {
 
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(196, 83, 43, ${p.alpha + extraAlpha})`
+        ctx.fillStyle = `rgba(213, 48, 0, ${p.alpha + extraAlpha})`
         ctx.fill()
       }
 

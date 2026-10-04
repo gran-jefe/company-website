@@ -6,7 +6,7 @@ import { Sun, Moon } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -15,12 +15,27 @@ export function ThemeToggle() {
 
   if (!mounted) return null
 
-  const isDark = theme === 'dark'
+  const currentTheme = resolvedTheme || theme
+  const isDark = currentTheme === 'dark'
+
+  const handleToggle = () => {
+    const nextTheme = isDark ? 'light' : 'dark'
+    setTheme(nextTheme)
+    if (typeof document !== 'undefined') {
+      if (nextTheme === 'dark') {
+        document.documentElement.classList.add('dark')
+        document.documentElement.classList.remove('light')
+      } else {
+        document.documentElement.classList.remove('dark')
+        document.documentElement.classList.add('light')
+      }
+    }
+  }
 
   return (
     <button
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="p-2 text-brand-clay dark:text-white hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra"
+      onClick={handleToggle}
+      className="p-2 text-[#7A4A38] dark:text-[#FFF0E3] hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra"
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
       <AnimatePresence mode="wait">

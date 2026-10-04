@@ -6,14 +6,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'brand-base':     '#1C1119',
-        'brand-deep':     '#3E1F2E',
-        'brand-terra':    '#C4532B',
-        'brand-ember':    '#E9764A',
-        'brand-teal':     '#1D9E75',
-        'brand-cream':    '#FDF4ED',
-        'brand-blush':    '#F0C8B0',
-        'brand-clay':     '#7A4A38',
+        'brand-base':     '#2E0E1D', // Deep aubergine / plum black from logo
+        'brand-deep':     '#240B16', // Deepest velvet plum
+        'brand-wine':     '#361122', // Wine background from new_logo_dark.png
+        'brand-terra':    '#D53000', // Vermilion / terracotta from logo
+        'brand-ember':    '#E9764A', // Vibrant ember
+        'brand-teal':     '#1D9E75', // Verified mint
+        'brand-cream':    '#FFF0E3', // Exact background from new_logo_light.png
+        'brand-warm':     '#FAF0E6', // Soft warm surface
+        'brand-blush':    '#F0C8B0', // Soft blush accent
+        'brand-clay':     '#7A4A38', // Warm clay
+        'brand-border':   '#EAD3C4', // Soft warm border
+        'brand-border-dark': '#4A2033', // Deep wine border
+        'brand-muted':    '#6C4B59', // Muted plum body text
         'brand-mint':     '#E1F5EE',
         'brand-plumtext': '#C4A0B8',
         'brand-white':    '#FFFFFF',
@@ -21,9 +26,9 @@ const config: Config = {
         'dev-emerald':    '#10B981',
         'dev-violet':     '#8B5CF6',
         'dev-amber':      '#F59E0B',
-        'dev-dark':       '#09090B',
-        'dev-card':       '#121216',
-        'dev-border':     '#27272A',
+        'dev-dark':       '#240B16',
+        'dev-card':       '#2E0E1D',
+        'dev-border':     '#4A2033',
       },
       fontFamily: {
         syne: ['Satoshi', 'sans-serif'],

@@ -34,15 +34,15 @@ export function CurriculumLeadCapture({ trackTitle }: CurriculumLeadCaptureProps
   }
 
   return (
-    <section className="my-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-brand-terra/10 via-zinc-900 to-zinc-950 border border-brand-terra/30 shadow-lg text-white">
+    <section className="my-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-brand-terra/10 via-[#1D0E17] to-[#11070D] border border-brand-terra/30 shadow-lg text-[#FFF0E3]">
       <div className="max-w-2xl mx-auto text-center space-y-4">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-brand-terra/20 text-brand-ember border border-brand-terra/30">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-brand-terra/20 text-[#FF5528] border border-brand-terra/30">
           <Gift size={13} /> Free Starter Architecture Pack
         </div>
-        <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+        <h3 className="text-2xl sm:text-3xl font-syne font-bold tracking-tight text-[#FFF0E3]">
           Get the Production Boilerplate &amp; Project Files
         </h3>
-        <p className="text-xs sm:text-sm text-zinc-300 font-dm leading-relaxed">
+        <p className="text-xs sm:text-sm text-[#E6D0C2] font-dm leading-relaxed">
           We are currently preparing full, production-tested GitHub starter repositories and weekly checkmark guides for {trackTitle}. Join the early access circle to receive the code templates when they drop.
         </p>
 
@@ -59,12 +59,12 @@ export function CurriculumLeadCapture({ trackTitle }: CurriculumLeadCaptureProps
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your work email address"
               required
-              className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-zinc-400 focus:outline-none focus:border-brand-terra focus:ring-1 focus:ring-brand-terra transition-all"
+              className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-[#25121E] border border-[#EAD3C4]/20 text-[#FFF0E3] placeholder:text-[#B88E7D] focus:outline-none focus:border-brand-terra focus:ring-1 focus:ring-brand-terra transition-all"
             />
             <button
               type="submit"
               disabled={isPending}
-              className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs sm:text-sm font-dm font-semibold bg-brand-terra hover:bg-brand-ember text-white transition-colors flex items-center justify-center gap-2 shrink-0 cursor-pointer shadow-sm"
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs sm:text-sm font-dm font-semibold bg-brand-terra hover:bg-[#FF5528] text-white transition-colors flex items-center justify-center gap-2 shrink-0 cursor-pointer shadow-sm"
             >
               <span>Get Free Code</span>
               <Send size={13} />
@@ -72,7 +72,7 @@ export function CurriculumLeadCapture({ trackTitle }: CurriculumLeadCaptureProps
           </form>
         )}
 
-        <p className="text-[11px] text-zinc-400 font-mono flex items-center justify-center gap-1.5 pt-1">
+        <p className="text-[11px] text-[#B88E7D] font-mono flex items-center justify-center gap-1.5 pt-1">
           <Lock size={11} /> 100% Free. No spam, ever. Unsubscribe at any time.
         </p>
       </div>
