@@ -12,8 +12,8 @@ import { CustomCursor } from '@/components/ui/CustomCursor'
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-zinc-950 text-white selection:bg-brand-terra selection:text-white">
-      {/* Cerebrium-style Ambient Depth Canvas & Magnetic Cursor */}
+    <div className="relative min-h-screen bg-[#FCFCFA] text-zinc-900 dark:bg-zinc-950 dark:text-white selection:bg-brand-terra selection:text-white transition-colors duration-300">
+      {/* Luminous Ambient Depth Canvas & Magnetic Cursor */}
       <InteractiveCanvas />
       <CustomCursor />
 

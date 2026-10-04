@@ -21,15 +21,15 @@ export function InteractiveCanvas() {
     let targetX = mouseX
     let targetY = mouseY
 
-    // Particle nodes for ambient depth
-    const particleCount = Math.min(Math.floor(width / 32), 45)
+    // Subtle floating particles for depth (Wispr Flow style)
+    const particleCount = Math.min(Math.floor(width / 40), 30)
     const particles = Array.from({ length: particleCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      size: Math.random() * 1.6 + 0.8,
-      alpha: Math.random() * 0.35 + 0.15,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      size: Math.random() * 2 + 1,
+      alpha: Math.random() * 0.25 + 0.1,
     }))
 
     const handleResize = () => {
@@ -47,22 +47,28 @@ export function InteractiveCanvas() {
     window.addEventListener('mousemove', handleMouseMove)
 
     const render = () => {
-      // Smooth interpolation for mouse aura
-      mouseX += (targetX - mouseX) * 0.05
-      mouseY += (targetY - mouseY) * 0.05
+      mouseX += (targetX - mouseX) * 0.04
+      mouseY += (targetY - mouseY) * 0.04
 
       ctx.clearRect(0, 0, width, height)
 
-      // Ambient radial gradient following mouse (Cerebrium glow)
-      const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, Math.max(width * 0.4, 400))
-      gradient.addColorStop(0, 'rgba(226, 85, 43, 0.08)') // Warm terracotta
-      gradient.addColorStop(0.45, 'rgba(10, 10, 14, 0.03)')
-      gradient.addColorStop(1, 'rgba(0, 0, 0, 0)')
+      // Luminous warm aura that follows the mouse (bright theme)
+      const gradient = ctx.createRadialGradient(
+        mouseX,
+        mouseY,
+        0,
+        mouseX,
+        mouseY,
+        Math.max(width * 0.45, 450)
+      )
+      gradient.addColorStop(0, 'rgba(196, 83, 43, 0.07)') // Warm terracotta
+      gradient.addColorStop(0.5, 'rgba(240, 200, 176, 0.04)') // Soft peach
+      gradient.addColorStop(1, 'rgba(255, 255, 255, 0)')
 
       ctx.fillStyle = gradient
       ctx.fillRect(0, 0, width, height)
 
-      // Subtle particles
+      // Clean floating particles
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i]
         p.x += p.vx
@@ -73,20 +79,19 @@ export function InteractiveCanvas() {
         if (p.y < 0) p.y = height
         if (p.y > height) p.y = 0
 
-        // Distance to cursor
         const dx = mouseX - p.x
         const dy = mouseY - p.y
         const dist = Math.sqrt(dx * dx + dy * dy)
-        const maxDist = 200
+        const maxDist = 220
 
         let extraAlpha = 0
         if (dist < maxDist) {
-          extraAlpha = (1 - dist / maxDist) * 0.35
+          extraAlpha = (1 - dist / maxDist) * 0.3
         }
 
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(240, 235, 227, ${p.alpha + extraAlpha})`
+        ctx.fillStyle = `rgba(196, 83, 43, ${p.alpha + extraAlpha})`
         ctx.fill()
       }
 
@@ -105,7 +110,7 @@ export function InteractiveCanvas() {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none fixed inset-0 z-0 h-full w-full opacity-70 transition-opacity duration-1000"
+      className="pointer-events-none fixed inset-0 z-0 h-full w-full opacity-80"
       aria-hidden="true"
     />
   )

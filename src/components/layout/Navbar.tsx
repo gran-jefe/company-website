@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ArrowUpRight, ShieldCheck, Sparkles } from 'lucide-react'
+import { Menu, X, ArrowUpRight, ShieldCheck } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Button } from '@/components/ui/Button'
@@ -61,7 +61,7 @@ export function Navbar() {
       className={`sticky top-0 z-40 transition-all duration-300 ${
         scrolled
           ? 'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl border-b border-zinc-200/80 dark:border-zinc-800/80 shadow-xs'
-          : 'bg-transparent border-b border-transparent'
+          : 'bg-white/70 dark:bg-zinc-950/70 backdrop-blur-md border-b border-zinc-100 dark:border-zinc-900'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between gap-4">
@@ -75,14 +75,14 @@ export function Navbar() {
             <Logo variant="auto" size="sm" />
           </button>
 
-          <div className="hidden lg:flex items-center gap-2 pl-3 border-l border-zinc-300 dark:border-zinc-800 text-[11px] font-mono text-zinc-500 dark:text-zinc-400">
+          <div className="hidden lg:flex items-center gap-2 pl-3 border-l border-zinc-200 dark:border-zinc-800 text-[11px] font-mono text-zinc-500">
             <span>STUDIO</span>
-            <span className="text-zinc-400 dark:text-zinc-600">/</span>
-            <span className="text-zinc-700 dark:text-zinc-300 font-semibold">IBADAN &amp; LONDON</span>
+            <span className="text-zinc-400">/</span>
+            <span className="text-zinc-800 dark:text-zinc-200 font-semibold">IBADAN &amp; LONDON</span>
           </div>
         </div>
 
-        {/* Center Editorial Nav */}
+        {/* Center Navigation */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => {
             const isActive = activeSection === item.href.slice(1)
@@ -112,7 +112,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           {/* CAC Official Registered Pill */}
           <div
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-[11px] font-mono text-emerald-700 dark:text-emerald-400"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-[11px] font-mono text-emerald-800 dark:text-emerald-300"
             title="Officially registered with the Corporate Affairs Commission (Federal Republic of Nigeria)"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -133,7 +133,7 @@ export function Navbar() {
           {/* Mobile menu trigger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-zinc-700 dark:text-white focus-visible:outline-none rounded"
+            className="md:hidden p-2 text-zinc-800 dark:text-white focus-visible:outline-none rounded"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -152,7 +152,7 @@ export function Navbar() {
             className="md:hidden border-t border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl"
           >
             <div className="px-4 py-6 space-y-4 max-w-7xl mx-auto">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-xs font-mono text-emerald-700 dark:text-emerald-400 mb-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-xs font-mono text-emerald-800 dark:text-emerald-300 mb-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span>Verified Entity: CAC BN 9529101</span>
               </div>

@@ -402,16 +402,16 @@ export function Work() {
   }, [isAutoRotating, selectedProjectId, filteredProjects])
 
   return (
-    <section id="work" className="bg-zinc-950 py-20 md:py-28 relative border-t border-zinc-800 text-white">
+    <section id="work" className="bg-[#F8F8F5] dark:bg-zinc-950 py-20 md:py-28 relative border-t border-zinc-200/80 dark:border-zinc-800 text-zinc-900 dark:text-white transition-colors duration-300">
       {/* Background Ambient Glow */}
-      <div className="absolute inset-0 bg-cyber-grid bg-[size:32px_32px] opacity-[0.05] pointer-events-none" />
+      <div className="absolute inset-0 bg-cyber-grid bg-[size:32px_32px] opacity-[0.03] dark:opacity-[0.05] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         <AnimatedSection>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div>
               <SectionLabel>Selected Work &amp; Case Studies</SectionLabel>
-              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-white tracking-tight">
+              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-zinc-900 dark:text-white tracking-tight">
                 Crafted for impact.{' '}
                 <span className="font-serif italic font-normal text-brand-terra">Engineered to scale.</span>
               </h2>

@@ -74,7 +74,7 @@ const services: ServiceItem[] = [
 
 export function Services() {
   return (
-    <section id="services" className="bg-white dark:bg-zinc-950 py-20 md:py-28 relative border-t border-zinc-200/60 dark:border-zinc-800/60">
+    <section id="services" className="bg-white dark:bg-zinc-950 py-20 md:py-28 relative border-t border-zinc-200/80 dark:border-zinc-800 text-zinc-900 dark:text-white transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <AnimatedSection>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
