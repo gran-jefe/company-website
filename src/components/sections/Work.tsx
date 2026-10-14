@@ -529,8 +529,29 @@ export function Work() {
           </div>
         </AnimatedSection>
 
+        {/* High-Intent Empty State (UI/UX Non-Negotiable 4) */}
+        {filteredProjects.length === 0 && (
+          <div className="mt-12 p-12 rounded-3xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-dashed border-[#EAD3C4] dark:border-[#EAD3C4]/20 text-center space-y-4 max-w-lg mx-auto">
+            <div className="w-12 h-12 rounded-full bg-brand-terra/10 text-brand-terra flex items-center justify-center mx-auto">
+              <Sparkles size={22} />
+            </div>
+            <h3 className="font-syne font-bold text-xl text-[#2E0E1D] dark:text-[#FFF0E3]">
+              No Deployments Found
+            </h3>
+            <p className="text-sm text-[#6C4B59] dark:text-[#E6D0C2] font-dm">
+              No deployed projects matched this specific category. Reset filters to explore our full portfolio.
+            </p>
+            <button
+              onClick={() => setActiveDeployGroup('all')}
+              className="py-2.5 px-5 rounded-xl bg-brand-terra text-white text-xs font-semibold font-dm hover:bg-brand-ember transition-colors cursor-pointer"
+            >
+              Reset to All Deployments
+            </button>
+          </div>
+        )}
+
         {/* MODE 1: INTERACTIVE WORKSTATION CANVAS (DEFAULT) */}
-        {viewMode === 'workstation' && (
+        {viewMode === 'workstation' && filteredProjects.length > 0 && (
           <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Sidebar: Interactive Project Selector List */}
             <div className="lg:col-span-5 space-y-3 max-h-[640px] overflow-y-auto pr-2 custom-scrollbar">
@@ -718,7 +739,7 @@ export function Work() {
         )}
 
         {/* MODE 2: ANIMATED SPOTLIGHT DECK (SLIDER / PERSPECTIVE GRID) */}
-        {viewMode === 'grid' && (
+        {viewMode === 'grid' && filteredProjects.length > 0 && (
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project, index) => (
@@ -825,7 +846,7 @@ export function Work() {
         )}
 
         {/* MODE 3: PRODUCTION CONSOLE MATRIX TABLE */}
-        {viewMode === 'table' && (
+        {viewMode === 'table' && filteredProjects.length > 0 && (
           <div className="mt-10 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 overflow-hidden shadow-2xl">
             <div className="p-4 bg-[#F3E2D5] dark:bg-[#25121E] border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center justify-between gap-4 font-mono text-xs text-[#7A4A38] dark:text-[#E6D0C2]">
               <div className="flex items-center gap-2">
@@ -898,6 +919,27 @@ export function Work() {
                 </tbody>
               </table>
             </div>
+          </div>
+        )}
+
+        {/* Empty State Fallback (Non-Negotiable 4: High-Intent Empty States) */}
+        {filteredProjects.length === 0 && (
+          <div className="mt-12 p-8 sm:p-12 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-center max-w-lg mx-auto space-y-4">
+            <div className="w-12 h-12 mx-auto rounded-full bg-brand-terra/10 border border-brand-terra/20 flex items-center justify-center text-brand-terra">
+              <Sparkles size={22} />
+            </div>
+            <h3 className="text-lg font-syne font-bold text-[#2E0E1D] dark:text-[#FFF0E3]">
+              No Projects Found in This View
+            </h3>
+            <p className="text-xs sm:text-sm font-dm text-[#6C4B59] dark:text-[#E6D0C2] leading-relaxed">
+              No matching builds found for this category filter. Switch views or reset filters to explore our full client portfolio.
+            </p>
+            <button
+              onClick={() => setActiveDeployGroup('all')}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-terra hover:bg-brand-ember text-white font-dm text-xs font-semibold transition-all cursor-pointer min-h-[44px]"
+            >
+              <span>Reset to All Work</span>
+            </button>
           </div>
         )}
 

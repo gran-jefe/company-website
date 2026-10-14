@@ -10,6 +10,7 @@ import { Work } from '@/components/sections/Work'
 import { About } from '@/components/sections/About'
 import { Contact } from '@/components/sections/Contact'
 import { InteractiveCanvas } from '@/components/ui/InteractiveCanvas'
+import { CurriculumPopup } from '@/components/ui/CurriculumPopup'
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
       </main>
 
       <Footer />
+      <CurriculumPopup />
     </div>
   )
 }

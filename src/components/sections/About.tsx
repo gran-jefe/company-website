@@ -87,7 +87,7 @@ export function About() {
                   Founded by <strong className="text-[#2E0E1D] dark:text-[#FFF0E3]">Sherifdeen Adeleke</strong>, Gran Jefe is an independent digital product and creative engineering studio. We combine world-class visual aesthetics with high-integrity software engineering, building websites, web applications, and mobile products that convert visitors into revenue.
                 </p>
                 <p>
-                  Our founder's background includes engineering sovereign financial infrastructure as Full-Stack Engineer at Mabilla Group—architecting digital consular payment systems for the <strong className="text-[#2E0E1D] dark:text-[#FFF0E3]">Nigeria High Commission United Kingdom</strong>, UK Open Banking payment engines for <strong className="text-[#2E0E1D] dark:text-[#FFF0E3]">Celergate</strong>, and cross-border remittance platforms with biometric verification.
+                  Our founder's background includes engineering sovereign financial infrastructure as Full-Stack Engineer at Mabilla Group, architecting digital consular payment systems for the <strong className="text-[#2E0E1D] dark:text-[#FFF0E3]">Nigeria High Commission United Kingdom</strong>, UK Open Banking payment engines for <strong className="text-[#2E0E1D] dark:text-[#FFF0E3]">Celergate</strong>, and cross-border remittance platforms with biometric verification.
                 </p>
                 <p>
                   Today, Gran Jefe operates as a registered corporate entity under Nigerian law (<strong>GRAN JEFE SOLUTIONS, BN: 9529101</strong>). We partner with ambitious founders, brands, and companies in the UK, US, Europe, and Nigeria who demand products built with obsessive speed, fluid micro-interactions, and zero technical debt.

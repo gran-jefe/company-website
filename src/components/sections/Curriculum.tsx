@@ -22,7 +22,7 @@ interface CurriculumTrack {
   id: string
   title: string
   subtitle: string
-  category: 'backend' | 'frontend' | 'fullstack' | 'fintech' | 'mobile' | 'ai'
+  category: 'backend' | 'frontend' | 'fullstack' | 'fintech' | 'mobile' | 'ai' | 'product' | 'people'
   badge: string
   badgeColor: string
   description: string
@@ -160,17 +160,55 @@ const tracks: CurriculumTrack[] = [
     ],
     href: '/curriculum/frontend-engineering',
   },
+  {
+    id: 'product-management',
+    title: 'Technical Product Management & Delivery',
+    subtitle: 'Discovery, PRDs, Engineering Hand-Offs & PostHog Analytics',
+    category: 'product',
+    badge: 'Leadership Track',
+    badgeColor: 'bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/25',
+    description:
+      'Master continuous customer discovery, 12 UI/UX non-negotiables, high-clarity PRDs, engineering sprint hand-offs, and product analytics using PostHog and Mixpanel.',
+    duration: '8 to 10 Weeks',
+    highlights: [
+      'Continuous user interviews & opportunity solution trees',
+      '12 UI/UX non-negotiables & release quality gates',
+      'PRD scoping, user stories & engineering sprint hand-offs',
+      'PostHog funnels, retention cohorts & feature flags',
+    ],
+    href: '/curriculum/product-management',
+  },
+  {
+    id: 'people-operations',
+    title: 'People Operations & Technical HR for High-Growth Startups',
+    subtitle: 'Tech Sourcing, Career Leveling, ESOP Equity & People Analytics',
+    category: 'people',
+    badge: 'Strategic Track',
+    badgeColor: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/25',
+    description:
+      'Build and scale high-performing engineering teams from seed to Series B. Master technical talent sourcing, engineering career leveling ladders, ESOP equity compensation, and retention analytics.',
+    duration: '8 to 10 Weeks',
+    highlights: [
+      'Senior tech sourcing & structured behavioral interviews',
+      'Dual-track engineering ladders (IC vs Management)',
+      'ESOP equity math, vesting schedules & remote compliance',
+      'eNPS, retention cohort modeling & culture playbooks',
+    ],
+    href: '/curriculum/people-operations',
+  },
 ]
 
-type FilterCategory = 'all' | 'backend' | 'frontend' | 'fullstack' | 'fintech' | 'mobile' | 'ai'
+type FilterCategory = 'all' | 'backend' | 'frontend' | 'fullstack' | 'fintech' | 'mobile' | 'ai' | 'product' | 'people'
 
 const filterTabs: { id: FilterCategory; label: string }[] = [
-  { id: 'all', label: 'All Curriculums' },
+  { id: 'all', label: 'All Curriculums (9)' },
   { id: 'backend', label: 'Backend & Django' },
   { id: 'frontend', label: 'Frontend & UI' },
   { id: 'fintech', label: 'Fintech Systems' },
   { id: 'mobile', label: 'Mobile & Expo' },
   { id: 'ai', label: 'AI & Multi-Agents' },
+  { id: 'product', label: 'Product Management' },
+  { id: 'people', label: 'People Ops & HR' },
 ]
 
 export function Curriculum() {
@@ -202,10 +240,34 @@ export function Curriculum() {
               href="/curriculum"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-dm font-semibold bg-brand-terra hover:bg-brand-ember text-white transition-all shadow-xs group"
             >
-              <span>Explore All 7 Curriculums</span>
+              <span>Explore All 9 Curriculums</span>
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
+        </div>
+
+        {/* UI/UX Playbook Quality Gate Banner */}
+        <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-brand-terra/10 to-purple-500/10 border border-brand-terra/30 dark:border-brand-terra/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-brand-terra text-white">
+                Release Quality Standard
+              </span>
+              <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+                12 Non-Negotiables &bull; Acceptance Tests
+              </span>
+            </div>
+            <h3 className="text-sm sm:text-base font-bold text-zinc-900 dark:text-white">
+              UI/UX Non-Negotiables for Web Applications: The Product Quality Playbook
+            </h3>
+          </div>
+          <Link
+            href="/standards/ui-ux-playbook"
+            className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-dm font-semibold bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-brand-terra dark:text-brand-ember border border-brand-terra/30 transition-all shadow-xs group"
+          >
+            <span>Explore Playbook</span>
+            <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
+          </Link>
         </div>
 
         {/* Category Filter Pills with animated layoutId */}

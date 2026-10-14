@@ -15,12 +15,14 @@ import {
   Database, 
   Cpu, 
   RefreshCw,
-  Boxes
+  Boxes,
+  GraduationCap
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Logo } from '@/components/ui/Logo'
 import { CurriculumLeadCapture } from '@/components/curriculum/CurriculumLeadCapture'
 import { CurriculumChecklist, type CurriculumModuleGroup } from '@/components/curriculum/CurriculumChecklist'
+import { CurriculumJourneyGuide } from '@/components/curriculum/CurriculumJourneyGuide'
 
 export const metadata: Metadata = {
   title: 'Node.js & TypeScript Backend Engineering Curriculum | Gran Jefe Learning Hub',
@@ -238,6 +240,9 @@ export default function NodeBackendCurriculumPage() {
           </div>
         </section>
 
+        {/* Learner Journey Guide */}
+        <CurriculumJourneyGuide />
+
         {/* Interactive Milestone Progress Tracker */}
         <section className="mb-14">
           <CurriculumChecklist
@@ -333,6 +338,29 @@ export default function NodeBackendCurriculumPage() {
             </ul>
           </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <BookOpen size={14} className="text-amber-500" /> High-Yield Reading
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
+                <li><a href="https://docs.nestjs.com/first-steps" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Official NestJS Docs: First Steps &amp; Modules <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.nestjs.com/custom-decorators" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">NestJS: Custom Decorators &amp; Guards Guide <ExternalLink size={11} /></a></li>
+                <li><em>Guide:</em> <em>Clean Architecture in TypeScript &amp; NestJS</em> by Kamil Myśliwiec.</li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <Code2 size={14} className="text-amber-500" /> Practical Video Resource
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
+                <li><a href="https://www.youtube.com/watch?v=GHTA143_b-s" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: NestJS Full Course - API from Scratch <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=2n3xS89TJMI" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Net Ninja: NestJS Tutorial for Beginners <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+          </div>
+
           <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs sm:text-sm text-emerald-900 dark:text-emerald-300">
             <strong>Checkmark Project:</strong> Build a multi-tenant Product &amp; Inventory REST API with NestJS, containing role-based guards (Admin vs Member), validated DTOs, and auto-generated Swagger explorer at <code>/docs</code>.
           </div>
@@ -368,6 +396,29 @@ export default function NodeBackendCurriculumPage() {
             </ul>
           </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <BookOpen size={14} className="text-purple-500" /> High-Yield Reading
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://www.prisma.io/docs/concepts/components/prisma-client/transactions" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Prisma Docs: Transactions &amp; Concurrency <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.nestjs.com/recipes/prisma" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">NestJS Recipes: Prisma ORM Integration <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-transaction/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">PostgreSQL Tutorial: ACID &amp; Isolation Levels <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <Code2 size={14} className="text-purple-500" /> Practical Video Resource
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://www.youtube.com/watch?v=RebA5J-rlhU" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: Prisma ORM Crash Course <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=pomxJOFLeQs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Hussein Nasser: Database Transactions &amp; ACID <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+          </div>
+
           <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs sm:text-sm text-emerald-900 dark:text-emerald-300">
             <strong>Checkmark Project:</strong> Build a multi-currency Wallet Ledger API using Prisma and PostgreSQL where fund transfers run inside an interactive atomic transaction with row locking to ensure zero balance discrepancies under concurrent requests.
           </div>
@@ -400,6 +451,29 @@ export default function NodeBackendCurriculumPage() {
               <li><strong>BullMQ Worker Queues:</strong> Job queues, worker concurrency, automated backoff retries, and failed job dead-letter processing.</li>
               <li><strong>HMAC Webhook Ingestion:</strong> Verify digital signatures (HMAC-SHA256) on incoming webhooks and guarantee idempotency.</li>
             </ul>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <BookOpen size={14} className="text-cyan-500" /> High-Yield Reading
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://docs.bullmq.io/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">BullMQ Official Docs: Queues, Jobs &amp; Workers <ExternalLink size={11} /></a></li>
+                <li><a href="https://redis.io/docs/latest/develop/data-types/streams/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Redis Architecture: Streaming &amp; Message Brokers <ExternalLink size={11} /></a></li>
+                <li><a href="https://stripe.com/docs/webhooks/signatures" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Stripe Engineering: Webhook HMAC Verification <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <Code2 size={14} className="text-cyan-500" /> Practical Video Resource
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://www.youtube.com/watch?v=oUJbuFMyBDk" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">ByteByteGo: Distributed Message Queues Explained <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=kYvV98yLpG0" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Jack Herrington: BullMQ &amp; Redis Async Processing <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
           </div>
 
           <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs sm:text-sm text-emerald-900 dark:text-emerald-300">
@@ -444,6 +518,114 @@ export default function NodeBackendCurriculumPage() {
                 <li>GitHub Actions CI/CD with automated test &amp; lint gates</li>
                 <li>Interactive Swagger UI at <code>/docs</code></li>
               </ul>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-200 font-mono flex items-center gap-1.5">
+                <BookOpen size={14} className="text-brand-terra" /> High-Yield Reading
+              </h4>
+              <ul className="text-xs text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://docs.docker.com/language/nodejs/build-images/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Docker Official: Node.js Multi-Stage Containerization <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">GitHub Docs: Node.js CI/CD Test Pipelines <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-200 font-mono flex items-center gap-1.5">
+                <Code2 size={14} className="text-brand-terra" /> Practical Video Resource
+              </h4>
+              <ul className="text-xs text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://www.youtube.com/watch?v=3c-iBn73dDE" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">TechWorld with Nana: Docker Crash Course for Node.js <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=1vTXp_f9JbU" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">ByteByteGo: API Gateway Architecture Explained <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Accredited Certifications & Coursera Specializations */}
+        <section className="mb-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-emerald-500/10 via-blue-500/5 to-transparent border border-emerald-500/25 shadow-xs space-y-6">
+          <div className="flex items-center gap-3">
+            <GraduationCap className="text-emerald-600 dark:text-emerald-400" size={26} />
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white font-syne">
+                Accredited Certifications &amp; Coursera Programs
+              </h2>
+              <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-dm">
+                Earn verifiable industry and university credentials to validate your backend engineering capabilities:
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 font-bold uppercase">
+                  Meta Professional Certificate
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  Meta Back-End Developer Professional Certificate
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  9-course program covering server-side architectures, databases, APIs, and cloud deployments from Meta staff engineers.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/professional-certificates/meta-back-end-developer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold uppercase">
+                  IBM Professional Certificate
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  IBM Full Stack Cloud Developer Certificate
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Master Node.js, Express, microservices, containerization with Docker, and cloud-native databases.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 font-bold uppercase">
+                  HKUST University
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  Server-side Development with NodeJS &amp; Express
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Deep-dive into REST APIs, database persistence, authentication tokens, and backend security.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/learn/server-side-nodejs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
             </div>
           </div>
         </section>

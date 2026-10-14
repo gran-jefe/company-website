@@ -14,16 +14,65 @@ import {
   ShieldCheck, 
   WifiOff, 
   Fingerprint, 
-  Cpu
+  Cpu,
+  GraduationCap
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Logo } from '@/components/ui/Logo'
 import { CurriculumLeadCapture } from '@/components/curriculum/CurriculumLeadCapture'
+import { CurriculumChecklist, type CurriculumModuleGroup } from '@/components/curriculum/CurriculumChecklist'
+import { CurriculumJourneyGuide } from '@/components/curriculum/CurriculumJourneyGuide'
 
 export const metadata: Metadata = {
   title: 'Mobile Engineering Curriculum (React Native & Expo) | Gran Jefe Learning Hub',
   description: 'A production-grade mobile engineering roadmap from web concepts to cross-platform iOS and Android apps with React Native, Expo Router, offline caching, and biometric auth.',
 }
+
+const mobileModules: CurriculumModuleGroup[] = [
+  {
+    moduleNumber: 1,
+    title: 'Expo Core, Native Primitives & Expo Router v4',
+    duration: '2 to 3 Weeks',
+    milestones: [
+      { id: 'mobile-primitives', title: 'View, Text, Pressable & Flexbox', description: 'Master mobile layout dynamics, flex-direction column defaults, and notch safe-area handling.' },
+      { id: 'mobile-router', title: 'File-Based Routing with Expo Router v4', description: 'Build typed stack navigators, bottom tab bars, and nested modal presentations.' },
+      { id: 'mobile-styling', title: 'Tailwind CSS on Mobile with NativeWind v4', description: 'Write responsive, dark-mode adaptive utility styles using Tailwind CSS in React Native.' },
+      { id: 'mobile-p1-project', title: 'Phase 1 Checkmark: Responsive Expense Tracker App', description: 'Build an expense tracker with stack/tab navigation that adapts across iPhone dynamic islands and Android screens.' },
+    ],
+  },
+  {
+    moduleNumber: 2,
+    title: 'Hardware APIs, Biometrics & Secure Storage',
+    duration: '3 to 4 Weeks',
+    milestones: [
+      { id: 'mobile-biometrics', title: 'FaceID, TouchID & Biometric Gates', description: 'Implement biometric app unlock gates using expo-local-authentication.' },
+      { id: 'mobile-keychain', title: 'Hardware Keystore Security with SecureStore', description: 'Store JWT tokens and user encryption secrets inside iOS Keychain and Android Keystore.' },
+      { id: 'mobile-camera', title: 'Camera & QR Code Scanning', description: 'Build high-frame-rate QR barcode scanners for instant peer-to-peer payments.' },
+      { id: 'mobile-p2-project', title: 'Phase 2 Checkmark: Biometric Authenticator & QR Scanner', description: 'Ship an authenticator app with biometric gate, QR scanning, and hardware secure storage.' },
+    ],
+  },
+  {
+    moduleNumber: 3,
+    title: 'Performance, Offline Sync & EAS Pipelines',
+    duration: '3 to 4 Weeks',
+    milestones: [
+      { id: 'mobile-flashlist', title: 'List Virtualization with Shopify FlashList', description: 'Eliminate frame drops and RAM bloat on 10,000+ item transaction feeds.' },
+      { id: 'mobile-offline', title: 'Offline-First Caching with TanStack Query & MMKV', description: 'Provide instant UI interactions with zero-latency disk caching and background sync.' },
+      { id: 'mobile-eas', title: 'EAS Build, EAS Update & App Store Submission', description: 'Configure automated cloud builds, over-the-air code pushes, and Apple TestFlight releases.' },
+      { id: 'mobile-p3-project', title: 'Phase 3 Checkmark: Offline-Resilient Transaction Feed', description: 'Build an offline-first transaction feed that queues operations when internet connectivity drops.' },
+    ],
+  },
+  {
+    moduleNumber: 4,
+    title: 'Capstone: Production Fintech Mobile Wallet',
+    duration: 'Final Phase',
+    milestones: [
+      { id: 'mobile-wallet-state', title: 'Multi-Currency Account State & Polling', description: 'Orchestrate real-time balances, pull-to-refresh, and live currency conversions.' },
+      { id: 'mobile-haptics', title: 'Micro-Interactions & Haptic Feedback', description: 'Provide native tactile feedback on button presses and transfer confirmation sheets.' },
+      { id: 'mobile-capstone-project', title: 'Final Capstone: Production Fintech Mobile Wallet', description: 'Deploy a complete iOS/Android wallet on TestFlight with QR payments and biometric security.' },
+    ],
+  },
+]
 
 export default function MobileCurriculumPage() {
   return (
@@ -145,6 +194,18 @@ export default function MobileCurriculumPage() {
           </div>
         </section>
 
+        {/* Learner Journey Guide */}
+        <CurriculumJourneyGuide />
+
+        {/* Interactive Milestone Progress Tracker */}
+        <section className="mb-14">
+          <CurriculumChecklist
+            trackId="mobile-react-native"
+            trackTitle="Mobile Engineering with React Native & Expo"
+            modules={mobileModules}
+          />
+        </section>
+
         {/* Phase 1: Native Primitives */}
         <section className="mb-12 p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 dark:border-zinc-800 pb-4">
@@ -180,19 +241,20 @@ export default function MobileCurriculumPage() {
               <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
                 <BookOpen size={14} className="text-emerald-500" /> High-Yield Reading
               </h4>
-              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
                 <li><a href="https://docs.expo.dev/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Expo Official Documentation <ExternalLink size={11} /></a></li>
-                <li><a href="https://docs.expo.dev/router/introduction/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Expo Router Guide <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.expo.dev/router/introduction/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Expo Router v4 Guide <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.nativewind.dev/quick-start/expo" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">NativeWind v4: Tailwind in React Native <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
             <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
               <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
-                <Code2 size={14} className="text-emerald-500" /> Video Tutorials
+                <Code2 size={14} className="text-emerald-500" /> Practical Video Resource
               </h4>
-              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: React Native Mobile Course <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=kLH_gR_UfTI" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Simon Grimm: Expo Router Crash Course <ExternalLink size={11} /></a></li>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: React Native Full Course <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=kLH_gR_UfTI" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Simon Grimm (Galaxies.dev): Expo Router Crash Course <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -232,6 +294,29 @@ export default function MobileCurriculumPage() {
             </ul>
           </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <BookOpen size={14} className="text-amber-500" /> High-Yield Reading
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://docs.expo.dev/versions/latest/sdk/local-authentication/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Expo Docs: Local Authentication (FaceID/Fingerprint) <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.expo.dev/versions/latest/sdk/securestore/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Expo Docs: SecureStore Keychain Storage <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.expo.dev/push-notifications/overview/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Expo Push Notifications Architecture <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <Code2 size={14} className="text-amber-500" /> Practical Video Resource
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://www.youtube.com/watch?v=R9OHg9K1VHQ" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Galaxies.dev: Biometric Auth &amp; Secure Storage in Expo <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">William Candillon: React Native Gestures &amp; Camera <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+          </div>
+
           <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs sm:text-sm text-emerald-900 dark:text-emerald-300">
             <strong>Checkmark Project:</strong> Build a Biometric Secure Authenticator app that requires FaceID/fingerprint unlock, reads QR codes to authorize mock logins, and stores session tokens inside device Keychain storage.
           </div>
@@ -266,13 +351,36 @@ export default function MobileCurriculumPage() {
               <li><strong>App Store Deployment:</strong> Generating iOS certificates, provisioning profiles, Android keystores, and running <code>eas build --platform all</code>.</li>
             </ul>
           </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <BookOpen size={14} className="text-purple-500" /> High-Yield Reading
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://shopify.github.io/flash-list/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Shopify FlashList: Performance &amp; Recycling Docs <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.expo.dev/build/introduction/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Expo EAS Build: iOS &amp; Android Cloud Builds <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.expo.dev/eas-update/introduction/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">EAS Update: Zero-Downtime Over-The-Air Pushes <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <Code2 size={14} className="text-purple-500" /> Practical Video Resource
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://www.youtube.com/watch?v=kLH_gR_UfTI" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Galaxies.dev: EAS Build &amp; TestFlight Deployment <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Catalin Miron: Smooth 60FPS React Native Animations <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         {/* Capstone */}
         <section className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-transparent border border-emerald-500/30 shadow-xs space-y-5">
           <div className="flex items-center gap-3">
             <Sparkles className="text-emerald-500" size={26} />
-            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">
+            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white font-syne">
               The Capstone: Production Fintech Mobile Wallet
             </h2>
           </div>
@@ -290,6 +398,120 @@ export default function MobileCurriculumPage() {
                 <li>Virtual transaction feed powered by FlashList with search, status filtering, and PDF receipt exports.</li>
                 <li>Compiled and published on Apple TestFlight and Google Play Internal Track using EAS Build.</li>
               </ul>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <BookOpen size={14} className="text-emerald-500" /> High-Yield Reading
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://reactnative.dev/docs/security" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">React Native Official: Mobile Security Best Practices <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.expo.dev/distribution/app-stores/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Apple App Store &amp; Google Play Checklist <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <Code2 size={14} className="text-emerald-500" /> Practical Video Resource
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Galaxies.dev: Building Full-Stack Fintech Mobile Apps <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Coursera & Accredited Certifications */}
+        <section className="mb-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-emerald-500/5 via-transparent to-purple-500/5 border border-emerald-500/20 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                <GraduationCap size={18} />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-zinc-900 dark:text-white">
+                  Coursera &amp; Accredited Professional Certificates
+                </h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Validate your cross-platform and native engineering capabilities with recognized credentials from Meta and top industry leaders.
+                </p>
+              </div>
+            </div>
+            <span className="text-[11px] font-mono font-medium text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+              Accredited Paths
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 font-bold uppercase">
+                  Meta Official
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  React Native Specialization by Meta
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Created by the creators of React Native. Master cross-platform primitives, state handling, and device navigation.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/learn/react-native"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold uppercase">
+                  Meta Professional Certificate
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  Meta Android Developer Certificate
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Understand Android architecture, Kotlin foundations, background tasks, and native device integration.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/professional-certificates/meta-android-developer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 font-bold uppercase">
+                  Meta Professional Certificate
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  Meta iOS Developer Certificate
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Master Swift, UIKit, native iOS lifecycle states, and App Store submission security guidelines.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/professional-certificates/meta-ios-developer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
             </div>
           </div>
         </section>

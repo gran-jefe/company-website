@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Mail, Check, Send, Copy, ArrowUpRight, ShieldCheck, MessageCircle, Clock, Sparkles, RotateCcw } from 'lucide-react'
+import { Mail, Check, Send, Copy, ArrowUpRight, ShieldCheck, MessageCircle, Clock, Sparkles, RotateCcw, Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 
@@ -9,10 +9,15 @@ export function Contact() {
   const [selectedServices, setSelectedServices] = useState<string[]>(['⚡ 7-Day Rebuild Sprint'])
   const [selectedTimeline, setSelectedTimeline] = useState<string>('7-Day Sprint')
   const [copiedCli, setCopiedCli] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [nameInput, setNameInput] = useState('')
   const [emailInput, setEmailInput] = useState('')
+  const [emailTouched, setEmailTouched] = useState(false)
   const [messageInput, setMessageInput] = useState('')
+
+  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.trim())
+  const showEmailError = emailTouched && emailInput.length > 0 && !isValidEmail
 
   const availableServices = [
     '⚡ 7-Day Rebuild Sprint',
@@ -65,19 +70,25 @@ Sent via thegranjefe.com`
 
   const handleSubmitForm = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!emailInput) return
+    setEmailTouched(true)
+    if (!isValidEmail) return
+
+    setIsSubmitting(true)
 
     const subject = encodeURIComponent(
-      `[Studio Inquiry] ${selectedServices.join(', ')} — ${nameInput || 'New Client'}`
+      `[Studio Inquiry] ${selectedServices.join(', ')} - ${nameInput || 'New Client'}`
     )
     const body = encodeURIComponent(
       `Hi Gran Jefe Studio,\n\nName: ${nameInput}\nEmail: ${emailInput}\nTarget Timeline: ${selectedTimeline}\nSelected Services: ${
         selectedServices.join(', ') || 'Not specified'
       }\n\nProject Scope & Goals:\n${messageInput}\n\n---\nSent via thegranjefe.com inquiry console`
     )
-    window.location.href = `mailto:granjefetech@gmail.com?subject=${subject}&body=${body}`
 
-    setIsSubmitted(true)
+    setTimeout(() => {
+      window.location.href = `mailto:granjefetech@gmail.com?subject=${subject}&body=${body}`
+      setIsSubmitting(false)
+      setIsSubmitted(true)
+    }, 300)
   }
 
   return (
@@ -175,17 +186,39 @@ Sent via thegranjefe.com`
                   </div>
 
                   <div>
-                    <label className="block font-dm text-xs text-[#7A4A38] dark:text-[#E6D0C2] font-medium mb-1.5">
-                      Your Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={emailInput}
-                      onChange={(e) => setEmailInput(e.target.value)}
-                      placeholder="alex@company.com"
-                      className="w-full px-4 py-3 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] font-dm text-sm outline-none focus:border-brand-terra transition-colors placeholder:text-[#A88B98] dark:placeholder:text-[#B88E7D]/60"
-                    />
+                    <div className="flex items-center justify-between mb-1.5">
+                      <label className="block font-dm text-xs text-[#7A4A38] dark:text-[#E6D0C2] font-medium">
+                        Your Email Address *
+                      </label>
+                      {isValidEmail && emailInput.length > 0 && (
+                        <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 flex items-center gap-1 font-semibold">
+                          <CheckCircle2 size={12} /> Valid Email
+                        </span>
+                      )}
+                    </div>
+                    <div className="relative">
+                      <input
+                        type="email"
+                        required
+                        value={emailInput}
+                        onBlur={() => setEmailTouched(true)}
+                        onChange={(e) => {
+                          setEmailInput(e.target.value)
+                          if (!emailTouched) setEmailTouched(true)
+                        }}
+                        placeholder="alex@company.com"
+                        className={`w-full px-4 py-3 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border ${
+                          showEmailError
+                            ? 'border-rose-500 focus:border-rose-500 focus:ring-1 focus:ring-rose-500'
+                            : 'border-[#EAD3C4] dark:border-[#EAD3C4]/15 focus:border-brand-terra focus:ring-1 focus:ring-brand-terra'
+                        } text-[#2E0E1D] dark:text-[#FFF0E3] font-dm text-sm focus:outline-none transition-colors placeholder:text-[#A88B98] dark:placeholder:text-[#B88E7D]/60`}
+                      />
+                    </div>
+                    {showEmailError && (
+                      <p className="mt-1.5 text-xs text-rose-500 font-dm flex items-center gap-1">
+                        <AlertCircle size={12} /> Please enter a valid email address (e.g. name@company.com)
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -206,17 +239,27 @@ Sent via thegranjefe.com`
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                   <button
                     type="submit"
-                    className="py-3.5 px-6 rounded-xl bg-brand-terra hover:bg-brand-ember text-white font-dm font-semibold text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-brand-terra/20 hover:scale-[1.01] cursor-pointer"
+                    disabled={isSubmitting}
+                    className="py-3.5 px-6 rounded-xl bg-brand-terra hover:bg-brand-ember disabled:opacity-75 text-white font-dm font-semibold text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-brand-terra/20 hover:scale-[1.01] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra cursor-pointer"
                   >
-                    <Send size={16} />
-                    <span>Send Project Inquiry</span>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 size={16} className="animate-spin" />
+                        <span>Preparing Email...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send size={16} />
+                        <span>Send Project Inquiry</span>
+                      </>
+                    )}
                   </button>
 
                   <a
                     href={generateWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="py-3.5 px-6 rounded-xl bg-[#0E6247] hover:bg-[#127A59] text-white font-dm font-semibold text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-950/20 hover:scale-[1.01]"
+                    className="py-3.5 px-6 rounded-xl bg-[#0E6247] hover:bg-[#127A59] text-white font-dm font-semibold text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-950/20 hover:scale-[1.01] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                   >
                     <MessageCircle size={16} />
                     <span>Chat on WhatsApp Direct</span>

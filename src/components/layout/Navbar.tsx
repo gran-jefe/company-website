@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ArrowUpRight, ShieldCheck } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
@@ -11,6 +12,7 @@ const navItems = [
   { label: 'Work', href: '#work' },
   { label: 'Services', href: '#services' },
   { label: 'Process', href: '#process' },
+  { label: 'Curriculum', href: '/curriculum' },
   { label: 'Studio', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -86,12 +88,26 @@ export function Navbar() {
         {/* Center Navigation */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => {
-            const isActive = activeSection === item.href.slice(1)
+            const isRoute = item.href.startsWith('/')
+            const isActive = !isRoute && activeSection === item.href.slice(1)
+
+            if (isRoute) {
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="font-dm text-sm tracking-wide text-[#6C4B59] dark:text-[#E6D0C2] hover:text-brand-terra dark:hover:text-[#FFF0E3] transition-colors relative py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra rounded flex items-center gap-1"
+                >
+                  <span>{item.label}</span>
+                </Link>
+              )
+            }
+
             return (
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className={`font-dm text-sm tracking-wide transition-colors relative py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra rounded ${
+                className={`font-dm text-sm tracking-wide transition-colors relative py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra rounded cursor-pointer ${
                   isActive
                     ? 'text-brand-terra font-semibold dark:text-brand-ember'
                     : 'text-[#6C4B59] dark:text-[#E6D0C2] hover:text-brand-terra dark:hover:text-[#FFF0E3]'
@@ -131,10 +147,10 @@ export function Navbar() {
             <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Button>
 
-          {/* Mobile menu trigger */}
+          {/* Mobile menu trigger (Minimum 44x44px tap target) */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-[#2E0E1D] dark:text-[#FFF0E3] focus-visible:outline-none rounded"
+            className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 text-[#2E0E1D] dark:text-[#FFF0E3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra rounded-xl cursor-pointer"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -158,15 +174,30 @@ export function Navbar() {
                 <span>Verified Entity: CAC BN 9529101</span>
               </div>
 
-              {navItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => handleNavClick(item.href)}
-                  className="block w-full text-left py-2 font-syne text-lg font-bold text-[#2E0E1D] dark:text-[#FFF0E3] hover:text-brand-terra dark:hover:text-brand-ember transition-colors"
-                >
-                  {item.label}
-                </button>
-              ))}
+              {navItems.map((item) => {
+                if (item.href.startsWith('/')) {
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="min-h-[44px] flex items-center w-full text-left py-2.5 font-syne text-lg font-bold text-[#2E0E1D] dark:text-[#FFF0E3] hover:text-brand-terra dark:hover:text-brand-ember transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                }
+
+                return (
+                  <button
+                    key={item.href}
+                    onClick={() => handleNavClick(item.href)}
+                    className="min-h-[44px] flex items-center w-full text-left py-2.5 font-syne text-lg font-bold text-[#2E0E1D] dark:text-[#FFF0E3] hover:text-brand-terra dark:hover:text-brand-ember transition-colors cursor-pointer"
+                  >
+                    {item.label}
+                  </button>
+                )
+              })}
 
               <Button variant="filled" onClick={() => handleNavClick('#contact')} className="w-full mt-4 py-3">
                 Start a Project

@@ -14,7 +14,11 @@ import {
   CheckCircle2, 
   Filter, 
   Search,
-  ArrowLeft
+  ArrowLeft,
+  FileText,
+  ShieldCheck,
+  Users,
+  Briefcase
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Logo } from '@/components/ui/Logo'
@@ -23,7 +27,7 @@ interface Track {
   id: string
   title: string
   subtitle: string
-  category: 'backend' | 'frontend' | 'fullstack' | 'fintech' | 'ai'
+  category: 'backend' | 'frontend' | 'fullstack' | 'fintech' | 'ai' | 'product' | 'people'
   categoryLabel: string
   badge: string
   badgeColor: string
@@ -169,6 +173,44 @@ const allTracks: Track[] = [
     ],
     href: '/curriculum/ai-systems',
   },
+  {
+    id: 'product-management',
+    title: 'Technical Product Management & Delivery',
+    subtitle: 'Discovery, PRDs, Engineering Hand-Offs & PostHog Analytics',
+    category: 'product',
+    categoryLabel: 'Product & Leadership',
+    badge: 'Leadership Track',
+    badgeColor: 'bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/25',
+    description:
+      'Master continuous customer discovery, 12 UI/UX non-negotiables, high-clarity PRDs, engineering sprint hand-offs, and product analytics using PostHog and Mixpanel.',
+    duration: '8 to 10 Weeks',
+    highlights: [
+      'Continuous user interviews & opportunity solution trees',
+      '12 UI/UX non-negotiables & release quality gates',
+      'PRD scoping, user stories & engineering sprint hand-offs',
+      'PostHog funnels, retention cohorts & feature flags',
+    ],
+    href: '/curriculum/product-management',
+  },
+  {
+    id: 'people-operations',
+    title: 'People Operations & Technical HR for High-Growth Startups',
+    subtitle: 'Tech Sourcing, Career Leveling, ESOP Equity & People Analytics',
+    category: 'people',
+    categoryLabel: 'People & Talent',
+    badge: 'Strategic Track',
+    badgeColor: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/25',
+    description:
+      'Build and scale high-performing engineering teams from seed to Series B. Master technical talent sourcing, engineering career leveling ladders, ESOP equity compensation, and retention analytics.',
+    duration: '8 to 10 Weeks',
+    highlights: [
+      'Senior tech sourcing & structured behavioral interviews',
+      'Dual-track engineering ladders (IC vs Management)',
+      'ESOP equity math, vesting schedules & remote compliance',
+      'eNPS, retention cohort modeling & culture playbooks',
+    ],
+    href: '/curriculum/people-operations',
+  },
 ]
 
 export default function CurriculumHubPage() {
@@ -176,12 +218,14 @@ export default function CurriculumHubPage() {
   const [searchQuery, setSearchQuery] = useState('')
 
   const categories = [
-    { id: 'all', label: 'All Curriculums' },
+    { id: 'all', label: 'All Curriculums (9)' },
     { id: 'backend', label: 'Backend & Systems' },
     { id: 'frontend', label: 'Frontend' },
     { id: 'fullstack', label: 'Full-Stack' },
     { id: 'fintech', label: 'Fintech & Mobile' },
     { id: 'ai', label: 'AI Engineering' },
+    { id: 'product', label: 'Product Management' },
+    { id: 'people', label: 'People Ops & HR' },
   ]
 
   const filteredTracks = allTracks.filter((track) => {
@@ -234,6 +278,33 @@ export default function CurriculumHubPage() {
           <p className="text-base sm:text-lg text-[#5A3846] dark:text-[#E6D0C2] font-dm leading-relaxed">
             Curated, project-first engineering curriculums built by senior practitioners. Each track bridges the gap between tutorial theory and production-grade architectures. Free today, built to scale your engineering career.
           </p>
+        </div>
+
+        {/* UI/UX Non-Negotiables Playbook Featured Banner */}
+        <div className="mb-12 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-amber-500/10 via-brand-terra/10 to-purple-500/10 border border-brand-terra/30 dark:border-brand-terra/20 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-xs">
+          <div className="space-y-1.5 max-w-2xl">
+            <div className="flex items-center gap-2">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-brand-terra text-white">
+                Engineering Standard
+              </span>
+              <span className="text-xs font-mono text-[#7A4A38] dark:text-[#B88E7D]">
+                Mandatory Quality Baseline
+              </span>
+            </div>
+            <h3 className="text-base sm:text-lg font-bold text-[#2E0E1D] dark:text-[#FFF0E3]">
+              UI/UX Non-Negotiables for Web Applications: The Product Quality Playbook
+            </h3>
+            <p className="text-xs sm:text-sm text-[#5A3846] dark:text-[#E6D0C2] font-dm">
+              The complete 5-part engineering guide: 4 user questions, 12 non-negotiables, acceptance tests, UX priority matrix, and release quality gates.
+            </p>
+          </div>
+          <Link
+            href="/standards/ui-ux-playbook"
+            className="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-dm font-semibold bg-brand-terra hover:bg-brand-ember text-white shadow-xs transition-all group"
+          >
+            <span>Read the Playbook</span>
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
 
         {/* Filters & Search */}

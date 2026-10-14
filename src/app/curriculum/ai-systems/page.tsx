@@ -13,16 +13,67 @@ import {
   Database, 
   Cpu, 
   Network, 
-  Binary
+  Binary,
+  GraduationCap
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Logo } from '@/components/ui/Logo'
 import { CurriculumLeadCapture } from '@/components/curriculum/CurriculumLeadCapture'
+import { CurriculumChecklist, type CurriculumModuleGroup } from '@/components/curriculum/CurriculumChecklist'
+import { CurriculumJourneyGuide } from '@/components/curriculum/CurriculumJourneyGuide'
 
 export const metadata: Metadata = {
   title: 'AI Systems & LLM Application Engineering Curriculum | Gran Jefe Learning Hub',
   description: 'Learn how to build production-grade AI applications, autonomous agents, RAG vector pipelines, and structured tool calling systems with Python and TypeScript.',
 }
+
+const aiModules: CurriculumModuleGroup[] = [
+  {
+    moduleNumber: 1,
+    title: 'LLM APIs, Structured Output & Tool Calling',
+    duration: '2 to 3 Weeks',
+    milestones: [
+      { id: 'ai-tokenomics', title: 'Token Economics, Context Windows & Caching', description: 'Understand BPE tokenizers, compute token budgets, and implement prompt caching.' },
+      { id: 'ai-structured', title: 'Deterministic JSON Output with Pydantic & Zod', description: 'Force model responses into strict, validated schemas that integrate with backend pipelines.' },
+      { id: 'ai-tool-calling', title: 'Dynamic Tool / Function Calling', description: 'Equip models with custom tools for database queries, web scraping, and calculations.' },
+      { id: 'ai-sse', title: 'Real-Time Streaming SSE to React Frontends', description: 'Deliver sub-second response starts using Server-Sent Events (SSE) and readable streams.' },
+      { id: 'ai-p1-project', title: 'Phase 1 Checkmark: Tool-Equipped Financial Assistant API', description: 'Build an API that calls currency and stock market tools and streams schema-validated responses.' },
+    ],
+  },
+  {
+    moduleNumber: 2,
+    title: 'Vector Databases & Advanced RAG Architectures',
+    duration: '3 to 4 Weeks',
+    milestones: [
+      { id: 'ai-chunking', title: 'Document Ingestion & Chunking Strategies', description: 'Implement semantic chunking, recursive splitters, and metadata preservation.' },
+      { id: 'ai-embeddings', title: 'Vector Embeddings & Semantic Search', description: 'Generate high-dimensional vectors with OpenAI and Google embedding models.' },
+      { id: 'ai-pgvector', title: 'PostgreSQL Vector Search with pgvector', description: 'Build HNSW vector indexes in Postgres for rapid cosine similarity queries.' },
+      { id: 'ai-rerank', title: 'Cross-Encoder Re-Ranking & Context Fusion', description: 'Refine retrieval candidates using Cohere ReRank to eliminate hallucinations.' },
+      { id: 'ai-p2-project', title: 'Phase 2 Checkmark: Production RAG Knowledge Engine', description: 'Ground an LLM on uploaded company documents with hybrid vector + full-text search.' },
+    ],
+  },
+  {
+    moduleNumber: 3,
+    title: 'Multi-Agent Systems & Autonomous Workflows',
+    duration: '3 to 4 Weeks',
+    milestones: [
+      { id: 'ai-react-loop', title: 'ReAct Loops & Agent State Machines', description: 'Implement autonomous reasoning, action execution, and self-correction cycles.' },
+      { id: 'ai-langgraph', title: 'Multi-Agent Orchestration with LangGraph', description: 'Coordinate specialized subagents (Researcher, Coder, Reviewer) with graph state machines.' },
+      { id: 'ai-guardrails', title: 'Safety, Guardrails & Prompt Injection Defense', description: 'Implement input sanitization, output policy validators, and token spend caps.' },
+      { id: 'ai-p3-project', title: 'Phase 3 Checkmark: Autonomous Multi-Agent Research Swarm', description: 'Ship a swarm of agents that collaboratively plan, research, and draft technical reports.' },
+    ],
+  },
+  {
+    moduleNumber: 4,
+    title: 'Capstone: Autonomous Enterprise Knowledge Copilot',
+    duration: 'Final Phase',
+    milestones: [
+      { id: 'ai-ingestion-pipe', title: 'Automated Document Ingestion Pipeline', description: 'Parse multi-format company files into searchable, categorized vector collections.' },
+      { id: 'ai-observability', title: 'LLM Observability & Tracing', description: 'Monitor token latencies, cost per request, and evaluation metrics with Langfuse.' },
+      { id: 'ai-capstone-project', title: 'Final Capstone: Enterprise Knowledge Copilot', description: 'Deploy a complete RAG-backed research copilot with citations and streaming UI.' },
+    ],
+  },
+]
 
 export default function AISystemsCurriculumPage() {
   return (
@@ -92,6 +143,18 @@ export default function AISystemsCurriculumPage() {
           </div>
         </div>
 
+        {/* Learner Journey Guide */}
+        <CurriculumJourneyGuide />
+
+        {/* Interactive Milestone Progress Tracker */}
+        <section className="mb-14">
+          <CurriculumChecklist
+            trackId="ai-systems"
+            trackTitle="AI Systems & LLM Application Engineering"
+            modules={aiModules}
+          />
+        </section>
+
         {/* Phase 1 */}
         <section className="mb-12 p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 dark:border-zinc-800 pb-4">
@@ -120,6 +183,33 @@ export default function AISystemsCurriculumPage() {
               <li><strong>Function / Tool Calling:</strong> Teaching LLMs to trigger database lookups, weather APIs, and calculation scripts dynamically.</li>
               <li><strong>Streaming SSE:</strong> Delivering real-time token streams to Next.js frontends via Server-Sent Events (SSE).</li>
             </ul>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <BookOpen size={14} className="text-cyan-500" /> High-Yield Reading
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Anthropic Docs: Tool Use &amp; Function Calling <ExternalLink size={11} /></a></li>
+                <li><a href="https://platform.openai.com/docs/guides/structured-outputs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">OpenAI Guide: Structured Outputs &amp; JSON Schema <ExternalLink size={11} /></a></li>
+                <li><a href="https://ai.google.dev/gemini-api/docs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Google Gemini API: Multimodal &amp; System Instructions <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <Code2 size={14} className="text-cyan-500" /> Practical Video Resource
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Andrej Karpathy: Intro to Large Language Models <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=wjZofJX0v4U" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">3Blue1Brown: Visual Intro to Transformers &amp; Attention <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs sm:text-sm text-emerald-900 dark:text-emerald-300">
+            <strong>Checkmark Project:</strong> Build a tool-calling financial assistant in Python or TypeScript that can look up currency conversion rates, calculate VAT tax tables, and return structured JSON summaries streamed live over SSE.
           </div>
         </section>
 
@@ -152,6 +242,32 @@ export default function AISystemsCurriculumPage() {
               <li><strong>Re-ranking:</strong> Using Cohere ReRank or cross-encoders to refine retrieved documents before prompt injection.</li>
             </ul>
           </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <BookOpen size={14} className="text-blue-500" /> High-Yield Reading
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://www.pinecone.io/learn/advanced-rag-techniques/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Pinecone: Advanced RAG Techniques &amp; Re-ranking <ExternalLink size={11} /></a></li>
+                <li><a href="https://github.com/pgvector/pgvector" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">pgvector: Open-Source Vector Similarity Search in Postgres <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <Code2 size={14} className="text-blue-500" /> Practical Video Resource
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://www.youtube.com/watch?v=aywZrzNaKjs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: Vector Databases &amp; Embeddings Masterclass <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=1vTXp_f9JbU" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">ByteByteGo: Retrieval-Augmented Generation (RAG) Architecture <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs sm:text-sm text-emerald-900 dark:text-emerald-300">
+            <strong>Checkmark Project:</strong> Build a PDF Knowledge Search engine that ingests financial statements, embeds paragraphs with pgvector HNSW indexing, re-ranks with Cohere, and generates accurate answers with exact page citations.
+          </div>
         </section>
 
         {/* Phase 3: Autonomous Agents */}
@@ -182,13 +298,38 @@ export default function AISystemsCurriculumPage() {
               <li><strong>Safety &amp; Guardrails:</strong> Input sanitization, prompt injection defenses, and cost anomaly alerts.</li>
             </ul>
           </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <BookOpen size={14} className="text-purple-500" /> High-Yield Reading
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://lilianweng.github.io/posts/2023-06-23-agent/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Lilian Weng (OpenAI): LLM Powered Autonomous Agents <ExternalLink size={11} /></a></li>
+                <li><a href="https://langchain-ai.github.io/langgraph/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">LangGraph Documentation: Cycles, Branching &amp; State <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <Code2 size={14} className="text-purple-500" /> Practical Video Resource
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://www.youtube.com/watch?v=sal78ACtGTc" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Harrison Chase: Multi-Agent Architectures with LangGraph <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs sm:text-sm text-emerald-900 dark:text-emerald-300">
+            <strong>Checkmark Project:</strong> Build an automated Market Research Agent swarm with LangGraph where an orchestrator breaks down a prompt, dispatches worker subagents to browse real-time APIs, and compiles a Markdown briefing with citations.
+          </div>
         </section>
 
         {/* Capstone */}
         <section className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-transparent border border-cyan-500/30 shadow-xs space-y-5">
           <div className="flex items-center gap-3">
             <Sparkles className="text-cyan-500" size={26} />
-            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">
+            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white font-syne">
               The Capstone: Autonomous Knowledge Copilot &amp; Research Agent
             </h2>
           </div>
@@ -206,6 +347,120 @@ export default function AISystemsCurriculumPage() {
                 <li>Real-time token streaming and interactive UI artifacts rendered on Next.js 16.</li>
                 <li>Observability dashboard tracking token expenditure, latency metrics, and user feedback ratings.</li>
               </ul>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <BookOpen size={14} className="text-cyan-500" /> High-Yield Reading
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://langfuse.com/docs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Langfuse: Open-Source LLM Observability &amp; Tracing <ExternalLink size={11} /></a></li>
+                <li><a href="https://eugeneyan.com/writing/llm-patterns/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Eugene Yan: Patterns for Building LLM-Based Systems <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <Code2 size={14} className="text-cyan-500" /> Practical Video Resource
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://www.youtube.com/watch?v=1vTXp_f9JbU" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">ByteByteGo: Production LLM Evaluation &amp; Guardrails <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Coursera & Accredited Certifications */}
+        <section className="mb-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-cyan-500/5 via-transparent to-blue-500/5 border border-cyan-500/20 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center">
+                <GraduationCap size={18} />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-zinc-900 dark:text-white">
+                  Coursera &amp; Accredited AI Certifications
+                </h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Strengthen your foundation with rigorous, industry-defining certifications from Stanford, DeepLearning.AI, and IBM.
+                </p>
+              </div>
+            </div>
+            <span className="text-[11px] font-mono font-medium text-cyan-600 dark:text-cyan-400 uppercase tracking-wider">
+              Accredited Paths
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 font-bold uppercase">
+                  DeepLearning.AI &amp; AWS
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  Generative AI with Large Language Models
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Instruction fine-tuning, PEFT/LoRA, RLHF alignment, and deploying LLMs on AWS SageMaker.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/learn/generative-ai-with-llms"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 font-bold uppercase">
+                  Stanford &amp; DeepLearning.AI
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  Machine Learning Specialization (Andrew Ng)
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  The gold standard foundation: gradient descent, neural networks, unsupervised learning, and recommender systems.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/specializations/machine-learning-introduction"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold uppercase">
+                  IBM Professional Certificate
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  IBM Applied AI Professional Certificate
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Build AI-powered chatbots, computer vision pipelines, and intelligent assistant microservices.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/professional-certificates/applied-artifical-intelligence-ibm-watson-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
             </div>
           </div>
         </section>

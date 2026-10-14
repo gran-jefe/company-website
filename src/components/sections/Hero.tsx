@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ArrowUpRight, Sparkles, ShieldCheck, Zap, Globe, ExternalLink, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Sparkles, ShieldCheck, Zap, Globe, ExternalLink, CheckCircle2, BookOpen } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 interface HeroProject {
@@ -158,12 +159,28 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Bold Typography & Narrative (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Studio Badge */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-xs font-mono shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-brand-terra animate-pulse" />
-              <span className="text-[#7A4A38] dark:text-[#E6D0C2] font-bold">CREATIVE ENGINEERING STUDIO</span>
-              <span className="text-[#C4A0B8] dark:text-[#7A4A38]">//</span>
-              <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-bold">EST. 2025</span>
+            {/* Top Announcement & Studio Badges */}
+            <div className="flex flex-wrap items-center gap-2.5">
+              <Link
+                href="/curriculum"
+                className="group inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/10 via-brand-terra/10 to-purple-500/10 border border-brand-terra/30 hover:border-brand-terra text-xs font-dm text-[#2E0E1D] dark:text-[#FFF0E3] transition-all shadow-xs hover:scale-[1.01]"
+              >
+                <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-brand-terra text-white">
+                  NEW
+                </span>
+                <span className="font-medium text-xs">
+                  9 Production Curriculums &bull; Free Open Learning Hub
+                </span>
+                <ArrowRight size={13} className="text-brand-terra group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              {/* Studio Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-xs font-mono shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-brand-terra animate-pulse" />
+                <span className="text-[#7A4A38] dark:text-[#E6D0C2] font-bold">STUDIO</span>
+                <span className="text-[#C4A0B8] dark:text-[#7A4A38]">//</span>
+                <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-bold">EST. 2025</span>
+              </div>
             </div>
 
             {/* Giant Hero Headline (Editorial Brand Style) */}
@@ -211,14 +228,14 @@ export function Hero() {
             </div>
 
             {/* Action CTAs */}
-            <div className="pt-2 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+            <div className="pt-2 flex flex-col sm:flex-row gap-3.5 items-stretch sm:items-center">
               <Button
                 variant="filled"
                 onClick={() => {
                   const contactSection = document.querySelector('#contact')
                   if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="py-4 px-8 text-sm font-dm font-semibold flex items-center justify-center gap-2 group shadow-xl shadow-brand-terra/20 hover:scale-[1.02] transition-all bg-brand-terra hover:bg-brand-ember text-white"
+                className="py-3.5 px-7 text-sm font-dm font-semibold flex items-center justify-center gap-2 group shadow-xl shadow-brand-terra/20 hover:scale-[1.02] transition-all bg-brand-terra hover:bg-brand-ember text-white"
               >
                 <span>Start a Project</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -230,10 +247,18 @@ export function Hero() {
                   const workSection = document.querySelector('#work')
                   if (workSection) workSection.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="py-4 px-8 text-sm font-dm font-semibold flex items-center justify-center gap-2 bg-[#FAF0E6] hover:bg-[#F3E2D5] border-[#EAD3C4] dark:bg-[#1D0E17] dark:hover:bg-[#25121E] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] transition-all shadow-xs"
+                className="py-3.5 px-6 text-sm font-dm font-semibold flex items-center justify-center gap-2 bg-[#FAF0E6] hover:bg-[#F3E2D5] border-[#EAD3C4] dark:bg-[#1D0E17] dark:hover:bg-[#25121E] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] transition-all shadow-xs"
               >
-                <span>Explore Selected Work ↓</span>
+                <span>Selected Work ↓</span>
               </Button>
+
+              <Link
+                href="/curriculum"
+                className="py-3.5 px-5 text-sm font-dm font-semibold inline-flex items-center justify-center gap-2 rounded-xl bg-[#FAF0E6] dark:bg-[#1D0E17] hover:bg-[#F3E2D5] dark:hover:bg-[#25121E] border border-brand-terra/30 text-brand-terra dark:text-brand-ember transition-all shadow-xs"
+              >
+                <BookOpen size={15} />
+                <span>Learning Hub</span>
+              </Link>
             </div>
           </div>
 

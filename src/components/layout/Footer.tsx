@@ -1,8 +1,9 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { Logo } from '@/components/ui/Logo'
-import { ArrowUpRight, Mail, Phone, MapPin, ShieldCheck } from 'lucide-react'
+import { ArrowUpRight, Mail, Phone, MapPin, ShieldCheck, Sparkles, BookOpen } from 'lucide-react'
 
 const footerLinks = [
   { label: 'Work', href: '#work' },
@@ -61,8 +62,8 @@ export function Footer() {
 
         {/* Middle Navigation & Contact Information */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-          {/* Logo & Narrative (5 cols) */}
-          <div className="md:col-span-5 space-y-4">
+          {/* Logo & Narrative (4 cols) */}
+          <div className="md:col-span-4 space-y-4">
             <Logo variant="dark" size="sm" />
             <p className="font-dm text-sm text-[#E6D0C2] max-w-sm leading-relaxed">
               Gran Jefe is an independent digital product and creative engineering studio building high-performance web platforms, sovereign payment engines, and mobile applications.
@@ -73,8 +74,8 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick Links (3 cols) */}
-          <div className="md:col-span-3 space-y-3">
+          {/* Quick Links (2 cols) */}
+          <div className="md:col-span-2 space-y-3">
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#FFF0E3]">Navigation</h4>
             <div className="flex flex-col space-y-2">
               {footerLinks.map((link) => (
@@ -89,8 +90,46 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Direct Channels (4 cols) */}
-          <div className="md:col-span-4 space-y-3">
+          {/* Standards & Curriculums (3 cols) */}
+          <div className="md:col-span-3 space-y-3">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#FFF0E3]">Learning &amp; Standards</h4>
+            <div className="flex flex-col space-y-2 text-sm font-dm">
+              <Link
+                href="/standards/ui-ux-playbook"
+                className="text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1 font-semibold"
+              >
+                <span>UI/UX Quality Playbook</span>
+                <ArrowUpRight size={12} />
+              </Link>
+              <Link
+                href="/curriculum"
+                className="text-[#E6D0C2] hover:text-brand-terra transition-colors"
+              >
+                All 9 Curriculums
+              </Link>
+              <Link
+                href="/curriculum/product-management"
+                className="text-[#E6D0C2] hover:text-brand-terra transition-colors"
+              >
+                Product Management Track
+              </Link>
+              <Link
+                href="/curriculum/people-operations"
+                className="text-[#E6D0C2] hover:text-brand-terra transition-colors"
+              >
+                People Ops &amp; Tech HR Track
+              </Link>
+              <Link
+                href="/curriculum/python-django"
+                className="text-[#E6D0C2] hover:text-brand-terra transition-colors"
+              >
+                Python &amp; Django Track
+              </Link>
+            </div>
+          </div>
+
+          {/* Direct Channels (3 cols) */}
+          <div className="md:col-span-3 space-y-3">
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#FFF0E3]">Direct Inquiries</h4>
             <div className="space-y-2 text-sm font-dm text-[#E6D0C2]">
               <div className="flex items-center gap-2">

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useTransition } from 'react'
-import { Send, CheckCircle2, Sparkles, Lock, Gift } from 'lucide-react'
+import { Send, CheckCircle2, Sparkles, Lock, Gift, Loader2 } from 'lucide-react'
 
 interface CurriculumLeadCaptureProps {
   trackTitle: string
@@ -59,15 +59,24 @@ export function CurriculumLeadCapture({ trackTitle }: CurriculumLeadCaptureProps
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your work email address"
               required
-              className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-[#25121E] border border-[#EAD3C4]/20 text-[#FFF0E3] placeholder:text-[#B88E7D] focus:outline-none focus:border-brand-terra focus:ring-1 focus:ring-brand-terra transition-all"
+              className="w-full min-h-[44px] px-4 py-2.5 text-xs sm:text-sm rounded-xl bg-[#25121E] border border-[#EAD3C4]/20 text-[#FFF0E3] placeholder:text-[#B88E7D] focus:outline-none focus:border-brand-terra focus:ring-1 focus:ring-brand-terra transition-all"
             />
             <button
               type="submit"
               disabled={isPending}
-              className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs sm:text-sm font-dm font-semibold bg-brand-terra hover:bg-[#FF5528] text-white transition-colors flex items-center justify-center gap-2 shrink-0 cursor-pointer shadow-sm"
+              className="w-full sm:w-auto min-h-[44px] px-5 py-2.5 rounded-xl text-xs sm:text-sm font-dm font-semibold bg-brand-terra hover:bg-[#FF5528] disabled:opacity-75 text-white transition-colors flex items-center justify-center gap-2 shrink-0 cursor-pointer shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra"
             >
-              <span>Get Free Code</span>
-              <Send size={13} />
+              {isPending ? (
+                <>
+                  <Loader2 size={14} className="animate-spin" />
+                  <span>Subscribing...</span>
+                </>
+              ) : (
+                <>
+                  <span>Get Free Code</span>
+                  <Send size={13} />
+                </>
+              )}
             </button>
           </form>
         )}

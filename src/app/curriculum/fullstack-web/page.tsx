@@ -14,11 +14,13 @@ import {
   Zap, 
   Calendar,
   Clock,
-  Compass
+  Compass,
+  GraduationCap
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Logo } from '@/components/ui/Logo'
 import { CurriculumLeadCapture } from '@/components/curriculum/CurriculumLeadCapture'
+import { CurriculumJourneyGuide } from '@/components/curriculum/CurriculumJourneyGuide'
 
 export const metadata: Metadata = {
   title: 'Full-Stack Web Development Curriculum | Gran Jefe Learning Hub',
@@ -151,6 +153,9 @@ export default function FullstackWebCurriculumPage() {
             </table>
           </div>
         </section>
+
+        {/* Learner Journey Guide */}
+        <CurriculumJourneyGuide />
 
         {/* Phase 0 */}
         <section className="mb-12 p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-6">
@@ -552,6 +557,99 @@ export default function FullstackWebCurriculumPage() {
                 <li><strong>Frontend:</strong> React 19 / Next.js with TypeScript, Tailwind CSS, TanStack Query, and optimistic updates.</li>
                 <li><strong>DevOps:</strong> Multi-stage Docker container, GitHub Actions CI/CD running Vitest and Playwright tests, deployed to production.</li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Coursera & Accredited Certifications */}
+        <section className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-indigo-500/5 via-transparent to-blue-500/5 border border-indigo-500/20 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+                <GraduationCap size={18} />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-zinc-900 dark:text-white">
+                  Coursera &amp; Accredited Professional Certifications
+                </h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Earn accredited industry credentials from top enterprise tech companies to reinforce your full-stack portfolio.
+                </p>
+              </div>
+            </div>
+            <span className="text-[11px] font-mono font-medium text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
+              Accredited Paths
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 font-bold uppercase">
+                  Meta Official
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  Meta Front-End Developer Certificate
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Master React, modern JavaScript, UI design, Git collaboration, and automated frontend testing suites.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/professional-certificates/meta-front-end-developer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold uppercase">
+                  IBM Professional Certificate
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  IBM Full Stack Cloud Developer
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Hands-on engineering covering Node.js, Express, microservices, containerization, and cloud deployment pipelines.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 font-bold uppercase">
+                  HKUST University
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  Full Stack Web Development with React
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Explore full-stack component architecture, REST backends, MongoDB integration, and state management.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/specializations/full-stack-react"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
             </div>
           </div>
         </section>

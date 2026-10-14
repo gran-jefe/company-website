@@ -35,7 +35,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={handleToggle}
-      className="p-2 text-[#7A4A38] dark:text-[#FFF0E3] hover:opacity-70 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra"
+      className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 rounded-xl text-[#7A4A38] dark:text-[#FFF0E3] hover:bg-[#EAD3C4]/40 dark:hover:bg-[#25121E] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra cursor-pointer"
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
       <AnimatePresence mode="wait">

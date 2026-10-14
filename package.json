@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build --webpack",
     "start": "next start",
+    "quality-gate": "node scripts/audit-ui-ux.mjs",
     "lint": "eslint"
   },
   "dependencies": {

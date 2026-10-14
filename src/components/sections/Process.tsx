@@ -38,7 +38,7 @@ const processSteps: ProcessStep[] = [
     timeline: 'Days 1 – 2',
     icon: <Compass size={22} className="text-brand-terra" />,
     description:
-      'We unpack your target audience, conversion goals, and technical requirements. We establish a fixed-timeline scope with milestone dates—no open-ended ambiguity or surprise cost overruns.',
+      'We unpack your target audience, conversion goals, and technical requirements. We establish a fixed-timeline scope with milestone dates with zero open-ended ambiguity or surprise cost overruns.',
     keyDeliverables: [
       'Technical Architecture Blueprint',
       'Fixed-Scope Milestones & Deadlines',

@@ -14,16 +14,66 @@ import {
   Palette, 
   Smartphone, 
   Gauge, 
-  Cpu
+  Cpu,
+  GraduationCap
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Logo } from '@/components/ui/Logo'
 import { CurriculumLeadCapture } from '@/components/curriculum/CurriculumLeadCapture'
+import { CurriculumChecklist, type CurriculumModuleGroup } from '@/components/curriculum/CurriculumChecklist'
+import { CurriculumJourneyGuide } from '@/components/curriculum/CurriculumJourneyGuide'
 
 export const metadata: Metadata = {
   title: 'Modern Frontend Engineering Curriculum | Gran Jefe Learning Hub',
   description: 'Master enterprise-level frontend development from CSS architecture and TypeScript to React 19, Next.js 16, performance tuning, and accessible web systems.',
 }
+
+const frontendModules: CurriculumModuleGroup[] = [
+  {
+    moduleNumber: 1,
+    title: 'Advanced JavaScript & TypeScript Strict Mastery',
+    duration: '4 to 5 Weeks',
+    milestones: [
+      { id: 'fe-eventloop', title: 'JavaScript V8 & Event Loop Internals', description: 'Master microtasks, call stack, closures, garbage collection, and Web APIs.' },
+      { id: 'fe-ts-advanced', title: 'Advanced Generics & Discriminated Unions', description: 'Write utility types (Pick, Omit, Record) and strict generic builder patterns.' },
+      { id: 'fe-zod-runtime', title: 'Runtime Schema Validation with Zod', description: 'Validate external API responses at the network boundary before React rendering.' },
+      { id: 'fe-p1-project', title: 'Phase 1 Checkmark: Type-Safe HTTP Client SDK', description: 'Build an API client with generic typing, AbortController cancelation, and Zod parsing.' },
+    ],
+  },
+  {
+    moduleNumber: 2,
+    title: 'React 19 & State Architecture',
+    duration: '5 to 6 Weeks',
+    milestones: [
+      { id: 'fe-react19', title: 'React 19 Actions & Transitions', description: 'Master useActionState, useOptimistic, and transition scheduling without tearing.' },
+      { id: 'fe-tanstack', title: 'Server State with TanStack Query v5', description: 'Implement caching, optimistic mutations, query keys, and background revalidation.' },
+      { id: 'fe-zustand', title: 'Lightweight Client State with Zustand', description: 'Manage UI state (modals, slide-overs, local preferences) without React Context rerender cascades.' },
+      { id: 'fe-framer', title: 'Framer Motion & Micro-Interactions', description: 'Build layoutId animations, spring physics gestures, and accessible exit animations.' },
+      { id: 'fe-p2-project', title: 'Phase 2 Checkmark: High-Speed Financial Dashboard', description: 'Build a financial dashboard with real-time currency converters and optimistic UI updates.' },
+    ],
+  },
+  {
+    moduleNumber: 3,
+    title: 'Next.js 16 & Full-Stack Frontend Architecture',
+    duration: '5 to 6 Weeks',
+    milestones: [
+      { id: 'fe-rsc', title: 'React Server Components (RSC) Boundaries', description: 'Delineate server-rendered code from interactive client islands for minimal JS bundle delivery.' },
+      { id: 'fe-caching', title: 'App Router Caching & ISR', description: 'Master static generation, dynamic rendering, and on-demand cache revalidation.' },
+      { id: 'fe-seo-cwv', title: 'Core Web Vitals & Sub-Second LCP', description: 'Optimize Largest Contentful Paint, eliminate cumulative layout shifts, and automate JSON-LD metadata.' },
+      { id: 'fe-p3-project', title: 'Phase 3 Checkmark: Server-Rendered Enterprise Catalog', description: 'Deploy an e-commerce catalog featuring streaming Suspense, instant filters, and 98+ Lighthouse score.' },
+    ],
+  },
+  {
+    moduleNumber: 4,
+    title: 'Capstone: Design System & Enterprise SaaS Frontend',
+    duration: 'Final Phase',
+    milestones: [
+      { id: 'fe-radix-system', title: 'Accessible Headless Design System', description: 'Build accessible primitives with Radix UI, Tailwind CSS, and full keyboard navigation.' },
+      { id: 'fe-cmdk', title: 'Global Command Palette (Cmd+K)', description: 'Provide keyboard navigation, search fuzzy matching, and rapid command shortcuts.' },
+      { id: 'fe-capstone-project', title: 'Final Capstone: Production Cloud Analytics Console', description: 'Deliver a production multi-tenant web console with automated Vitest and Playwright CI test gates.' },
+    ],
+  },
+]
 
 export default function FrontendEngineeringCurriculumPage() {
   return (
@@ -92,6 +142,18 @@ export default function FrontendEngineeringCurriculumPage() {
             </div>
           </div>
         </div>
+
+        {/* Learner Journey Guide */}
+        <CurriculumJourneyGuide />
+
+        {/* Interactive Milestone Progress Tracker */}
+        <section className="mb-14">
+          <CurriculumChecklist
+            trackId="frontend-engineering"
+            trackTitle="Modern Frontend Engineering"
+            modules={frontendModules}
+          />
+        </section>
 
         {/* Phase 1 */}
         <section className="mb-12 p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-6">
@@ -281,6 +343,121 @@ export default function FrontendEngineeringCurriculumPage() {
                 <li><strong>Performance:</strong> 98+ Google Lighthouse Score, 0 layout shifts, zero cumulative layout shift (CLS), sub-800ms LCP.</li>
                 <li><strong>Testing &amp; CI:</strong> Vitest unit tests, Playwright visual regression tests, automated deployment on Vercel.</li>
               </ul>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <BookOpen size={14} className="text-purple-500" /> High-Yield Reading
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://www.radix-ui.com/primitives/docs/overview/introduction" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Radix UI: Accessible Component Primitives <ExternalLink size={11} /></a></li>
+                <li><a href="https://web.dev/explore/fast" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Web.dev: Performance Auditing &amp; LCP Optimization <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white/80 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
+                <Code2 size={14} className="text-purple-500" /> Practical Video Resource
+              </h4>
+              <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
+                <li><a href="https://www.youtube.com/watch?v=wm5gMKuwSYk" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Jack Herrington: Advanced Design System Patterns in React <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=7kVEtq4U_gI" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Lee Robinson: Next.js Production Architecture &amp; Caching <ExternalLink size={11} /></a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Coursera & Accredited Certifications */}
+        <section className="mb-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-purple-500/5 via-transparent to-pink-500/5 border border-purple-500/20 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+                <GraduationCap size={18} />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-zinc-900 dark:text-white">
+                  Coursera &amp; Accredited Frontend Certifications
+                </h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Earn accredited credentials to prove your browser architecture, React engineering, and web UI excellence.
+                </p>
+              </div>
+            </div>
+            <span className="text-[11px] font-mono font-medium text-purple-600 dark:text-purple-400 uppercase tracking-wider">
+              Accredited Paths
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 font-bold uppercase">
+                  Meta Official
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  Meta Front-End Developer Certificate
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Comprehensive 9-course program on HTML5, modern CSS, React, testing, and UX design principles.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/professional-certificates/meta-front-end-developer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold uppercase">
+                  Johns Hopkins Univ
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  HTML, CSS, and JS for Web Developers
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Deep fundamental grounding in responsive layouts, mobile-first design, and core DOM execution.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/learn/html-css-javascript-for-web-developers"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 font-bold uppercase">
+                  IBM Official
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  Developing Front-End Apps with React
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Hands-on component state design, hooks, routing, and modern client-side data binding patterns.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/learn/developing-frontend-apps-with-react"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
             </div>
           </div>
         </section>

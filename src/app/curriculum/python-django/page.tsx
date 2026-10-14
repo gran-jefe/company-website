@@ -13,12 +13,14 @@ import {
   CheckCircle2, 
   Zap, 
   Compass,
-  Boxes
+  Boxes,
+  GraduationCap
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Logo } from '@/components/ui/Logo'
 import { CurriculumLeadCapture } from '@/components/curriculum/CurriculumLeadCapture'
 import { CurriculumChecklist, type CurriculumModuleGroup } from '@/components/curriculum/CurriculumChecklist'
+import { CurriculumJourneyGuide } from '@/components/curriculum/CurriculumJourneyGuide'
 
 export const metadata: Metadata = {
   title: 'Python & Django Backend Curriculum | Gran Jefe Learning Hub',
@@ -220,6 +222,9 @@ export default function PythonDjangoCurriculumPage() {
             </table>
           </div>
         </section>
+
+        {/* Learner Journey Guide */}
+        <CurriculumJourneyGuide />
 
         {/* Interactive Milestone Progress Tracker */}
         <section className="mb-14">
@@ -535,6 +540,92 @@ export default function PythonDjangoCurriculumPage() {
                 <li><strong>Client Frontend:</strong> Next.js 16 (React 19, TypeScript, Tailwind) consuming the Django API.</li>
                 <li><strong>DevOps:</strong> Dockerized, GitHub Actions CI running Pytest on push, deployed to Render or AWS.</li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Accredited Certifications & Coursera Specializations */}
+        <section className="mb-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-emerald-500/10 via-blue-500/5 to-transparent border border-emerald-500/25 shadow-xs space-y-6">
+          <div className="flex items-center gap-3">
+            <GraduationCap className="text-emerald-600 dark:text-emerald-400" size={26} />
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white font-syne">
+                Accredited Certifications &amp; Coursera Programs
+              </h2>
+              <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-dm">
+                Validate your Python and Django backend skills with recognized university credentials:
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 font-bold uppercase">
+                  University of Michigan
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  Django for Everybody Specialization
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Taught by Dr. Chuck (Charles Severance). Covers Django web apps, ORM modeling, SQL, and REST APIs.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/specializations/django"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold uppercase">
+                  University of Michigan
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  Python for Everybody Specialization
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  The most popular Python specialization on Coursera, covering data structures, network programming, and databases.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/specializations/python"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
+            </div>
+
+            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2 flex flex-col justify-between">
+              <div className="space-y-1.5">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 font-bold uppercase">
+                  Google Career Certificate
+                </span>
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
+                  Google IT Automation with Python Certificate
+                </h4>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
+                  Master Python scripting, Git, automating system administration tasks, and troubleshooting scalable backend scripts.
+                </p>
+              </div>
+              <a
+                href="https://www.coursera.org/professional-certificates/google-it-automation-with-python"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+              >
+                <span>View on Coursera</span>
+                <ExternalLink size={11} />
+              </a>
             </div>
           </div>
         </section>

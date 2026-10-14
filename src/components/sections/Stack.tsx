@@ -48,9 +48,9 @@ const stackCategories: TechCategory[] = [
     icon: <Server size={20} className="stroke-current" />,
     description: 'Robust server architecture, authentication mechanisms, and REST/GraphQL APIs.',
     technologies: [
-      { name: 'Node.js', purpose: 'High-throughput event-driven microservices' },
-      { name: 'Python & FastAPI', purpose: 'Data validation, automation, and algorithmic backends' },
-      { name: 'Express / Hono', purpose: 'Lightweight REST API routes' },
+      { name: 'NestJS & Node.js', purpose: 'Modular enterprise services, Prisma ORM & BullMQ queues' },
+      { name: 'Python & Django 5', purpose: 'Robust ORM, Django REST Framework & Celery workers' },
+      { name: 'TypeScript', purpose: 'Type-safe contracts across full-stack API boundaries', badge: 'Standard' },
     ],
   },
   {

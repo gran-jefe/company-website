@@ -199,7 +199,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Type a command or search..."
-                className="flex-1 bg-transparent font-dm text-sm text-zinc-900 dark:text-white outline-none placeholder:text-zinc-400"
+                className="flex-1 bg-transparent font-dm text-sm text-zinc-900 dark:text-white focus:outline-none placeholder:text-zinc-400"
                 autoFocus
               />
               <kbd className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded">
@@ -207,6 +207,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
               </kbd>
               <button
                 onClick={onClose}
+                aria-label="Close command palette"
                 className="p-1 text-zinc-400 hover:text-zinc-600 dark:hover:text-white rounded"
               >
                 <X size={16} />
