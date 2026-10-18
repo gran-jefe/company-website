@@ -853,7 +853,7 @@ export function Work() {
                 <Terminal size={14} className="text-brand-terra" />
                 <span>PRODUCTION_DEPLOYMENT_MATRIX.log</span>
               </div>
-              <div>// Total Entries: {filteredProjects.length}</div>
+              <div>{`// Total Entries: ${filteredProjects.length}`}</div>
             </div>
 
             <div className="overflow-x-auto">

@@ -8,9 +8,6 @@ import {
   X, 
   ArrowRight, 
   BookOpen, 
-  GraduationCap, 
-  CheckCircle2, 
-  Compass,
   FileText
 } from 'lucide-react'
 
@@ -20,6 +17,17 @@ const DISMISS_DAYS = 7
 export function CurriculumPopup() {
   const [isOpen, setIsOpen] = useState(false)
   const [isMinimized, setIsMinimized] = useState(false)
+
+  const handleDismiss = () => {
+    setIsOpen(false)
+    setIsMinimized(true)
+    try {
+      const expiry = new Date().getTime() + DISMISS_DAYS * 24 * 60 * 60 * 1000
+      localStorage.setItem(STORAGE_KEY, expiry.toString())
+    } catch {
+      // Ignore storage errors
+    }
+  }
 
   useEffect(() => {
     // Check localStorage for dismissal
@@ -51,17 +59,6 @@ export function CurriculumPopup() {
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [isOpen])
-
-  const handleDismiss = () => {
-    setIsOpen(false)
-    setIsMinimized(true)
-    try {
-      const expiry = new Date().getTime() + DISMISS_DAYS * 24 * 60 * 60 * 1000
-      localStorage.setItem(STORAGE_KEY, expiry.toString())
-    } catch {
-      // Ignore storage errors
-    }
-  }
 
   const handleReopen = () => {
     setIsMinimized(false)

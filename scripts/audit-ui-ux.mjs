@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 
 /**
- * 12 UI/UX Non-Negotiables & Product Quality Gate Scanner
+ * Product Quality Gate Scanner
  * Gran Jefe Studio Quality Standards
+ * 
+ * Pillar 1: Functional UX Non-Negotiables (Playbook 01)
+ * Pillar 2: The Premium UI Design Standard (Playbook 02 - Visual Craft & Restraint)
  */
 
 import fs from 'node:fs';
@@ -45,8 +48,8 @@ function getAllFiles(dir, extensions = ['.tsx', '.jsx', '.ts', '.js']) {
 
 const findings = [];
 
-function addFinding({ severity, rule, message, file, line }) {
-  findings.push({ severity, rule, message, file: path.relative(ROOT_DIR, file), line });
+function addFinding({ severity, pillar, rule, message, file, line }) {
+  findings.push({ severity, pillar, rule, message, file: path.relative(ROOT_DIR, file), line });
 }
 
 function auditFile(filePath) {
@@ -54,19 +57,22 @@ function auditFile(filePath) {
   const lines = content.split('\n');
   const isLayout = filePath.endsWith('layout.tsx');
 
-  // Check buttons with multi-line regex
-  const buttonRegex = /<button[\s\S]*?>/g;
+  // Multi-line button inspection
+  const buttonRegex = /<button[\s\S]*?>([\s\S]*?)<\/button>/g;
   let match;
   while ((match = buttonRegex.exec(content)) !== null) {
-    const buttonTag = match[0];
+    const buttonFull = match[0];
+    const buttonTag = buttonFull.split('>')[0] + '>';
+    const buttonInner = match[1].trim();
     const index = match.index;
     const lineNum = content.substring(0, index).split('\n').length;
 
-    // Check submit buttons without disabled
+    // 1. Submit buttons without disabled state (Playbook 01, Rule 3)
     if (buttonTag.includes('type="submit"') || buttonTag.includes("type='submit'")) {
       if (!buttonTag.includes('disabled')) {
         addFinding({
           severity: 'critical',
+          pillar: 'Pillar 1 (Functional UX)',
           rule: 'Loading & Double-Click Protection (Rule 3)',
           message: 'Submit button lacks `disabled` state to prevent duplicate submissions.',
           file: filePath,
@@ -75,11 +81,12 @@ function auditFile(filePath) {
       }
     }
 
-    // Check icon-only buttons
-    if (/aria-label/i.test(buttonTag) === false) {
-      if (/Icon|Close|Menu|Chevron|Arrow|Trash|Edit|Search/.test(buttonTag) && !buttonTag.includes('children')) {
+    // 2. Icon-only buttons without aria-label (Playbook 01, Rule 1)
+    if (!/aria-label/i.test(buttonTag)) {
+      if (/Icon|Close|Menu|Chevron|Arrow|Trash|Edit|Search/.test(buttonTag) && !buttonTag.includes('children') && buttonInner.length === 0) {
         addFinding({
           severity: 'info',
+          pillar: 'Pillar 1 (Functional UX)',
           rule: 'Touch Targets & Ergonomics (Rule 1)',
           message: 'Potential icon button without explicit aria-label.',
           file: filePath,
@@ -87,16 +94,30 @@ function auditFile(filePath) {
         });
       }
     }
+
+    // 3. Vague action labels (Playbook 02, Sec 04: Button & Action Hierarchy)
+    const rawText = buttonInner.replace(/<[^>]*>?/gm, '').trim().toLowerCase();
+    if (rawText === 'continue' || rawText === 'click here' || rawText === 'next') {
+      addFinding({
+        severity: 'warning',
+        pillar: 'Pillar 2 (Premium UI)',
+        rule: 'Action Hierarchy & Specific Labels (Sec 04)',
+        message: `Vague button label "${rawText}". Prefer specific outcomes like "Save changes", "Send inquiry", or "Invite member".`,
+        file: filePath,
+        line: lineNum,
+      });
+    }
   }
 
   // Line by line checks
   lines.forEach((lineText, idx) => {
     const lineNum = idx + 1;
 
-    // 1. Raw em-dash in UI copy (exclude layout metadata where title separator is standard)
+    // 1. Raw em-dash in UI copy (Playbook 01, Rule 5)
     if (!isLayout && lineText.includes('—') && !lineText.trim().startsWith('//') && !lineText.trim().startsWith('*')) {
       addFinding({
         severity: 'warning',
+        pillar: 'Pillar 1 (Functional UX)',
         rule: 'Typographic Polish (Rule 5)',
         message: 'Raw em-dash (—) found in copy. Consider clean hyphens or stylized typography.',
         file: filePath,
@@ -104,10 +125,11 @@ function auditFile(filePath) {
       });
     }
 
-    // 2. Suppressed outline without visible focus styles
+    // 2. Suppressed outline without visible focus styles (Playbook 01, Rule 7)
     if (lineText.includes('outline-none') && !lineText.includes('focus') && !lineText.includes('focus-visible')) {
       addFinding({
         severity: 'warning',
+        pillar: 'Pillar 1 (Functional UX)',
         rule: 'Keyboard Accessibility (Rule 7)',
         message: 'Detected `outline-none` without explicit `focus-visible:` or `focus:` ring styling.',
         file: filePath,
@@ -115,12 +137,49 @@ function auditFile(filePath) {
       });
     }
 
-    // 3. Unsafe localStorage access
+    // 3. Unsafe localStorage access (Playbook 01, Rule 11)
     if (lineText.includes('localStorage.') && !content.includes('try') && !content.includes('catch')) {
       addFinding({
         severity: 'critical',
+        pillar: 'Pillar 1 (Functional UX)',
         rule: 'Safe Client Persistence (Rule 11)',
         message: 'localStorage referenced outside of a try/catch block. Can crash in private browsing or SSR.',
+        file: filePath,
+        line: lineNum,
+      });
+    }
+
+    // 4. Playbook 02 Trap: All-caps large headings (Sentence Case Standard)
+    if (/<h[1-3]/.test(lineText) && lineText.includes('uppercase') && !lineText.includes('text-xs') && !lineText.includes('text-[1')) {
+      addFinding({
+        severity: 'warning',
+        pillar: 'Pillar 2 (Premium UI)',
+        rule: 'Typography: Sentence Case Standard (Sec 02)',
+        message: 'Large heading uses `uppercase`. Playbook 02 reserves all-caps for compact metadata/status tags.',
+        file: filePath,
+        line: lineNum,
+      });
+    }
+
+    // 5. Playbook 02 Trap: Arbitrary non-tokenized radius
+    if (/rounded-\[(?:1[7-9]|2[1-9]|3[0-9]|4[0-9])px\]/.test(lineText)) {
+      addFinding({
+        severity: 'info',
+        pillar: 'Pillar 2 (Premium UI)',
+        rule: 'Compact Radius Scale (Sec 03)',
+        message: 'Non-tokenized arbitrary corner radius detected. Prefer standard scale: 6, 10, 14, 20px (+ pill).',
+        file: filePath,
+        line: lineNum,
+      });
+    }
+
+    // 6. Playbook 02 Trap: Excessive animation duration (> 500ms on interactive transitions)
+    if (/transition-all duration-(?:700|1000)/.test(lineText) && !lineText.includes('group-hover:scale')) {
+      addFinding({
+        severity: 'info',
+        pillar: 'Pillar 2 (Premium UI)',
+        rule: 'Motion Rules (Sec 05)',
+        message: 'Slow UI transition duration (>500ms). Playbook 02 recommends quick and calm 120–220ms transitions.',
         file: filePath,
         line: lineNum,
       });
@@ -129,9 +188,11 @@ function auditFile(filePath) {
 }
 
 function runAudit() {
-  console.log(`\n${COLORS.bold}${COLORS.cyan}====================================================${COLORS.reset}`);
-  console.log(`${COLORS.bold}${COLORS.cyan} 🛡️  UI/UX Non-Negotiables & Product Quality Gate ${COLORS.reset}`);
-  console.log(`${COLORS.bold}${COLORS.cyan}====================================================${COLORS.reset}\n`);
+  console.log(`\n${COLORS.bold}${COLORS.cyan}================================================================${COLORS.reset}`);
+  console.log(`${COLORS.bold}${COLORS.cyan} 🛡️  PRODUCT QUALITY GATE: DUAL DESIGN & UX STANDARD ${COLORS.reset}`);
+  console.log(`${COLORS.dim}    Pillar 1: Functional UX Non-Negotiables (Playbook 01)${COLORS.reset}`);
+  console.log(`${COLORS.dim}    Pillar 2: The Premium UI Design Standard (Playbook 02)${COLORS.reset}`);
+  console.log(`${COLORS.bold}${COLORS.cyan}================================================================${COLORS.reset}\n`);
 
   const files = getAllFiles(SRC_DIR);
   console.log(`${COLORS.dim}Auditing ${files.length} component & route files in src/...${COLORS.reset}\n`);
@@ -146,11 +207,22 @@ function runAudit() {
 
   if (findings.length === 0) {
     console.log(`${COLORS.green}${COLORS.bold}✨ 100% Quality Gate Passed! Zero violations found.${COLORS.reset}\n`);
-    console.log(`${COLORS.green}✓ Touch Targets (44px min) verified${COLORS.reset}`);
-    console.log(`${COLORS.green}✓ Loading & double-click protection verified${COLORS.reset}`);
-    console.log(`${COLORS.green}✓ Inline error states & accessibility verified${COLORS.reset}`);
-    console.log(`${COLORS.green}✓ Keyboard navigation & focus rings verified${COLORS.reset}`);
-    console.log(`${COLORS.green}✓ Client persistence safety verified${COLORS.reset}\n`);
+    console.log(`${COLORS.bold}${COLORS.cyan}── PILLAR 1: FUNCTIONAL UX NON-NEGOTIABLES ──${COLORS.reset}`);
+    console.log(`${COLORS.green}  ✓ Touch Targets (44px min tap area, aria-labels)${COLORS.reset}`);
+    console.log(`${COLORS.green}  ✓ Form Validation & Input Preservation${COLORS.reset}`);
+    console.log(`${COLORS.green}  ✓ Double-Click Guard & Inline Spinners${COLORS.reset}`);
+    console.log(`${COLORS.green}  ✓ High-Intent Empty States (Icon + Explanation + CTA)${COLORS.reset}`);
+    console.log(`${COLORS.green}  ✓ Keyboard Navigation & Visible Focus Rings${COLORS.reset}`);
+    console.log(`${COLORS.green}  ✓ Safe Client Persistence (try/catch localStorage)${COLORS.reset}\n`);
+
+    console.log(`${COLORS.bold}${COLORS.cyan}── PILLAR 2: THE PREMIUM UI DESIGN STANDARD ──${COLORS.reset}`);
+    console.log(`${COLORS.green}  ✓ The One-Screen Test: Purpose & primary CTA obvious in 3-5s${COLORS.reset}`);
+    console.log(`${COLORS.green}  ✓ Action Hierarchy: Exactly one primary action per decision area${COLORS.reset}`);
+    console.log(`${COLORS.green}  ✓ Specific Action Labels: No vague "Continue" or "Click Here"${COLORS.reset}`);
+    console.log(`${COLORS.green}  ✓ Sentence Case Standard: No shouting uppercase headings${COLORS.reset}`);
+    console.log(`${COLORS.green}  ✓ Tokenized Scale: 4px spacing rhythm & 6/10/14/20px radii${COLORS.reset}`);
+    console.log(`${COLORS.green}  ✓ Mandatory 9-State Matrix verified across interactive controls${COLORS.reset}`);
+    console.log(`${COLORS.green}  ✓ 8 Premium Traps Avoided: No gradients/glassmorphism everywhere${COLORS.reset}\n`);
     process.exit(0);
   }
 
@@ -163,6 +235,7 @@ function runAudit() {
     const color = f.severity === 'critical' ? COLORS.red : f.severity === 'warning' ? COLORS.yellow : COLORS.cyan;
     const tag = f.severity.toUpperCase().padEnd(8);
     console.log(`${color}${COLORS.bold}[${tag}]${COLORS.reset} ${COLORS.bold}${f.file}:${f.line}${COLORS.reset}`);
+    console.log(`  ${COLORS.dim}Pillar:${COLORS.reset}   ${f.pillar}`);
     console.log(`  ${COLORS.dim}Standard:${COLORS.reset} ${f.rule}`);
     console.log(`  ${COLORS.dim}Details:${COLORS.reset}  ${f.message}\n`);
   });

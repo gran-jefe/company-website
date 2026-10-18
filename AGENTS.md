@@ -28,5 +28,24 @@ This version has breaking changes — APIs, conventions, and file structure may 
    - **Feedback Loops**: Instant toast or banner confirmation on state changes and submissions.
    - **Safe Client Persistence**: `localStorage` preference management safely wrapped with error handling and expiry.
    - **Automated CLI Gate**: Run `npm run quality-gate` to audit components against these rules.
+
+4. **The Premium UI Design Standard (Playbook 02: Clarity, Restraint, Consistency)**:
+   - **The Guiding Rule**: Premium does not mean more gradients, more shadows, or more cards. It means fewer competing elements, stronger hierarchy, thoughtful spacing, refined details, and consistent execution.
+   - **One-Screen Test**: Page purpose, key info, and primary action must be obvious in 3-5 seconds.
+   - **Action Hierarchy**: Exactly **one primary action per decision area**. Lower-priority actions must be secondary/text. Use specific labels ("Save changes", "Send inquiry" vs "Continue").
+   - **Tokens & Scales**:
+     - Spacing: 4px base (`4, 8, 12, 16, 24, 32, 40, 48px`).
+     - Radii: Compact scale (`6, 10, 14, 20px` + pill only for small badges/toggles).
+     - Typography: Defined roles (Display 40-56px, Page title 28-36px, Section heading 18-24px, Body 14-16px, Helper 12-14px). Sentence case standard.
+   - **Mandatory State Matrix**: Every interactive control must intentionally design all 9 states: Default, Hover, Focus, Pressed, Loading/Pending (with disabled duplicate action), Success, Empty, Error, Disabled.
+   - **8 Premium Traps to Actively Avoid**:
+     1. *No gradient everywhere*: Reserve gradients for meaningful emphasis.
+     2. *No glassmorphism by default*: Translucent materials only when depth genuinely benefits.
+     3. *No cards for every element*: Avoid card-on-card nesting. Use layout & whitespace first.
+     4. *No excessive rounding*: Consistent, small radius scale.
+     5. *No oversized hero layouts in tools*: Keep headers compact so working data sits above the fold.
+     6. *No muted text everywhere*: Muted tones only for secondary facts; verify contrast.
+     7. *No decorative animation*: Quick and calm 120–220ms transitions.
+     8. *No synthetic filler*: Avoid random floating shapes or generic stock elements.
 <!-- END:developer-portfolio-ux-rules -->
 

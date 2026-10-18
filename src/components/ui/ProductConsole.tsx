@@ -14,7 +14,6 @@ import {
   Award,
   Sparkles,
   ArrowRight,
-  TrendingUp,
   CreditCard,
   Layers,
   Cpu,
@@ -408,7 +407,7 @@ export function ProductConsole() {
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-emerald-400 font-semibold">ALL SYSTEMS OPERATIONAL</span>
           </div>
-          <span className="text-zinc-500">// Zero Maintenance Downtime</span>
+          <span className="text-zinc-500">{"// Zero Maintenance Downtime"}</span>
         </div>
       </div>
     </div>

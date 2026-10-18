@@ -23,7 +23,12 @@ import {
   BarChart3, 
   Users, 
   BookOpen,
-  ArrowRight
+  ArrowRight,
+  Palette,
+  Layout,
+  Contrast,
+  MousePointerClick,
+  SlidersHorizontal
 } from 'lucide-react'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { Logo } from '@/components/ui/Logo'
@@ -91,7 +96,7 @@ export default function UIUXPlaybookPage() {
 
           {/* Purpose Card */}
           <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
-            <h3 className="text-sm font-mono font-bold uppercase tracking-widest text-brand-terra dark:text-brand-ember">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-brand-terra dark:text-brand-ember">
               // Purpose &amp; Scope
             </h3>
             <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed font-dm">
@@ -420,7 +425,7 @@ export default function UIUXPlaybookPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Pillar 1 */}
             <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
-              <h3 className="text-sm font-mono font-bold text-brand-terra uppercase flex items-center gap-2">
+              <h3 className="text-sm sm:text-base font-syne font-bold text-brand-terra flex items-center gap-2">
                 <CheckSquare size={16} /> Core Functionality
               </h3>
               <ul className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 space-y-2 list-disc pl-4 font-dm">
@@ -434,7 +439,7 @@ export default function UIUXPlaybookPage() {
 
             {/* Pillar 2 */}
             <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
-              <h3 className="text-sm font-mono font-bold text-purple-600 dark:text-purple-400 uppercase flex items-center gap-2">
+              <h3 className="text-sm sm:text-base font-syne font-bold text-purple-600 dark:text-purple-400 flex items-center gap-2">
                 <Layers size={16} /> Design &amp; Usability
               </h3>
               <ul className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 space-y-2 list-disc pl-4 font-dm">
@@ -448,7 +453,7 @@ export default function UIUXPlaybookPage() {
 
             {/* Pillar 3 */}
             <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
-              <h3 className="text-sm font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase flex items-center gap-2">
+              <h3 className="text-sm sm:text-base font-syne font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-2">
                 <Smartphone size={16} /> Responsive &amp; Accessible
               </h3>
               <ul className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 space-y-2 list-disc pl-4 font-dm">
@@ -462,7 +467,7 @@ export default function UIUXPlaybookPage() {
 
             {/* Pillar 4 */}
             <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
-              <h3 className="text-sm font-mono font-bold text-blue-600 dark:text-blue-400 uppercase flex items-center gap-2">
+              <h3 className="text-sm sm:text-base font-syne font-bold text-blue-600 dark:text-blue-400 flex items-center gap-2">
                 <Gauge size={16} /> Performance &amp; Trust
               </h3>
               <ul className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 space-y-2 list-disc pl-4 font-dm">
@@ -560,6 +565,405 @@ export default function UIUXPlaybookPage() {
                 <span>NN/g Visibility of System Status</span>
                 <ExternalLink size={12} className="text-zinc-400 shrink-0" />
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================================== */}
+        {/* VOLUME 02: THE PREMIUM UI DESIGN STANDARD                      */}
+        {/* ============================================================== */}
+        <section id="volume-02" className="mt-20 pt-16 border-t-2 border-brand-terra/20 space-y-12">
+          {/* Header Banner */}
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-brand-terra/10 text-brand-terra dark:text-brand-ember border border-brand-terra/20">
+              <Sparkles size={14} /> PRODUCT DESIGN PLAYBOOK / 02
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-zinc-900 dark:text-white tracking-tight">
+              The Premium UI Design Standard
+            </h2>
+            <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 max-w-3xl leading-relaxed font-dm">
+              Visual design non-negotiables for web products that feel polished, clear, credible, and distinctive. Built on three foundations: <span className="font-semibold text-brand-terra dark:text-brand-ember">01 Clarity</span>, <span className="font-semibold text-brand-terra dark:text-brand-ember">02 Restraint</span>, and <span className="font-semibold text-brand-terra dark:text-brand-ember">03 Consistency</span>.
+            </p>
+
+            {/* The Guiding Rule Callout */}
+            <div className="p-6 rounded-2xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/40 text-amber-900 dark:text-amber-200 space-y-2 font-dm">
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-800 dark:text-amber-400">
+                // The Guiding Rule
+              </span>
+              <p className="text-sm sm:text-base leading-relaxed font-medium">
+                <strong>Premium does not mean more gradients, more shadows, more animation, or more cards.</strong> It means better judgement: fewer competing elements, stronger hierarchy, thoughtful spacing, refined details, and consistent execution.
+              </p>
+            </div>
+          </div>
+
+          {/* Section 01: The Premium Visual Mindset */}
+          <div className="space-y-6">
+            <div className="border-b border-zinc-200 dark:border-zinc-800 pb-3">
+              <span className="text-xs font-mono font-bold text-brand-terra dark:text-brand-ember">01 / FOUNDATIONS</span>
+              <h3 className="text-xl sm:text-2xl font-syne font-bold text-zinc-900 dark:text-white mt-1">
+                The Premium Visual Mindset
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
+                <span className="text-xs font-mono font-bold text-brand-terra">01. Clarity before decoration</span>
+                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-dm leading-relaxed">
+                  The visual hierarchy must make the purpose of a page, its key information, and its primary action obvious in 3 to 5 seconds.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
+                <span className="text-xs font-mono font-bold text-purple-600 dark:text-purple-400">02. Restraint creates emphasis</span>
+                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-dm leading-relaxed">
+                  When every element is loud, nothing is important. Use colour, weight, scale, borders, and motion selectively.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
+                <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400">03. Consistency creates confidence</span>
+                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-dm leading-relaxed">
+                  A repeated, reliable visual language feels deliberate. Repeated exceptions make a product feel assembled rather than designed.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
+                <span className="text-xs font-mono font-bold text-blue-600 dark:text-blue-400">04. Alignment signals craft</span>
+                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-dm leading-relaxed">
+                  Edges, baselines, columns, icons, labels, and controls should line up with intention. Tiny misalignments are surprisingly visible.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
+                <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">05. Real content is the design</span>
+                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-dm leading-relaxed">
+                  Long names, empty data, large numbers, errors, and dense tables must still look good. Never design only around ideal placeholder content.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
+                <span className="text-xs font-mono font-bold text-brand-terra">06. Useful details beat visual tricks</span>
+                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-dm leading-relaxed">
+                  A purposeful status badge, clear focus state, or well-written empty state is worth more than ornamental effects.
+                </p>
+              </div>
+            </div>
+
+            {/* Visual Hierarchy Layers Table */}
+            <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 overflow-hidden shadow-xs">
+              <div className="p-4 bg-zinc-50 dark:bg-zinc-950/60 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
+                <span className="text-xs font-mono font-bold text-zinc-800 dark:text-zinc-200">Visual Hierarchy Layers</span>
+                <span className="text-xs font-mono text-zinc-500">The 4 Functional Planes</span>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs font-dm">
+                  <thead className="bg-zinc-100/50 dark:bg-zinc-900/50 text-zinc-600 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800">
+                    <tr>
+                      <th className="p-3.5 font-semibold">Layer</th>
+                      <th className="p-3.5 font-semibold">What it communicates</th>
+                      <th className="p-3.5 font-semibold">Typical treatment</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800 text-zinc-700 dark:text-zinc-300">
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Primary</td>
+                      <td className="p-3.5">The main purpose or decision on the screen</td>
+                      <td className="p-3.5 text-zinc-500">One dominant heading or focal area; one clear primary action</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Secondary</td>
+                      <td className="p-3.5">Supporting information and useful next steps</td>
+                      <td className="p-3.5 text-zinc-500">Smaller type, lower emphasis, clearly grouped sections</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Tertiary</td>
+                      <td className="p-3.5">Metadata, helpers, timestamps, optional controls</td>
+                      <td className="p-3.5 text-zinc-500">Muted text, compact scale, restrained icons</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">State</td>
+                      <td className="p-3.5">Success, warning, error, pending, disabled</td>
+                      <td className="p-3.5 text-zinc-500">Semantic colour plus explicit text or icon; never colour alone</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 02: Typography & Spacing Tokens */}
+          <div className="space-y-6">
+            <div className="border-b border-zinc-200 dark:border-zinc-800 pb-3">
+              <span className="text-xs font-mono font-bold text-brand-terra dark:text-brand-ember">02 / STRUCTURE &amp; SCALE</span>
+              <h3 className="text-xl sm:text-2xl font-syne font-bold text-zinc-900 dark:text-white mt-1">
+                Typography, Spacing, and Layout Tokens
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Typography Scale */}
+              <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-4">
+                <div className="flex items-center gap-2 text-sm font-syne font-bold text-zinc-900 dark:text-white">
+                  <Layout size={16} className="text-brand-terra" />
+                  <span>Typography Hierarchy Tokens</span>
+                </div>
+                <div className="space-y-2 text-xs font-dm">
+                  <div className="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950 flex justify-between items-center">
+                    <span className="font-semibold text-zinc-900 dark:text-white">Display / Hero</span>
+                    <span className="font-mono text-zinc-500">40–56 px desktop; scale down responsively</span>
+                  </div>
+                  <div className="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950 flex justify-between items-center">
+                    <span className="font-semibold text-zinc-900 dark:text-white">Page title</span>
+                    <span className="font-mono text-zinc-500">28–36 px desktop; 24–30 px compact</span>
+                  </div>
+                  <div className="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950 flex justify-between items-center">
+                    <span className="font-semibold text-zinc-900 dark:text-white">Section heading</span>
+                    <span className="font-mono text-zinc-500">18–24 px (hierarchy, not boldness alone)</span>
+                  </div>
+                  <div className="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950 flex justify-between items-center">
+                    <span className="font-semibold text-zinc-900 dark:text-white">Body text</span>
+                    <span className="font-mono text-zinc-500">14–16 px (comfortable reading size)</span>
+                  </div>
+                  <div className="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950 flex justify-between items-center">
+                    <span className="font-semibold text-zinc-900 dark:text-white">Labels &amp; Helper</span>
+                    <span className="font-mono text-zinc-500">12–14 px (never rely on tiny text for key facts)</span>
+                  </div>
+                </div>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 font-dm">
+                  <strong>Rules:</strong> Legibility over thinness. Sentence case standard. Controlled line lengths (narrow reading columns).
+                </p>
+              </div>
+
+              {/* Spacing Scale */}
+              <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-4">
+                <div className="flex items-center gap-2 text-sm font-syne font-bold text-zinc-900 dark:text-white">
+                  <SlidersHorizontal size={16} className="text-brand-terra" />
+                  <span>Spacing Rhythm &amp; Compact Radii</span>
+                </div>
+                <div className="space-y-2 text-xs font-dm">
+                  <div className="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950 flex justify-between items-center">
+                    <span className="font-semibold text-zinc-900 dark:text-white">4px Base Rhythm</span>
+                    <span className="font-mono text-zinc-500">4, 8, 12, 16, 24, 32, 40, 48 px</span>
+                  </div>
+                  <div className="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950 flex justify-between items-center">
+                    <span className="font-semibold text-zinc-900 dark:text-white">Inside components</span>
+                    <span className="font-mono text-zinc-500">8–16 px (grouped, not cramped)</span>
+                  </div>
+                  <div className="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950 flex justify-between items-center">
+                    <span className="font-semibold text-zinc-900 dark:text-white">Between sections</span>
+                    <span className="font-mono text-zinc-500">24–40 px (clearly distinct)</span>
+                  </div>
+                  <div className="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950 flex justify-between items-center">
+                    <span className="font-semibold text-zinc-900 dark:text-white">Page gutters</span>
+                    <span className="font-mono text-zinc-500">16–24 px mobile; 24–40 px desktop</span>
+                  </div>
+                  <div className="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950 flex justify-between items-center">
+                    <span className="font-semibold text-zinc-900 dark:text-white">Compact Radii Scale</span>
+                    <span className="font-mono text-zinc-500">6, 10, 14, 20 px (+ pill for badges only)</span>
+                  </div>
+                </div>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 font-dm">
+                  <strong>Rules:</strong> Whitespace before drop shadows. Thin, low-contrast borders for crisp layout structure.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 03: The Mandatory 9-State Matrix */}
+          <div className="space-y-6">
+            <div className="border-b border-zinc-200 dark:border-zinc-800 pb-3">
+              <span className="text-xs font-mono font-bold text-brand-terra dark:text-brand-ember">03 / STATES &amp; BEHAVIOR</span>
+              <h3 className="text-xl sm:text-2xl font-syne font-bold text-zinc-900 dark:text-white mt-1">
+                The Mandatory State Matrix
+              </h3>
+            </div>
+
+            <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-dm">
+              A component is not finished when its default state looks good. It is finished when all relevant interaction states look and work correctly.
+            </p>
+
+            <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 overflow-hidden shadow-xs">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs font-dm">
+                  <thead className="bg-zinc-100/50 dark:bg-zinc-900/50 text-zinc-600 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800">
+                    <tr>
+                      <th className="p-3.5 font-semibold">State</th>
+                      <th className="p-3.5 font-semibold">What users should see</th>
+                      <th className="p-3.5 font-semibold">Design direction</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800 text-zinc-700 dark:text-zinc-300">
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Default</td>
+                      <td className="p-3.5">The control or section is ready</td>
+                      <td className="p-3.5 text-zinc-500">Clear label, affordance, hierarchy</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Hover / Focus / Pressed</td>
+                      <td className="p-3.5">The interaction target is unmistakable</td>
+                      <td className="p-3.5 text-zinc-500">Visible state change; keyboard focus must never depend on hover</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Loading / Pending</td>
+                      <td className="p-3.5">Work is happening in the background</td>
+                      <td className="p-3.5 text-zinc-500">Progress spinner/skeleton, disabled duplicate action, stable layout</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Success / Complete</td>
+                      <td className="p-3.5">The operation finished successfully</td>
+                      <td className="p-3.5 text-zinc-500">Specific confirmation and updated content/status</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Empty / First Use</td>
+                      <td className="p-3.5">There is no content yet</td>
+                      <td className="p-3.5 text-zinc-500">Explain why, show a helpful next step, avoid a blank dead end</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Error / Offline</td>
+                      <td className="p-3.5">The operation failed or cannot proceed</td>
+                      <td className="p-3.5 text-zinc-500">Plain-language explanation, recovery option, preserve user work</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Disabled / Unavailable</td>
+                      <td className="p-3.5">The action cannot currently be used</td>
+                      <td className="p-3.5 text-zinc-500">Clear appearance and explain the reason when it is not self-evident</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 04: The 8 Premium Traps to Actively Avoid */}
+          <div className="space-y-6">
+            <div className="border-b border-zinc-200 dark:border-zinc-800 pb-3">
+              <span className="text-xs font-mono font-bold text-brand-terra dark:text-brand-ember">04 / ANTI-PATTERNS</span>
+              <h3 className="text-xl sm:text-2xl font-syne font-bold text-zinc-900 dark:text-white mt-1">
+                8 Premium Traps to Actively Avoid
+              </h3>
+            </div>
+
+            <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-dm">
+              Avoid the shortcuts that make an interface look trendy on Dribbble but feel generic, noisy, or unfinished in production.
+            </p>
+
+            <div className="rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 overflow-hidden shadow-xs">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs font-dm">
+                  <thead className="bg-zinc-100/50 dark:bg-zinc-900/50 text-zinc-600 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800">
+                    <tr>
+                      <th className="p-3.5 font-semibold text-rose-600 dark:text-rose-400">Trap</th>
+                      <th className="p-3.5 font-semibold">Why it weakens the product</th>
+                      <th className="p-3.5 font-semibold text-emerald-600 dark:text-emerald-400">Better standard</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800 text-zinc-700 dark:text-zinc-300">
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Gradient everywhere</td>
+                      <td className="p-3.5">Destroys hierarchy and dates the visual language</td>
+                      <td className="p-3.5 text-emerald-700 dark:text-emerald-400">Reserve gradients for a specific brand moment or meaningful emphasis</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Glassmorphism by default</td>
+                      <td className="p-3.5">Can impair contrast and make content feel fragile</td>
+                      <td className="p-3.5 text-emerald-700 dark:text-emerald-400">Use translucent materials only when depth or context genuinely benefits</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Cards for every element</td>
+                      <td className="p-3.5">Creates visual noise and unnecessary nested surfaces</td>
+                      <td className="p-3.5 text-emerald-700 dark:text-emerald-400">Use layout, spacing, and typography before adding a container</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Excessive rounding</td>
+                      <td className="p-3.5">Makes every component feel soft and indistinguishable</td>
+                      <td className="p-3.5 text-emerald-700 dark:text-emerald-400">Define a small radius scale (6, 10, 14, 20px) and use roles consistently</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Oversized hero layouts in tools</td>
+                      <td className="p-3.5">Pushes useful information below the fold</td>
+                      <td className="p-3.5 text-emerald-700 dark:text-emerald-400">Give task-based products compact, clear working headers</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Muted text everywhere</td>
+                      <td className="p-3.5">Looks subtle but weakens readability and hierarchy</td>
+                      <td className="p-3.5 text-emerald-700 dark:text-emerald-400">Use muted tones only for genuinely secondary info and verify contrast</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Decorative animation</td>
+                      <td className="p-3.5">Slows tasks and competes for user attention</td>
+                      <td className="p-3.5 text-emerald-700 dark:text-emerald-400">Use motion to explain a change or acknowledge an action (120–220ms)</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3.5 font-bold text-zinc-900 dark:text-white">Generic template appearance</td>
+                      <td className="p-3.5">Lacks a recognisable product identity</td>
+                      <td className="p-3.5 text-emerald-700 dark:text-emerald-400">Create a restrained brand language from typography, colour, imagery, and detail</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 05: The Premium Design Release Gate */}
+          <div className="space-y-6">
+            <div className="border-b border-zinc-200 dark:border-zinc-800 pb-3">
+              <span className="text-xs font-mono font-bold text-brand-terra dark:text-brand-ember">05 / VERIFICATION</span>
+              <h3 className="text-xl sm:text-2xl font-syne font-bold text-zinc-900 dark:text-white mt-1">
+                The Premium Design Release Gate
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm font-dm text-zinc-700 dark:text-zinc-300">
+              <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-start gap-2.5">
+                <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                <span>Visual hierarchy is obvious without explanation (passes 3–5s One-Screen Test).</span>
+              </div>
+              <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-start gap-2.5">
+                <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                <span>Typography roles, spacing, colour, radii, and elevation are tokenised and consistent.</span>
+              </div>
+              <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-start gap-2.5">
+                <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                <span>The interface uses whitespace intentionally and aligns to a predictable grid.</span>
+              </div>
+              <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-start gap-2.5">
+                <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                <span>Primary actions are unmistakable (one per area); lower-priority actions are restrained.</span>
+              </div>
+              <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-start gap-2.5">
+                <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                <span>Buttons, inputs, navigation, tables, and overlays have complete relevant states.</span>
+              </div>
+              <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-start gap-2.5">
+                <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                <span>Colour combinations and focus states pass WCAG AA accessibility checks.</span>
+              </div>
+              <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-start gap-2.5">
+                <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                <span>Mobile, tablet, laptop, and wide layouts have been inspected with realistic content.</span>
+              </div>
+              <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-start gap-2.5">
+                <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                <span>Loading, empty, pending, success, disabled, and error views feel intentionally designed.</span>
+              </div>
+              <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-start gap-2.5">
+                <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                <span>Animations are purposeful (120–220ms) and reduced-motion preferences are respected.</span>
+              </div>
+              <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-start gap-2.5">
+                <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                <span>Screen has been reviewed for clutter, unnecessary decoration, and generic patterns.</span>
+              </div>
+            </div>
+
+            {/* The Release Principle */}
+            <div className="p-6 rounded-2xl bg-zinc-900 text-white dark:bg-black border border-zinc-800 space-y-2 font-dm">
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-terra">
+                // The Release Principle
+              </span>
+              <p className="text-sm sm:text-base leading-relaxed text-zinc-200">
+                If the interface is visually impressive but confusing, inaccessible, inconsistent, or slow, it is not premium. <strong>Fix the experience before adding more polish.</strong>
+              </p>
             </div>
           </div>
         </section>

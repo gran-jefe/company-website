@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Landmark, ShieldCheck, Globe, Building2, ShoppingBag, Truck, Zap, Flame, Award } from 'lucide-react'
+import { Landmark, ShieldCheck, Globe, Building2, ShoppingBag, Truck, Zap, Award } from 'lucide-react'
 
 interface MarqueeItem {
   name: string
