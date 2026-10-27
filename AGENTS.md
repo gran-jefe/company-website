@@ -47,5 +47,22 @@ This version has breaking changes — APIs, conventions, and file structure may 
      6. *No muted text everywhere*: Muted tones only for secondary facts; verify contrast.
      7. *No decorative animation*: Quick and calm 120–220ms transitions.
      8. *No synthetic filler*: Avoid random floating shapes or generic stock elements.
+
+5. **Mobile Native Standards (React Native & Expo)**:
+   - **Touch Ergonomics**: 44x44pt tap target minimum (`minHeight: 44, minWidth: 44` or `hitSlop`), `accessibilityLabel` & `accessibilityRole="button"` on icon-only controls.
+   - **Double-Tap Protection**: All mutation touchables (`TouchableOpacity`, `Pressable`) must bind `disabled={loading}`.
+   - **Empty States**: All `FlatList` and `SectionList` components must provide a high-intent `ListEmptyComponent`.
+   - **Storage Safety**: Zero web `localStorage` in React Native files; `AsyncStorage` calls must be wrapped in `try/catch`.
+   - **Keyboard & Input Handling**: Form screens must use `KeyboardAvoidingView` or `keyboardShouldPersistTaps="handled"`; email inputs must configure `autoCapitalize="none"` and `autoCorrect={false}`.
+   - **Edge-to-Edge**: Deprecated `SafeAreaView` from `'react-native'` replaced with `react-native-safe-area-context`.
+   - **Responsive Dimensions**: Dynamic `useWindowDimensions()` hook instead of static `Dimensions.get('window')`.
+
+6. **Intent Alignment & The Anti-Generic Standard (Pillar 4)**:
+   - **Archetype Fidelity**:
+     - *Playful & Friendly*: Soft radii (`14-24px`, pill buttons), warm joyful palettes, friendly rounded typography, encouraging copy.
+     - *Technical & Engineering*: Precise 1px borders, compact radii (`4-8px`), monospace data tokens, factual telemetry copy, dense inspectable layouts.
+     - *Serious & High-Trust*: Restrained prestige palettes, authoritative typography, strict confirmation previews, zero frivolous bouncy animations (`animate-bounce`) or casual banter during checkouts/transfers.
+     - *Editorial & Creative*: Asymmetric/magazine grids, bold scale contrast, bespoke media art direction, zero cookie-cutter 3-card grids.
+   - **Zero Generic AI Clichés**: Banned marketing filler ("Transform your X", "Empower your team", "Next-gen all-in-one", "Unleash the power of AI"), zero emoji crutches (`🚀`, `✨`, `💡`, `🔥`), and zero template placeholder bleed ("Lorem ipsum", "Feature 1").
 <!-- END:developer-portfolio-ux-rules -->
 
