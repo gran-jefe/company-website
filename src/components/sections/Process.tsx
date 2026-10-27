@@ -36,7 +36,7 @@ const processSteps: ProcessStep[] = [
     subtitle: 'ALIGNED BLUEPRINT',
     tagline: 'Scope, architecture, and fixed deliverables mapped in 48 hours.',
     timeline: 'Days 1 – 2',
-    icon: <Compass size={22} className="text-brand-terra" />,
+    icon: <Compass size={22} className="text-brand-terra-ink" />,
     description:
       'We unpack your target audience, conversion goals, and technical requirements. We establish a fixed-timeline scope with milestone dates with zero open-ended ambiguity or surprise cost overruns.',
     keyDeliverables: [
@@ -109,11 +109,11 @@ export function Process() {
               <SectionLabel>Our Delivery Process</SectionLabel>
               <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
                 From concept to live launch.{' '}
-                <span className="font-serif italic font-normal text-brand-terra dark:text-[#FF5528]">In 4 clear phases.</span>
+                <span className="font-serif italic font-normal text-brand-terra-ink dark:text-[#FF5528]">In 4 clear phases.</span>
               </h2>
             </div>
             <p className="font-mono text-xs text-[#7A4A38] dark:text-[#B88E7D] max-w-sm">
-              // Fixed timelines, daily async video updates, zero guesswork, zero technical debt.
+              {"// Fixed timelines, daily async video updates, zero guesswork, zero technical debt."}
             </p>
           </div>
         </AnimatedSection>
@@ -185,11 +185,11 @@ export function Process() {
                 {/* Left Overview (7 cols) */}
                 <div className="lg:col-span-7 space-y-4">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-brand-terra/10 border border-brand-terra/20 text-brand-terra font-mono text-xs font-bold uppercase tracking-wider">
-                      Phase {activeStep.step} // {activeStep.subtitle}
+                    <span className="px-3 py-1 rounded-full bg-brand-terra/10 border border-brand-terra/20 text-brand-terra-ink font-mono text-xs font-bold uppercase tracking-wider">
+                      Phase {activeStep.step}{" // "}{activeStep.subtitle}
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF0E6] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-xs font-mono text-[#7A4A38] dark:text-[#E6D0C2]">
-                      <Clock size={13} className="text-brand-terra" />
+                      <Clock size={13} className="text-brand-terra-ink" />
                       <span>{activeStep.timeline}</span>
                     </span>
                   </div>
@@ -217,7 +217,7 @@ export function Process() {
                 <div className="lg:col-span-5 p-6 rounded-2xl bg-[#FAF0E6] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 space-y-4">
                   <div className="flex items-center justify-between text-xs font-mono text-[#7A4A38] dark:text-[#B88E7D] uppercase tracking-wider font-semibold border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 pb-3">
                     <span className="flex items-center gap-1.5">
-                      <FileText size={14} className="text-brand-terra" />
+                      <FileText size={14} className="text-brand-terra-ink" />
                       <span>Key Tangible Deliverables</span>
                     </span>
                     <span>3 Items</span>
@@ -226,7 +226,7 @@ export function Process() {
                   <div className="space-y-3">
                     {activeStep.keyDeliverables.map((item, i) => (
                       <div key={i} className="flex items-start gap-2.5 text-sm font-dm text-[#2E0E1D] dark:text-[#FFF0E3]">
-                        <CheckCircle2 size={16} className="text-brand-terra flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 size={16} className="text-brand-terra-ink flex-shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </div>
                     ))}
@@ -234,7 +234,7 @@ export function Process() {
 
                   <div className="pt-3 border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center justify-between gap-3 text-xs font-dm text-[#6C4B59] dark:text-[#B88E7D]">
                     <div className="flex items-center gap-1.5">
-                      <Video size={13} className="text-brand-terra" />
+                      <Video size={13} className="text-brand-terra-ink" />
                       <span>Loom video review included</span>
                     </div>
                     <button
@@ -243,7 +243,7 @@ export function Process() {
                         const contact = document.querySelector('#contact')
                         if (contact) contact.scrollIntoView({ behavior: 'smooth' })
                       }}
-                      className="inline-flex items-center gap-1 text-brand-terra hover:text-brand-ember font-semibold font-mono"
+                      className="inline-flex items-center gap-1 text-brand-terra-ink hover:text-brand-ember font-semibold font-mono"
                     >
                       <span>Inquire now</span>
                       <ArrowRight size={12} />

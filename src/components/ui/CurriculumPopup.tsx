@@ -30,19 +30,18 @@ export function CurriculumPopup() {
   }
 
   useEffect(() => {
-    // Check localStorage for dismissal
-    try {
-      const dismissedUntil = localStorage.getItem(STORAGE_KEY)
-      if (dismissedUntil && new Date().getTime() < parseInt(dismissedUntil, 10)) {
-        setIsMinimized(true)
-        return
-      }
-    } catch {
-      // Ignore storage errors in private browsing
-    }
-
     // Delay appearance so initial viewport loads with zero distraction
     const timer = setTimeout(() => {
+      // Check localStorage for dismissal
+      try {
+        const dismissedUntil = localStorage.getItem(STORAGE_KEY)
+        if (dismissedUntil && new Date().getTime() < parseInt(dismissedUntil, 10)) {
+          setIsMinimized(true)
+          return
+        }
+      } catch {
+        // Ignore storage errors in private browsing
+      }
       setIsOpen(true)
     }, 2400)
 
@@ -80,7 +79,7 @@ export function CurriculumPopup() {
             <button
               onClick={handleReopen}
               aria-label="Open Curriculum & Learning Hub Quick Guide"
-              className="group relative flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-brand-terra hover:bg-brand-ember text-white shadow-xl shadow-brand-terra/30 border border-white/20 transition-all hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra focus-visible:ring-offset-2 cursor-pointer"
+              className="group relative flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-brand-terra hover:bg-[#B82A00] text-white shadow-xl shadow-brand-terra/30 border border-white/20 transition-all hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra focus-visible:ring-offset-2 cursor-pointer"
             >
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-300 opacity-75" />
@@ -167,7 +166,7 @@ export function CurriculumPopup() {
                   <Link
                     href="/standards/ui-ux-playbook"
                     onClick={handleDismiss}
-                    className="text-[11px] font-semibold text-brand-terra dark:text-amber-300 hover:underline shrink-0 flex items-center gap-0.5"
+                    className="text-[11px] font-semibold text-brand-terra-ink dark:text-amber-300 hover:underline shrink-0 flex items-center gap-0.5"
                   >
                     <span>Read</span>
                     <ArrowRight size={11} />
@@ -179,7 +178,7 @@ export function CurriculumPopup() {
                   <Link
                     href="/curriculum"
                     onClick={handleDismiss}
-                    className="flex-1 py-2.5 px-4 rounded-xl bg-brand-terra hover:bg-brand-ember text-white font-dm font-semibold text-xs flex items-center justify-center gap-1.5 shadow-md shadow-brand-terra/20 transition-all hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra text-center"
+                    className="flex-1 py-2.5 px-4 rounded-xl bg-brand-terra hover:bg-[#B82A00] text-white font-dm font-semibold text-xs flex items-center justify-center gap-1.5 shadow-md shadow-brand-terra/20 transition-all hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra text-center"
                   >
                     <span>Explore All 9 Tracks</span>
                     <ArrowRight size={13} />

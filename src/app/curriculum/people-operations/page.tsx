@@ -96,7 +96,7 @@ export default function PeopleOperationsCurriculumPage() {
           <div className="flex items-center gap-3 sm:gap-4">
             <Link
               href="/#curriculum"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra-ink dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
             >
               <ArrowLeft size={14} />
               <span>Back to Curriculums</span>
@@ -145,7 +145,7 @@ export default function PeopleOperationsCurriculumPage() {
             </div>
 
             <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
-              <div className="flex items-center gap-2 text-brand-terra font-bold text-sm">
+              <div className="flex items-center gap-2 text-brand-terra-ink font-bold text-sm">
                 <Scale size={18} /> Global Remote Compliance &amp; ESOPs
               </div>
               <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-dm">
@@ -251,7 +251,7 @@ export default function PeopleOperationsCurriculumPage() {
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
                 <li><em>Book:</em> <em>Who: The A Method for Hiring</em> by Geoff Smart &amp; Randy Street.</li>
                 <li><em>Book:</em> <em>Work Rules!</em> by Laszlo Bock (Former Google Head of People).</li>
-                <li><a href="https://lattice.com/library/structured-interviewing-guide" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Lattice: The Complete Guide to Structured Interviewing <ExternalLink size={11} /></a></li>
+                <li><a href="https://lattice.com/library/structured-interviewing-guide" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Lattice: The Complete Guide to Structured Interviewing <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -260,8 +260,8 @@ export default function PeopleOperationsCurriculumPage() {
                 <Code2 size={14} className="text-rose-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=kYvV98yLpG0" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Y Combinator: How to Hire Your First 20 Engineers <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Laszlo Bock: Inside Google&apos;s People Operations <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=kYvV98yLpG0" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Y Combinator: How to Hire Your First 20 Engineers <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Laszlo Bock: Inside Google&apos;s People Operations <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -306,7 +306,7 @@ export default function PeopleOperationsCurriculumPage() {
                 <BookOpen size={14} className="text-amber-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://progression.fyi/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Progression.fyi: Public Career Ladders (Monzo, Spotify, Wise) <ExternalLink size={11} /></a></li>
+                <li><a href="https://progression.fyi/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Progression.fyi: Public Career Ladders (Monzo, Spotify, Wise) <ExternalLink size={11} /></a></li>
                 <li><em>Book:</em> <em>Measure What Matters</em> by John Doerr (OKR Architecture).</li>
               </ul>
             </div>
@@ -316,7 +316,7 @@ export default function PeopleOperationsCurriculumPage() {
                 <Code2 size={14} className="text-amber-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=mJB83KUauGo" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Simon Sinek: Why Good Leaders Make You Feel Safe <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=mJB83KUauGo" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Simon Sinek: Why Good Leaders Make You Feel Safe <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -361,8 +361,8 @@ export default function PeopleOperationsCurriculumPage() {
                 <BookOpen size={14} className="text-blue-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://carta.com/blog/equity-101-stock-option-basics/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Carta: Equity 101 &amp; Startup Stock Option Basics <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.deel.com/glossary/employer-of-record" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Deel: Global Employer of Record (EOR) Guide <ExternalLink size={11} /></a></li>
+                <li><a href="https://carta.com/blog/equity-101-stock-option-basics/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Carta: Equity 101 &amp; Startup Stock Option Basics <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.deel.com/glossary/employer-of-record" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Deel: Global Employer of Record (EOR) Guide <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -371,7 +371,7 @@ export default function PeopleOperationsCurriculumPage() {
                 <Code2 size={14} className="text-blue-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=PNa9OMajw9w" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Slidebean: How Startup Stock Options Work Explained <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=PNa9OMajw9w" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Slidebean: How Startup Stock Options Work Explained <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -388,7 +388,7 @@ export default function PeopleOperationsCurriculumPage() {
                 Final Capstone: 50-Person Startup People Playbook
               </h2>
             </div>
-            <span className="text-xs font-mono text-emerald-400 font-semibold">// Executive Deliverable</span>
+            <span className="text-xs font-mono text-emerald-400 font-semibold">{"// Executive Deliverable"}</span>
           </div>
 
           <p className="text-sm text-zinc-300 font-dm leading-relaxed">
@@ -449,7 +449,7 @@ export default function PeopleOperationsCurriculumPage() {
                 href="https://www.coursera.org/specializations/human-resource-management"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -472,7 +472,7 @@ export default function PeopleOperationsCurriculumPage() {
                 href="https://www.coursera.org/learn/wharton-people-analytics"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -495,7 +495,7 @@ export default function PeopleOperationsCurriculumPage() {
                 href="https://www.coursera.org/specializations/strategic-human-resources-leadership"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />

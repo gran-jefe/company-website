@@ -245,7 +245,7 @@ export default function CurriculumHubPage() {
           <div className="flex items-center gap-3 sm:gap-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-[#5A3846] dark:text-[#E6D0C2] hover:text-brand-terra dark:hover:text-brand-terra transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-[#FAF0E6] hover:bg-[#F3E2D5] dark:bg-[#1D0E17] dark:hover:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-[#5A3846] dark:text-[#E6D0C2] hover:text-brand-terra-ink dark:hover:text-brand-terra-ink transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-[#FAF0E6] hover:bg-[#F3E2D5] dark:bg-[#1D0E17] dark:hover:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15"
             >
               <ArrowLeft size={14} />
               <span>Back to Gran Jefe</span>
@@ -257,7 +257,7 @@ export default function CurriculumHubPage() {
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-brand-terra/10 text-brand-terra dark:text-[#FF5528] border border-brand-terra/20">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-brand-terra/10 text-brand-terra-ink dark:text-[#FF5528] border border-brand-terra/20">
               <Sparkles size={13} /> Open Learning Hub
             </span>
             <ThemeToggle />
@@ -269,7 +269,7 @@ export default function CurriculumHubPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
         {/* Hub Hero Banner */}
         <div className="max-w-3xl mb-12 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-brand-terra/10 text-brand-terra dark:text-[#FF5528] border border-brand-terra/20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-brand-terra/10 text-brand-terra-ink dark:text-[#FF5528] border border-brand-terra/20">
             <BookOpen size={14} /> Production Engineering Curriculums
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold tracking-tight text-[#2E0E1D] dark:text-[#FFF0E3] leading-tight">
@@ -300,7 +300,7 @@ export default function CurriculumHubPage() {
           </div>
           <Link
             href="/standards/ui-ux-playbook"
-            className="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-dm font-semibold bg-brand-terra hover:bg-brand-ember text-white shadow-xs transition-all group"
+            className="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-dm font-semibold bg-brand-terra hover:bg-[#B82A00] text-white shadow-xs transition-all group"
           >
             <span>Read the Playbook</span>
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -334,7 +334,7 @@ export default function CurriculumHubPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search tracks, skills, tech..."
-              className="w-full pl-9 pr-4 py-2 text-xs font-dm rounded-xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] placeholder:text-[#7A4A38]/60 dark:placeholder:text-[#B88E7D]/60 focus:outline-none focus:border-brand-terra focus:ring-1 focus:ring-brand-terra transition-all"
+              className="w-full pl-9 pr-4 py-2 text-xs font-dm rounded-xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] placeholder:text-[#7A4A38] dark:placeholder:text-[#B88E7D] focus:outline-none focus:border-brand-terra focus:ring-1 focus:ring-brand-terra transition-all"
             />
           </div>
         </div>
@@ -363,7 +363,7 @@ export default function CurriculumHubPage() {
                 )}
 
                 <div>
-                  <h3 className="text-xl font-syne font-bold text-[#2E0E1D] dark:text-[#FFF0E3] group-hover:text-brand-terra dark:group-hover:text-[#FF5528] transition-colors">
+                  <h3 className="text-xl font-syne font-bold text-[#2E0E1D] dark:text-[#FFF0E3] group-hover:text-brand-terra-ink dark:group-hover:text-[#FF5528] transition-colors">
                     {track.title}
                   </h3>
                   <p className="text-xs text-[#7A4A38] dark:text-[#B88E7D] font-mono mt-1">
@@ -383,7 +383,7 @@ export default function CurriculumHubPage() {
                   <ul className="space-y-1.5">
                     {track.highlights.map((h, i) => (
                       <li key={i} className="text-xs text-[#5A3846] dark:text-[#E6D0C2] flex items-start gap-2 font-dm">
-                        <CheckCircle2 size={13} className="text-brand-terra shrink-0 mt-0.5" />
+                        <CheckCircle2 size={13} className="text-brand-terra-ink shrink-0 mt-0.5" />
                         <span>{h}</span>
                       </li>
                     ))}
@@ -409,7 +409,7 @@ export default function CurriculumHubPage() {
         <div className="mt-16 pt-8 border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex flex-col sm:flex-row items-center justify-between gap-4">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra dark:text-[#FF5528] hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra-ink dark:text-[#FF5528] hover:underline"
           >
             <ArrowLeft size={16} /> Return to Gran Jefe Homepage
           </Link>

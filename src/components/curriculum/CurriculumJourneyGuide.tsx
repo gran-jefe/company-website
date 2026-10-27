@@ -6,7 +6,7 @@ export function CurriculumJourneyGuide() {
     {
       number: '01',
       title: 'Watch the Visual Primer',
-      icon: <PlayCircle size={18} className="text-brand-terra" />,
+      icon: <PlayCircle size={18} className="text-brand-terra-ink" />,
       time: '30 to 60 mins',
       description:
         'Start with our curated video tutorial to build a mental picture of how data and components flow before looking at complex code.',
@@ -41,7 +41,7 @@ export function CurriculumJourneyGuide() {
     <div className="mb-12 rounded-2xl bg-gradient-to-br from-brand-terra/5 via-white to-dev-cyan/5 dark:from-zinc-900 dark:via-zinc-900/90 dark:to-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 sm:p-7 shadow-xs">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-zinc-100 dark:border-zinc-800">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono font-bold text-brand-terra dark:text-brand-ember">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold text-brand-terra-ink dark:text-brand-ember">
             <Compass size={14} />
             <span>LEARNER ROADMAP GUIDE</span>
           </div>
@@ -50,7 +50,7 @@ export function CurriculumJourneyGuide() {
           </h3>
         </div>
         <div className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400">
-          <Sparkles size={12} className="text-brand-terra" />
+          <Sparkles size={12} className="text-brand-terra-ink" />
           <span>Zero Tutorial Hell Formula</span>
         </div>
       </div>

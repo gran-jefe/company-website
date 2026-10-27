@@ -96,7 +96,7 @@ export default function ProductManagementCurriculumPage() {
           <div className="flex items-center gap-3 sm:gap-4">
             <Link
               href="/#curriculum"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra-ink dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
             >
               <ArrowLeft size={14} />
               <span>Back to Curriculums</span>
@@ -129,7 +129,7 @@ export default function ProductManagementCurriculumPage() {
           </div>
           <Link
             href="/standards/ui-ux-playbook"
-            className="text-brand-terra dark:text-brand-ember font-semibold hover:underline flex items-center gap-1 shrink-0"
+            className="text-brand-terra-ink dark:text-brand-ember font-semibold hover:underline flex items-center gap-1 shrink-0"
           >
             <span>Read UI/UX Playbook</span>
             <ExternalLink size={12} />
@@ -139,7 +139,7 @@ export default function ProductManagementCurriculumPage() {
         {/* Hero Section */}
         <div className="space-y-5 border-b border-zinc-200 dark:border-zinc-800 pb-10 mb-12">
           <div className="flex items-center gap-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-brand-terra/10 text-brand-terra dark:text-brand-ember border border-brand-terra/20">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-brand-terra/10 text-brand-terra-ink dark:text-brand-ember border border-brand-terra/20">
               <Target size={14} /> Product Strategy &amp; Execution
             </div>
             <span className="text-xs font-mono text-zinc-500">Track 08</span>
@@ -154,7 +154,7 @@ export default function ProductManagementCurriculumPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
             <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
-              <div className="flex items-center gap-2 text-brand-terra font-bold text-sm">
+              <div className="flex items-center gap-2 text-brand-terra-ink font-bold text-sm">
                 <Compass size={18} /> Outcome-Driven Discovery
               </div>
               <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-dm">
@@ -176,7 +176,7 @@ export default function ProductManagementCurriculumPage() {
         {/* Mental Model Translation */}
         <section className="mb-14">
           <div className="flex items-center gap-2.5 mb-2">
-            <Layers className="text-brand-terra" size={22} />
+            <Layers className="text-brand-terra-ink" size={22} />
             <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
               Feature Factory vs. High-Leverage Product Management
             </h2>
@@ -197,22 +197,22 @@ export default function ProductManagementCurriculumPage() {
               <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800 text-zinc-700 dark:text-zinc-300 font-dm">
                 <tr className="hover:bg-zinc-50/60 dark:hover:bg-zinc-800/40">
                   <td className="p-4 font-mono text-xs text-red-500">&quot;Stakeholder requested this button&quot;</td>
-                  <td className="p-4 font-mono text-xs text-brand-terra dark:text-brand-ember">Root Cause Problem Discovery</td>
+                  <td className="p-4 font-mono text-xs text-brand-terra-ink dark:text-brand-ember">Root Cause Problem Discovery</td>
                   <td className="p-4">Discovers the underlying friction and avoids building bloated features nobody uses.</td>
                 </tr>
                 <tr className="hover:bg-zinc-50/60 dark:hover:bg-zinc-800/40">
                   <td className="p-4 font-mono text-xs text-red-500">50-page bloated requirements doc</td>
-                  <td className="p-4 font-mono text-xs text-brand-terra dark:text-brand-ember">Concise PRD with Acceptance Criteria</td>
+                  <td className="p-4 font-mono text-xs text-brand-terra-ink dark:text-brand-ember">Concise PRD with Acceptance Criteria</td>
                   <td className="p-4">Engineers understand edge cases, API contracts, and non-functional requirements instantly.</td>
                 </tr>
                 <tr className="hover:bg-zinc-50/60 dark:hover:bg-zinc-800/40">
                   <td className="p-4 font-mono text-xs text-red-500">Measuring velocity (story points shipped)</td>
-                  <td className="p-4 font-mono text-xs text-brand-terra dark:text-brand-ember">Measuring North Star Metric &amp; Retention</td>
+                  <td className="p-4 font-mono text-xs text-brand-terra-ink dark:text-brand-ember">Measuring North Star Metric &amp; Retention</td>
                   <td className="p-4">Directly ties engineering effort to monthly recurring revenue (MRR) and active retention.</td>
                 </tr>
                 <tr className="hover:bg-zinc-50/60 dark:hover:bg-zinc-800/40">
                   <td className="p-4 font-mono text-xs text-red-500">Shipping immediately when code compiles</td>
-                  <td className="p-4 font-mono text-xs text-brand-terra dark:text-brand-ember">Enforcing the Release Quality Gate</td>
+                  <td className="p-4 font-mono text-xs text-brand-terra-ink dark:text-brand-ember">Enforcing the Release Quality Gate</td>
                   <td className="p-4">Blocks releases with missing error states, WCAG contrast defects, or misleading balances.</td>
                 </tr>
               </tbody>
@@ -236,7 +236,7 @@ export default function ProductManagementCurriculumPage() {
         <section className="mb-12 p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 dark:border-zinc-800 pb-4">
             <div className="flex items-center gap-2">
-              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-brand-terra/10 text-brand-terra dark:text-brand-ember border border-brand-terra/20">
+              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-brand-terra/10 text-brand-terra-ink dark:text-brand-ember border border-brand-terra/20">
                 Phase 1
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white">
@@ -264,22 +264,22 @@ export default function ProductManagementCurriculumPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
             <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
               <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
-                <BookOpen size={14} className="text-brand-terra" /> High-Yield Reading
+                <BookOpen size={14} className="text-brand-terra-ink" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
                 <li><em>Book:</em> <em>The Mom Test</em> by Rob Fitzpatrick (Mandatory reading on customer interviews).</li>
                 <li><em>Book:</em> <em>Continuous Discovery Habits</em> by Teresa Torres (Opportunity Solution Trees).</li>
-                <li><a href="https://www.producttalk.org/opportunity-solution-tree/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Product Talk: Opportunity Solution Tree Guide <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.producttalk.org/opportunity-solution-tree/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Product Talk: Opportunity Solution Tree Guide <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
             <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
               <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-mono flex items-center gap-1.5">
-                <Code2 size={14} className="text-brand-terra" /> Practical Video Resource
+                <Code2 size={14} className="text-brand-terra-ink" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=Hla10npYp8Q" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Rob Fitzpatrick: The Mom Test (Google Tech Talk) <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=kYvV98yLpG0" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Y Combinator: How to Talk to Users <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=Hla10npYp8Q" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Rob Fitzpatrick: The Mom Test (Google Tech Talk) <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=kYvV98yLpG0" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Y Combinator: How to Talk to Users <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -324,9 +324,9 @@ export default function ProductManagementCurriculumPage() {
                 <BookOpen size={14} className="text-emerald-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><Link href="/standards/ui-ux-playbook" className="text-brand-terra hover:underline inline-flex items-center gap-1 font-semibold">Gran Jefe: UI/UX Non-Negotiables Playbook <ExternalLink size={11} /></Link></li>
+                <li><Link href="/standards/ui-ux-playbook" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1 font-semibold">Gran Jefe: UI/UX Non-Negotiables Playbook <ExternalLink size={11} /></Link></li>
                 <li><em>Book:</em> <em>Don&apos;t Make Me Think (Revisited)</em> by Steve Krug.</li>
-                <li><a href="https://www.nngroup.com/articles/usability-testing-101/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">NN/g: Usability Testing 101 <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.nngroup.com/articles/usability-testing-101/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">NN/g: Usability Testing 101 <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -335,8 +335,8 @@ export default function ProductManagementCurriculumPage() {
                 <Code2 size={14} className="text-emerald-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=AEaKrq3SpW8" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Steve Krug: Demo Usability Test (Live Session) <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">NN/g: How to Conduct Heuristic Evaluations <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=AEaKrq3SpW8" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Steve Krug: Demo Usability Test (Live Session) <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">NN/g: How to Conduct Heuristic Evaluations <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -381,7 +381,7 @@ export default function ProductManagementCurriculumPage() {
                 <BookOpen size={14} className="text-blue-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.lennysnewsletter.com/p/how-to-write-a-good-prd" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Lenny&apos;s Newsletter: How to Write a Great PRD <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.lennysnewsletter.com/p/how-to-write-a-good-prd" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Lenny&apos;s Newsletter: How to Write a Great PRD <ExternalLink size={11} /></a></li>
                 <li><em>Book:</em> <em>Inspired: How to Create Tech Products Customers Love</em> by Marty Cagan.</li>
               </ul>
             </div>
@@ -391,7 +391,7 @@ export default function ProductManagementCurriculumPage() {
                 <Code2 size={14} className="text-blue-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Marty Cagan: Product Management Masterclass <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Marty Cagan: Product Management Masterclass <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -436,8 +436,8 @@ export default function ProductManagementCurriculumPage() {
                 <BookOpen size={14} className="text-purple-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://posthog.com/docs/product-analytics" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">PostHog: Product Analytics &amp; Funnel Guide <ExternalLink size={11} /></a></li>
-                <li><a href="https://mixpanel.com/blog/product-analytics-guide/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Mixpanel: The Complete Guide to Product Analytics <ExternalLink size={11} /></a></li>
+                <li><a href="https://posthog.com/docs/product-analytics" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">PostHog: Product Analytics &amp; Funnel Guide <ExternalLink size={11} /></a></li>
+                <li><a href="https://mixpanel.com/blog/product-analytics-guide/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Mixpanel: The Complete Guide to Product Analytics <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -446,7 +446,7 @@ export default function ProductManagementCurriculumPage() {
                 <Code2 size={14} className="text-purple-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=oUJbuFMyBDk" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">PostHog: Building Retention &amp; Conversion Funnels <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=oUJbuFMyBDk" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">PostHog: Building Retention &amp; Conversion Funnels <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -456,14 +456,14 @@ export default function ProductManagementCurriculumPage() {
         <section className="mb-14 p-6 sm:p-8 rounded-2xl bg-zinc-900 border border-zinc-800 text-white shadow-xl space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-800 pb-4">
             <div className="flex items-center gap-2">
-              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-brand-terra/20 text-brand-terra border border-brand-terra/30">
+              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-brand-terra/20 text-brand-terra-ink border border-brand-terra/30">
                 Capstone
               </span>
               <h2 className="text-xl sm:text-2xl font-bold font-syne">
                 Final Capstone: Complete Product Portfolio Dossier
               </h2>
             </div>
-            <span className="text-xs font-mono text-emerald-400 font-semibold">// Executive Portfolio</span>
+            <span className="text-xs font-mono text-emerald-400 font-semibold">{"// Executive Portfolio"}</span>
           </div>
 
           <p className="text-sm text-zinc-300 font-dm leading-relaxed">
@@ -472,7 +472,7 @@ export default function ProductManagementCurriculumPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-2">
-              <h4 className="text-xs font-mono font-bold text-brand-terra">Discovery &amp; Strategy</h4>
+              <h4 className="text-xs font-mono font-bold text-brand-terra-ink">Discovery &amp; Strategy</h4>
               <ul className="text-xs text-zinc-300 space-y-1.5 list-disc pl-4 font-dm">
                 <li>5 synthesized customer interview transcripts with pain point quotes</li>
                 <li>Opportunity Solution Tree mapping user needs to revenue goals</li>
@@ -524,7 +524,7 @@ export default function ProductManagementCurriculumPage() {
                 href="https://www.coursera.org/learn/uva-darden-digital-product-management"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -547,7 +547,7 @@ export default function ProductManagementCurriculumPage() {
                 href="https://www.coursera.org/professional-certificates/google-project-management"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -570,7 +570,7 @@ export default function ProductManagementCurriculumPage() {
                 href="https://www.coursera.org/specializations/product-management"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />

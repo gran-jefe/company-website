@@ -46,7 +46,7 @@ const trustItems: TrustItem[] = [
     entity: 'Project Catalogue Limited',
     role: 'Luxury Architectural Showcase & Real Estate Dev',
     location: 'Nigeria',
-    icon: <Building2 size={18} className="text-brand-terra" />,
+    icon: <Building2 size={18} className="text-brand-terra-ink" />,
     badge: 'Luxury Property',
     link: 'https://www.projectcataloguelimited.com',
   },
@@ -62,12 +62,12 @@ export function TrustBar() {
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-bold">CERTIFIED CORPORATE ENTITY:</span>
             <span className="text-[#0E6247] dark:text-emerald-400 font-bold">GRAN JEFE SOLUTIONS</span>
-            <span className="text-[#C4A0B8] dark:text-[#7A4A38]">//</span>
+            <span className="text-[#C4A0B8] dark:text-[#7A4A38]">{"//"}</span>
             <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-semibold">CAC BN: 9529101</span>
           </div>
 
           <div className="flex items-center gap-2 text-[11px] text-[#7A4A38] dark:text-[#B88E7D]">
-            <Award size={14} className="text-brand-terra" />
+            <Award size={14} className="text-brand-terra-ink" />
             <span>Sole Proprietorship • Active Status • Founded by Adeleke Sherifdeen</span>
           </div>
         </div>
@@ -84,7 +84,7 @@ export function TrustBar() {
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2.5">
-                  <div className="p-2 rounded-xl bg-[#FAF0E6] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-brand-terra group-hover:scale-105 transition-transform shadow-xs">
+                  <div className="p-2 rounded-xl bg-[#FAF0E6] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-brand-terra-ink group-hover:scale-105 transition-transform shadow-xs">
                     {item.icon}
                   </div>
                   <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-[#FAF0E6] dark:bg-[#25121E] text-[#7A4A38] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15">
@@ -92,11 +92,11 @@ export function TrustBar() {
                   </span>
                 </div>
 
-                <h4 className="font-syne font-bold text-sm text-[#2E0E1D] dark:text-[#FFF0E3] group-hover:text-brand-terra transition-colors flex items-center justify-between">
+                <h4 className="font-syne font-bold text-sm text-[#2E0E1D] dark:text-[#FFF0E3] group-hover:text-brand-terra-ink transition-colors flex items-center justify-between">
                   <span>{item.entity}</span>
                   <ArrowUpRight
                     size={14}
-                    className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-brand-terra"
+                    className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-brand-terra-ink"
                   />
                 </h4>
 

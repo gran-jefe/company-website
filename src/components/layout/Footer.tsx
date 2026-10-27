@@ -30,19 +30,19 @@ export function Footer() {
         {/* Top Call to Action Row */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-12 border-b border-[#EAD3C4]/15">
           <div className="space-y-3 max-w-2xl">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-terra">
-              // LET'S COLLABORATE
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-terra-ink">
+              {"// LET’S COLLABORATE"}
             </span>
             <h2 className="text-3xl sm:text-5xl font-syne font-extrabold text-[#FFF0E3] tracking-tight leading-tight">
-              Let's engineer something{' '}
-              <span className="font-serif italic font-normal text-brand-terra">impossible</span> to ignore.
+              Let&rsquo;s engineer something{' '}
+              <span className="font-serif italic font-normal text-brand-terra-ink">impossible</span> to ignore.
             </h2>
           </div>
 
           <div className="flex flex-wrap items-center gap-4">
             <button
               onClick={() => handleNavClick('#contact')}
-              className="py-3.5 px-7 rounded-xl bg-brand-terra hover:bg-brand-ember text-white font-dm font-semibold text-sm flex items-center gap-2 shadow-lg shadow-brand-terra/20 transition-all hover:scale-[1.02]"
+              className="py-3.5 px-7 rounded-xl bg-brand-terra hover:bg-[#B82A00] text-white font-dm font-semibold text-sm flex items-center gap-2 shadow-lg shadow-brand-terra/20 transition-all hover:scale-[1.02]"
             >
               <span>Start a Project</span>
               <ArrowUpRight size={16} />
@@ -82,7 +82,7 @@ export function Footer() {
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-left text-sm font-dm text-[#E6D0C2] hover:text-brand-terra transition-colors"
+                  className="text-left text-sm font-dm text-[#E6D0C2] hover:text-brand-terra-ink transition-colors"
                 >
                   {link.label}
                 </button>
@@ -103,25 +103,25 @@ export function Footer() {
               </Link>
               <Link
                 href="/curriculum"
-                className="text-[#E6D0C2] hover:text-brand-terra transition-colors"
+                className="text-[#E6D0C2] hover:text-brand-terra-ink transition-colors"
               >
                 All 9 Curriculums
               </Link>
               <Link
                 href="/curriculum/product-management"
-                className="text-[#E6D0C2] hover:text-brand-terra transition-colors"
+                className="text-[#E6D0C2] hover:text-brand-terra-ink transition-colors"
               >
                 Product Management Track
               </Link>
               <Link
                 href="/curriculum/people-operations"
-                className="text-[#E6D0C2] hover:text-brand-terra transition-colors"
+                className="text-[#E6D0C2] hover:text-brand-terra-ink transition-colors"
               >
                 People Ops &amp; Tech HR Track
               </Link>
               <Link
                 href="/curriculum/python-django"
-                className="text-[#E6D0C2] hover:text-brand-terra transition-colors"
+                className="text-[#E6D0C2] hover:text-brand-terra-ink transition-colors"
               >
                 Python &amp; Django Track
               </Link>
@@ -133,7 +133,7 @@ export function Footer() {
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#FFF0E3]">Direct Inquiries</h4>
             <div className="space-y-2 text-sm font-dm text-[#E6D0C2]">
               <div className="flex items-center gap-2">
-                <Mail size={14} className="text-brand-terra flex-shrink-0" />
+                <Mail size={14} className="text-brand-terra-ink flex-shrink-0" />
                 <a href="mailto:granjefetech@gmail.com" className="hover:text-white transition-colors">
                   granjefetech@gmail.com
                 </a>
@@ -145,7 +145,7 @@ export function Footer() {
                 </a>
               </div>
               <div className="flex items-center gap-2 text-xs text-[#B88E7D] pt-1">
-                <MapPin size={14} className="text-brand-terra flex-shrink-0" />
+                <MapPin size={14} className="text-brand-terra-ink flex-shrink-0" />
                 <span>Ibadan &amp; Abuja, Nigeria • Operating Globally</span>
               </div>
             </div>

@@ -19,7 +19,7 @@ const services: ServiceItem[] = [
   {
     id: 'mobile',
     codeTag: 'MOBILE APPLICATIONS',
-    icon: <Smartphone size={24} className="text-brand-terra" />,
+    icon: <Smartphone size={24} className="text-brand-terra-ink" />,
     title: 'Mobile App Engineering',
     description: 'Custom iOS and Android mobile applications built with React Native. Native performance, responsive design, offline capabilities, and smooth 60fps animations.',
     techStack: ['React Native', 'TypeScript', 'Expo', 'iOS & Android'],
@@ -82,11 +82,11 @@ export function Services() {
               <SectionLabel>What We Do</SectionLabel>
               <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-bold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
                 Full-spectrum software engineering.{' '}
-                <span className="text-brand-terra">Tailored to your needs.</span>
+                <span className="text-brand-terra-ink">Tailored to your needs.</span>
               </h2>
             </div>
             <p className="font-mono text-xs text-[#7A4A38] dark:text-[#B88E7D] max-w-xs">
-              // Strict engineering standards, clean modular architecture, zero technical debt.
+              {"// Strict engineering standards, clean modular architecture, zero technical debt."}
             </p>
           </div>
         </AnimatedSection>
@@ -115,19 +115,19 @@ export function Services() {
                 {/* Value Checkpoints */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
                   <div className="flex items-center gap-2 text-xs font-dm text-[#FFF0E3] dark:text-[#E6D0C2]">
-                    <CheckCircle2 size={15} className="text-brand-terra flex-shrink-0" />
+                    <CheckCircle2 size={15} className="text-brand-terra-ink flex-shrink-0" />
                     <span><strong>95+ Core Web Vitals:</strong> Sub-second mobile load speeds</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs font-dm text-[#FFF0E3] dark:text-[#E6D0C2]">
-                    <CheckCircle2 size={15} className="text-brand-terra flex-shrink-0" />
+                    <CheckCircle2 size={15} className="text-brand-terra-ink flex-shrink-0" />
                     <span><strong>Conversion-Optimized UX:</strong> Clear hierarchy &amp; zero layout shift</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs font-dm text-[#FFF0E3] dark:text-[#E6D0C2]">
-                    <CheckCircle2 size={15} className="text-brand-terra flex-shrink-0" />
+                    <CheckCircle2 size={15} className="text-brand-terra-ink flex-shrink-0" />
                     <span><strong>Fluid Interactions:</strong> Smooth 60fps micro-animations</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs font-dm text-[#FFF0E3] dark:text-[#E6D0C2]">
-                    <CheckCircle2 size={15} className="text-brand-terra flex-shrink-0" />
+                    <CheckCircle2 size={15} className="text-brand-terra-ink flex-shrink-0" />
                     <span><strong>Fixed Timeline:</strong> Production-ready in 7 business days</span>
                   </div>
                 </div>
@@ -137,7 +137,7 @@ export function Services() {
                 <div className="space-y-1 text-left lg:text-right">
                   <div className="text-xs font-mono text-[#E6C5B8] dark:text-[#B88E7D]">Fixed-Scope Engagement</div>
                   <div className="text-2xl font-syne font-bold text-[#FFF0E3] flex items-center gap-2 lg:justify-end">
-                    <Clock size={20} className="text-brand-terra" />
+                    <Clock size={20} className="text-brand-terra-ink" />
                     <span>7 Business Days</span>
                   </div>
                   <div className="text-xs font-dm text-emerald-400 font-semibold">100% Milestone Satisfaction Guarantee</div>
@@ -149,7 +149,7 @@ export function Services() {
                     const contactSection = document.querySelector('#contact')
                     if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className="mt-2 w-full sm:w-auto py-3 px-6 rounded-xl bg-brand-terra hover:bg-brand-ember text-white font-dm font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-terra/20 transition-all hover:scale-[1.02]"
+                  className="mt-2 w-full sm:w-auto py-3 px-6 rounded-xl bg-brand-terra hover:bg-[#B82A00] text-white font-dm font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-terra/20 transition-all hover:scale-[1.02]"
                 >
                   <span>Book a 7-Day Rebuild Sprint</span>
                   <ArrowRight size={15} />
@@ -166,10 +166,10 @@ export function Services() {
               <div className="h-full group relative p-7 rounded-2xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/60 dark:hover:border-brand-terra/60 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:shadow-brand-clay/10 dark:hover:shadow-black/60 hover:-translate-y-1.5 card-specular">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-[11px] font-bold text-[#7A4A38] dark:text-[#B88E7D] group-hover:text-brand-terra transition-colors">
+                    <span className="font-mono text-[11px] font-bold text-[#7A4A38] dark:text-[#B88E7D] group-hover:text-brand-terra-ink transition-colors">
                       {service.codeTag}
                     </span>
-                    <div className="p-2.5 rounded-xl bg-[#FAF0E6] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-xs group-hover:scale-105 transition-transform text-brand-terra">
+                    <div className="p-2.5 rounded-xl bg-[#FAF0E6] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-xs group-hover:scale-105 transition-transform text-brand-terra-ink">
                       {service.icon}
                     </div>
                   </div>
@@ -178,7 +178,7 @@ export function Services() {
                     <span>{service.title}</span>
                     <ArrowUpRight
                       size={18}
-                      className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-brand-terra"
+                      className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-brand-terra-ink"
                     />
                   </h3>
 

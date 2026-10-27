@@ -21,7 +21,7 @@ const marqueeItems: MarqueeItem[] = [
     name: 'Celergate',
     subtext: 'UK Open Banking Engine',
     tag: 'Fintech',
-    icon: <ShieldCheck size={14} className="text-brand-terra dark:text-[#FF5528]" />,
+    icon: <ShieldCheck size={14} className="text-brand-terra-ink dark:text-[#FF5528]" />,
   },
   {
     name: 'Payceler Global',
@@ -33,7 +33,7 @@ const marqueeItems: MarqueeItem[] = [
     name: 'Project Catalogue',
     subtext: 'Luxury Architecture Showcase',
     tag: 'Real Estate',
-    icon: <Building2 size={14} className="text-brand-terra dark:text-[#FF5528]" />,
+    icon: <Building2 size={14} className="text-brand-terra-ink dark:text-[#FF5528]" />,
   },
   {
     name: "She's & Hers",

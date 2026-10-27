@@ -83,7 +83,7 @@ export default function MobileCurriculumPage() {
           <div className="flex items-center gap-3 sm:gap-4">
             <Link
               href="/#curriculum"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra-ink dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
             >
               <ArrowLeft size={14} />
               <span>Back to Curriculums</span>
@@ -132,7 +132,7 @@ export default function MobileCurriculumPage() {
             </div>
 
             <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
-              <div className="flex items-center gap-2 text-brand-terra dark:text-brand-ember font-bold text-sm">
+              <div className="flex items-center gap-2 text-brand-terra-ink dark:text-brand-ember font-bold text-sm">
                 <WifiOff size={18} /> Real Offline-First UX
               </div>
               <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-dm">
@@ -242,9 +242,9 @@ export default function MobileCurriculumPage() {
                 <BookOpen size={14} className="text-emerald-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://docs.expo.dev/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Expo Official Documentation <ExternalLink size={11} /></a></li>
-                <li><a href="https://docs.expo.dev/router/introduction/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Expo Router v4 Guide <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.nativewind.dev/quick-start/expo" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">NativeWind v4: Tailwind in React Native <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.expo.dev/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Expo Official Documentation <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.expo.dev/router/introduction/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Expo Router v4 Guide <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.nativewind.dev/quick-start/expo" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">NativeWind v4: Tailwind in React Native <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -253,8 +253,8 @@ export default function MobileCurriculumPage() {
                 <Code2 size={14} className="text-emerald-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: React Native Full Course <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=kLH_gR_UfTI" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Simon Grimm (Galaxies.dev): Expo Router Crash Course <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">freeCodeCamp: React Native Full Course <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=kLH_gR_UfTI" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Simon Grimm (Galaxies.dev): Expo Router Crash Course <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -300,9 +300,9 @@ export default function MobileCurriculumPage() {
                 <BookOpen size={14} className="text-amber-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://docs.expo.dev/versions/latest/sdk/local-authentication/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Expo Docs: Local Authentication (FaceID/Fingerprint) <ExternalLink size={11} /></a></li>
-                <li><a href="https://docs.expo.dev/versions/latest/sdk/securestore/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Expo Docs: SecureStore Keychain Storage <ExternalLink size={11} /></a></li>
-                <li><a href="https://docs.expo.dev/push-notifications/overview/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Expo Push Notifications Architecture <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.expo.dev/versions/latest/sdk/local-authentication/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Expo Docs: Local Authentication (FaceID/Fingerprint) <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.expo.dev/versions/latest/sdk/securestore/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Expo Docs: SecureStore Keychain Storage <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.expo.dev/push-notifications/overview/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Expo Push Notifications Architecture <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -311,8 +311,8 @@ export default function MobileCurriculumPage() {
                 <Code2 size={14} className="text-amber-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=R9OHg9K1VHQ" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Galaxies.dev: Biometric Auth &amp; Secure Storage in Expo <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">William Candillon: React Native Gestures &amp; Camera <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=R9OHg9K1VHQ" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Galaxies.dev: Biometric Auth &amp; Secure Storage in Expo <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">William Candillon: React Native Gestures &amp; Camera <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -358,9 +358,9 @@ export default function MobileCurriculumPage() {
                 <BookOpen size={14} className="text-purple-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://shopify.github.io/flash-list/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Shopify FlashList: Performance &amp; Recycling Docs <ExternalLink size={11} /></a></li>
-                <li><a href="https://docs.expo.dev/build/introduction/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Expo EAS Build: iOS &amp; Android Cloud Builds <ExternalLink size={11} /></a></li>
-                <li><a href="https://docs.expo.dev/eas-update/introduction/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">EAS Update: Zero-Downtime Over-The-Air Pushes <ExternalLink size={11} /></a></li>
+                <li><a href="https://shopify.github.io/flash-list/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Shopify FlashList: Performance &amp; Recycling Docs <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.expo.dev/build/introduction/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Expo EAS Build: iOS &amp; Android Cloud Builds <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.expo.dev/eas-update/introduction/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">EAS Update: Zero-Downtime Over-The-Air Pushes <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -369,8 +369,8 @@ export default function MobileCurriculumPage() {
                 <Code2 size={14} className="text-purple-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=kLH_gR_UfTI" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Galaxies.dev: EAS Build &amp; TestFlight Deployment <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Catalin Miron: Smooth 60FPS React Native Animations <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=kLH_gR_UfTI" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Galaxies.dev: EAS Build &amp; TestFlight Deployment <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Catalin Miron: Smooth 60FPS React Native Animations <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -407,8 +407,8 @@ export default function MobileCurriculumPage() {
                 <BookOpen size={14} className="text-emerald-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://reactnative.dev/docs/security" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">React Native Official: Mobile Security Best Practices <ExternalLink size={11} /></a></li>
-                <li><a href="https://docs.expo.dev/distribution/app-stores/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Apple App Store &amp; Google Play Checklist <ExternalLink size={11} /></a></li>
+                <li><a href="https://reactnative.dev/docs/security" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">React Native Official: Mobile Security Best Practices <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.expo.dev/distribution/app-stores/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Apple App Store &amp; Google Play Checklist <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -417,7 +417,7 @@ export default function MobileCurriculumPage() {
                 <Code2 size={14} className="text-emerald-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Galaxies.dev: Building Full-Stack Fintech Mobile Apps <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=0-S5a0eXPoc" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Galaxies.dev: Building Full-Stack Fintech Mobile Apps <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -461,7 +461,7 @@ export default function MobileCurriculumPage() {
                 href="https://www.coursera.org/learn/react-native"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -484,7 +484,7 @@ export default function MobileCurriculumPage() {
                 href="https://www.coursera.org/professional-certificates/meta-android-developer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -507,7 +507,7 @@ export default function MobileCurriculumPage() {
                 href="https://www.coursera.org/professional-certificates/meta-ios-developer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -523,7 +523,7 @@ export default function MobileCurriculumPage() {
         <div className="mt-14 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <Link
             href="/#curriculum"
-            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra dark:text-brand-ember hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra-ink dark:text-brand-ember hover:underline"
           >
             <ArrowLeft size={16} /> Explore All Learning Tracks
           </Link>

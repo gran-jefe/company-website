@@ -40,7 +40,7 @@ export function About() {
                 </div>
 
                 <div className="pt-2.5 border-t border-[#EAD3C4]/60 dark:border-[#EAD3C4]/15 text-[11px] font-dm text-[#7A4A38] dark:text-[#E6D0C2] flex items-center gap-1.5">
-                  <MapPin size={12} className="text-brand-terra flex-shrink-0" />
+                  <MapPin size={12} className="text-brand-terra-ink flex-shrink-0" />
                   <span>Ibadan &amp; Abuja, Nigeria • Serving Clients Globally</span>
                 </div>
               </div>
@@ -50,21 +50,21 @@ export function About() {
             <div className="grid grid-cols-3 gap-3 w-full max-w-md">
               <AnimatedSection delay={0.2}>
                 <div className="p-4 rounded-xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-center shadow-xs">
-                  <div className="font-syne font-bold text-2xl text-brand-terra">3+</div>
+                  <div className="font-syne font-bold text-2xl text-brand-terra-ink">3+</div>
                   <div className="font-dm text-xs text-[#7A4A38] dark:text-[#E6D0C2] font-medium mt-1">Years Enterprise</div>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection delay={0.3}>
                 <div className="p-4 rounded-xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-center shadow-xs">
-                  <div className="font-syne font-bold text-2xl text-brand-terra">15+</div>
+                  <div className="font-syne font-bold text-2xl text-brand-terra-ink">15+</div>
                   <div className="font-dm text-xs text-[#7A4A38] dark:text-[#E6D0C2] font-medium mt-1">Live Deployments</div>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection delay={0.4}>
                 <div className="p-4 rounded-xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-center shadow-xs">
-                  <div className="font-syne font-bold text-2xl text-brand-terra">99/100</div>
+                  <div className="font-syne font-bold text-2xl text-brand-terra-ink">99/100</div>
                   <div className="font-dm text-xs text-[#7A4A38] dark:text-[#E6D0C2] font-medium mt-1">Speed Benchmark</div>
                 </div>
               </AnimatedSection>
@@ -77,7 +77,7 @@ export function About() {
               <SectionLabel>The Studio</SectionLabel>
               <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-bold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
                 Craftsmanship first.{' '}
-                <span className="text-brand-terra">No shortcuts.</span>
+                <span className="text-brand-terra-ink">No shortcuts.</span>
               </h2>
             </AnimatedSection>
 
@@ -87,7 +87,7 @@ export function About() {
                   Founded by <strong className="text-[#2E0E1D] dark:text-[#FFF0E3]">Sherifdeen Adeleke</strong>, Gran Jefe is an independent digital product and creative engineering studio. We combine world-class visual aesthetics with high-integrity software engineering, building websites, web applications, and mobile products that convert visitors into revenue.
                 </p>
                 <p>
-                  Our founder's background includes engineering sovereign financial infrastructure as Full-Stack Engineer at Mabilla Group, architecting digital consular payment systems for the <strong className="text-[#2E0E1D] dark:text-[#FFF0E3]">Nigeria High Commission United Kingdom</strong>, UK Open Banking payment engines for <strong className="text-[#2E0E1D] dark:text-[#FFF0E3]">Celergate</strong>, and cross-border remittance platforms with biometric verification.
+                  Our founder&rsquo;s background includes engineering sovereign financial infrastructure as Full-Stack Engineer at Mabilla Group, architecting digital consular payment systems for the <strong className="text-[#2E0E1D] dark:text-[#FFF0E3]">Nigeria High Commission United Kingdom</strong>, UK Open Banking payment engines for <strong className="text-[#2E0E1D] dark:text-[#FFF0E3]">Celergate</strong>, and cross-border remittance platforms with biometric verification.
                 </p>
                 <p>
                   Today, Gran Jefe operates as a registered corporate entity under Nigerian law (<strong>GRAN JEFE SOLUTIONS, BN: 9529101</strong>). We partner with ambitious founders, brands, and companies in the UK, US, Europe, and Nigeria who demand products built with obsessive speed, fluid micro-interactions, and zero technical debt.

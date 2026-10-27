@@ -224,7 +224,7 @@ export function Curriculum() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium bg-brand-terra/10 text-brand-terra dark:text-brand-ember border border-brand-terra/20">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium bg-brand-terra/10 text-brand-terra-ink dark:text-brand-ember border border-brand-terra/20">
               <BookOpen size={14} /> Open Engineering Curriculums
             </div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
@@ -238,7 +238,7 @@ export function Curriculum() {
           <div className="shrink-0">
             <Link
               href="/curriculum"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-dm font-semibold bg-brand-terra hover:bg-brand-ember text-white transition-all shadow-xs group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-dm font-semibold bg-brand-terra hover:bg-[#B82A00] text-white transition-all shadow-xs group"
             >
               <span>Explore All 9 Curriculums</span>
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -263,7 +263,7 @@ export function Curriculum() {
           </div>
           <Link
             href="/standards/ui-ux-playbook"
-            className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-dm font-semibold bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-brand-terra dark:text-brand-ember border border-brand-terra/30 transition-all shadow-xs group"
+            className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-dm font-semibold bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-brand-terra-ink dark:text-brand-ember border border-brand-terra/30 transition-all shadow-xs group"
           >
             <span>Explore Playbook</span>
             <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
@@ -331,7 +331,7 @@ export function Curriculum() {
                   )}
 
                   <div>
-                    <h3 className="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-brand-terra dark:group-hover:text-brand-ember transition-colors">
+                    <h3 className="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-brand-terra-ink dark:group-hover:text-brand-ember transition-colors">
                       {track.title}
                     </h3>
                     <p className="text-xs text-zinc-500 dark:text-zinc-400 font-mono mt-1">
@@ -351,7 +351,7 @@ export function Curriculum() {
                     <ul className="space-y-1.5">
                       {track.highlights.map((h, i) => (
                         <li key={i} className="text-xs text-zinc-600 dark:text-zinc-400 flex items-start gap-2 font-dm">
-                          <CheckCircle2 size={13} className="text-brand-terra shrink-0 mt-0.5" />
+                          <CheckCircle2 size={13} className="text-brand-terra-ink shrink-0 mt-0.5" />
                           <span>{h}</span>
                         </li>
                       ))}

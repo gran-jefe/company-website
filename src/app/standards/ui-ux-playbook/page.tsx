@@ -47,7 +47,7 @@ export default function UIUXPlaybookPage() {
           <div className="flex items-center gap-3 sm:gap-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra-ink dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
             >
               <ArrowLeft size={14} />
               <span>Back to Studio</span>
@@ -61,7 +61,7 @@ export default function UIUXPlaybookPage() {
           <div className="flex items-center gap-3">
             <Link
               href="/curriculum"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-brand-terra/10 text-brand-terra dark:text-brand-ember border border-brand-terra/20 hover:bg-brand-terra/15 transition-colors"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-brand-terra/10 text-brand-terra-ink dark:text-brand-ember border border-brand-terra/20 hover:bg-brand-terra/15 transition-colors"
             >
               <BookOpen size={13} /> Learning Hub
             </Link>
@@ -96,8 +96,8 @@ export default function UIUXPlaybookPage() {
 
           {/* Purpose Card */}
           <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
-            <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-brand-terra dark:text-brand-ember">
-              // Purpose &amp; Scope
+            <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-brand-terra-ink dark:text-brand-ember">
+              {"// Purpose & Scope"}
             </h3>
             <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed font-dm">
               This document defines the product experience standards that guide discovery, design, implementation, testing, and release at Gran Jefe. It is mandatory reading for product managers, designers, frontend and backend engineers, QA teams, and founders building functional web applications.
@@ -155,7 +155,7 @@ export default function UIUXPlaybookPage() {
         {/* Part 1: The 12 Non-Negotiables */}
         <section className="mb-16 space-y-8">
           <div className="flex items-center gap-3 border-b border-zinc-200 dark:border-zinc-800 pb-4">
-            <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-brand-terra/10 text-brand-terra dark:text-brand-ember border border-brand-terra/20">
+            <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-brand-terra/10 text-brand-terra-ink dark:text-brand-ember border border-brand-terra/20">
               Part 1
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold font-syne text-zinc-900 dark:text-white">
@@ -172,7 +172,7 @@ export default function UIUXPlaybookPage() {
             <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                  <span className="text-brand-terra font-mono text-sm">01.</span> Clear Purpose &amp; Intuitive Navigation
+                  <span className="text-brand-terra-ink font-mono text-sm">01.</span> Clear Purpose &amp; Intuitive Navigation
                 </h3>
                 <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Navigation</span>
               </div>
@@ -187,7 +187,7 @@ export default function UIUXPlaybookPage() {
             <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                  <span className="text-brand-terra font-mono text-sm">02.</span> Effortless Core Workflows
+                  <span className="text-brand-terra-ink font-mono text-sm">02.</span> Effortless Core Workflows
                 </h3>
                 <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Workflow</span>
               </div>
@@ -202,7 +202,7 @@ export default function UIUXPlaybookPage() {
             <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                  <span className="text-brand-terra font-mono text-sm">03.</span> Meaningful System Feedback
+                  <span className="text-brand-terra-ink font-mono text-sm">03.</span> Meaningful System Feedback
                 </h3>
                 <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Feedback</span>
               </div>
@@ -217,7 +217,7 @@ export default function UIUXPlaybookPage() {
             <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                  <span className="text-brand-terra font-mono text-sm">04.</span> Error Prevention &amp; Recovery
+                  <span className="text-brand-terra-ink font-mono text-sm">04.</span> Error Prevention &amp; Recovery
                 </h3>
                 <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Resilience</span>
               </div>
@@ -232,7 +232,7 @@ export default function UIUXPlaybookPage() {
             <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                  <span className="text-brand-terra font-mono text-sm">05.</span> Strong Visual Hierarchy
+                  <span className="text-brand-terra-ink font-mono text-sm">05.</span> Strong Visual Hierarchy
                 </h3>
                 <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Design</span>
               </div>
@@ -247,7 +247,7 @@ export default function UIUXPlaybookPage() {
             <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                  <span className="text-brand-terra font-mono text-sm">06.</span> Consistency Across the Product
+                  <span className="text-brand-terra-ink font-mono text-sm">06.</span> Consistency Across the Product
                 </h3>
                 <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Design System</span>
               </div>
@@ -262,7 +262,7 @@ export default function UIUXPlaybookPage() {
             <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                  <span className="text-brand-terra font-mono text-sm">07.</span> Responsive Design That Works
+                  <span className="text-brand-terra-ink font-mono text-sm">07.</span> Responsive Design That Works
                 </h3>
                 <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Mobile &amp; Responsive</span>
               </div>
@@ -277,7 +277,7 @@ export default function UIUXPlaybookPage() {
             <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                  <span className="text-brand-terra font-mono text-sm">08.</span> Accessibility by Default (WCAG 2.2 AA)
+                  <span className="text-brand-terra-ink font-mono text-sm">08.</span> Accessibility by Default (WCAG 2.2 AA)
                 </h3>
                 <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Accessibility</span>
               </div>
@@ -292,7 +292,7 @@ export default function UIUXPlaybookPage() {
             <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                  <span className="text-brand-terra font-mono text-sm">09.</span> Speed &amp; Visual Stability (Core Web Vitals)
+                  <span className="text-brand-terra-ink font-mono text-sm">09.</span> Speed &amp; Visual Stability (Core Web Vitals)
                 </h3>
                 <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Performance</span>
               </div>
@@ -307,7 +307,7 @@ export default function UIUXPlaybookPage() {
             <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                  <span className="text-brand-terra font-mono text-sm">10.</span> Clear Content, Microcopy &amp; Forms
+                  <span className="text-brand-terra-ink font-mono text-sm">10.</span> Clear Content, Microcopy &amp; Forms
                 </h3>
                 <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Microcopy</span>
               </div>
@@ -322,7 +322,7 @@ export default function UIUXPlaybookPage() {
             <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                  <span className="text-brand-terra font-mono text-sm">11.</span> Trust, Privacy &amp; User Control
+                  <span className="text-brand-terra-ink font-mono text-sm">11.</span> Trust, Privacy &amp; User Control
                 </h3>
                 <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Trust</span>
               </div>
@@ -337,7 +337,7 @@ export default function UIUXPlaybookPage() {
             <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                  <span className="text-brand-terra font-mono text-sm">12.</span> Continuous Usability Testing
+                  <span className="text-brand-terra-ink font-mono text-sm">12.</span> Continuous Usability Testing
                 </h3>
                 <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Testing</span>
               </div>
@@ -425,7 +425,7 @@ export default function UIUXPlaybookPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Pillar 1 */}
             <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-3">
-              <h3 className="text-sm sm:text-base font-syne font-bold text-brand-terra flex items-center gap-2">
+              <h3 className="text-sm sm:text-base font-syne font-bold text-brand-terra-ink flex items-center gap-2">
                 <CheckSquare size={16} /> Core Functionality
               </h3>
               <ul className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 space-y-2 list-disc pl-4 font-dm">
@@ -527,7 +527,7 @@ export default function UIUXPlaybookPage() {
             </div>
 
             <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-2">
-              <span className="text-xs font-mono font-bold text-brand-terra">PRIORITY 4</span>
+              <span className="text-xs font-mono font-bold text-brand-terra-ink">PRIORITY 4</span>
               <h4 className="text-sm font-bold text-zinc-900 dark:text-white">Make it Distinctive</h4>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 font-dm">
                 Refine brand identity, micro-interactions, motion curves, and power user shortcuts.
@@ -575,20 +575,20 @@ export default function UIUXPlaybookPage() {
         <section id="volume-02" className="mt-20 pt-16 border-t-2 border-brand-terra/20 space-y-12">
           {/* Header Banner */}
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-brand-terra/10 text-brand-terra dark:text-brand-ember border border-brand-terra/20">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-brand-terra/10 text-brand-terra-ink dark:text-brand-ember border border-brand-terra/20">
               <Sparkles size={14} /> PRODUCT DESIGN PLAYBOOK / 02
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-zinc-900 dark:text-white tracking-tight">
               The Premium UI Design Standard
             </h2>
             <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 max-w-3xl leading-relaxed font-dm">
-              Visual design non-negotiables for web products that feel polished, clear, credible, and distinctive. Built on three foundations: <span className="font-semibold text-brand-terra dark:text-brand-ember">01 Clarity</span>, <span className="font-semibold text-brand-terra dark:text-brand-ember">02 Restraint</span>, and <span className="font-semibold text-brand-terra dark:text-brand-ember">03 Consistency</span>.
+              Visual design non-negotiables for web products that feel polished, clear, credible, and distinctive. Built on three foundations: <span className="font-semibold text-brand-terra-ink dark:text-brand-ember">01 Clarity</span>, <span className="font-semibold text-brand-terra-ink dark:text-brand-ember">02 Restraint</span>, and <span className="font-semibold text-brand-terra-ink dark:text-brand-ember">03 Consistency</span>.
             </p>
 
             {/* The Guiding Rule Callout */}
             <div className="p-6 rounded-2xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/40 text-amber-900 dark:text-amber-200 space-y-2 font-dm">
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-800 dark:text-amber-400">
-                // The Guiding Rule
+                {"// The Guiding Rule"}
               </span>
               <p className="text-sm sm:text-base leading-relaxed font-medium">
                 <strong>Premium does not mean more gradients, more shadows, more animation, or more cards.</strong> It means better judgement: fewer competing elements, stronger hierarchy, thoughtful spacing, refined details, and consistent execution.
@@ -599,7 +599,7 @@ export default function UIUXPlaybookPage() {
           {/* Section 01: The Premium Visual Mindset */}
           <div className="space-y-6">
             <div className="border-b border-zinc-200 dark:border-zinc-800 pb-3">
-              <span className="text-xs font-mono font-bold text-brand-terra dark:text-brand-ember">01 / FOUNDATIONS</span>
+              <span className="text-xs font-mono font-bold text-brand-terra-ink dark:text-brand-ember">01 / FOUNDATIONS</span>
               <h3 className="text-xl sm:text-2xl font-syne font-bold text-zinc-900 dark:text-white mt-1">
                 The Premium Visual Mindset
               </h3>
@@ -607,7 +607,7 @@ export default function UIUXPlaybookPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
-                <span className="text-xs font-mono font-bold text-brand-terra">01. Clarity before decoration</span>
+                <span className="text-xs font-mono font-bold text-brand-terra-ink">01. Clarity before decoration</span>
                 <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-dm leading-relaxed">
                   The visual hierarchy must make the purpose of a page, its key information, and its primary action obvious in 3 to 5 seconds.
                 </p>
@@ -642,7 +642,7 @@ export default function UIUXPlaybookPage() {
               </div>
 
               <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
-                <span className="text-xs font-mono font-bold text-brand-terra">06. Useful details beat visual tricks</span>
+                <span className="text-xs font-mono font-bold text-brand-terra-ink">06. Useful details beat visual tricks</span>
                 <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-dm leading-relaxed">
                   A purposeful status badge, clear focus state, or well-written empty state is worth more than ornamental effects.
                 </p>
@@ -694,7 +694,7 @@ export default function UIUXPlaybookPage() {
           {/* Section 02: Typography & Spacing Tokens */}
           <div className="space-y-6">
             <div className="border-b border-zinc-200 dark:border-zinc-800 pb-3">
-              <span className="text-xs font-mono font-bold text-brand-terra dark:text-brand-ember">02 / STRUCTURE &amp; SCALE</span>
+              <span className="text-xs font-mono font-bold text-brand-terra-ink dark:text-brand-ember">02 / STRUCTURE &amp; SCALE</span>
               <h3 className="text-xl sm:text-2xl font-syne font-bold text-zinc-900 dark:text-white mt-1">
                 Typography, Spacing, and Layout Tokens
               </h3>
@@ -704,7 +704,7 @@ export default function UIUXPlaybookPage() {
               {/* Typography Scale */}
               <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-4">
                 <div className="flex items-center gap-2 text-sm font-syne font-bold text-zinc-900 dark:text-white">
-                  <Layout size={16} className="text-brand-terra" />
+                  <Layout size={16} className="text-brand-terra-ink" />
                   <span>Typography Hierarchy Tokens</span>
                 </div>
                 <div className="space-y-2 text-xs font-dm">
@@ -737,7 +737,7 @@ export default function UIUXPlaybookPage() {
               {/* Spacing Scale */}
               <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-4">
                 <div className="flex items-center gap-2 text-sm font-syne font-bold text-zinc-900 dark:text-white">
-                  <SlidersHorizontal size={16} className="text-brand-terra" />
+                  <SlidersHorizontal size={16} className="text-brand-terra-ink" />
                   <span>Spacing Rhythm &amp; Compact Radii</span>
                 </div>
                 <div className="space-y-2 text-xs font-dm">
@@ -772,7 +772,7 @@ export default function UIUXPlaybookPage() {
           {/* Section 03: The Mandatory 9-State Matrix */}
           <div className="space-y-6">
             <div className="border-b border-zinc-200 dark:border-zinc-800 pb-3">
-              <span className="text-xs font-mono font-bold text-brand-terra dark:text-brand-ember">03 / STATES &amp; BEHAVIOR</span>
+              <span className="text-xs font-mono font-bold text-brand-terra-ink dark:text-brand-ember">03 / STATES &amp; BEHAVIOR</span>
               <h3 className="text-xl sm:text-2xl font-syne font-bold text-zinc-900 dark:text-white mt-1">
                 The Mandatory State Matrix
               </h3>
@@ -837,7 +837,7 @@ export default function UIUXPlaybookPage() {
           {/* Section 04: The 8 Premium Traps to Actively Avoid */}
           <div className="space-y-6">
             <div className="border-b border-zinc-200 dark:border-zinc-800 pb-3">
-              <span className="text-xs font-mono font-bold text-brand-terra dark:text-brand-ember">04 / ANTI-PATTERNS</span>
+              <span className="text-xs font-mono font-bold text-brand-terra-ink dark:text-brand-ember">04 / ANTI-PATTERNS</span>
               <h3 className="text-xl sm:text-2xl font-syne font-bold text-zinc-900 dark:text-white mt-1">
                 8 Premium Traps to Actively Avoid
               </h3>
@@ -907,7 +907,7 @@ export default function UIUXPlaybookPage() {
           {/* Section 05: The Premium Design Release Gate */}
           <div className="space-y-6">
             <div className="border-b border-zinc-200 dark:border-zinc-800 pb-3">
-              <span className="text-xs font-mono font-bold text-brand-terra dark:text-brand-ember">05 / VERIFICATION</span>
+              <span className="text-xs font-mono font-bold text-brand-terra-ink dark:text-brand-ember">05 / VERIFICATION</span>
               <h3 className="text-xl sm:text-2xl font-syne font-bold text-zinc-900 dark:text-white mt-1">
                 The Premium Design Release Gate
               </h3>
@@ -958,8 +958,8 @@ export default function UIUXPlaybookPage() {
 
             {/* The Release Principle */}
             <div className="p-6 rounded-2xl bg-zinc-900 text-white dark:bg-black border border-zinc-800 space-y-2 font-dm">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-terra">
-                // The Release Principle
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-terra-ink">
+                {"// The Release Principle"}
               </span>
               <p className="text-sm sm:text-base leading-relaxed text-zinc-200">
                 If the interface is visually impressive but confusing, inaccessible, inconsistent, or slow, it is not premium. <strong>Fix the experience before adding more polish.</strong>
@@ -980,7 +980,7 @@ export default function UIUXPlaybookPage() {
           </div>
           <Link
             href="/curriculum"
-            className="py-3 px-6 rounded-xl bg-brand-terra hover:bg-brand-ember text-white font-dm font-semibold text-sm flex items-center gap-2 shadow-md shrink-0"
+            className="py-3 px-6 rounded-xl bg-brand-terra hover:bg-[#B82A00] text-white font-dm font-semibold text-sm flex items-center gap-2 shadow-md shrink-0"
           >
             <span>Explore All Curriculums</span>
             <ArrowRight size={16} />

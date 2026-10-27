@@ -53,7 +53,7 @@ export function CodeWindow({
 
           {title && (
             <div className="hidden sm:flex items-center gap-1.5 text-xs font-mono text-zinc-500 dark:text-zinc-400 font-medium px-2 border-r border-zinc-200 dark:border-zinc-800">
-              <Terminal size={12} className="text-brand-terra" />
+              <Terminal size={12} className="text-brand-terra-ink" />
               <span>{title}</span>
             </div>
           )}
@@ -68,7 +68,7 @@ export function CodeWindow({
                   onClick={() => setSelectedTabId(tab.id)}
                   className={`px-3 py-1 text-xs font-mono rounded-md transition-colors flex items-center gap-1.5 ${
                     isActive
-                      ? 'bg-white dark:bg-zinc-800 text-brand-terra dark:text-brand-ember font-semibold shadow-sm border border-zinc-200/50 dark:border-zinc-700/50'
+                      ? 'bg-white dark:bg-zinc-800 text-brand-terra-ink dark:text-brand-ember font-semibold shadow-sm border border-zinc-200/50 dark:border-zinc-700/50'
                       : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50'
                   }`}
                 >
@@ -83,7 +83,7 @@ export function CodeWindow({
         {/* Right: Copy Button */}
         <button
           onClick={handleCopy}
-          className="p-1.5 text-zinc-500 hover:text-brand-terra dark:text-zinc-400 dark:hover:text-brand-ember transition-colors rounded-md hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60 flex-shrink-0"
+          className="p-1.5 text-zinc-500 hover:text-brand-terra-ink dark:text-zinc-400 dark:hover:text-brand-ember transition-colors rounded-md hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60 flex-shrink-0"
           title="Copy code"
           aria-label="Copy code"
         >
@@ -155,7 +155,7 @@ function renderSyntaxHighlighting(line: string) {
 
         // Brand accents for special calls
         if (token === 'GranJefe' || token === 'granjefe') {
-          return <span key={idx} className="text-brand-terra font-bold">{token}</span>
+          return <span key={idx} className="text-brand-terra-ink font-bold">{token}</span>
         }
 
         return <span key={idx}>{token}</span>

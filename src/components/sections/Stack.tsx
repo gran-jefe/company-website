@@ -78,7 +78,7 @@ export function Stack() {
             <SectionLabel>Our Tech Architecture</SectionLabel>
             <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
               Tools chosen for durability.{' '}
-              <span className="font-serif italic font-normal text-brand-terra dark:text-brand-ember">Not hype.</span>
+              <span className="font-serif italic font-normal text-brand-terra-ink dark:text-brand-ember">Not hype.</span>
             </h2>
             <p className="mt-4 font-dm text-base text-[#6C4B59] dark:text-[#E6D0C2]">
               Every framework and library in our stack is selected for performance, maintainability, and real-world stability.
@@ -115,7 +115,7 @@ export function Stack() {
                       className={`p-2.5 rounded-lg transition-colors ${
                         isSelected
                           ? 'bg-brand-terra text-white'
-                          : 'bg-[#FFF0E3] dark:bg-[#25121E] text-[#7A4A38] dark:text-[#E6D0C2] group-hover:text-brand-terra'
+                          : 'bg-[#FFF0E3] dark:bg-[#25121E] text-[#7A4A38] dark:text-[#E6D0C2] group-hover:text-brand-terra-ink'
                       }`}
                     >
                       {cat.icon}
@@ -128,7 +128,7 @@ export function Stack() {
                   <Check
                     size={18}
                     className={`transition-all ${
-                      isSelected ? 'opacity-100 text-brand-terra scale-100' : 'opacity-0 scale-75'
+                      isSelected ? 'opacity-100 text-brand-terra-ink scale-100' : 'opacity-0 scale-75'
                     }`}
                   />
                 </button>
@@ -168,7 +168,7 @@ export function Stack() {
                           <div className="font-syne font-bold text-sm text-[#2E0E1D] dark:text-[#FFF0E3] flex items-center gap-2">
                             <span>{tech.name}</span>
                             {tech.badge && (
-                              <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-brand-terra/10 text-brand-terra border border-brand-terra/20 font-medium">
+                              <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-brand-terra/10 text-brand-terra-ink border border-brand-terra/20 font-medium">
                                 {tech.badge}
                               </span>
                             )}
@@ -188,12 +188,12 @@ export function Stack() {
                     <span className="flex items-center gap-1.5 font-bold">
                       <Check size={14} /> WHAT THIS MEANS FOR YOUR BUSINESS
                     </span>
-                    <span className="text-[#7A4A38] dark:text-[#B88E7D]">// Real-World Impact</span>
+                    <span className="text-[#7A4A38] dark:text-[#B88E7D]">{"// Real-World Impact"}</span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                     <div className="p-4 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 space-y-1">
-                      <div className="font-syne font-bold text-sm text-brand-terra">
+                      <div className="font-syne font-bold text-sm text-brand-terra-ink">
                         Sub-Second Page Speed
                       </div>
                       <div className="font-dm text-xs text-[#5A3846] dark:text-[#E6D0C2] leading-relaxed">

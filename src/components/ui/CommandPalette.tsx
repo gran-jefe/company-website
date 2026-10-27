@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search, Terminal, Code, Cpu, User, Mail, Moon, Sun, ArrowRight, X, Sparkles, BookOpen, Smartphone, CreditCard, Bot } from 'lucide-react'
@@ -16,6 +16,16 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
   const { theme, setTheme } = useTheme()
   const [copied, setCopied] = useState(false)
   const router = useRouter()
+  const dialogRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  // Return focus to whatever opened the palette once it closes
+  useEffect(() => {
+    if (!isOpen) return
+    const opener = document.activeElement as HTMLElement | null
+    inputRef.current?.focus()
+    return () => opener?.focus()
+  }, [isOpen])
 
   // Listen for Cmd+K / Ctrl+K keyboard shortcut
   useEffect(() => {
@@ -30,6 +40,20 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       }
       if (e.key === 'Escape' && isOpen) {
         onClose()
+      }
+      // Keep Tab focus inside the open dialog
+      if (e.key === 'Tab' && isOpen && dialogRef.current) {
+        const focusable = dialogRef.current.querySelectorAll<HTMLElement>('input, button:not([disabled])')
+        if (focusable.length === 0) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
       }
     }
 
@@ -109,7 +133,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       id: 'services',
       title: 'Services & Capabilities',
       subtitle: 'Mobile, Web, Distributed Backends, Fintech',
-      icon: <Cpu size={18} className="text-brand-terra" />,
+      icon: <Cpu size={18} className="text-brand-terra-ink" />,
       action: () => scrollToSection('#services'),
     },
     {
@@ -154,7 +178,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       id: 'copy-email',
       title: copied ? 'Email Copied!' : 'Copy Direct Email Address',
       subtitle: 'granjefetech@gmail.com',
-      icon: <Mail size={18} className="text-brand-terra" />,
+      icon: <Mail size={18} className="text-brand-terra-ink" />,
       action: () => {
         navigator.clipboard.writeText('granjefetech@gmail.com')
         setCopied(true)
@@ -183,8 +207,15 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 md:pt-28 px-4 bg-black/60 backdrop-blur-sm">
+        <div
+          className="fixed inset-0 z-50 flex items-start justify-center pt-16 md:pt-28 px-4 bg-black/60 backdrop-blur-sm"
+          onClick={(e) => e.target === e.currentTarget && onClose()}
+        >
           <motion.div
+            ref={dialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Command palette"
             initial={{ opacity: 0, scale: 0.95, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -10 }}
@@ -199,8 +230,9 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Type a command or search..."
-                className="flex-1 bg-transparent font-dm text-sm text-zinc-900 dark:text-white focus:outline-none placeholder:text-zinc-400"
-                autoFocus
+                aria-label="Search commands"
+                className="flex-1 bg-transparent font-dm text-sm text-zinc-900 dark:text-white focus:outline-none placeholder:text-zinc-500 dark:placeholder:text-zinc-400"
+                ref={inputRef}
               />
               <kbd className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded">
                 ESC
@@ -208,7 +240,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
               <button
                 onClick={onClose}
                 aria-label="Close command palette"
-                className="p-1 text-zinc-400 hover:text-zinc-600 dark:hover:text-white rounded"
+                className="min-h-[44px] min-w-[44px] flex items-center justify-center text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-white rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra"
               >
                 <X size={16} />
               </button>
@@ -225,7 +257,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
                   <button
                     key={item.id}
                     onClick={item.action}
-                    className="w-full text-left p-3 rounded-lg flex items-center justify-between hover:bg-brand-terra/10 dark:hover:bg-zinc-800 transition-colors group"
+                    className="w-full text-left p-3 rounded-lg flex items-center justify-between hover:bg-brand-terra/10 dark:hover:bg-zinc-800 transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra"
                   >
                     <div className="flex items-center gap-3">
                       <div className="p-2 rounded-md bg-zinc-100 dark:bg-zinc-800 group-hover:bg-white dark:group-hover:bg-zinc-700 transition-colors">
@@ -250,7 +282,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
             </div>
 
             {/* Footer */}
-            <div className="px-4 py-2.5 bg-zinc-100/50 dark:bg-zinc-950/50 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between text-xs font-mono text-zinc-400">
+            <div className="px-4 py-2.5 bg-zinc-100/50 dark:bg-zinc-950/50 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between text-xs font-mono text-zinc-600 dark:text-zinc-400">
               <span>Gran Jefe Developer Palette</span>
               <span>
                 Use <kbd className="px-1 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">⌘K</kbd> anytime

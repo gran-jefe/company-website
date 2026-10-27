@@ -74,7 +74,7 @@ export default function DisputeNinjaDemoPage() {
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 text-xs font-dm font-semibold text-[#5A3846] dark:text-[#E6D0C2] hover:text-brand-terra dark:hover:text-[#FF5528] py-1.5 px-2.5 rounded-lg bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15"
+              className="inline-flex items-center gap-1.5 text-xs font-dm font-semibold text-[#5A3846] dark:text-[#E6D0C2] hover:text-brand-terra-ink dark:hover:text-[#FF5528] py-1.5 px-2.5 rounded-lg bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15"
             >
               <ArrowLeft size={13} />
               <span>Studio</span>
@@ -86,7 +86,7 @@ export default function DisputeNinjaDemoPage() {
                 PROTOTYPE LAB
               </span>
               <span className="text-[11px] font-mono text-[#7A4A38] dark:text-[#B88E7D] hidden md:inline">
-                // Prepared for Max Wu &amp; Bowen Xue (DisputeNinja)
+                {"// Prepared for Max Wu & Bowen Xue (DisputeNinja)"}
               </span>
             </div>
           </div>
@@ -108,7 +108,7 @@ export default function DisputeNinjaDemoPage() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-terra dark:text-[#FF5528] px-2 py-0.5 rounded-md bg-brand-terra/10 border border-brand-terra/20">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-brand-terra-ink dark:text-[#FF5528] px-2 py-0.5 rounded-md bg-brand-terra/10 border border-brand-terra/20">
                   {captions[activeStep - 1].tag}
                 </span>
                 <span className="text-xs font-mono text-[#7A4A38] dark:text-[#B88E7D]">
@@ -367,7 +367,7 @@ export default function DisputeNinjaDemoPage() {
 
           <Link
             href="/"
-            className="text-brand-terra dark:text-[#FF5528] font-bold hover:underline shrink-0 flex items-center gap-1"
+            className="text-brand-terra-ink dark:text-[#FF5528] font-bold hover:underline shrink-0 flex items-center gap-1"
           >
             <span>Explore thegranjefe.com</span>
             <ExternalLink size={12} />

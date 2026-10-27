@@ -151,7 +151,7 @@ export function Hero() {
                 : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/50 dark:hover:text-[#FFF0E3]'
             }`}
           >
-            <Sparkles size={12} className="text-brand-terra" />
+            <Sparkles size={12} className="text-brand-terra-ink" />
             <span>Luxury &amp; Brands</span>
           </button>
         </div>
@@ -171,14 +171,14 @@ export function Hero() {
                 <span className="font-medium text-xs">
                   9 Production Curriculums &bull; Free Open Learning Hub
                 </span>
-                <ArrowRight size={13} className="text-brand-terra group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={13} className="text-brand-terra-ink group-hover:translate-x-1 transition-transform" />
               </Link>
 
               {/* Studio Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-xs font-mono shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-brand-terra animate-pulse" />
                 <span className="text-[#7A4A38] dark:text-[#E6D0C2] font-bold">STUDIO</span>
-                <span className="text-[#C4A0B8] dark:text-[#7A4A38]">//</span>
+                <span className="text-[#C4A0B8] dark:text-[#7A4A38]">{"//"}</span>
                 <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-bold">EST. 2025</span>
               </div>
             </div>
@@ -186,7 +186,7 @@ export function Hero() {
             {/* Giant Hero Headline (Editorial Brand Style) */}
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-syne font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3] leading-[1.05] tracking-tight">
               We build websites &amp; digital products that make brands{' '}
-              <span className="font-serif italic font-normal text-brand-terra dark:text-[#FF5528] underline decoration-brand-terra/40 underline-offset-8">
+              <span className="font-serif italic font-normal text-brand-terra-ink dark:text-[#FF5528] underline decoration-brand-terra/40 underline-offset-8">
                 impossible
               </span>{' '}
               to ignore.
@@ -200,7 +200,7 @@ export function Hero() {
             {/* Key Business Outcome Proof Badges */}
             <div className="grid grid-cols-3 gap-3 max-w-lg pt-1">
               <div className="p-3.5 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-xs hover:border-brand-terra/50 transition-colors">
-                <div className="flex items-center gap-1.5 text-brand-terra dark:text-[#FF5528] text-xs font-mono font-bold">
+                <div className="flex items-center gap-1.5 text-brand-terra-ink dark:text-[#FF5528] text-xs font-mono font-bold">
                   <Zap size={14} /> SPEED SCORE
                 </div>
                 <div className="mt-1 text-sm font-mono font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3]">
@@ -218,7 +218,7 @@ export function Hero() {
               </div>
 
               <div className="p-3.5 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-xs hover:border-brand-terra/50 transition-colors">
-                <div className="flex items-center gap-1.5 text-brand-terra dark:text-[#FF5528] text-xs font-mono font-bold">
+                <div className="flex items-center gap-1.5 text-brand-terra-ink dark:text-[#FF5528] text-xs font-mono font-bold">
                   <Globe size={14} /> TRACK RECORD
                 </div>
                 <div className="mt-1 text-sm font-mono font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3]">
@@ -235,7 +235,7 @@ export function Hero() {
                   const contactSection = document.querySelector('#contact')
                   if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="py-3.5 px-7 text-sm font-dm font-semibold flex items-center justify-center gap-2 group shadow-xl shadow-brand-terra/20 hover:scale-[1.02] transition-all bg-brand-terra hover:bg-brand-ember text-white"
+                className="py-3.5 px-7 text-sm font-dm font-semibold flex items-center justify-center gap-2 group shadow-xl shadow-brand-terra/20 hover:scale-[1.02] transition-all bg-brand-terra hover:bg-[#B82A00] text-white"
               >
                 <span>Start a Project</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -254,7 +254,7 @@ export function Hero() {
 
               <Link
                 href="/curriculum"
-                className="py-3.5 px-5 text-sm font-dm font-semibold inline-flex items-center justify-center gap-2 rounded-xl bg-[#FAF0E6] dark:bg-[#1D0E17] hover:bg-[#F3E2D5] dark:hover:bg-[#25121E] border border-brand-terra/30 text-brand-terra dark:text-brand-ember transition-all shadow-xs"
+                className="py-3.5 px-5 text-sm font-dm font-semibold inline-flex items-center justify-center gap-2 rounded-xl bg-[#FAF0E6] dark:bg-[#1D0E17] hover:bg-[#F3E2D5] dark:hover:bg-[#25121E] border border-brand-terra/30 text-brand-terra-ink dark:text-brand-ember transition-all shadow-xs"
               >
                 <BookOpen size={15} />
                 <span>Learning Hub</span>
@@ -299,7 +299,7 @@ export function Hero() {
                     href={activeProject.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-[11px] font-bold text-brand-terra dark:text-[#FF5528] hover:text-brand-ember transition-colors relative z-10"
+                    className="flex items-center gap-1 text-[11px] font-bold text-brand-terra-ink dark:text-[#FF5528] hover:text-brand-ember transition-colors relative z-10"
                   >
                     <span>Visit Live</span>
                     <ExternalLink size={12} />

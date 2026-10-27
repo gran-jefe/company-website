@@ -36,7 +36,7 @@ export default function FullstackWebCurriculumPage() {
           <div className="flex items-center gap-3 sm:gap-4">
             <Link
               href="/#curriculum"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra-ink dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
             >
               <ArrowLeft size={14} />
               <span>Back to Curriculums</span>
@@ -192,9 +192,9 @@ export default function FullstackWebCurriculumPage() {
                 <BookOpen size={14} className="text-blue-500" /> Recommended Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">MDN: How does the Internet Work? <ExternalLink size={11} /></a></li>
-                <li><a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Pro Git Book (Ch. 1 &amp; 2) <ExternalLink size={11} /></a></li>
-                <li><a href="https://linuxcommand.org/tlcl.php" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">The Linux Command Line <ExternalLink size={11} /></a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">MDN: How does the Internet Work? <ExternalLink size={11} /></a></li>
+                <li><a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Pro Git Book (Ch. 1 &amp; 2) <ExternalLink size={11} /></a></li>
+                <li><a href="https://linuxcommand.org/tlcl.php" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">The Linux Command Line <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -203,9 +203,9 @@ export default function FullstackWebCurriculumPage() {
                 <Code2 size={14} className="text-blue-500" /> Video Tutorials
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=AEaKrq3SpW8" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Crash Course: How the Internet Works <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=RGOj5yH7evk" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: Git and GitHub for Beginners <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=Z56Jmr9Z34Q" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">MIT Missing Semester: Shell Scripting <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=AEaKrq3SpW8" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Crash Course: How the Internet Works <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=RGOj5yH7evk" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">freeCodeCamp: Git and GitHub for Beginners <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=Z56Jmr9Z34Q" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">MIT Missing Semester: Shell Scripting <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -246,9 +246,9 @@ export default function FullstackWebCurriculumPage() {
                 <BookOpen size={14} className="text-amber-500" /> Recommended Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://developer.mozilla.org/en-US/docs/Learn" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">MDN Web Docs: Learn Web Development <ExternalLink size={11} /></a></li>
-                <li><a href="https://javascript.info/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">JavaScript.info <ExternalLink size={11} /></a></li>
-                <li><a href="https://eloquentjavascript.net/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Eloquent JavaScript (Free Book) <ExternalLink size={11} /></a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Learn" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">MDN Web Docs: Learn Web Development <ExternalLink size={11} /></a></li>
+                <li><a href="https://javascript.info/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">JavaScript.info <ExternalLink size={11} /></a></li>
+                <li><a href="https://eloquentjavascript.net/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Eloquent JavaScript (Free Book) <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -257,9 +257,9 @@ export default function FullstackWebCurriculumPage() {
                 <Code2 size={14} className="text-amber-500" /> Video Tutorials
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=XCS4Ue45vA4" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Will Sentance: JavaScript - The Hard Parts <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Philip Roberts: What is the Event Loop? <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/@KevinPowell" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Kevin Powell: Modern CSS &amp; Flexbox <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=XCS4Ue45vA4" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Will Sentance: JavaScript - The Hard Parts <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Philip Roberts: What is the Event Loop? <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/@KevinPowell" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Kevin Powell: Modern CSS &amp; Flexbox <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -306,9 +306,9 @@ export default function FullstackWebCurriculumPage() {
                 <BookOpen size={14} className="text-purple-500" /> Recommended Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://react.dev/learn" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Official React Docs (react.dev) <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">TypeScript in 5 Minutes <ExternalLink size={11} /></a></li>
-                <li><a href="https://tanstack.com/query/latest/docs/framework/react/overview" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">TanStack Query Overview <ExternalLink size={11} /></a></li>
+                <li><a href="https://react.dev/learn" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Official React Docs (react.dev) <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">TypeScript in 5 Minutes <ExternalLink size={11} /></a></li>
+                <li><a href="https://tanstack.com/query/latest/docs/framework/react/overview" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">TanStack Query Overview <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -317,9 +317,9 @@ export default function FullstackWebCurriculumPage() {
                 <Code2 size={14} className="text-purple-500" /> Video Tutorials
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=30LWjhZzg50" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: TypeScript Full Course <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/playlist?list=PLNqp92_EXZBJYFrpEzdO2EapvU0GOJ09n" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Jack Herrington: No BS TS (TypeScript) <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=w7ejDZ8SWv8" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: React 18 / 19 Course <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=30LWjhZzg50" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">freeCodeCamp: TypeScript Full Course <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/playlist?list=PLNqp92_EXZBJYFrpEzdO2EapvU0GOJ09n" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Jack Herrington: No BS TS (TypeScript) <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=w7ejDZ8SWv8" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">freeCodeCamp: React 18 / 19 Course <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -366,9 +366,9 @@ export default function FullstackWebCurriculumPage() {
                 <Database size={14} className="text-emerald-500" /> Recommended Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://nodejs.org/en/docs/guides" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Node.js Official Documentation <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.prisma.io/docs/getting-started" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Prisma ORM Getting Started <ExternalLink size={11} /></a></li>
-                <li><a href="https://dataintensive.net/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Designing Data-Intensive Applications <ExternalLink size={11} /></a></li>
+                <li><a href="https://nodejs.org/en/docs/guides" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Node.js Official Documentation <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.prisma.io/docs/getting-started" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Prisma ORM Getting Started <ExternalLink size={11} /></a></li>
+                <li><a href="https://dataintensive.net/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Designing Data-Intensive Applications <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -377,8 +377,8 @@ export default function FullstackWebCurriculumPage() {
                 <Code2 size={14} className="text-emerald-500" /> Video Tutorials
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=Oe421EPjeBE" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: Node.js &amp; Express Course <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=qw--VYLpxG4" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: PostgreSQL Database Course <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=Oe421EPjeBE" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">freeCodeCamp: Node.js &amp; Express Course <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=qw--VYLpxG4" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">freeCodeCamp: PostgreSQL Database Course <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -424,8 +424,8 @@ export default function FullstackWebCurriculumPage() {
                 <ShieldCheck size={14} className="text-rose-500" /> Recommended Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">OWASP Top 10 Security Risks <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.oauth.com/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">OAuth 2.0 Simplified by Aaron Parecki <ExternalLink size={11} /></a></li>
+                <li><a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">OWASP Top 10 Security Risks <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.oauth.com/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">OAuth 2.0 Simplified by Aaron Parecki <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -434,8 +434,8 @@ export default function FullstackWebCurriculumPage() {
                 <Code2 size={14} className="text-rose-500" /> Video Tutorials
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=996OiexHze0" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">OAuth 2.0 and OpenID Connect Explained <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=7Q17ubqL20w" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">JWT Authentication &amp; Pitfalls <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=996OiexHze0" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">OAuth 2.0 and OpenID Connect Explained <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=7Q17ubqL20w" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">JWT Authentication &amp; Pitfalls <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -481,9 +481,9 @@ export default function FullstackWebCurriculumPage() {
                 <BookOpen size={14} className="text-cyan-500" /> Recommended Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">The Testing Trophy by Kent C. Dodds <ExternalLink size={11} /></a></li>
-                <li><a href="https://playwright.dev/docs/intro" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Playwright Documentation <ExternalLink size={11} /></a></li>
-                <li><a href="https://docker-curriculum.com/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Docker Curriculum <ExternalLink size={11} /></a></li>
+                <li><a href="https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">The Testing Trophy by Kent C. Dodds <ExternalLink size={11} /></a></li>
+                <li><a href="https://playwright.dev/docs/intro" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Playwright Documentation <ExternalLink size={11} /></a></li>
+                <li><a href="https://docker-curriculum.com/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Docker Curriculum <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -492,8 +492,8 @@ export default function FullstackWebCurriculumPage() {
                 <Code2 size={14} className="text-cyan-500" /> Video Tutorials
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=pg19Z8LLKh4" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">TechWorld with Nana: Docker for Beginners <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=Xz6lhEzgI5I" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Playwright End-to-End Testing Course <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=pg19Z8LLKh4" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">TechWorld with Nana: Docker for Beginners <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=Xz6lhEzgI5I" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Playwright End-to-End Testing Course <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -502,7 +502,7 @@ export default function FullstackWebCurriculumPage() {
         {/* Study Plan & Routine */}
         <section className="mb-14 p-6 sm:p-8 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-5">
           <div className="flex items-center gap-2">
-            <Calendar className="text-brand-terra" size={22} />
+            <Calendar className="text-brand-terra-ink" size={22} />
             <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
               Study Plan &amp; Weekly Routine for Adult Learners
             </h2>
@@ -599,7 +599,7 @@ export default function FullstackWebCurriculumPage() {
                 href="https://www.coursera.org/professional-certificates/meta-front-end-developer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -622,7 +622,7 @@ export default function FullstackWebCurriculumPage() {
                 href="https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -645,7 +645,7 @@ export default function FullstackWebCurriculumPage() {
                 href="https://www.coursera.org/specializations/full-stack-react"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -661,7 +661,7 @@ export default function FullstackWebCurriculumPage() {
         <div className="mt-14 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <Link
             href="/#curriculum"
-            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra dark:text-brand-ember hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra-ink dark:text-brand-ember hover:underline"
           >
             <ArrowLeft size={16} /> Explore All Learning Tracks
           </Link>

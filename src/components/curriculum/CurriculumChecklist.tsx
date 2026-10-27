@@ -91,7 +91,7 @@ export function CurriculumChecklist({
       {/* Tracker Header Bar */}
       <div className="p-5 sm:p-6 bg-[#FAF0E6] dark:bg-[#25121E] border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono font-bold text-brand-terra dark:text-[#FF5528]">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold text-brand-terra-ink dark:text-[#FF5528]">
             <Zap size={14} />
             <span>INTERACTIVE LEARNING TRACKER</span>
           </div>
@@ -130,7 +130,7 @@ export function CurriculumChecklist({
         <div className="flex items-center justify-between text-xs font-mono mb-2">
           <div className="flex items-center gap-2 text-[#5A3846] dark:text-[#E6D0C2] font-bold">
             <span>Overall Track Progress:</span>
-            <span className="text-brand-terra dark:text-[#FF5528]">
+            <span className="text-brand-terra-ink dark:text-[#FF5528]">
               {completedCount} of {totalCount} Milestones
             </span>
           </div>
@@ -171,7 +171,7 @@ export function CurriculumChecklist({
             <div key={modIdx} className={modIdx === 0 ? 'pb-6' : 'py-6'}>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                 <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-brand-terra/10 text-brand-terra border border-brand-terra/25">
+                  <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-brand-terra/10 text-brand-terra-ink border border-brand-terra/25">
                     Module {mod.moduleNumber}
                   </span>
                   <h4 className="font-syne font-bold text-base text-[#2E0E1D] dark:text-[#FFF0E3]">
@@ -206,10 +206,10 @@ export function CurriculumChecklist({
                             animate={{ scale: 1 }}
                             transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                           >
-                            <CheckCircle2 size={18} className="text-brand-terra dark:text-[#FF5528] fill-brand-terra/10" />
+                            <CheckCircle2 size={18} className="text-brand-terra-ink dark:text-[#FF5528] fill-brand-terra/10" />
                           </motion.div>
                         ) : (
-                          <Circle size={18} className="text-[#C4A0B8] dark:text-[#7A4A38] group-hover:text-brand-terra transition-colors" />
+                          <Circle size={18} className="text-[#C4A0B8] dark:text-[#7A4A38] group-hover:text-brand-terra-ink transition-colors" />
                         )}
                       </div>
 

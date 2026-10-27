@@ -96,7 +96,7 @@ export default function PythonDjangoCurriculumPage() {
           <div className="flex items-center gap-3 sm:gap-4">
             <Link
               href="/#curriculum"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra-ink dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
             >
               <ArrowLeft size={14} />
               <span>Back to Curriculums</span>
@@ -121,12 +121,12 @@ export default function PythonDjangoCurriculumPage() {
         {/* Path Switcher Banner */}
         <div className="mb-8 p-3 sm:p-4 rounded-xl bg-blue-50 dark:bg-zinc-900/80 border border-blue-200 dark:border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-dm">
           <div className="flex items-center gap-2 text-blue-900 dark:text-blue-300">
-            <Boxes size={16} className="text-brand-terra shrink-0" />
+            <Boxes size={16} className="text-brand-terra-ink shrink-0" />
             <span>Prefer TypeScript on the server? Explore our <strong>Node.js &amp; NestJS Enterprise Backend track</strong>.</span>
           </div>
           <Link
             href="/curriculum/node-backend"
-            className="text-brand-terra dark:text-brand-ember font-semibold hover:underline flex items-center gap-1 shrink-0"
+            className="text-brand-terra-ink dark:text-brand-ember font-semibold hover:underline flex items-center gap-1 shrink-0"
           >
             <span>View Node.js &amp; TypeScript Route</span>
             <ExternalLink size={12} />
@@ -152,7 +152,7 @@ export default function PythonDjangoCurriculumPage() {
           {/* Quick Callout Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
             <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
-              <div className="flex items-center gap-2 text-brand-terra dark:text-brand-ember font-bold text-sm">
+              <div className="flex items-center gap-2 text-brand-terra-ink dark:text-brand-ember font-bold text-sm">
                 <Zap size={18} /> Why Django is Perfect for You
               </div>
               <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-dm">
@@ -174,7 +174,7 @@ export default function PythonDjangoCurriculumPage() {
         {/* Mental Model Translation */}
         <section className="mb-14">
           <div className="flex items-center gap-2.5 mb-2">
-            <Layers className="text-brand-terra" size={22} />
+            <Layers className="text-brand-terra-ink" size={22} />
             <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
               Frontend vs. Django Mental Model
             </h2>
@@ -195,27 +195,27 @@ export default function PythonDjangoCurriculumPage() {
               <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800 text-zinc-700 dark:text-zinc-300 font-dm">
                 <tr className="hover:bg-zinc-50/60 dark:hover:bg-zinc-800/40">
                   <td className="p-4 font-mono text-xs"><code>package.json</code> &amp; <code>npm install</code></td>
-                  <td className="p-4 font-mono text-xs text-brand-terra dark:text-brand-ember"><code>pyproject.toml</code> + <code>uv</code></td>
+                  <td className="p-4 font-mono text-xs text-brand-terra-ink dark:text-brand-ember"><code>pyproject.toml</code> + <code>uv</code></td>
                   <td className="p-4">Manages Python dependencies cleanly inside isolated virtual environments (<code>.venv</code>).</td>
                 </tr>
                 <tr className="hover:bg-zinc-50/60 dark:hover:bg-zinc-800/40">
                   <td className="p-4 font-mono text-xs">TypeScript Interfaces &amp; Zod</td>
-                  <td className="p-4 font-mono text-xs text-brand-terra dark:text-brand-ember">DRF Serializers &amp; Django Models</td>
+                  <td className="p-4 font-mono text-xs text-brand-terra-ink dark:text-brand-ember">DRF Serializers &amp; Django Models</td>
                   <td className="p-4">Validates incoming payload bodies and automatically translates database records into JSON.</td>
                 </tr>
                 <tr className="hover:bg-zinc-50/60 dark:hover:bg-zinc-800/40">
                   <td className="p-4 font-mono text-xs">Next.js App Router (<code>page.tsx</code>)</td>
-                  <td className="p-4 font-mono text-xs text-brand-terra dark:text-brand-ember"><code>urls.py</code> + Class-Based Views</td>
+                  <td className="p-4 font-mono text-xs text-brand-terra-ink dark:text-brand-ember"><code>urls.py</code> + Class-Based Views</td>
                   <td className="p-4">Matches the HTTP URL and delegates the request to the right logic handler or DRF ViewSet.</td>
                 </tr>
                 <tr className="hover:bg-zinc-50/60 dark:hover:bg-zinc-800/40">
                   <td className="p-4 font-mono text-xs">Prisma / Supabase Client</td>
-                  <td className="p-4 font-mono text-xs text-brand-terra dark:text-brand-ember">Django ORM (<code>models.Model</code>)</td>
+                  <td className="p-4 font-mono text-xs text-brand-terra-ink dark:text-brand-ember">Django ORM (<code>models.Model</code>)</td>
                   <td className="p-4">Generates SQL queries, manages relations, foreign keys, and handles migrations out of the box.</td>
                 </tr>
                 <tr className="hover:bg-zinc-50/60 dark:hover:bg-zinc-800/40">
                   <td className="p-4 font-mono text-xs">NextAuth / Clerk Dashboard</td>
-                  <td className="p-4 font-mono text-xs text-brand-terra dark:text-brand-ember"><code>django.contrib.auth</code> + Admin</td>
+                  <td className="p-4 font-mono text-xs text-brand-terra-ink dark:text-brand-ember"><code>django.contrib.auth</code> + Admin</td>
                   <td className="p-4">Built-in user password hashing, permission groups, sessions, and an instant management GUI.</td>
                 </tr>
               </tbody>
@@ -272,8 +272,8 @@ export default function PythonDjangoCurriculumPage() {
                 <BookOpen size={14} className="text-blue-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Official Python 3 Tutorial <ExternalLink size={11} /></a></li>
-                <li><a href="https://github.com/astral-sh/uv" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">uv Package Manager Documentation <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Official Python 3 Tutorial <ExternalLink size={11} /></a></li>
+                <li><a href="https://github.com/astral-sh/uv" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">uv Package Manager Documentation <ExternalLink size={11} /></a></li>
                 <li><em>Book:</em> <em>Fluent Python</em> by Luciano Ramalho (for writing idiomatic Python).</li>
               </ul>
             </div>
@@ -283,8 +283,8 @@ export default function PythonDjangoCurriculumPage() {
                 <Code2 size={14} className="text-blue-500" /> Video Tutorials
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=kqtD5dpn9C8" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Programming with Mosh: Python for Beginners <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=C-gEQdGVXbk" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Corey Schafer: Python OOP Series (The Gold Standard) <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=kqtD5dpn9C8" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Programming with Mosh: Python for Beginners <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=C-gEQdGVXbk" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Corey Schafer: Python OOP Series (The Gold Standard) <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -331,7 +331,7 @@ export default function PythonDjangoCurriculumPage() {
                 <BookOpen size={14} className="text-amber-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://docs.djangoproject.com/en/stable/intro/tutorial01/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Official Django Tutorial (Polls App) <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.djangoproject.com/en/stable/intro/tutorial01/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Official Django Tutorial (Polls App) <ExternalLink size={11} /></a></li>
                 <li><em>Book:</em> <em>Django for Beginners</em> by William S. Vincent (clear, step-by-step).</li>
               </ul>
             </div>
@@ -341,8 +341,8 @@ export default function PythonDjangoCurriculumPage() {
                 <Code2 size={14} className="text-amber-500" /> Video Tutorials
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=UmljXZIypDc" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Corey Schafer: Django Full Course from Scratch <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=rHux0gMZ3Eg" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Dennis Ivy: Django Course for Beginners <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=UmljXZIypDc" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Corey Schafer: Django Full Course from Scratch <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=rHux0gMZ3Eg" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Dennis Ivy: Django Course for Beginners <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -389,7 +389,7 @@ export default function PythonDjangoCurriculumPage() {
                 <BookOpen size={14} className="text-purple-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.django-rest-framework.org/tutorial/1-serialization/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">DRF Official Tutorial <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.django-rest-framework.org/tutorial/1-serialization/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">DRF Official Tutorial <ExternalLink size={11} /></a></li>
                 <li><em>Book:</em> <em>Django for APIs</em> by William S. Vincent (ideal for frontend developers).</li>
               </ul>
             </div>
@@ -399,8 +399,8 @@ export default function PythonDjangoCurriculumPage() {
                 <Code2 size={14} className="text-purple-500" /> Video Tutorials
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=c708Nf0cHrs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Dennis Ivy: Django REST Framework Tutorial <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=Ej_02ICOIgs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: Django REST Framework Crash Course <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=c708Nf0cHrs" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Dennis Ivy: Django REST Framework Tutorial <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=Ej_02ICOIgs" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">freeCodeCamp: Django REST Framework Crash Course <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -447,8 +447,8 @@ export default function PythonDjangoCurriculumPage() {
                 <ShieldCheck size={14} className="text-emerald-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://django-rest-framework-simplejwt.readthedocs.io/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">SimpleJWT Documentation <ExternalLink size={11} /></a></li>
-                <li><a href="https://testdriven.io/blog/django-custom-user-model/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">TestDriven.io: Django Custom User Model Guide <ExternalLink size={11} /></a></li>
+                <li><a href="https://django-rest-framework-simplejwt.readthedocs.io/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">SimpleJWT Documentation <ExternalLink size={11} /></a></li>
+                <li><a href="https://testdriven.io/blog/django-custom-user-model/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">TestDriven.io: Django Custom User Model Guide <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -457,8 +457,8 @@ export default function PythonDjangoCurriculumPage() {
                 <Code2 size={14} className="text-emerald-500" /> Video Tutorials
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=xjMP0hspNLE" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Django SimpleJWT Authentication Tutorial <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=TH93mBhlFk0" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Celery + Redis with Django Walkthrough <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=xjMP0hspNLE" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Django SimpleJWT Authentication Tutorial <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=TH93mBhlFk0" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Celery + Redis with Django Walkthrough <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -500,8 +500,8 @@ export default function PythonDjangoCurriculumPage() {
                 <BookOpen size={14} className="text-rose-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://pytest-django.readthedocs.io/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">pytest-django Official Documentation <ExternalLink size={11} /></a></li>
-                <li><a href="https://whitenoise.readthedocs.io/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">WhiteNoise Static Files Guide <ExternalLink size={11} /></a></li>
+                <li><a href="https://pytest-django.readthedocs.io/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">pytest-django Official Documentation <ExternalLink size={11} /></a></li>
+                <li><a href="https://whitenoise.readthedocs.io/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">WhiteNoise Static Files Guide <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -510,8 +510,8 @@ export default function PythonDjangoCurriculumPage() {
                 <Code2 size={14} className="text-rose-500" /> Video Tutorials
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=mCSy9B8Kx04" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Deploying Django with Docker &amp; Gunicorn <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=pg19Z8LLKh4" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">TechWorld with Nana: Docker for Beginners <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=mCSy9B8Kx04" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Deploying Django with Docker &amp; Gunicorn <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=pg19Z8LLKh4" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">TechWorld with Nana: Docker for Beginners <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -520,7 +520,7 @@ export default function PythonDjangoCurriculumPage() {
         {/* Capstone Project */}
         <section className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-brand-terra/10 via-brand-ember/5 to-transparent border border-brand-terra/30 shadow-xs space-y-5">
           <div className="flex items-center gap-3">
-            <Sparkles className="text-brand-terra dark:text-brand-ember" size={26} />
+            <Sparkles className="text-brand-terra-ink dark:text-brand-ember" size={26} />
             <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">
               The Capstone: Multi-Tenant SaaS Backend
             </h2>
@@ -575,7 +575,7 @@ export default function PythonDjangoCurriculumPage() {
                 href="https://www.coursera.org/specializations/django"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -598,7 +598,7 @@ export default function PythonDjangoCurriculumPage() {
                 href="https://www.coursera.org/specializations/python"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -621,7 +621,7 @@ export default function PythonDjangoCurriculumPage() {
                 href="https://www.coursera.org/professional-certificates/google-it-automation-with-python"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -637,7 +637,7 @@ export default function PythonDjangoCurriculumPage() {
         <div className="mt-14 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <Link
             href="/#curriculum"
-            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra dark:text-brand-ember hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra-ink dark:text-brand-ember hover:underline"
           >
             <ArrowLeft size={16} /> Explore All Learning Tracks
           </Link>

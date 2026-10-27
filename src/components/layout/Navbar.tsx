@@ -96,7 +96,7 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="font-dm text-sm tracking-wide text-[#6C4B59] dark:text-[#E6D0C2] hover:text-brand-terra dark:hover:text-[#FFF0E3] transition-colors relative py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra rounded flex items-center gap-1"
+                  className="font-dm text-sm tracking-wide text-[#6C4B59] dark:text-[#E6D0C2] hover:text-brand-terra-ink dark:hover:text-[#FFF0E3] transition-colors relative py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra rounded flex items-center gap-1"
                 >
                   <span>{item.label}</span>
                 </Link>
@@ -109,8 +109,8 @@ export function Navbar() {
                 onClick={() => handleNavClick(item.href)}
                 className={`font-dm text-sm tracking-wide transition-colors relative py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra rounded cursor-pointer ${
                   isActive
-                    ? 'text-brand-terra font-semibold dark:text-brand-ember'
-                    : 'text-[#6C4B59] dark:text-[#E6D0C2] hover:text-brand-terra dark:hover:text-[#FFF0E3]'
+                    ? 'text-brand-terra-ink font-semibold dark:text-brand-ember'
+                    : 'text-[#6C4B59] dark:text-[#E6D0C2] hover:text-brand-terra-ink dark:hover:text-[#FFF0E3]'
                 }`}
               >
                 {item.label}
@@ -181,7 +181,7 @@ export function Navbar() {
                       key={item.href}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="min-h-[44px] flex items-center w-full text-left py-2.5 font-syne text-lg font-bold text-[#2E0E1D] dark:text-[#FFF0E3] hover:text-brand-terra dark:hover:text-brand-ember transition-colors"
+                      className="min-h-[44px] flex items-center w-full text-left py-2.5 font-syne text-lg font-bold text-[#2E0E1D] dark:text-[#FFF0E3] hover:text-brand-terra-ink dark:hover:text-brand-ember transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -192,7 +192,7 @@ export function Navbar() {
                   <button
                     key={item.href}
                     onClick={() => handleNavClick(item.href)}
-                    className="min-h-[44px] flex items-center w-full text-left py-2.5 font-syne text-lg font-bold text-[#2E0E1D] dark:text-[#FFF0E3] hover:text-brand-terra dark:hover:text-brand-ember transition-colors cursor-pointer"
+                    className="min-h-[44px] flex items-center w-full text-left py-2.5 font-syne text-lg font-bold text-[#2E0E1D] dark:text-[#FFF0E3] hover:text-brand-terra-ink dark:hover:text-brand-ember transition-colors cursor-pointer"
                   >
                     {item.label}
                   </button>

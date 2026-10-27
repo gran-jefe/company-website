@@ -108,7 +108,7 @@ export default function NodeBackendCurriculumPage() {
           <div className="flex items-center gap-3 sm:gap-4">
             <Link
               href="/#curriculum"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra-ink dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
             >
               <ArrowLeft size={14} />
               <span>Back to Curriculums</span>
@@ -133,12 +133,12 @@ export default function NodeBackendCurriculumPage() {
         {/* Path Switcher Banner */}
         <div className="mb-8 p-3 sm:p-4 rounded-xl bg-blue-50 dark:bg-zinc-900/80 border border-blue-200 dark:border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-dm">
           <div className="flex items-center gap-2 text-blue-900 dark:text-blue-300">
-            <Boxes size={16} className="text-brand-terra shrink-0" />
+            <Boxes size={16} className="text-brand-terra-ink shrink-0" />
             <span>Comparing Backend Routes? We offer both the <strong>Node.js / TypeScript track</strong> and the <strong>Python / Django track</strong>.</span>
           </div>
           <Link
             href="/curriculum/python-django"
-            className="text-brand-terra dark:text-brand-ember font-semibold hover:underline flex items-center gap-1 shrink-0"
+            className="text-brand-terra-ink dark:text-brand-ember font-semibold hover:underline flex items-center gap-1 shrink-0"
           >
             <span>View Python &amp; Django Route</span>
             <ExternalLink size={12} />
@@ -164,7 +164,7 @@ export default function NodeBackendCurriculumPage() {
           {/* Quick Callout Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
             <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
-              <div className="flex items-center gap-2 text-brand-terra dark:text-brand-ember font-bold text-sm">
+              <div className="flex items-center gap-2 text-brand-terra-ink dark:text-brand-ember font-bold text-sm">
                 <Zap size={18} /> End-to-End Type Safety
               </div>
               <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-dm">
@@ -186,7 +186,7 @@ export default function NodeBackendCurriculumPage() {
         {/* Mental Model Translation */}
         <section className="mb-14">
           <div className="flex items-center gap-2.5 mb-2">
-            <Layers className="text-brand-terra" size={22} />
+            <Layers className="text-brand-terra-ink" size={22} />
             <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
               Frontend vs. Enterprise Node.js / NestJS Mental Model
             </h2>
@@ -207,32 +207,32 @@ export default function NodeBackendCurriculumPage() {
               <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800 text-zinc-700 dark:text-zinc-300 font-dm">
                 <tr className="hover:bg-zinc-50/60 dark:hover:bg-zinc-800/40">
                   <td className="p-4 font-mono text-xs">React Component Tree &amp; Context</td>
-                  <td className="p-4 font-mono text-xs text-brand-terra dark:text-brand-ember">NestJS Modules &amp; Dependency Injection</td>
+                  <td className="p-4 font-mono text-xs text-brand-terra-ink dark:text-brand-ember">NestJS Modules &amp; Dependency Injection</td>
                   <td className="p-4">Provides clean inversion of control, singleton services, and testable modular boundaries.</td>
                 </tr>
                 <tr className="hover:bg-zinc-50/60 dark:hover:bg-zinc-800/40">
                   <td className="p-4 font-mono text-xs">TypeScript Interfaces &amp; Zod</td>
-                  <td className="p-4 font-mono text-xs text-brand-terra dark:text-brand-ember">DTOs with <code>class-validator</code></td>
+                  <td className="p-4 font-mono text-xs text-brand-terra-ink dark:text-brand-ember">DTOs with <code>class-validator</code></td>
                   <td className="p-4">Validates incoming HTTP bodies and auto-populates OpenAPI / Swagger documentation.</td>
                 </tr>
                 <tr className="hover:bg-zinc-50/60 dark:hover:bg-zinc-800/40">
                   <td className="p-4 font-mono text-xs">Next.js Route Handlers (<code>route.ts</code>)</td>
-                  <td className="p-4 font-mono text-xs text-brand-terra dark:text-brand-ember">Controllers (<code>@Controller</code>, <code>@Get</code>, <code>@Post</code>)</td>
+                  <td className="p-4 font-mono text-xs text-brand-terra-ink dark:text-brand-ember">Controllers (<code>@Controller</code>, <code>@Get</code>, <code>@Post</code>)</td>
                   <td className="p-4">Handles HTTP requests, binds route parameters, and delegates business logic to services.</td>
                 </tr>
                 <tr className="hover:bg-zinc-50/60 dark:hover:bg-zinc-800/40">
                   <td className="p-4 font-mono text-xs">Supabase Client</td>
-                  <td className="p-4 font-mono text-xs text-brand-terra dark:text-brand-ember">Prisma Client (<code>prisma.user.findMany</code>)</td>
+                  <td className="p-4 font-mono text-xs text-brand-terra-ink dark:text-brand-ember">Prisma Client (<code>prisma.user.findMany</code>)</td>
                   <td className="p-4">Provides type-safe database queries, schema migrations, and ACID relational transactions.</td>
                 </tr>
                 <tr className="hover:bg-zinc-50/60 dark:hover:bg-zinc-800/40">
                   <td className="p-4 font-mono text-xs">Local State &amp; Cache</td>
-                  <td className="p-4 font-mono text-xs text-brand-terra dark:text-brand-ember">Redis In-Memory Store &amp; Locks</td>
+                  <td className="p-4 font-mono text-xs text-brand-terra-ink dark:text-brand-ember">Redis In-Memory Store &amp; Locks</td>
                   <td className="p-4">Provides sub-millisecond query caching, rate limit counters, and distributed idempotency locks.</td>
                 </tr>
                 <tr className="hover:bg-zinc-50/60 dark:hover:bg-zinc-800/40">
                   <td className="p-4 font-mono text-xs">Web Workers &amp; Async Tasks</td>
-                  <td className="p-4 font-mono text-xs text-brand-terra dark:text-brand-ember">BullMQ Background Workers</td>
+                  <td className="p-4 font-mono text-xs text-brand-terra-ink dark:text-brand-ember">BullMQ Background Workers</td>
                   <td className="p-4">Executes asynchronous background queues, webhook retries, and scheduled cron jobs.</td>
                 </tr>
               </tbody>
@@ -288,7 +288,7 @@ export default function NodeBackendCurriculumPage() {
                 <BookOpen size={14} className="text-blue-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Node.js Official: The Event Loop &amp; Process.nextTick <ExternalLink size={11} /></a></li>
+                <li><a href="https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Node.js Official: The Event Loop &amp; Process.nextTick <ExternalLink size={11} /></a></li>
                 <li><em>Book:</em> <em>Node.js Design Patterns (3rd Edition)</em> by Mario Casciaro &amp; Luciano Mammino.</li>
               </ul>
             </div>
@@ -298,7 +298,7 @@ export default function NodeBackendCurriculumPage() {
                 <Code2 size={14} className="text-blue-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=PNa9OMajw9w" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Node.js Event Loop Visualized (Deep Dive) <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=PNa9OMajw9w" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Node.js Event Loop Visualized (Deep Dive) <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -344,8 +344,8 @@ export default function NodeBackendCurriculumPage() {
                 <BookOpen size={14} className="text-amber-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://docs.nestjs.com/first-steps" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Official NestJS Docs: First Steps &amp; Modules <ExternalLink size={11} /></a></li>
-                <li><a href="https://docs.nestjs.com/custom-decorators" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">NestJS: Custom Decorators &amp; Guards Guide <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.nestjs.com/first-steps" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Official NestJS Docs: First Steps &amp; Modules <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.nestjs.com/custom-decorators" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">NestJS: Custom Decorators &amp; Guards Guide <ExternalLink size={11} /></a></li>
                 <li><em>Guide:</em> <em>Clean Architecture in TypeScript &amp; NestJS</em> by Kamil Myśliwiec.</li>
               </ul>
             </div>
@@ -355,8 +355,8 @@ export default function NodeBackendCurriculumPage() {
                 <Code2 size={14} className="text-amber-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=GHTA143_b-s" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: NestJS Full Course - API from Scratch <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=2n3xS89TJMI" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Net Ninja: NestJS Tutorial for Beginners <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=GHTA143_b-s" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">freeCodeCamp: NestJS Full Course - API from Scratch <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=2n3xS89TJMI" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Net Ninja: NestJS Tutorial for Beginners <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -402,9 +402,9 @@ export default function NodeBackendCurriculumPage() {
                 <BookOpen size={14} className="text-purple-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.prisma.io/docs/concepts/components/prisma-client/transactions" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Prisma Docs: Transactions &amp; Concurrency <ExternalLink size={11} /></a></li>
-                <li><a href="https://docs.nestjs.com/recipes/prisma" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">NestJS Recipes: Prisma ORM Integration <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-transaction/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">PostgreSQL Tutorial: ACID &amp; Isolation Levels <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.prisma.io/docs/concepts/components/prisma-client/transactions" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Prisma Docs: Transactions &amp; Concurrency <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.nestjs.com/recipes/prisma" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">NestJS Recipes: Prisma ORM Integration <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-transaction/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">PostgreSQL Tutorial: ACID &amp; Isolation Levels <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -413,8 +413,8 @@ export default function NodeBackendCurriculumPage() {
                 <Code2 size={14} className="text-purple-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=RebA5J-rlhU" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: Prisma ORM Crash Course <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=pomxJOFLeQs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Hussein Nasser: Database Transactions &amp; ACID <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=RebA5J-rlhU" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">freeCodeCamp: Prisma ORM Crash Course <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=pomxJOFLeQs" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Hussein Nasser: Database Transactions &amp; ACID <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -459,9 +459,9 @@ export default function NodeBackendCurriculumPage() {
                 <BookOpen size={14} className="text-cyan-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://docs.bullmq.io/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">BullMQ Official Docs: Queues, Jobs &amp; Workers <ExternalLink size={11} /></a></li>
-                <li><a href="https://redis.io/docs/latest/develop/data-types/streams/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Redis Architecture: Streaming &amp; Message Brokers <ExternalLink size={11} /></a></li>
-                <li><a href="https://stripe.com/docs/webhooks/signatures" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Stripe Engineering: Webhook HMAC Verification <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.bullmq.io/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">BullMQ Official Docs: Queues, Jobs &amp; Workers <ExternalLink size={11} /></a></li>
+                <li><a href="https://redis.io/docs/latest/develop/data-types/streams/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Redis Architecture: Streaming &amp; Message Brokers <ExternalLink size={11} /></a></li>
+                <li><a href="https://stripe.com/docs/webhooks/signatures" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Stripe Engineering: Webhook HMAC Verification <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -470,8 +470,8 @@ export default function NodeBackendCurriculumPage() {
                 <Code2 size={14} className="text-cyan-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=oUJbuFMyBDk" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">ByteByteGo: Distributed Message Queues Explained <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=kYvV98yLpG0" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Jack Herrington: BullMQ &amp; Redis Async Processing <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=oUJbuFMyBDk" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">ByteByteGo: Distributed Message Queues Explained <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=kYvV98yLpG0" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Jack Herrington: BullMQ &amp; Redis Async Processing <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -485,14 +485,14 @@ export default function NodeBackendCurriculumPage() {
         <section className="mb-14 p-6 sm:p-8 rounded-2xl bg-zinc-900 border border-zinc-800 text-white shadow-xl space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-800 pb-4">
             <div className="flex items-center gap-2">
-              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-brand-terra/20 text-brand-terra border border-brand-terra/30">
+              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-brand-terra/20 text-brand-terra-ink border border-brand-terra/30">
                 Capstone
               </span>
               <h2 className="text-xl sm:text-2xl font-bold font-syne">
                 Final Capstone: High-Throughput Fintech / SaaS Gateway
               </h2>
             </div>
-            <span className="text-xs font-mono text-emerald-400 font-semibold">// Production Capstone</span>
+            <span className="text-xs font-mono text-emerald-400 font-semibold">{"// Production Capstone"}</span>
           </div>
 
           <p className="text-sm text-zinc-300 font-dm leading-relaxed">
@@ -501,7 +501,7 @@ export default function NodeBackendCurriculumPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-2">
-              <h4 className="text-xs font-mono font-bold text-brand-terra">Core Platform Features</h4>
+              <h4 className="text-xs font-mono font-bold text-brand-terra-ink">Core Platform Features</h4>
               <ul className="text-xs text-zinc-300 space-y-1.5 list-disc pl-4 font-dm">
                 <li>NestJS modular architecture with Prisma ORM</li>
                 <li>PostgreSQL with connection pooling &amp; row-level transactions</li>
@@ -524,21 +524,21 @@ export default function NodeBackendCurriculumPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
             <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-2">
               <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-200 font-mono flex items-center gap-1.5">
-                <BookOpen size={14} className="text-brand-terra" /> High-Yield Reading
+                <BookOpen size={14} className="text-brand-terra-ink" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://docs.docker.com/language/nodejs/build-images/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Docker Official: Node.js Multi-Stage Containerization <ExternalLink size={11} /></a></li>
-                <li><a href="https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">GitHub Docs: Node.js CI/CD Test Pipelines <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.docker.com/language/nodejs/build-images/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Docker Official: Node.js Multi-Stage Containerization <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">GitHub Docs: Node.js CI/CD Test Pipelines <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
             <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-2">
               <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-200 font-mono flex items-center gap-1.5">
-                <Code2 size={14} className="text-brand-terra" /> Practical Video Resource
+                <Code2 size={14} className="text-brand-terra-ink" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=3c-iBn73dDE" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">TechWorld with Nana: Docker Crash Course for Node.js <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=1vTXp_f9JbU" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">ByteByteGo: API Gateway Architecture Explained <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=3c-iBn73dDE" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">TechWorld with Nana: Docker Crash Course for Node.js <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=1vTXp_f9JbU" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">ByteByteGo: API Gateway Architecture Explained <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -575,7 +575,7 @@ export default function NodeBackendCurriculumPage() {
                 href="https://www.coursera.org/professional-certificates/meta-back-end-developer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -598,7 +598,7 @@ export default function NodeBackendCurriculumPage() {
                 href="https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -621,7 +621,7 @@ export default function NodeBackendCurriculumPage() {
                 href="https://www.coursera.org/learn/server-side-nodejs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />

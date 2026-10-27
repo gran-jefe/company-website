@@ -413,7 +413,7 @@ export function Work() {
               <SectionLabel>Selected Work &amp; Case Studies</SectionLabel>
               <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
                 Crafted for impact.{' '}
-                <span className="font-serif italic font-normal text-brand-terra dark:text-brand-ember">Engineered to scale.</span>
+                <span className="font-serif italic font-normal text-brand-terra-ink dark:text-brand-ember">Engineered to scale.</span>
               </h2>
             </div>
 
@@ -480,7 +480,7 @@ export function Work() {
                 className={`px-4 py-2 rounded-xl text-xs font-dm font-semibold transition-all flex items-center gap-2 ${
                   activeDeployGroup === 'fintech'
                     ? 'bg-brand-terra text-white shadow-md shadow-brand-terra/20'
-                    : 'bg-brand-terra/10 text-brand-terra border border-brand-terra/30 hover:bg-brand-terra/20'
+                    : 'bg-brand-terra/10 text-brand-terra-ink border border-brand-terra/30 hover:bg-brand-terra/20'
                 }`}
               >
                 <ShieldCheck size={13} />
@@ -532,7 +532,7 @@ export function Work() {
         {/* High-Intent Empty State (UI/UX Non-Negotiable 4) */}
         {filteredProjects.length === 0 && (
           <div className="mt-12 p-12 rounded-3xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-dashed border-[#EAD3C4] dark:border-[#EAD3C4]/20 text-center space-y-4 max-w-lg mx-auto">
-            <div className="w-12 h-12 rounded-full bg-brand-terra/10 text-brand-terra flex items-center justify-center mx-auto">
+            <div className="w-12 h-12 rounded-full bg-brand-terra/10 text-brand-terra-ink flex items-center justify-center mx-auto">
               <Sparkles size={22} />
             </div>
             <h3 className="font-syne font-bold text-xl text-[#2E0E1D] dark:text-[#FFF0E3]">
@@ -543,7 +543,7 @@ export function Work() {
             </p>
             <button
               onClick={() => setActiveDeployGroup('all')}
-              className="py-2.5 px-5 rounded-xl bg-brand-terra text-white text-xs font-semibold font-dm hover:bg-brand-ember transition-colors cursor-pointer"
+              className="py-2.5 px-5 rounded-xl bg-brand-terra text-white text-xs font-semibold font-dm hover:bg-[#B82A00] transition-colors cursor-pointer"
             >
               Reset to All Deployments
             </button>
@@ -580,7 +580,7 @@ export function Work() {
                         />
                         <span
                           className={`text-[10px] font-mono uppercase tracking-wider ${
-                            isSelected ? 'text-brand-terra dark:text-white font-bold' : 'text-[#7A4A38] dark:text-[#B88E7D]'
+                            isSelected ? 'text-brand-terra-ink dark:text-white font-bold' : 'text-[#7A4A38] dark:text-[#B88E7D]'
                           }`}
                         >
                           {project.categoryLabel}
@@ -592,7 +592,7 @@ export function Work() {
                       </h4>
 
                       <div className="text-xs font-mono text-[#7A4A38] dark:text-[#E6D0C2] truncate flex items-center gap-1">
-                        <Globe size={11} className="text-brand-terra flex-shrink-0" />
+                        <Globe size={11} className="text-brand-terra-ink flex-shrink-0" />
                         <span className="truncate">{project.domain}</span>
                       </div>
                     </div>
@@ -602,7 +602,7 @@ export function Work() {
                         className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${
                           project.deployGroup === 'custom_domain'
                             ? 'bg-[#E1F5EE] text-[#0E6247] dark:bg-emerald-950/40 dark:text-emerald-300 border-[#A7E3D0] dark:border-emerald-500/30'
-                            : 'bg-brand-terra/10 text-brand-terra border-brand-terra/30'
+                            : 'bg-brand-terra/10 text-brand-terra-ink border-brand-terra/30'
                         }`}
                       >
                         {project.deployGroup === 'custom_domain' ? 'Custom' : 'Vercel'}
@@ -610,7 +610,7 @@ export function Work() {
                       <ChevronRight
                         size={16}
                         className={`transition-transform ${
-                          isSelected ? 'text-brand-terra translate-x-1 dark:text-white' : 'text-[#7A4A38] dark:text-[#B88E7D]'
+                          isSelected ? 'text-brand-terra-ink translate-x-1 dark:text-white' : 'text-[#7A4A38] dark:text-[#B88E7D]'
                         }`}
                       />
                     </div>
@@ -654,7 +654,7 @@ export function Work() {
                       href={activeProject.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3 py-1 rounded-lg bg-brand-terra hover:bg-brand-ember text-white text-xs font-semibold flex items-center gap-1.5 transition-colors"
+                      className="px-3 py-1 rounded-lg bg-brand-terra hover:bg-[#B82A00] text-white text-xs font-semibold flex items-center gap-1.5 transition-colors"
                       title="Open Live Website"
                     >
                       <span>Visit Site</span>
@@ -694,7 +694,7 @@ export function Work() {
                     </p>
 
                     {activeProject.attribution && (
-                      <div className="p-3.5 rounded-xl bg-brand-terra/10 border border-brand-terra/30 font-mono text-xs text-brand-terra flex items-center gap-2">
+                      <div className="p-3.5 rounded-xl bg-brand-terra/10 border border-brand-terra/30 font-mono text-xs text-brand-terra-ink flex items-center gap-2">
                         <ShieldCheck size={15} className="flex-shrink-0" />
                         <span>{activeProject.attribution}</span>
                       </div>
@@ -707,7 +707,7 @@ export function Work() {
                           key={i}
                           className="p-3 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center gap-2.5 text-xs font-dm text-[#2E0E1D] dark:text-[#FFF0E3]"
                         >
-                          <CheckCircle2 size={15} className="text-brand-terra flex-shrink-0" />
+                          <CheckCircle2 size={15} className="text-brand-terra-ink flex-shrink-0" />
                           <span>{h}</span>
                         </div>
                       ))}
@@ -727,7 +727,7 @@ export function Work() {
                       </div>
 
                       <div className="flex items-center gap-2 text-xs font-mono text-[#7A4A38] dark:text-[#B88E7D]">
-                        <Cpu size={14} className="text-brand-terra" />
+                        <Cpu size={14} className="text-brand-terra-ink" />
                         <span>Status: Operational</span>
                       </div>
                     </div>
@@ -759,14 +759,14 @@ export function Work() {
                       {/* Floating Header */}
                       <div className="px-4 py-2.5 bg-[#F3E2D5] dark:bg-[#25121E] border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center justify-between gap-2 text-xs font-mono">
                         <div className="truncate px-2.5 py-0.5 rounded bg-[#FFF0E3] dark:bg-[#1A0C15] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[11px] text-[#6C4B59] dark:text-[#E6D0C2] flex items-center gap-1">
-                          <Globe size={11} className="text-brand-terra flex-shrink-0" />
+                          <Globe size={11} className="text-brand-terra-ink flex-shrink-0" />
                           <span className="truncate">{project.domain}</span>
                         </div>
                         <a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#7A4A38] dark:text-[#E6D0C2] hover:text-brand-terra transition-colors"
+                          className="text-[#7A4A38] dark:text-[#E6D0C2] hover:text-brand-terra-ink transition-colors"
                         >
                           <ExternalLink size={14} />
                         </a>
@@ -794,14 +794,14 @@ export function Work() {
                             className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-medium ${
                               project.deployGroup === 'custom_domain'
                                 ? 'bg-[#E1F5EE] text-[#0E6247] dark:bg-emerald-950/40 dark:text-emerald-300 border-[#A7E3D0] dark:border-emerald-500/30'
-                                : 'bg-brand-terra/10 text-brand-terra border-brand-terra/30'
+                                : 'bg-brand-terra/10 text-brand-terra-ink border-brand-terra/30'
                             }`}
                           >
                             {project.badgeText}
                           </span>
                         </div>
 
-                        <h3 className="font-syne font-bold text-xl text-[#2E0E1D] dark:text-[#FFF0E3] group-hover:text-brand-terra transition-colors">
+                        <h3 className="font-syne font-bold text-xl text-[#2E0E1D] dark:text-[#FFF0E3] group-hover:text-brand-terra-ink transition-colors">
                           {project.name}
                         </h3>
 
@@ -810,7 +810,7 @@ export function Work() {
                         </p>
 
                         {project.attribution && (
-                          <div className="pt-2 text-[11px] font-mono text-brand-terra font-medium flex items-center gap-1.5">
+                          <div className="pt-2 text-[11px] font-mono text-brand-terra-ink font-medium flex items-center gap-1.5">
                             <ShieldCheck size={13} className="flex-shrink-0" />
                             <span>{project.attribution}</span>
                           </div>
@@ -833,7 +833,7 @@ export function Work() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-lg bg-brand-terra/10 hover:bg-brand-terra text-brand-terra hover:text-white transition-colors"
+                        className="p-2 rounded-lg bg-brand-terra/10 hover:bg-brand-terra text-brand-terra-ink hover:text-white transition-colors"
                       >
                         <ExternalLink size={16} />
                       </a>
@@ -850,7 +850,7 @@ export function Work() {
           <div className="mt-10 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 overflow-hidden shadow-2xl">
             <div className="p-4 bg-[#F3E2D5] dark:bg-[#25121E] border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center justify-between gap-4 font-mono text-xs text-[#7A4A38] dark:text-[#E6D0C2]">
               <div className="flex items-center gap-2">
-                <Terminal size={14} className="text-brand-terra" />
+                <Terminal size={14} className="text-brand-terra-ink" />
                 <span>PRODUCTION_DEPLOYMENT_MATRIX.log</span>
               </div>
               <div>{`// Total Entries: ${filteredProjects.length}`}</div>
@@ -874,7 +874,7 @@ export function Work() {
                       key={project.id}
                       className="hover:bg-[#F3E2D5]/50 dark:hover:bg-[#25121E] transition-colors text-[#2E0E1D] dark:text-[#FFF0E3]"
                     >
-                      <td className="p-4 font-mono text-brand-terra">
+                      <td className="p-4 font-mono text-brand-terra-ink">
                         <div className="flex items-center gap-1.5">
                           <Globe size={13} className="text-[#7A4A38] dark:text-[#E6D0C2]" />
                           <span>{project.domain}</span>
@@ -883,7 +883,7 @@ export function Work() {
                       <td className="p-4">
                         <div className="font-semibold text-[#2E0E1D] dark:text-[#FFF0E3]">{project.name}</div>
                         {project.attribution && (
-                          <div className="text-[10px] font-mono text-brand-terra mt-0.5">
+                          <div className="text-[10px] font-mono text-brand-terra-ink mt-0.5">
                             {project.attribution}
                           </div>
                         )}
@@ -893,7 +893,7 @@ export function Work() {
                           className={`px-2 py-0.5 rounded text-[10px] ${
                             project.deployGroup === 'custom_domain'
                               ? 'bg-[#E1F5EE] text-[#0E6247] dark:bg-emerald-950/40 dark:text-emerald-300 border border-[#A7E3D0] dark:border-emerald-800/60'
-                              : 'bg-brand-terra/10 text-brand-terra border border-brand-terra/30'
+                              : 'bg-brand-terra/10 text-brand-terra-ink border border-brand-terra/30'
                           }`}
                         >
                           {project.deployGroup === 'custom_domain' ? 'Custom Domain' : 'Vercel App'}
@@ -908,7 +908,7 @@ export function Work() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 px-3 py-1 rounded bg-brand-terra/10 hover:bg-brand-terra text-brand-terra hover:text-white transition-colors font-mono text-[11px]"
+                          className="inline-flex items-center gap-1 px-3 py-1 rounded bg-brand-terra/10 hover:bg-brand-terra text-brand-terra-ink hover:text-white transition-colors font-mono text-[11px]"
                         >
                           <span>Open</span>
                           <ExternalLink size={12} />
@@ -925,7 +925,7 @@ export function Work() {
         {/* Empty State Fallback (Non-Negotiable 4: High-Intent Empty States) */}
         {filteredProjects.length === 0 && (
           <div className="mt-12 p-8 sm:p-12 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-center max-w-lg mx-auto space-y-4">
-            <div className="w-12 h-12 mx-auto rounded-full bg-brand-terra/10 border border-brand-terra/20 flex items-center justify-center text-brand-terra">
+            <div className="w-12 h-12 mx-auto rounded-full bg-brand-terra/10 border border-brand-terra/20 flex items-center justify-center text-brand-terra-ink">
               <Sparkles size={22} />
             </div>
             <h3 className="text-lg font-syne font-bold text-[#2E0E1D] dark:text-[#FFF0E3]">
@@ -936,7 +936,7 @@ export function Work() {
             </p>
             <button
               onClick={() => setActiveDeployGroup('all')}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-terra hover:bg-brand-ember text-white font-dm text-xs font-semibold transition-all cursor-pointer min-h-[44px]"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-terra hover:bg-[#B82A00] text-white font-dm text-xs font-semibold transition-all cursor-pointer min-h-[44px]"
             >
               <span>Reset to All Work</span>
             </button>
@@ -953,7 +953,7 @@ export function Work() {
                   const contactSection = document.querySelector('#contact')
                   if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="inline-flex items-center gap-1.5 text-brand-terra font-semibold hover:text-brand-ember transition-colors underline underline-offset-4 ml-1 group"
+                className="inline-flex items-center gap-1.5 text-brand-terra-ink font-semibold hover:text-brand-ember transition-colors underline underline-offset-4 ml-1 group"
               >
                 <span>Initialize project discussion</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />

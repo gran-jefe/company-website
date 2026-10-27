@@ -84,7 +84,7 @@ export default function FrontendEngineeringCurriculumPage() {
           <div className="flex items-center gap-3 sm:gap-4">
             <Link
               href="/#curriculum"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra-ink dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
             >
               <ArrowLeft size={14} />
               <span>Back to Curriculums</span>
@@ -133,7 +133,7 @@ export default function FrontendEngineeringCurriculumPage() {
             </div>
 
             <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
-              <div className="flex items-center gap-2 text-brand-terra dark:text-brand-ember font-bold text-sm">
+              <div className="flex items-center gap-2 text-brand-terra-ink dark:text-brand-ember font-bold text-sm">
                 <Palette size={18} /> Design Systems &amp; Accessibility
               </div>
               <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-dm">
@@ -190,8 +190,8 @@ export default function FrontendEngineeringCurriculumPage() {
                 <BookOpen size={14} className="text-blue-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://javascript.info/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">The Modern JavaScript Tutorial <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.totaltypescript.com/tutorials" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Total TypeScript Tutorials <ExternalLink size={11} /></a></li>
+                <li><a href="https://javascript.info/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">The Modern JavaScript Tutorial <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.totaltypescript.com/tutorials" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Total TypeScript Tutorials <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -200,8 +200,8 @@ export default function FrontendEngineeringCurriculumPage() {
                 <Code2 size={14} className="text-blue-500" /> Video Tutorials
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Philip Roberts: What is the Event Loop? <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/playlist?list=PLNqp92_EXZBJYFrpEzdO2EapvU0GOJ09n" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Jack Herrington: No BS TS <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Philip Roberts: What is the Event Loop? <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/playlist?list=PLNqp92_EXZBJYFrpEzdO2EapvU0GOJ09n" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Jack Herrington: No BS TS <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -247,8 +247,8 @@ export default function FrontendEngineeringCurriculumPage() {
                 <BookOpen size={14} className="text-amber-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://react.dev/learn" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Official React Documentation <ExternalLink size={11} /></a></li>
-                <li><a href="https://tkdodo.eu/blog/practical-react-query" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">TkDodo Practical React Query Series <ExternalLink size={11} /></a></li>
+                <li><a href="https://react.dev/learn" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Official React Documentation <ExternalLink size={11} /></a></li>
+                <li><a href="https://tkdodo.eu/blog/practical-react-query" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">TkDodo Practical React Query Series <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -257,8 +257,8 @@ export default function FrontendEngineeringCurriculumPage() {
                 <Code2 size={14} className="text-amber-500" /> Video Tutorials
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=7kVEtq4U_gI" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">React 19 Full Breakdown <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=novnyCaa7To" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">TanStack Query in 100 Seconds &amp; Practical Tutorial <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=7kVEtq4U_gI" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">React 19 Full Breakdown <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=novnyCaa7To" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">TanStack Query in 100 Seconds &amp; Practical Tutorial <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -304,8 +304,8 @@ export default function FrontendEngineeringCurriculumPage() {
                 <BookOpen size={14} className="text-purple-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://nextjs.org/docs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Official Next.js App Router Documentation <ExternalLink size={11} /></a></li>
-                <li><a href="https://web.dev/explore/fast" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Google Web.dev: Fast Load Times &amp; CWV <ExternalLink size={11} /></a></li>
+                <li><a href="https://nextjs.org/docs" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Official Next.js App Router Documentation <ExternalLink size={11} /></a></li>
+                <li><a href="https://web.dev/explore/fast" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Google Web.dev: Fast Load Times &amp; CWV <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -314,8 +314,8 @@ export default function FrontendEngineeringCurriculumPage() {
                 <Code2 size={14} className="text-purple-500" /> Video Tutorials
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                <li><a href="https://www.youtube.com/watch?v=wm5gMKuwSYk" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Jack Herrington: React Server Components Mental Model <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=dpx46gK6u94" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: Next.js Full Course <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=wm5gMKuwSYk" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Jack Herrington: React Server Components Mental Model <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=dpx46gK6u94" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">freeCodeCamp: Next.js Full Course <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -352,8 +352,8 @@ export default function FrontendEngineeringCurriculumPage() {
                 <BookOpen size={14} className="text-purple-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.radix-ui.com/primitives/docs/overview/introduction" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Radix UI: Accessible Component Primitives <ExternalLink size={11} /></a></li>
-                <li><a href="https://web.dev/explore/fast" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Web.dev: Performance Auditing &amp; LCP Optimization <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.radix-ui.com/primitives/docs/overview/introduction" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Radix UI: Accessible Component Primitives <ExternalLink size={11} /></a></li>
+                <li><a href="https://web.dev/explore/fast" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Web.dev: Performance Auditing &amp; LCP Optimization <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -362,8 +362,8 @@ export default function FrontendEngineeringCurriculumPage() {
                 <Code2 size={14} className="text-purple-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=wm5gMKuwSYk" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Jack Herrington: Advanced Design System Patterns in React <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=7kVEtq4U_gI" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Lee Robinson: Next.js Production Architecture &amp; Caching <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=wm5gMKuwSYk" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Jack Herrington: Advanced Design System Patterns in React <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=7kVEtq4U_gI" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Lee Robinson: Next.js Production Architecture &amp; Caching <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -407,7 +407,7 @@ export default function FrontendEngineeringCurriculumPage() {
                 href="https://www.coursera.org/professional-certificates/meta-front-end-developer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -430,7 +430,7 @@ export default function FrontendEngineeringCurriculumPage() {
                 href="https://www.coursera.org/learn/html-css-javascript-for-web-developers"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -453,7 +453,7 @@ export default function FrontendEngineeringCurriculumPage() {
                 href="https://www.coursera.org/learn/developing-frontend-apps-with-react"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -469,7 +469,7 @@ export default function FrontendEngineeringCurriculumPage() {
         <div className="mt-14 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <Link
             href="/#curriculum"
-            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra dark:text-brand-ember hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra-ink dark:text-brand-ember hover:underline"
           >
             <ArrowLeft size={16} /> Explore All Learning Tracks
           </Link>

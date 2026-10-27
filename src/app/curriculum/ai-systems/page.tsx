@@ -84,7 +84,7 @@ export default function AISystemsCurriculumPage() {
           <div className="flex items-center gap-3 sm:gap-4">
             <Link
               href="/#curriculum"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra-ink dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
             >
               <ArrowLeft size={14} />
               <span>Back to Curriculums</span>
@@ -133,7 +133,7 @@ export default function AISystemsCurriculumPage() {
             </div>
 
             <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
-              <div className="flex items-center gap-2 text-brand-terra dark:text-brand-ember font-bold text-sm">
+              <div className="flex items-center gap-2 text-brand-terra-ink dark:text-brand-ember font-bold text-sm">
                 <Network size={18} /> Production RAG &amp; Vector Databases
               </div>
               <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-dm">
@@ -191,9 +191,9 @@ export default function AISystemsCurriculumPage() {
                 <BookOpen size={14} className="text-cyan-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Anthropic Docs: Tool Use &amp; Function Calling <ExternalLink size={11} /></a></li>
-                <li><a href="https://platform.openai.com/docs/guides/structured-outputs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">OpenAI Guide: Structured Outputs &amp; JSON Schema <ExternalLink size={11} /></a></li>
-                <li><a href="https://ai.google.dev/gemini-api/docs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Google Gemini API: Multimodal &amp; System Instructions <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Anthropic Docs: Tool Use &amp; Function Calling <ExternalLink size={11} /></a></li>
+                <li><a href="https://platform.openai.com/docs/guides/structured-outputs" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">OpenAI Guide: Structured Outputs &amp; JSON Schema <ExternalLink size={11} /></a></li>
+                <li><a href="https://ai.google.dev/gemini-api/docs" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Google Gemini API: Multimodal &amp; System Instructions <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -202,8 +202,8 @@ export default function AISystemsCurriculumPage() {
                 <Code2 size={14} className="text-cyan-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Andrej Karpathy: Intro to Large Language Models <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=wjZofJX0v4U" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">3Blue1Brown: Visual Intro to Transformers &amp; Attention <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Andrej Karpathy: Intro to Large Language Models <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=wjZofJX0v4U" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">3Blue1Brown: Visual Intro to Transformers &amp; Attention <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -249,8 +249,8 @@ export default function AISystemsCurriculumPage() {
                 <BookOpen size={14} className="text-blue-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.pinecone.io/learn/advanced-rag-techniques/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Pinecone: Advanced RAG Techniques &amp; Re-ranking <ExternalLink size={11} /></a></li>
-                <li><a href="https://github.com/pgvector/pgvector" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">pgvector: Open-Source Vector Similarity Search in Postgres <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.pinecone.io/learn/advanced-rag-techniques/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Pinecone: Advanced RAG Techniques &amp; Re-ranking <ExternalLink size={11} /></a></li>
+                <li><a href="https://github.com/pgvector/pgvector" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">pgvector: Open-Source Vector Similarity Search in Postgres <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -259,8 +259,8 @@ export default function AISystemsCurriculumPage() {
                 <Code2 size={14} className="text-blue-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=aywZrzNaKjs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">freeCodeCamp: Vector Databases &amp; Embeddings Masterclass <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=1vTXp_f9JbU" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">ByteByteGo: Retrieval-Augmented Generation (RAG) Architecture <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=aywZrzNaKjs" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">freeCodeCamp: Vector Databases &amp; Embeddings Masterclass <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=1vTXp_f9JbU" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">ByteByteGo: Retrieval-Augmented Generation (RAG) Architecture <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -305,8 +305,8 @@ export default function AISystemsCurriculumPage() {
                 <BookOpen size={14} className="text-purple-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://lilianweng.github.io/posts/2023-06-23-agent/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Lilian Weng (OpenAI): LLM Powered Autonomous Agents <ExternalLink size={11} /></a></li>
-                <li><a href="https://langchain-ai.github.io/langgraph/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">LangGraph Documentation: Cycles, Branching &amp; State <ExternalLink size={11} /></a></li>
+                <li><a href="https://lilianweng.github.io/posts/2023-06-23-agent/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Lilian Weng (OpenAI): LLM Powered Autonomous Agents <ExternalLink size={11} /></a></li>
+                <li><a href="https://langchain-ai.github.io/langgraph/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">LangGraph Documentation: Cycles, Branching &amp; State <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -315,7 +315,7 @@ export default function AISystemsCurriculumPage() {
                 <Code2 size={14} className="text-purple-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=sal78ACtGTc" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Harrison Chase: Multi-Agent Architectures with LangGraph <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=sal78ACtGTc" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Harrison Chase: Multi-Agent Architectures with LangGraph <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -356,8 +356,8 @@ export default function AISystemsCurriculumPage() {
                 <BookOpen size={14} className="text-cyan-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://langfuse.com/docs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Langfuse: Open-Source LLM Observability &amp; Tracing <ExternalLink size={11} /></a></li>
-                <li><a href="https://eugeneyan.com/writing/llm-patterns/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Eugene Yan: Patterns for Building LLM-Based Systems <ExternalLink size={11} /></a></li>
+                <li><a href="https://langfuse.com/docs" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Langfuse: Open-Source LLM Observability &amp; Tracing <ExternalLink size={11} /></a></li>
+                <li><a href="https://eugeneyan.com/writing/llm-patterns/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Eugene Yan: Patterns for Building LLM-Based Systems <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -366,7 +366,7 @@ export default function AISystemsCurriculumPage() {
                 <Code2 size={14} className="text-cyan-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=1vTXp_f9JbU" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">ByteByteGo: Production LLM Evaluation &amp; Guardrails <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=1vTXp_f9JbU" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">ByteByteGo: Production LLM Evaluation &amp; Guardrails <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -410,7 +410,7 @@ export default function AISystemsCurriculumPage() {
                 href="https://www.coursera.org/learn/generative-ai-with-llms"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -433,7 +433,7 @@ export default function AISystemsCurriculumPage() {
                 href="https://www.coursera.org/specializations/machine-learning-introduction"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -456,7 +456,7 @@ export default function AISystemsCurriculumPage() {
                 href="https://www.coursera.org/professional-certificates/applied-artifical-intelligence-ibm-watson-ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -472,7 +472,7 @@ export default function AISystemsCurriculumPage() {
         <div className="mt-14 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <Link
             href="/#curriculum"
-            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra dark:text-brand-ember hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra-ink dark:text-brand-ember hover:underline"
           >
             <ArrowLeft size={16} /> Explore All Learning Tracks
           </Link>

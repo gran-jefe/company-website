@@ -6,11 +6,13 @@ import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 
 export function Contact() {
-  const [selectedServices, setSelectedServices] = useState<string[]>(['⚡ 7-Day Rebuild Sprint'])
+  const [selectedServices, setSelectedServices] = useState<string[]>(['7-Day Rebuild Sprint'])
   const [selectedTimeline, setSelectedTimeline] = useState<string>('7-Day Sprint')
   const [copiedCli, setCopiedCli] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+  const [honeypot, setHoneypot] = useState('')
   const [nameInput, setNameInput] = useState('')
   const [emailInput, setEmailInput] = useState('')
   const [emailTouched, setEmailTouched] = useState(false)
@@ -20,7 +22,7 @@ export function Contact() {
   const showEmailError = emailTouched && emailInput.length > 0 && !isValidEmail
 
   const availableServices = [
-    '⚡ 7-Day Rebuild Sprint',
+    '7-Day Rebuild Sprint',
     'Web Platform / Next.js',
     'Mobile App (React Native)',
     'Fintech & Payments',
@@ -29,7 +31,7 @@ export function Contact() {
   ]
 
   const timelineOptions = [
-    '⚡ 7-Day Sprint',
+    '7-Day Sprint',
     '2 – 3 Weeks MVP',
     '1 – 2 Months Full Scale',
     'Flexible / Discuss',
@@ -68,27 +70,34 @@ Sent via thegranjefe.com`
     return `https://wa.me/2349061770885?text=${encodeURIComponent(text)}`
   }
 
-  const handleSubmitForm = (e: React.FormEvent) => {
+  const handleSubmitForm = async (e: React.FormEvent) => {
     e.preventDefault()
     setEmailTouched(true)
-    if (!isValidEmail) return
+    if (!isValidEmail || isSubmitting) return
 
     setIsSubmitting(true)
-
-    const subject = encodeURIComponent(
-      `[Studio Inquiry] ${selectedServices.join(', ')} - ${nameInput || 'New Client'}`
-    )
-    const body = encodeURIComponent(
-      `Hi Gran Jefe Studio,\n\nName: ${nameInput}\nEmail: ${emailInput}\nTarget Timeline: ${selectedTimeline}\nSelected Services: ${
-        selectedServices.join(', ') || 'Not specified'
-      }\n\nProject Scope & Goals:\n${messageInput}\n\n---\nSent via thegranjefe.com inquiry console`
-    )
-
-    setTimeout(() => {
-      window.location.href = `mailto:granjefetech@gmail.com?subject=${subject}&body=${body}`
-      setIsSubmitting(false)
+    setSubmitError('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: nameInput,
+          email: emailInput.trim(),
+          services: selectedServices,
+          timeline: selectedTimeline,
+          message: messageInput,
+          company: honeypot,
+        }),
+      })
+      if (!res.ok) throw new Error(`Inquiry failed with ${res.status}`)
       setIsSubmitted(true)
-    }, 300)
+    } catch {
+      // Keep everything the visitor typed so they can retry or switch to WhatsApp
+      setSubmitError('We couldn’t send your inquiry. Please try again, or message us on WhatsApp below.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -101,7 +110,7 @@ Sent via thegranjefe.com`
           <div className="text-center max-w-2xl mx-auto">
             <SectionLabel>Get In Touch</SectionLabel>
             <h2 className="mt-4 text-4xl sm:text-5xl font-syne font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
-              Let's talk about <span className="text-brand-terra">your project.</span>
+              Let&rsquo;s talk about <span className="text-brand-terra-ink">your project.</span>
             </h2>
             <p className="mt-4 text-[#6C4B59] dark:text-[#E6D0C2] font-dm text-base">
               Ready to rebuild an underperforming site, launch a new digital product, or discuss technical architecture? Reach out to start a conversation.
@@ -181,7 +190,7 @@ Sent via thegranjefe.com`
                       value={nameInput}
                       onChange={(e) => setNameInput(e.target.value)}
                       placeholder="Alex Morgan"
-                      className="w-full px-4 py-3 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] font-dm text-sm outline-none focus:border-brand-terra transition-colors placeholder:text-[#A88B98] dark:placeholder:text-[#B88E7D]/60"
+                      className="w-full px-4 py-3 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] font-dm text-sm outline-none focus:border-brand-terra transition-colors placeholder:text-[#7A4A38] dark:placeholder:text-[#B88E7D]"
                     />
                   </div>
 
@@ -200,6 +209,8 @@ Sent via thegranjefe.com`
                       <input
                         type="email"
                         required
+                        aria-invalid={showEmailError}
+                        aria-describedby={showEmailError ? 'contact-email-error' : undefined}
                         value={emailInput}
                         onBlur={() => setEmailTouched(true)}
                         onChange={(e) => {
@@ -211,11 +222,11 @@ Sent via thegranjefe.com`
                           showEmailError
                             ? 'border-rose-500 focus:border-rose-500 focus:ring-1 focus:ring-rose-500'
                             : 'border-[#EAD3C4] dark:border-[#EAD3C4]/15 focus:border-brand-terra focus:ring-1 focus:ring-brand-terra'
-                        } text-[#2E0E1D] dark:text-[#FFF0E3] font-dm text-sm focus:outline-none transition-colors placeholder:text-[#A88B98] dark:placeholder:text-[#B88E7D]/60`}
+                        } text-[#2E0E1D] dark:text-[#FFF0E3] font-dm text-sm focus:outline-none transition-colors placeholder:text-[#7A4A38] dark:placeholder:text-[#B88E7D]`}
                       />
                     </div>
                     {showEmailError && (
-                      <p className="mt-1.5 text-xs text-rose-500 font-dm flex items-center gap-1">
+                      <p id="contact-email-error" className="mt-1.5 text-xs text-rose-600 dark:text-rose-400 font-dm flex items-center gap-1">
                         <AlertCircle size={12} /> Please enter a valid email address (e.g. name@company.com)
                       </p>
                     )}
@@ -231,21 +242,36 @@ Sent via thegranjefe.com`
                     value={messageInput}
                     onChange={(e) => setMessageInput(e.target.value)}
                     placeholder="Share brief details about your website, conversion goals, or technical stack..."
-                    className="w-full px-4 py-3 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] font-dm text-sm outline-none focus:border-brand-terra transition-colors placeholder:text-[#A88B98] dark:placeholder:text-[#B88E7D]/60 resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] font-dm text-sm outline-none focus:border-brand-terra transition-colors placeholder:text-[#7A4A38] dark:placeholder:text-[#B88E7D] resize-none"
                   />
                 </div>
+
+                {/* Honeypot: hidden from people and assistive tech, catches form-filling bots */}
+                <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden">
+                  <label>
+                    Company
+                    <input type="text" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} />
+                  </label>
+                </div>
+
+                {submitError && (
+                  <div role="alert" className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-700 dark:text-rose-300 text-sm font-dm flex items-start gap-2">
+                    <AlertCircle size={16} className="mt-0.5 shrink-0" />
+                    <span>{submitError}</span>
+                  </div>
+                )}
 
                 {/* Dual Submit Buttons (Email Dispatch + 1-Click WhatsApp) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="py-3.5 px-6 rounded-xl bg-brand-terra hover:bg-brand-ember disabled:opacity-75 text-white font-dm font-semibold text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-brand-terra/20 hover:scale-[1.01] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra cursor-pointer"
+                    className="py-3.5 px-6 rounded-xl bg-brand-terra hover:bg-[#B82A00] disabled:opacity-75 text-white font-dm font-semibold text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-brand-terra/20 hover:scale-[1.01] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra cursor-pointer"
                   >
                     {isSubmitting ? (
                       <>
                         <Loader2 size={16} className="animate-spin" />
-                        <span>Preparing Email...</span>
+                        <span>Sending inquiry...</span>
                       </>
                     ) : (
                       <>
@@ -275,10 +301,10 @@ Sent via thegranjefe.com`
 
                 <div className="space-y-1">
                   <h3 className="font-syne font-bold text-2xl text-[#2E0E1D] dark:text-[#FFF0E3]">
-                    Inquiry Initialized
+                    Inquiry sent
                   </h3>
                   <p className="font-dm text-sm text-[#5A3846] dark:text-[#E6D0C2] max-w-md mx-auto">
-                    Your email client has been prepared with your project scope. Adeleke Sherifdeen will personally review and respond in <strong>under 4 hours</strong>.
+                    We&rsquo;ve received your project details. Adeleke Sherifdeen will personally review them and reply to <strong>{emailInput}</strong> in <strong>under 4 hours</strong>.
                   </p>
                 </div>
 
@@ -302,7 +328,7 @@ Sent via thegranjefe.com`
                   <button
                     type="button"
                     onClick={() => setIsSubmitted(false)}
-                    className="w-full sm:w-auto py-2.5 px-5 rounded-xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-xs font-mono text-[#6C4B59] dark:text-[#E6D0C2] hover:text-brand-terra flex items-center justify-center gap-1.5"
+                    className="w-full sm:w-auto py-2.5 px-5 rounded-xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-xs font-mono text-[#6C4B59] dark:text-[#E6D0C2] hover:text-brand-terra-ink flex items-center justify-center gap-1.5"
                   >
                     <RotateCcw size={13} />
                     <span>Send Another Inquiry</span>
@@ -324,7 +350,7 @@ Sent via thegranjefe.com`
                   href="mailto:granjefetech@gmail.com"
                   className="px-3.5 py-1.5 rounded-lg bg-[#FFF0E3] hover:bg-[#F3E2D5] dark:bg-[#25121E] dark:hover:bg-[#2C1625] text-[#2E0E1D] dark:text-[#FFF0E3] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 font-dm text-xs flex items-center gap-1.5 transition-colors"
                 >
-                  <Mail size={13} className="text-brand-terra" />
+                  <Mail size={13} className="text-brand-terra-ink" />
                   <span>granjefetech@gmail.com</span>
                 </a>
 

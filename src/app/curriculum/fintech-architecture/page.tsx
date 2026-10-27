@@ -84,7 +84,7 @@ export default function FintechArchitectureCurriculumPage() {
           <div className="flex items-center gap-3 sm:gap-4">
             <Link
               href="/#curriculum"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra-ink dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
             >
               <ArrowLeft size={14} />
               <span>Back to Curriculums</span>
@@ -133,7 +133,7 @@ export default function FintechArchitectureCurriculumPage() {
             </div>
 
             <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-2">
-              <div className="flex items-center gap-2 text-brand-terra dark:text-brand-ember font-bold text-sm">
+              <div className="flex items-center gap-2 text-brand-terra-ink dark:text-brand-ember font-bold text-sm">
                 <Lock size={18} /> Idempotent Transfers
               </div>
               <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-dm">
@@ -191,8 +191,8 @@ export default function FintechArchitectureCurriculumPage() {
                 <BookOpen size={14} className="text-amber-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://martinfowler.com/eaaDev/AccountingTransaction.html" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Martin Fowler: Accounting Transaction Architecture <ExternalLink size={11} /></a></li>
-                <li><a href="https://modern-treasury.ghost.io/what-is-a-ledger/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Modern Treasury: What is a Double-Entry Ledger? <ExternalLink size={11} /></a></li>
+                <li><a href="https://martinfowler.com/eaaDev/AccountingTransaction.html" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Martin Fowler: Accounting Transaction Architecture <ExternalLink size={11} /></a></li>
+                <li><a href="https://modern-treasury.ghost.io/what-is-a-ledger/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Modern Treasury: What is a Double-Entry Ledger? <ExternalLink size={11} /></a></li>
                 <li><em>Essential Chapter:</em> <em>Designing Data-Intensive Applications</em> by Martin Kleppmann (Chapter 7: Transactions &amp; Isolation).</li>
               </ul>
             </div>
@@ -202,8 +202,8 @@ export default function FintechArchitectureCurriculumPage() {
                 <Code2 size={14} className="text-amber-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=R9OHg9K1VHQ" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">ByteByteGo: How Banks Handle Transactions (ACID) <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=pomxJOFLeQs" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Hussein Nasser: Row Locks &amp; SELECT FOR UPDATE <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=R9OHg9K1VHQ" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">ByteByteGo: How Banks Handle Transactions (ACID) <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=pomxJOFLeQs" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Hussein Nasser: Row Locks &amp; SELECT FOR UPDATE <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -249,9 +249,9 @@ export default function FintechArchitectureCurriculumPage() {
                 <BookOpen size={14} className="text-blue-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://stripe.com/blog/idempotency" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Stripe Engineering: Designing Idempotent APIs <ExternalLink size={11} /></a></li>
-                <li><a href="https://brandur.org/idempotency-keys" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Brandur: Implementing Idempotency Keys <ExternalLink size={11} /></a></li>
-                <li><a href="https://paystack.com/docs/api/webhook/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Paystack: Webhook Security &amp; HMAC Verification <ExternalLink size={11} /></a></li>
+                <li><a href="https://stripe.com/blog/idempotency" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Stripe Engineering: Designing Idempotent APIs <ExternalLink size={11} /></a></li>
+                <li><a href="https://brandur.org/idempotency-keys" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Brandur: Implementing Idempotency Keys <ExternalLink size={11} /></a></li>
+                <li><a href="https://paystack.com/docs/api/webhook/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Paystack: Webhook Security &amp; HMAC Verification <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -260,8 +260,8 @@ export default function FintechArchitectureCurriculumPage() {
                 <Code2 size={14} className="text-blue-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=olfaBgJ48qY" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">ByteByteGo: Payment System Design Explained <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=0k3vQcT1g_0" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">ByteByteGo: How Webhook Signatures Work <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=olfaBgJ48qY" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">ByteByteGo: Payment System Design Explained <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=0k3vQcT1g_0" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">ByteByteGo: How Webhook Signatures Work <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -306,8 +306,8 @@ export default function FintechArchitectureCurriculumPage() {
                 <BookOpen size={14} className="text-purple-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.moderntreasury.com/learn/reconciliation" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Modern Treasury: Guide to Financial Reconciliation <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.pcisecuritystandards.org/" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">PCI Security Standards Council: Tokenization Specs <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.moderntreasury.com/learn/reconciliation" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Modern Treasury: Guide to Financial Reconciliation <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.pcisecuritystandards.org/" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">PCI Security Standards Council: Tokenization Specs <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -316,8 +316,8 @@ export default function FintechArchitectureCurriculumPage() {
                 <Code2 size={14} className="text-purple-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=q1Z4s1bIqN8" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">ByteByteGo: Financial Reconciliation Systems <ExternalLink size={11} /></a></li>
-                <li><a href="https://www.youtube.com/watch?v=tT8lK7iP75k" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Hussein Nasser: PCI-DSS &amp; Card Data Protection <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=q1Z4s1bIqN8" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">ByteByteGo: Financial Reconciliation Systems <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=tT8lK7iP75k" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Hussein Nasser: PCI-DSS &amp; Card Data Protection <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -354,8 +354,8 @@ export default function FintechArchitectureCurriculumPage() {
                 <BookOpen size={14} className="text-amber-500" /> High-Yield Reading
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://stripe.com/docs/treasury" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Stripe Treasury: Multi-Account Financial Flow Architecture <ExternalLink size={11} /></a></li>
-                <li><a href="https://docs.celergate.com" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">Celergate / Payceler: Cross-Border Settlement Specs <ExternalLink size={11} /></a></li>
+                <li><a href="https://stripe.com/docs/treasury" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Stripe Treasury: Multi-Account Financial Flow Architecture <ExternalLink size={11} /></a></li>
+                <li><a href="https://docs.celergate.com" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">Celergate / Payceler: Cross-Border Settlement Specs <ExternalLink size={11} /></a></li>
               </ul>
             </div>
 
@@ -364,7 +364,7 @@ export default function FintechArchitectureCurriculumPage() {
                 <Code2 size={14} className="text-amber-500" /> Practical Video Resource
               </h4>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5 font-dm">
-                <li><a href="https://www.youtube.com/watch?v=1vTXp_f9JbU" target="_blank" rel="noopener noreferrer" className="text-brand-terra hover:underline inline-flex items-center gap-1">ByteByteGo: Distributed Transaction Orchestration (Saga Pattern) <ExternalLink size={11} /></a></li>
+                <li><a href="https://www.youtube.com/watch?v=1vTXp_f9JbU" target="_blank" rel="noopener noreferrer" className="text-brand-terra-ink hover:underline inline-flex items-center gap-1">ByteByteGo: Distributed Transaction Orchestration (Saga Pattern) <ExternalLink size={11} /></a></li>
               </ul>
             </div>
           </div>
@@ -408,7 +408,7 @@ export default function FintechArchitectureCurriculumPage() {
                 href="https://www.coursera.org/specializations/wharton-fintech"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -431,7 +431,7 @@ export default function FintechArchitectureCurriculumPage() {
                 href="https://www.coursera.org/specializations/decentralized-finance-duke"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -454,7 +454,7 @@ export default function FintechArchitectureCurriculumPage() {
                 href="https://www.coursera.org/specializations/fintech-innovations"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pt-2 text-xs font-semibold text-brand-terra hover:underline flex items-center gap-1"
+                className="pt-2 text-xs font-semibold text-brand-terra-ink hover:underline flex items-center gap-1"
               >
                 <span>View on Coursera</span>
                 <ExternalLink size={11} />
@@ -470,7 +470,7 @@ export default function FintechArchitectureCurriculumPage() {
         <div className="mt-14 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <Link
             href="/#curriculum"
-            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra dark:text-brand-ember hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra-ink dark:text-brand-ember hover:underline"
           >
             <ArrowLeft size={16} /> Explore All Learning Tracks
           </Link>

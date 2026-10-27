@@ -18,6 +18,7 @@ export function CustomCursor() {
   useEffect(() => {
     // Only enable on devices with fine pointer (mouse/trackpad), not touch screens
     if (window.matchMedia('(pointer: coarse)').matches) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX)
