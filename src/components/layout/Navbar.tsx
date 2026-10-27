@@ -12,7 +12,6 @@ const navItems = [
   { label: 'Work', href: '#work' },
   { label: 'Services', href: '#services' },
   { label: 'Process', href: '#process' },
-  { label: 'Curriculum', href: '/curriculum' },
   { label: 'Studio', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ]

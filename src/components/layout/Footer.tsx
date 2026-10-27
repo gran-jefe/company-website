@@ -90,9 +90,9 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Standards & Curriculums (3 cols) */}
+          {/* Free Learning: curriculums live here, out of the buyer's path (3 cols) */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#FFF0E3]">Learning &amp; Standards</h4>
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#FFF0E3]">Free Learning Hub</h4>
             <div className="flex flex-col space-y-2 text-sm font-dm">
               <Link
                 href="/standards/ui-ux-playbook"
@@ -103,25 +103,25 @@ export function Footer() {
               </Link>
               <Link
                 href="/curriculum"
-                className="text-[#E6D0C2] hover:text-brand-terra-ink transition-colors"
+                className="text-[#E6D0C2] hover:text-[#FF6A3D] transition-colors"
               >
-                All 9 Curriculums
+                All 9 free curriculums
               </Link>
               <Link
                 href="/curriculum/product-management"
-                className="text-[#E6D0C2] hover:text-brand-terra-ink transition-colors"
+                className="text-[#E6D0C2] hover:text-[#FF6A3D] transition-colors"
               >
                 Product Management Track
               </Link>
               <Link
                 href="/curriculum/people-operations"
-                className="text-[#E6D0C2] hover:text-brand-terra-ink transition-colors"
+                className="text-[#E6D0C2] hover:text-[#FF6A3D] transition-colors"
               >
                 People Ops &amp; Tech HR Track
               </Link>
               <Link
                 href="/curriculum/python-django"
-                className="text-[#E6D0C2] hover:text-brand-terra-ink transition-colors"
+                className="text-[#E6D0C2] hover:text-[#FF6A3D] transition-colors"
               >
                 Python &amp; Django Track
               </Link>

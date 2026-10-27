@@ -67,7 +67,10 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       title: 'Engineering Curriculums & Roadmaps',
       subtitle: 'Open learning tracks for full-stack, frontend, and Python backend',
       icon: <BookOpen size={18} className="text-emerald-500" />,
-      action: () => scrollToSection('#curriculum'),
+      action: () => {
+        router.push('/curriculum')
+        onClose()
+      },
     },
     {
       id: 'python-django-curriculum',
@@ -135,13 +138,6 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       subtitle: 'Mobile, Web, Distributed Backends, Fintech',
       icon: <Cpu size={18} className="text-brand-terra-ink" />,
       action: () => scrollToSection('#services'),
-    },
-    {
-      id: 'stack',
-      title: 'Tech Stack Matrix',
-      subtitle: 'React, Next.js, React Native, Node.js, Python',
-      icon: <Code size={18} className="text-emerald-500" />,
-      action: () => scrollToSection('#stack'),
     },
     {
       id: 'work',

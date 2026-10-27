@@ -5,12 +5,10 @@ import { Marquee } from '@/components/ui/Marquee'
 import { TrustBar } from '@/components/sections/TrustBar'
 import { Services } from '@/components/sections/Services'
 import { Process } from '@/components/sections/Process'
-import { Stack } from '@/components/sections/Stack'
 import { Work } from '@/components/sections/Work'
 import { About } from '@/components/sections/About'
 import { Contact } from '@/components/sections/Contact'
 import { InteractiveCanvas } from '@/components/ui/InteractiveCanvas'
-import { CurriculumPopup } from '@/components/ui/CurriculumPopup'
 
 export default function Home() {
   return (
@@ -27,13 +25,11 @@ export default function Home() {
         <Work />
         <Services />
         <Process />
-        <Stack />
         <About />
         <Contact />
       </main>
 
       <Footer />
-      <CurriculumPopup />
     </div>
   )
 }

@@ -11,7 +11,7 @@ interface ServiceItem {
   icon: React.ReactNode
   title: string
   description: string
-  techStack: string[]
+  includes: string[]
   highlight: string
 }
 
@@ -20,54 +20,54 @@ const services: ServiceItem[] = [
     id: 'mobile',
     codeTag: 'MOBILE APPLICATIONS',
     icon: <Smartphone size={24} className="text-brand-terra-ink" />,
-    title: 'Mobile App Engineering',
-    description: 'Custom iOS and Android mobile applications built with React Native. Native performance, responsive design, offline capabilities, and smooth 60fps animations.',
-    techStack: ['React Native', 'TypeScript', 'Expo', 'iOS & Android'],
+    title: 'Mobile Apps',
+    description: 'iPhone and Android apps built from one shared codebase, so you reach both audiences without paying for two separate apps. Fast, smooth, and usable offline where it matters.',
+    includes: ['iPhone & Android', 'One shared codebase', 'Works offline'],
     highlight: 'Native 60FPS • Single Codebase',
   },
   {
     id: 'web',
     codeTag: 'WEB PLATFORMS & E-COMMERCE',
     icon: <Layout size={24} className="text-dev-cyan" />,
-    title: 'Full-Stack Web Engineering',
-    description: 'Modern, high-performance web applications, storefronts, dashboards, and portals. Designed for instant loading, security, and customer conversion.',
-    techStack: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS'],
+    title: 'Websites & Web Apps',
+    description: 'Business websites, online stores, dashboards and customer portals that load fast, look sharp on every screen, and turn visitors into enquiries and sales.',
+    includes: ['Business websites', 'Online stores', 'Dashboards & portals'],
     highlight: 'Core Web Vitals 95+ Score',
   },
   {
     id: 'backend',
     codeTag: 'SECURE BACKEND',
     icon: <Server size={24} className="text-dev-emerald" />,
-    title: 'Backend & API Architecture',
-    description: 'Reliable Node.js and Python API services, auth systems, database modeling, and server architecture engineered for high availability and security.',
-    techStack: ['Node.js', 'Python', 'PostgreSQL', 'REST & GraphQL'],
+    title: 'Backend Systems',
+    description: 'The engine behind your product: user accounts, databases and business logic that stay secure and keep running as you grow.',
+    includes: ['Accounts & logins', 'Databases', 'Admin tools'],
     highlight: 'Sub-15ms Latency Guarantee',
   },
   {
     id: 'fintech',
     codeTag: 'FINTECH & PAYMENTS',
     icon: <ShieldCheck size={24} className="text-amber-500" />,
-    title: 'Fintech & Payment Solutions',
-    description: 'Secure digital payment integrations, double-entry wallet architectures, transaction tracking, and compliance-aware user flows built with extreme reliability.',
-    techStack: ['Payment Gateways', 'Ledger Sync', 'JWT Auth'],
+    title: 'Payments & Fintech',
+    description: 'Accept, send and track money safely: payment gateway setup, wallets with accurate balances, and checkout flows designed around compliance.',
+    includes: ['Card & bank payments', 'Wallets & balances', 'Transaction history'],
     highlight: 'Zero Financial Data Loss',
   },
   {
     id: 'integrations',
     codeTag: 'SYSTEM INTEGRATIONS',
     icon: <Cpu size={24} className="text-dev-violet" />,
-    title: 'Third-Party Integrations',
-    description: 'Seamless integration of analytics engines, authentication providers, payment processors, and external third-party APIs into your product stack.',
-    techStack: ['API Gateways', 'Webhooks', 'OAuth / Auth0'],
+    title: 'Connecting Your Tools',
+    description: 'Link your product to the services you already use, such as payment providers, analytics, email and sign-in, so data moves without manual work.',
+    includes: ['Payments', 'Analytics', 'Email & sign-in'],
     highlight: '99.99% Uptime Guarantee',
   },
   {
     id: 'mvp',
     codeTag: 'RAPID PRODUCT LAUNCH',
     icon: <Rocket size={24} className="text-brand-ember" />,
-    title: 'MVP & Product Prototyping',
-    description: 'Turn your product vision into a production-ready MVP quickly. Engineered for startup founders and companies who need to launch fast.',
-    techStack: ['Full-Stack TS', 'Firebase / Supabase', 'Vercel'],
+    title: 'MVPs for Founders',
+    description: 'Turn your idea into a working first version you can put in front of users and investors, quickly and without cutting corners.',
+    includes: ['Clickable prototype', 'Working first version', 'Launch support'],
     highlight: '0 to Production in < 4 wks',
   },
 ]
@@ -81,12 +81,12 @@ export function Services() {
             <div>
               <SectionLabel>What We Do</SectionLabel>
               <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-bold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
-                Full-spectrum software engineering.{' '}
-                <span className="text-brand-terra-ink">Tailored to your needs.</span>
+                Websites, apps and payment systems.{' '}
+                <span className="text-brand-terra-ink">Built around your goals.</span>
               </h2>
             </div>
             <p className="font-mono text-xs text-[#7A4A38] dark:text-[#B88E7D] max-w-xs">
-              {"// Strict engineering standards, clean modular architecture, zero technical debt."}
+              {"// Built with proven, widely supported tools: Next.js, React Native, Node.js and Python."}
             </p>
           </div>
         </AnimatedSection>
@@ -109,26 +109,26 @@ export function Services() {
                 </h3>
 
                 <p className="text-sm sm:text-base font-dm text-[#EAD3C4] dark:text-[#E6D0C2] leading-relaxed max-w-2xl">
-                  Is a slow, dated, or clunky website draining your paid ad budget and losing customers? We completely rebuild your landing page or web application into an ultra-fast, interactive Next.js 16 experience in 7 business days flat.
+                  Is a slow, dated, or clunky website draining your paid ad budget and losing customers? We completely rebuild your landing page or web application into a fast, modern site built to win customers, in 7 business days flat.
                 </p>
 
                 {/* Value Checkpoints */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
                   <div className="flex items-center gap-2 text-xs font-dm text-[#FFF0E3] dark:text-[#E6D0C2]">
                     <CheckCircle2 size={15} className="text-brand-terra-ink flex-shrink-0" />
-                    <span><strong>95+ Core Web Vitals:</strong> Sub-second mobile load speeds</span>
+                    <span><strong>Fast on mobile:</strong> Pages load in under a second</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs font-dm text-[#FFF0E3] dark:text-[#E6D0C2]">
                     <CheckCircle2 size={15} className="text-brand-terra-ink flex-shrink-0" />
-                    <span><strong>Conversion-Optimized UX:</strong> Clear hierarchy &amp; zero layout shift</span>
+                    <span><strong>Built to convert:</strong> Clear layout that leads visitors to act</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs font-dm text-[#FFF0E3] dark:text-[#E6D0C2]">
                     <CheckCircle2 size={15} className="text-brand-terra-ink flex-shrink-0" />
-                    <span><strong>Fluid Interactions:</strong> Smooth 60fps micro-animations</span>
+                    <span><strong>Polished feel:</strong> Smooth, responsive interactions</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs font-dm text-[#FFF0E3] dark:text-[#E6D0C2]">
                     <CheckCircle2 size={15} className="text-brand-terra-ink flex-shrink-0" />
-                    <span><strong>Fixed Timeline:</strong> Production-ready in 7 business days</span>
+                    <span><strong>Fixed timeline:</strong> Live in 7 business days</span>
                   </div>
                 </div>
               </div>
@@ -189,12 +189,12 @@ export function Services() {
 
                 <div className="pt-4 border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 space-y-3">
                   <div className="flex flex-wrap gap-1.5">
-                    {service.techStack.map((tech, i) => (
+                    {service.includes.map((item, i) => (
                       <span
                         key={i}
                         className="px-2.5 py-1 rounded text-xs font-mono bg-[#FAF0E6] dark:bg-[#25121E] text-[#2E0E1D] dark:text-[#FFF0E3] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/40 transition-colors"
                       >
-                        {tech}
+                        {item}
                       </span>
                     ))}
                   </div>

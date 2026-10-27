@@ -2,9 +2,8 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ArrowUpRight, Sparkles, ShieldCheck, Zap, Globe, ExternalLink, CheckCircle2, BookOpen } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Sparkles, ShieldCheck, Zap, Globe, ExternalLink, CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 interface HeroProject {
@@ -28,7 +27,7 @@ const heroShowcase: HeroProject[] = [
     persona: 'luxury',
     image: '/projects/projectcatalogue.jpg',
     url: 'https://www.projectcataloguelimited.com/',
-    metric: 'Sub-Second Fluid Showcase',
+    metric: 'Fast-Loading Property Showcase',
     tagline: 'High-end architectural portfolio converting wealthy diaspora buyers.',
   },
   {
@@ -93,7 +92,7 @@ export function Hero() {
         {/* Wispr Flow-style Persona Selector Pills */}
         <div className="mb-6 flex flex-wrap items-center gap-2">
           <span className="text-[11px] font-mono text-[#7A4A38] dark:text-[#B88E7D] font-bold uppercase tracking-wider mr-1">
-            Engineered For:
+            Built for:
           </span>
 
           <button
@@ -159,21 +158,8 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Bold Typography & Narrative (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Top Announcement & Studio Badges */}
+            {/* Studio Badge */}
             <div className="flex flex-wrap items-center gap-2.5">
-              <Link
-                href="/curriculum"
-                className="group inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/10 via-brand-terra/10 to-purple-500/10 border border-brand-terra/30 hover:border-brand-terra text-xs font-dm text-[#2E0E1D] dark:text-[#FFF0E3] transition-all shadow-xs hover:scale-[1.01]"
-              >
-                <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-brand-terra text-white">
-                  NEW
-                </span>
-                <span className="font-medium text-xs">
-                  9 Production Curriculums &bull; Free Open Learning Hub
-                </span>
-                <ArrowRight size={13} className="text-brand-terra-ink group-hover:translate-x-1 transition-transform" />
-              </Link>
-
               {/* Studio Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-xs font-mono shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-brand-terra animate-pulse" />
@@ -251,14 +237,6 @@ export function Hero() {
               >
                 <span>Selected Work ↓</span>
               </Button>
-
-              <Link
-                href="/curriculum"
-                className="py-3.5 px-5 text-sm font-dm font-semibold inline-flex items-center justify-center gap-2 rounded-xl bg-[#FAF0E6] dark:bg-[#1D0E17] hover:bg-[#F3E2D5] dark:hover:bg-[#25121E] border border-brand-terra/30 text-brand-terra-ink dark:text-brand-ember transition-all shadow-xs"
-              >
-                <BookOpen size={15} />
-                <span>Learning Hub</span>
-              </Link>
             </div>
           </div>
 
@@ -338,7 +316,7 @@ export function Hero() {
                     <span className="text-[#0E6247] dark:text-emerald-400 font-bold flex items-center gap-1.5">
                       <Zap size={13} /> {activeProject.metric}
                     </span>
-                    <span className="text-[#7A4A38] dark:text-[#B88E7D] font-medium">Verified Shipped Build</span>
+                    <span className="text-[#7A4A38] dark:text-[#B88E7D] font-medium">Live project</span>
                   </div>
 
                   <p className="text-xs font-dm text-[#5A3846] dark:text-[#E6D0C2] leading-relaxed font-medium">

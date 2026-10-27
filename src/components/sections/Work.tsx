@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import {
@@ -9,16 +9,8 @@ import {
   Globe,
   Sparkles,
   ArrowRight,
-  Monitor,
-  LayoutGrid,
-  Table,
   ChevronRight,
-  Terminal,
-  Zap,
-  Play,
-  Pause,
   ShieldCheck,
-  Cpu
 } from 'lucide-react'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
@@ -36,7 +28,6 @@ interface RealProject {
   stack: string[]
   imagePath: string
   accentColor: string
-  badgeText: string
   attribution?: string
 }
 
@@ -58,7 +49,6 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js 15', 'NestJS', 'TypeScript', 'Prisma', 'PostgreSQL', 'Tailwind CSS', 'AWS S3'],
     imagePath: '/projects/nhc_london.png',
     accentColor: 'border-t-4 border-t-emerald-500',
-    badgeText: '🏢 In-House • Mabilla Group',
     attribution: 'In-House Product of Mabilla Group | Full-Stack Engineering (Next.js 15 & NestJS)',
   },
   {
@@ -78,7 +68,6 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'TanStack Query', 'Mantine'],
     imagePath: '/projects/celergate.png',
     accentColor: 'border-t-4 border-t-dev-cyan',
-    badgeText: '🏢 In-House • Mabilla Group',
     attribution: 'In-House Product of Mabilla Group | Full-Stack & Frontend Engineering',
   },
   {
@@ -98,7 +87,6 @@ const allUserProjects: RealProject[] = [
     stack: ['React Native', 'Expo', 'TypeScript', 'Redux Toolkit', 'SumSub Mobile SDK', 'EAS Build'],
     imagePath: '/projects/remglo_agent.png',
     accentColor: 'border-t-4 border-t-brand-terra',
-    badgeText: '🏢 In-House • Mabilla Group',
     attribution: 'In-House Product of Mabilla Group | Solo Mobile Engineer',
   },
   {
@@ -118,7 +106,6 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'SumSub WebSDK'],
     imagePath: '/projects/payceler.png',
     accentColor: 'border-t-4 border-t-amber-500',
-    badgeText: '🏢 In-House • Mabilla Group',
     attribution: 'In-House Product of Mabilla Group | Full-Stack & Frontend Engineering',
   },
   {
@@ -138,7 +125,6 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'Tailwind CSS', 'WhatsApp Business'],
     imagePath: '/projects/shesandhers.jpg',
     accentColor: 'border-t-4 border-t-brand-terra',
-    badgeText: '🌐 Custom Domain • Live',
   },
   {
     id: 'romanseries',
@@ -157,7 +143,6 @@ const allUserProjects: RealProject[] = [
     stack: ['React', 'Next.js', 'TypeScript', 'PostgreSQL'],
     imagePath: '/projects/romanseries.jpg',
     accentColor: 'border-t-4 border-t-amber-500',
-    badgeText: '🌐 Custom Domain • Live',
   },
   {
     id: 'techcompass',
@@ -176,7 +161,6 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'Node.js', 'Tailwind CSS'],
     imagePath: '/projects/techcompass.jpg',
     accentColor: 'border-t-4 border-t-dev-cyan',
-    badgeText: '🌐 Custom Domain • Live',
   },
   {
     id: 'graffytea',
@@ -195,7 +179,6 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'Tailwind CSS', 'Payment Gateway'],
     imagePath: '/projects/graffytea.jpg',
     accentColor: 'border-t-4 border-t-emerald-500',
-    badgeText: '🌐 Custom Domain • Live',
   },
   {
     id: 'projectcatalogue',
@@ -214,7 +197,6 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion'],
     imagePath: '/projects/projectcatalogue.jpg',
     accentColor: 'border-t-4 border-t-amber-500',
-    badgeText: '🌐 Custom Domain • Live',
   },
   {
     id: 'sawt',
@@ -233,7 +215,6 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'Web Audio API', 'Python Engine'],
     imagePath: '/projects/sawt.jpg',
     accentColor: 'border-t-4 border-t-dev-violet',
-    badgeText: '▲ Vercel App • Live',
   },
   {
     id: 'justbreathe',
@@ -252,7 +233,6 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'Tailwind CSS', 'Booking API'],
     imagePath: '/projects/justbreathe.jpg',
     accentColor: 'border-t-4 border-t-brand-terra',
-    badgeText: '▲ Vercel App • Live',
   },
   {
     id: 'daarul',
@@ -271,7 +251,6 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'Student Portal', 'Video Engine'],
     imagePath: '/projects/daarul.jpg',
     accentColor: 'border-t-4 border-t-emerald-500',
-    badgeText: '▲ Vercel App • Live',
   },
   {
     id: 'cvmirror',
@@ -290,7 +269,6 @@ const allUserProjects: RealProject[] = [
     stack: ['React', 'Next.js', 'TypeScript', 'Parser Engine'],
     imagePath: '/projects/cvmirror.jpg',
     accentColor: 'border-t-4 border-t-dev-cyan',
-    badgeText: '▲ Vercel App • Live',
   },
   {
     id: 'uniabuja',
@@ -309,7 +287,6 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'Tailwind CSS', 'Institutional CMS'],
     imagePath: '/projects/uniabuja.jpg',
     accentColor: 'border-t-4 border-t-amber-500',
-    badgeText: '▲ Vercel App • Live',
   },
   {
     id: 'techcompass_landing',
@@ -328,7 +305,6 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'Framer Motion', 'Tailwind CSS'],
     imagePath: '/projects/techcompass_landing.jpg',
     accentColor: 'border-t-4 border-t-dev-violet',
-    badgeText: '▲ Vercel App • Live',
   },
   {
     id: 'bluelakes',
@@ -347,7 +323,6 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
     imagePath: '/projects/bluelakes.jpg',
     accentColor: 'border-t-4 border-t-dev-cyan',
-    badgeText: '▲ Vercel App • Live',
   },
   {
     id: 'bexterybites',
@@ -366,40 +341,33 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'Tailwind CSS', 'Vercel App'],
     imagePath: '/projects/bexterybites.jpg',
     accentColor: 'border-t-4 border-t-amber-500',
-    badgeText: '▲ Vercel App • Live',
   },
 ]
 
+type ProjectFilterId = 'all' | 'fintech' | 'retail' | 'education' | 'business'
+
+// Filters by the client's industry, which is how buyers look for relevant work
+const projectFilters: { id: ProjectFilterId; label: string; categories: RealProject['category'][] }[] = [
+  { id: 'all', label: 'All work', categories: [] },
+  { id: 'fintech', label: 'Payments & fintech', categories: ['fintech'] },
+  { id: 'retail', label: 'Brands & retail', categories: ['beauty_retail'] },
+  { id: 'education', label: 'Education', categories: ['edtech'] },
+  { id: 'business', label: 'Business & organisations', categories: ['saas', 'health_inst'] },
+]
+
 export function Work() {
-  const [viewMode, setViewMode] = useState<'workstation' | 'grid' | 'table'>('workstation')
-  const [activeDeployGroup, setActiveDeployGroup] = useState<'all' | 'fintech' | 'custom_domain' | 'vercel'>('all')
+  const [activeFilter, setActiveFilter] = useState<ProjectFilterId>('all')
   const [selectedProjectId, setSelectedProjectId] = useState<string>(allUserProjects[0].id)
-  const [isAutoRotating, setIsAutoRotating] = useState<boolean>(false)
 
-  const fintechProjects = allUserProjects.filter((p) => p.category === 'fintech')
-  const customDomainProjects = allUserProjects.filter((p) => p.deployGroup === 'custom_domain')
-  const vercelProjects = allUserProjects.filter((p) => p.deployGroup === 'vercel')
-
+  const currentFilter = projectFilters.find((f) => f.id === activeFilter) ?? projectFilters[0]
   const filteredProjects =
-    activeDeployGroup === 'all'
+    activeFilter === 'all'
       ? allUserProjects
-      : activeDeployGroup === 'fintech'
-      ? fintechProjects
-      : allUserProjects.filter((p) => p.deployGroup === activeDeployGroup)
+      : allUserProjects.filter((p) => currentFilter.categories.includes(p.category))
 
+  // Keep the preview in sync with the visible list when the filter changes
   const activeProject =
-    allUserProjects.find((p) => p.id === selectedProjectId) || allUserProjects[0]
-
-  // Auto rotation effect for Workstation mode
-  useEffect(() => {
-    if (!isAutoRotating) return
-    const timer = setInterval(() => {
-      const currentIndex = filteredProjects.findIndex((p) => p.id === selectedProjectId)
-      const nextIndex = (currentIndex + 1) % filteredProjects.length
-      setSelectedProjectId(filteredProjects[nextIndex].id)
-    }, 4500)
-    return () => clearInterval(timer)
-  }, [isAutoRotating, selectedProjectId, filteredProjects])
+    filteredProjects.find((p) => p.id === selectedProjectId) ?? filteredProjects[0] ?? allUserProjects[0]
 
   return (
     <section id="work" className="bg-transparent py-20 md:py-28 relative border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] transition-colors duration-300">
@@ -416,142 +384,35 @@ export function Work() {
                 <span className="font-serif italic font-normal text-brand-terra-ink dark:text-brand-ember">Engineered to scale.</span>
               </h2>
             </div>
-
-            {/* View Mode Switcher + Stats */}
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="p-1 rounded-xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center gap-1">
-                <button
-                  onClick={() => setViewMode('workstation')}
-                  className={`px-3.5 py-1.5 rounded-lg text-xs font-dm font-semibold transition-all flex items-center gap-1.5 ${
-                    viewMode === 'workstation'
-                      ? 'bg-brand-terra text-white shadow-sm'
-                      : 'text-[#6C4B59] dark:text-[#E6D0C2] hover:text-[#2E0E1D] dark:hover:text-[#FFF0E3]'
-                  }`}
-                >
-                  <Monitor size={14} />
-                  <span>Workstation</span>
-                </button>
-
-                <button
-                  onClick={() => setViewMode('grid')}
-                  className={`px-3.5 py-1.5 rounded-lg text-xs font-dm font-semibold transition-all flex items-center gap-1.5 ${
-                    viewMode === 'grid'
-                      ? 'bg-brand-terra text-white shadow-sm'
-                      : 'text-[#6C4B59] dark:text-[#E6D0C2] hover:text-[#2E0E1D] dark:hover:text-[#FFF0E3]'
-                  }`}
-                >
-                  <LayoutGrid size={14} />
-                  <span>Spotlight Deck</span>
-                </button>
-
-                <button
-                  onClick={() => setViewMode('table')}
-                  className={`px-3.5 py-1.5 rounded-lg text-xs font-dm font-semibold transition-all flex items-center gap-1.5 ${
-                    viewMode === 'table'
-                      ? 'bg-brand-terra text-white shadow-sm'
-                      : 'text-[#6C4B59] dark:text-[#E6D0C2] hover:text-[#2E0E1D] dark:hover:text-[#FFF0E3]'
-                  }`}
-                >
-                  <Table size={14} />
-                  <span>Console Matrix</span>
-                </button>
-              </div>
-            </div>
           </div>
         </AnimatedSection>
 
-        {/* Group Filter Tabs */}
+        {/* Industry Filter Tabs */}
         <AnimatedSection delay={0.1}>
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15">
-            <div className="flex flex-wrap gap-2">
-              <button
-                onClick={() => setActiveDeployGroup('all')}
-                className={`px-4 py-2 rounded-xl text-xs font-dm font-semibold transition-all flex items-center gap-2 ${
-                  activeDeployGroup === 'all'
-                    ? 'bg-[#2E0E1D] text-[#FFF0E3] dark:bg-[#FFF0E3] dark:text-[#2E0E1D] shadow-md font-bold'
-                    : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] hover:text-[#2E0E1D] dark:hover:text-[#FFF0E3] border border-[#EAD3C4] dark:border-[#EAD3C4]/15'
-                }`}
-              >
-                <span>All Deployments ({allUserProjects.length})</span>
-              </button>
-
-              <button
-                onClick={() => setActiveDeployGroup('fintech')}
-                className={`px-4 py-2 rounded-xl text-xs font-dm font-semibold transition-all flex items-center gap-2 ${
-                  activeDeployGroup === 'fintech'
-                    ? 'bg-brand-terra text-white shadow-md shadow-brand-terra/20'
-                    : 'bg-brand-terra/10 text-brand-terra-ink border border-brand-terra/30 hover:bg-brand-terra/20'
-                }`}
-              >
-                <ShieldCheck size={13} />
-                <span>In-House Track Record ({fintechProjects.length})</span>
-              </button>
-
-              <button
-                onClick={() => setActiveDeployGroup('custom_domain')}
-                className={`px-4 py-2 rounded-xl text-xs font-dm font-semibold transition-all flex items-center gap-2 ${
-                  activeDeployGroup === 'custom_domain'
-                    ? 'bg-[#0E6247] text-white shadow-md shadow-emerald-600/20'
-                    : 'bg-[#E1F5EE] text-[#0E6247] dark:bg-emerald-950/40 dark:text-emerald-300 border border-[#A7E3D0] dark:border-emerald-800/60 hover:opacity-90'
-                }`}
-              >
-                <Globe size={13} />
-                <span>Live Custom Domains ({customDomainProjects.length})</span>
-              </button>
-
-              <button
-                onClick={() => setActiveDeployGroup('vercel')}
-                className={`px-4 py-2 rounded-xl text-xs font-dm font-semibold transition-all flex items-center gap-2 ${
-                  activeDeployGroup === 'vercel'
-                    ? 'bg-brand-terra text-white shadow-md shadow-brand-terra/20'
-                    : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:text-[#2E0E1D] dark:hover:text-[#FFF0E3]'
-                }`}
-              >
-                <Zap size={13} />
-                <span>Vercel Deployments ({vercelProjects.length})</span>
-              </button>
-            </div>
-
-            {/* Auto Play Toggle for Workstation Mode */}
-            {viewMode === 'workstation' && (
-              <button
-                onClick={() => setIsAutoRotating(!isAutoRotating)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5 ${
-                  isAutoRotating
-                    ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30'
-                    : 'bg-zinc-100 dark:bg-[#1D0E17] text-zinc-500 dark:text-[#B88E7D] border border-zinc-200 dark:border-[#EAD3C4]/15'
-                }`}
-              >
-                {isAutoRotating ? <Pause size={13} /> : <Play size={13} />}
-                <span>{isAutoRotating ? 'Auto-Cycle ON' : 'Auto-Cycle OFF'}</span>
-              </button>
-            )}
+          <div className="mt-8 flex flex-wrap gap-2 pb-4 border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15">
+            {projectFilters.map((filter) => {
+              const count = filter.id === 'all' ? allUserProjects.length : allUserProjects.filter((p) => filter.categories.includes(p.category)).length
+              const isActive = activeFilter === filter.id
+              return (
+                <button
+                  key={filter.id}
+                  onClick={() => setActiveFilter(filter.id)}
+                  aria-pressed={isActive}
+                  className={`min-h-[40px] px-4 py-2 rounded-xl text-xs font-dm font-semibold transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra ${
+                    isActive
+                      ? 'bg-[#2E0E1D] text-[#FFF0E3] dark:bg-[#FFF0E3] dark:text-[#2E0E1D] shadow-md'
+                      : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] hover:text-[#2E0E1D] dark:hover:text-[#FFF0E3] border border-[#EAD3C4] dark:border-[#EAD3C4]/15'
+                  }`}
+                >
+                  {filter.label} ({count})
+                </button>
+              )
+            })}
           </div>
         </AnimatedSection>
-
-        {/* High-Intent Empty State (UI/UX Non-Negotiable 4) */}
-        {filteredProjects.length === 0 && (
-          <div className="mt-12 p-12 rounded-3xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-dashed border-[#EAD3C4] dark:border-[#EAD3C4]/20 text-center space-y-4 max-w-lg mx-auto">
-            <div className="w-12 h-12 rounded-full bg-brand-terra/10 text-brand-terra-ink flex items-center justify-center mx-auto">
-              <Sparkles size={22} />
-            </div>
-            <h3 className="font-syne font-bold text-xl text-[#2E0E1D] dark:text-[#FFF0E3]">
-              No Deployments Found
-            </h3>
-            <p className="text-sm text-[#6C4B59] dark:text-[#E6D0C2] font-dm">
-              No deployed projects matched this specific category. Reset filters to explore our full portfolio.
-            </p>
-            <button
-              onClick={() => setActiveDeployGroup('all')}
-              className="py-2.5 px-5 rounded-xl bg-brand-terra text-white text-xs font-semibold font-dm hover:bg-[#B82A00] transition-colors cursor-pointer"
-            >
-              Reset to All Deployments
-            </button>
-          </div>
-        )}
 
         {/* MODE 1: INTERACTIVE WORKSTATION CANVAS (DEFAULT) */}
-        {viewMode === 'workstation' && filteredProjects.length > 0 && (
+        {filteredProjects.length > 0 && (
           <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Sidebar: Interactive Project Selector List */}
             <div className="lg:col-span-5 space-y-3 max-h-[640px] overflow-y-auto pr-2 custom-scrollbar">
@@ -560,10 +421,7 @@ export function Work() {
                 return (
                   <motion.button
                     key={project.id}
-                    onClick={() => {
-                      setSelectedProjectId(project.id)
-                      setIsAutoRotating(false)
-                    }}
+                    onClick={() => setSelectedProjectId(project.id)}
                     whileHover={{ x: 4 }}
                     className={`w-full text-left p-4 rounded-2xl border transition-all duration-200 flex items-center justify-between gap-3 ${
                       isSelected
@@ -573,14 +431,10 @@ export function Work() {
                   >
                     <div className="space-y-1 min-w-0 flex-1">
                       <div className="flex items-center gap-2">
-                        <span
-                          className={`w-2 h-2 rounded-full ${
-                            project.deployGroup === 'custom_domain' ? 'bg-[#0E6247]' : 'bg-brand-terra'
-                          }`}
-                        />
+                        <span className="w-2 h-2 rounded-full bg-[#0E6247]" />
                         <span
                           className={`text-[10px] font-mono uppercase tracking-wider ${
-                            isSelected ? 'text-brand-terra-ink dark:text-white font-bold' : 'text-[#7A4A38] dark:text-[#B88E7D]'
+                            isSelected ? 'text-[#FF6A3D] dark:text-white font-bold' : 'text-[#7A4A38] dark:text-[#B88E7D]'
                           }`}
                         >
                           {project.categoryLabel}
@@ -591,22 +445,13 @@ export function Work() {
                         {project.name}
                       </h4>
 
-                      <div className="text-xs font-mono text-[#7A4A38] dark:text-[#E6D0C2] truncate flex items-center gap-1">
-                        <Globe size={11} className="text-brand-terra-ink flex-shrink-0" />
+                      <div className={`text-xs font-mono truncate flex items-center gap-1 ${isSelected ? 'text-[#EAD3C4] dark:text-white/85' : 'text-[#7A4A38] dark:text-[#E6D0C2]'}`}>
+                        <Globe size={11} className={`flex-shrink-0 ${isSelected ? 'text-[#FF6A3D] dark:text-white' : 'text-brand-terra-ink'}`} />
                         <span className="truncate">{project.domain}</span>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-2 flex-shrink-0">
-                      <span
-                        className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${
-                          project.deployGroup === 'custom_domain'
-                            ? 'bg-[#E1F5EE] text-[#0E6247] dark:bg-emerald-950/40 dark:text-emerald-300 border-[#A7E3D0] dark:border-emerald-500/30'
-                            : 'bg-brand-terra/10 text-brand-terra-ink border-brand-terra/30'
-                        }`}
-                      >
-                        {project.deployGroup === 'custom_domain' ? 'Custom' : 'Vercel'}
-                      </span>
                       <ChevronRight
                         size={16}
                         className={`transition-transform ${
@@ -646,7 +491,7 @@ export function Work() {
                         </span>
                       </div>
                       <span className="text-[10px] text-[#0E6247] dark:text-emerald-400 font-mono flex-shrink-0">
-                        SSL 256-bit
+                        Live site
                       </span>
                     </div>
 
@@ -687,7 +532,7 @@ export function Work() {
                     </div>
                   </div>
 
-                  {/* Inspection Metadata Panel */}
+                  {/* Project Details */}
                   <div className="p-6 md:p-8 space-y-6 bg-[#FAF0E6] dark:bg-[#1D0E17]">
                     <p className="font-dm text-[#5A3846] dark:text-[#E6D0C2] text-sm md:text-base leading-relaxed">
                       {activeProject.summary}
@@ -700,7 +545,7 @@ export function Work() {
                       </div>
                     )}
 
-                    {/* Key Engineering Highlights */}
+                    {/* Key Highlights */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                       {activeProject.highlights.map((h, i) => (
                         <div
@@ -713,7 +558,7 @@ export function Work() {
                       ))}
                     </div>
 
-                    {/* Tech Stack Matrix Tags */}
+                    {/* Built With */}
                     <div className="pt-4 border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex flex-wrap items-center justify-between gap-4">
                       <div className="flex flex-wrap gap-2">
                         {activeProject.stack.map((tech, i) => (
@@ -727,197 +572,13 @@ export function Work() {
                       </div>
 
                       <div className="flex items-center gap-2 text-xs font-mono text-[#7A4A38] dark:text-[#B88E7D]">
-                        <Cpu size={14} className="text-brand-terra-ink" />
-                        <span>Status: Operational</span>
+                        <CheckCircle2 size={14} className="text-[#0E6247] dark:text-emerald-400" />
+                        <span>Live and in use</span>
                       </div>
                     </div>
                   </div>
                 </motion.div>
               </AnimatePresence>
-            </div>
-          </div>
-        )}
-
-        {/* MODE 2: ANIMATED SPOTLIGHT DECK (SLIDER / PERSPECTIVE GRID) */}
-        {viewMode === 'grid' && filteredProjects.length > 0 && (
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  layout
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3, delay: index * 0.04 }}
-                  whileHover={{ y: -6, scale: 1.01 }}
-                >
-                  <div
-                    className={`h-full group rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 ${project.accentColor} transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-2xl hover:shadow-brand-clay/10 dark:hover:shadow-black/70`}
-                  >
-                    <div>
-                      {/* Floating Header */}
-                      <div className="px-4 py-2.5 bg-[#F3E2D5] dark:bg-[#25121E] border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center justify-between gap-2 text-xs font-mono">
-                        <div className="truncate px-2.5 py-0.5 rounded bg-[#FFF0E3] dark:bg-[#1A0C15] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[11px] text-[#6C4B59] dark:text-[#E6D0C2] flex items-center gap-1">
-                          <Globe size={11} className="text-brand-terra-ink flex-shrink-0" />
-                          <span className="truncate">{project.domain}</span>
-                        </div>
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[#7A4A38] dark:text-[#E6D0C2] hover:text-brand-terra-ink transition-colors"
-                        >
-                          <ExternalLink size={14} />
-                        </a>
-                      </div>
-
-                      {/* Screenshot Image */}
-                      <div className="relative w-full h-48 bg-[#1D0E17] overflow-hidden border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15">
-                        <Image
-                          src={project.imagePath}
-                          alt={project.name}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          priority={index < 3}
-                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                          unoptimized
-                        />
-                      </div>
-
-                      <div className="p-6 space-y-4">
-                        <div className="flex items-center justify-between gap-2">
-                          <span className="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-[#FFF0E3] dark:bg-[#25121E] text-[#2E0E1D] dark:text-[#FFF0E3] border border-[#EAD3C4] dark:border-[#EAD3C4]/15">
-                            {project.categoryLabel}
-                          </span>
-                          <span
-                            className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-medium ${
-                              project.deployGroup === 'custom_domain'
-                                ? 'bg-[#E1F5EE] text-[#0E6247] dark:bg-emerald-950/40 dark:text-emerald-300 border-[#A7E3D0] dark:border-emerald-500/30'
-                                : 'bg-brand-terra/10 text-brand-terra-ink border-brand-terra/30'
-                            }`}
-                          >
-                            {project.badgeText}
-                          </span>
-                        </div>
-
-                        <h3 className="font-syne font-bold text-xl text-[#2E0E1D] dark:text-[#FFF0E3] group-hover:text-brand-terra-ink transition-colors">
-                          {project.name}
-                        </h3>
-
-                        <p className="font-dm font-normal text-[#5A3846] dark:text-[#E6D0C2] text-sm leading-relaxed">
-                          {project.summary}
-                        </p>
-
-                        {project.attribution && (
-                          <div className="pt-2 text-[11px] font-mono text-brand-terra-ink font-medium flex items-center gap-1.5">
-                            <ShieldCheck size={13} className="flex-shrink-0" />
-                            <span>{project.attribution}</span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="p-6 pt-4 border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center justify-between gap-3">
-                      <div className="flex flex-wrap gap-1.5 flex-1">
-                        {project.stack.slice(0, 3).map((tech, i) => (
-                          <span
-                            key={i}
-                            className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-[#FFF0E3] dark:bg-[#25121E] text-[#2E0E1D] dark:text-[#FFF0E3] border border-[#EAD3C4] dark:border-[#EAD3C4]/15"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-lg bg-brand-terra/10 hover:bg-brand-terra text-brand-terra-ink hover:text-white transition-colors"
-                      >
-                        <ExternalLink size={16} />
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-        )}
-
-        {/* MODE 3: PRODUCTION CONSOLE MATRIX TABLE */}
-        {viewMode === 'table' && filteredProjects.length > 0 && (
-          <div className="mt-10 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 overflow-hidden shadow-2xl">
-            <div className="p-4 bg-[#F3E2D5] dark:bg-[#25121E] border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex items-center justify-between gap-4 font-mono text-xs text-[#7A4A38] dark:text-[#E6D0C2]">
-              <div className="flex items-center gap-2">
-                <Terminal size={14} className="text-brand-terra-ink" />
-                <span>PRODUCTION_DEPLOYMENT_MATRIX.log</span>
-              </div>
-              <div>{`// Total Entries: ${filteredProjects.length}`}</div>
-            </div>
-
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 bg-[#FAF0E6]/80 dark:bg-[#1D0E17]/80 font-mono text-xs text-[#7A4A38] dark:text-[#E6D0C2]">
-                    <th className="p-4">Deployment Domain</th>
-                    <th className="p-4">Project Name</th>
-                    <th className="p-4">Group</th>
-                    <th className="p-4">Category</th>
-                    <th className="p-4">Tech Stack</th>
-                    <th className="p-4 text-right">Action</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[#EAD3C4] dark:divide-[#EAD3C4]/15 text-xs font-dm">
-                  {filteredProjects.map((project) => (
-                    <tr
-                      key={project.id}
-                      className="hover:bg-[#F3E2D5]/50 dark:hover:bg-[#25121E] transition-colors text-[#2E0E1D] dark:text-[#FFF0E3]"
-                    >
-                      <td className="p-4 font-mono text-brand-terra-ink">
-                        <div className="flex items-center gap-1.5">
-                          <Globe size={13} className="text-[#7A4A38] dark:text-[#E6D0C2]" />
-                          <span>{project.domain}</span>
-                        </div>
-                      </td>
-                      <td className="p-4">
-                        <div className="font-semibold text-[#2E0E1D] dark:text-[#FFF0E3]">{project.name}</div>
-                        {project.attribution && (
-                          <div className="text-[10px] font-mono text-brand-terra-ink mt-0.5">
-                            {project.attribution}
-                          </div>
-                        )}
-                      </td>
-                      <td className="p-4 font-mono">
-                        <span
-                          className={`px-2 py-0.5 rounded text-[10px] ${
-                            project.deployGroup === 'custom_domain'
-                              ? 'bg-[#E1F5EE] text-[#0E6247] dark:bg-emerald-950/40 dark:text-emerald-300 border border-[#A7E3D0] dark:border-emerald-800/60'
-                              : 'bg-brand-terra/10 text-brand-terra-ink border border-brand-terra/30'
-                          }`}
-                        >
-                          {project.deployGroup === 'custom_domain' ? 'Custom Domain' : 'Vercel App'}
-                        </span>
-                      </td>
-                      <td className="p-4 text-[#6C4B59] dark:text-[#E6D0C2]">{project.categoryLabel}</td>
-                      <td className="p-4 font-mono text-[#7A4A38] dark:text-[#E6D0C2]">
-                        {project.stack.slice(0, 3).join(', ')}
-                      </td>
-                      <td className="p-4 text-right">
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 px-3 py-1 rounded bg-brand-terra/10 hover:bg-brand-terra text-brand-terra-ink hover:text-white transition-colors font-mono text-[11px]"
-                        >
-                          <span>Open</span>
-                          <ExternalLink size={12} />
-                        </a>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
             </div>
           </div>
         )}
@@ -929,16 +590,16 @@ export function Work() {
               <Sparkles size={22} />
             </div>
             <h3 className="text-lg font-syne font-bold text-[#2E0E1D] dark:text-[#FFF0E3]">
-              No Projects Found in This View
+              No projects in this category yet
             </h3>
             <p className="text-xs sm:text-sm font-dm text-[#6C4B59] dark:text-[#E6D0C2] leading-relaxed">
-              No matching builds found for this category filter. Switch views or reset filters to explore our full client portfolio.
+              We haven&rsquo;t published work in this category yet. Browse everything we&rsquo;ve shipped, or tell us about your project.
             </p>
             <button
-              onClick={() => setActiveDeployGroup('all')}
+              onClick={() => setActiveFilter('all')}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-terra hover:bg-[#B82A00] text-white font-dm text-xs font-semibold transition-all cursor-pointer min-h-[44px]"
             >
-              <span>Reset to All Work</span>
+              <span>Show all work</span>
             </button>
           </div>
         )}
@@ -947,15 +608,15 @@ export function Work() {
         <AnimatedSection delay={0.3}>
           <div className="mt-16 p-6 md:p-8 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-center shadow-sm">
             <p className="font-dm text-base text-[#2E0E1D] dark:text-[#E6D0C2] font-medium">
-              Ready to construct your next web platform or production infrastructure?{' '}
+              Have a project like these in mind?{' '}
               <button
                 onClick={() => {
                   const contactSection = document.querySelector('#contact')
                   if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="inline-flex items-center gap-1.5 text-brand-terra-ink font-semibold hover:text-brand-ember transition-colors underline underline-offset-4 ml-1 group"
+                className="inline-flex items-center gap-1.5 text-brand-terra-ink font-semibold hover:text-[#9A2400] dark:hover:text-brand-ember transition-colors underline underline-offset-4 ml-1 group"
               >
-                <span>Initialize project discussion</span>
+                <span>Tell us about it</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </p>

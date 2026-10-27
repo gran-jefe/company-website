@@ -32,67 +32,67 @@ interface ProcessStep {
 const processSteps: ProcessStep[] = [
   {
     step: '01',
-    title: 'Discovery & Architecture',
-    subtitle: 'ALIGNED BLUEPRINT',
-    tagline: 'Scope, architecture, and fixed deliverables mapped in 48 hours.',
+    title: 'Discovery & Plan',
+    subtitle: 'CLEAR SCOPE',
+    tagline: 'What we will build, by when, and for how much, agreed in 48 hours.',
     timeline: 'Days 1 – 2',
     icon: <Compass size={22} className="text-brand-terra-ink" />,
     description:
-      'We unpack your target audience, conversion goals, and technical requirements. We establish a fixed-timeline scope with milestone dates with zero open-ended ambiguity or surprise cost overruns.',
+      'We learn who your customers are, what you need the product to achieve, and what it has to work with. Then we agree a fixed scope with milestone dates, so there is no open-ended work and no surprise costs.',
     keyDeliverables: [
-      'Technical Architecture Blueprint',
-      'Fixed-Scope Milestones & Deadlines',
-      'Design System & Asset Checklist',
+      'Written project plan',
+      'Fixed scope, milestones & deadlines',
+      'Checklist of content and assets we need from you',
     ],
     clientOutcome: 'Complete clarity on what will be built, exactly when it will launch, and what it will cost.',
   },
   {
     step: '02',
-    title: 'Interactive Design & UX',
-    subtitle: 'EDITORIAL FINISH',
-    tagline: 'High-converting user journeys built for mobile and desktop.',
+    title: 'Design',
+    subtitle: 'SEE IT FIRST',
+    tagline: 'Designs for mobile and desktop that guide visitors to act.',
     timeline: 'Days 3 – 4',
     icon: <Sparkles size={22} className="text-amber-500" />,
     description:
-      'We craft typography-forward, brand-aligned visual layouts with fluid user journeys. You receive clickable prototypes and visual walkthroughs before writing production code.',
+      'We design pages that match your brand and lead visitors towards enquiring or buying. You click through a working prototype and approve it before any building starts.',
     keyDeliverables: [
-      'Responsive Mobile & Desktop UX',
-      'Interactive Figma & Motion Prototypes',
-      'Conversion-Optimized CTA Hierarchy',
+      'Mobile and desktop designs',
+      'Clickable prototype to review',
+      'Clear calls to action on every page',
     ],
-    clientOutcome: 'A visually arresting design tailored to non-technical buyers that establishes immediate authority.',
+    clientOutcome: 'A design you have seen and approved before a line of code is written.',
   },
   {
     step: '03',
-    title: 'Sprint Engineering',
-    subtitle: 'ZERO TECH DEBT',
-    tagline: 'Clean Next.js 16 build with daily asynchronous Loom demos.',
+    title: 'Build',
+    subtitle: 'BUILT TO LAST',
+    tagline: 'Your product built, with a short video update every day.',
     timeline: 'Days 5 – 6',
     icon: <Cpu size={22} className="text-dev-cyan" />,
     description:
-      'We engineer your product with Next.js 16, TypeScript, and clean modular code. You receive daily 2-minute asynchronous Loom video walkthroughs tracking exact progress without endless meetings.',
+      'We build your product with modern, well-supported tools and clean code that any good developer can pick up later. Every day you get a 2-minute video showing exactly what changed, with no need for long meetings.',
     keyDeliverables: [
-      'Next.js 16 & TypeScript Codebase',
-      'Daily Asynchronous Loom Updates',
-      'Sub-Second Core Web Vitals Benchmark',
+      'Working product on a private preview link',
+      'Daily 2-minute video updates',
+      'Speed test report',
     ],
     clientOutcome: 'Real visible progress every 24 hours while you focus on running your business.',
   },
   {
     step: '04',
-    title: 'Launch & IP Handover',
-    subtitle: 'ZERO-DOWNTIME GO-LIVE',
-    tagline: 'Production deployment, domain cutover, and 100% source handover.',
+    title: 'Launch & Handover',
+    subtitle: 'GO LIVE',
+    tagline: 'Live on your domain, and everything handed over to you.',
     timeline: 'Day 7 / Launch Day',
     icon: <Rocket size={22} className="text-emerald-500" />,
     description:
-      'We handle production DNS cutover, automated CI/CD pipelines, SSL encryption, and Google Search indexing. You receive 100% intellectual property ownership and full repository access.',
+      'We put the product live on your domain, set up security certificates and automatic updates, and submit it to Google. You own 100% of the code and get full access to it.',
     keyDeliverables: [
-      'Production Domain & SSL Setup',
-      '100% Source Code & IP Handover',
-      '30-Day Post-Launch Support Window',
+      'Live on your domain, secured',
+      'You own 100% of the code',
+      '30 days of support after launch',
     ],
-    clientOutcome: 'Your product is live, blazing fast, secure, and ready to convert visitors into revenue.',
+    clientOutcome: 'Your product is live, fast, secure, and ready to turn visitors into customers.',
   },
 ]
 
@@ -113,7 +113,7 @@ export function Process() {
               </h2>
             </div>
             <p className="font-mono text-xs text-[#7A4A38] dark:text-[#B88E7D] max-w-sm">
-              {"// Fixed timelines, daily async video updates, zero guesswork, zero technical debt."}
+              {"// Fixed timelines, a short video update every day, and no surprises."}
             </p>
           </div>
         </AnimatedSection>
@@ -218,7 +218,7 @@ export function Process() {
                   <div className="flex items-center justify-between text-xs font-mono text-[#7A4A38] dark:text-[#B88E7D] uppercase tracking-wider font-semibold border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 pb-3">
                     <span className="flex items-center gap-1.5">
                       <FileText size={14} className="text-brand-terra-ink" />
-                      <span>Key Tangible Deliverables</span>
+                      <span>What you get</span>
                     </span>
                     <span>3 Items</span>
                   </div>
