@@ -21,12 +21,12 @@ export function About() {
               </div>
             </AnimatedSection>
 
-            {/* Official CAC Certified Seal Card */}
+            {/* Business Registration Card (the single on-page home for CAC details) */}
             <AnimatedSection delay={0.1}>
               <div className="w-full max-w-md p-5 rounded-2xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-emerald-500/30 dark:border-emerald-500/30 shadow-lg text-left space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0E6247] dark:text-emerald-400 flex items-center gap-1.5">
-                    <ShieldCheck size={14} /> CERTIFIED CORPORATE ENTITY
+                    <ShieldCheck size={14} /> REGISTERED BUSINESS
                   </span>
                   <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#E1F5EE] text-[#0E6247] dark:bg-emerald-500/10 dark:text-emerald-400 border border-[#A7E3D0] dark:border-emerald-500/30">
                     ACTIVE
@@ -51,21 +51,21 @@ export function About() {
               <AnimatedSection delay={0.2}>
                 <div className="p-4 rounded-xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-center shadow-xs">
                   <div className="font-syne font-bold text-2xl text-brand-terra-ink">3+</div>
-                  <div className="font-dm text-xs text-[#7A4A38] dark:text-[#E6D0C2] font-medium mt-1">Years Enterprise</div>
+                  <div className="font-dm text-xs text-[#7A4A38] dark:text-[#E6D0C2] font-medium mt-1">Years founder experience</div>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection delay={0.3}>
                 <div className="p-4 rounded-xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-center shadow-xs">
                   <div className="font-syne font-bold text-2xl text-brand-terra-ink">15+</div>
-                  <div className="font-dm text-xs text-[#7A4A38] dark:text-[#E6D0C2] font-medium mt-1">Live Deployments</div>
+                  <div className="font-dm text-xs text-[#7A4A38] dark:text-[#E6D0C2] font-medium mt-1">Live projects</div>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection delay={0.4}>
                 <div className="p-4 rounded-xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-center shadow-xs">
                   <div className="font-syne font-bold text-2xl text-brand-terra-ink">99/100</div>
-                  <div className="font-dm text-xs text-[#7A4A38] dark:text-[#E6D0C2] font-medium mt-1">Speed Benchmark</div>
+                  <div className="font-dm text-xs text-[#7A4A38] dark:text-[#E6D0C2] font-medium mt-1">Google speed score</div>
                 </div>
               </AnimatedSection>
             </div>
@@ -90,14 +90,14 @@ export function About() {
                   Our founder&rsquo;s background includes engineering sovereign financial infrastructure as Full-Stack Engineer at Mabilla Group, architecting digital consular payment systems for the <strong className="text-[#2E0E1D] dark:text-[#FFF0E3]">Nigeria High Commission United Kingdom</strong>, UK Open Banking payment engines for <strong className="text-[#2E0E1D] dark:text-[#FFF0E3]">Celergate</strong>, and cross-border remittance platforms with biometric verification.
                 </p>
                 <p>
-                  Today, Gran Jefe operates as a registered corporate entity under Nigerian law (<strong>GRAN JEFE SOLUTIONS, BN: 9529101</strong>). We partner with ambitious founders, brands, and companies in the UK, US, Europe, and Nigeria who demand products built with obsessive speed, fluid micro-interactions, and zero technical debt.
+                  Today, Gran Jefe is a registered business in Nigeria working with founders, brands and companies in the UK and Nigeria who want products that are fast, polished, and built to last.
                 </p>
               </div>
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
               <div className="p-5 rounded-2xl bg-[#FFF0E3] dark:bg-[#1D0E17] border-l-4 border-brand-terra border-y border-r border-[#EAD3C4] dark:border-y-[#EAD3C4]/15 dark:border-r-[#EAD3C4]/15 font-dm text-sm text-[#2E0E1D] dark:text-[#E6D0C2] shadow-xs">
-                <span className="font-bold text-[#2E0E1D] dark:text-[#FFF0E3]">Our Guarantee:</span> Transparent pricing, daily asynchronous Loom updates, zero fluff, and production deployments delivered on strict milestones.
+                <span className="font-bold text-[#2E0E1D] dark:text-[#FFF0E3]">How we work:</span> Scope and price agreed upfront, a short video update every day, and delivery against agreed milestones.
               </div>
             </AnimatedSection>
           </div>

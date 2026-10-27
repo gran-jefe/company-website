@@ -124,17 +124,8 @@ export function Navbar() {
           })}
         </div>
 
-        {/* Right Actions: CAC Verified Tag + Theme + CTA */}
+        {/* Right Actions: Theme + CTA */}
         <div className="flex items-center gap-3">
-          {/* CAC Official Registered Pill */}
-          <div
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E1F5EE] dark:bg-emerald-950/40 border border-[#A7E3D0] dark:border-emerald-500/30 text-[11px] font-mono text-[#0E6247] dark:text-emerald-300"
-            title="Officially registered with the Corporate Affairs Commission (Federal Republic of Nigeria)"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="font-semibold">CAC BN: 9529101</span>
-          </div>
-
           <ThemeToggle />
 
           <Button
@@ -168,11 +159,6 @@ export function Navbar() {
             className="md:hidden border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 bg-[#FFF0E3]/98 dark:bg-[#11070D]/98 backdrop-blur-xl"
           >
             <div className="px-4 py-6 space-y-4 max-w-7xl mx-auto">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E1F5EE] dark:bg-emerald-950/40 border border-[#A7E3D0] dark:border-emerald-800/60 text-xs font-mono text-[#0E6247] dark:text-emerald-300 mb-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Verified Entity: CAC BN 9529101</span>
-              </div>
-
               {navItems.map((item) => {
                 if (item.href.startsWith('/')) {
                   return (

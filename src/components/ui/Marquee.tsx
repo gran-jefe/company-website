@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Landmark, ShieldCheck, Globe, Building2, ShoppingBag, Truck, Zap, Award } from 'lucide-react'
+import { Landmark, ShieldCheck, Globe, Building2, ShoppingBag, Smartphone, Zap } from 'lucide-react'
 
 interface MarqueeItem {
   name: string
@@ -42,22 +42,16 @@ const marqueeItems: MarqueeItem[] = [
     icon: <ShoppingBag size={14} className="text-pink-600 dark:text-pink-400" />,
   },
   {
-    name: 'Remglo Global',
-    subtext: 'Logistics & Supply Systems',
-    tag: 'Logistics',
-    icon: <Truck size={14} className="text-blue-600 dark:text-dev-cyan" />,
+    name: 'Remglo',
+    subtext: 'Remittance Agent Mobile App',
+    tag: 'Fintech',
+    icon: <Smartphone size={14} className="text-blue-600 dark:text-dev-cyan" />,
   },
   {
     name: 'Sub-Second Speed',
-    subtext: '99/100 Core Web Vitals',
+    subtext: '99/100 Google speed score',
     tag: 'Lighthouse',
     icon: <Zap size={14} className="text-amber-500" />,
-  },
-  {
-    name: 'GRAN JEFE SOLUTIONS',
-    subtext: 'CAC BN: 9529101 Certified',
-    tag: 'Corporate Entity',
-    icon: <Award size={14} className="text-emerald-600 dark:text-emerald-400" />,
   },
 ]
 

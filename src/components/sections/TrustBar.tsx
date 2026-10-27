@@ -59,16 +59,15 @@ export function TrustBar() {
         {/* Top Official Registry Strip */}
         <div className="mb-5 pb-4 border-b border-[#EAD3C4]/70 dark:border-[#EAD3C4]/15 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#7A4A38] dark:text-[#E6D0C2]">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-bold">CERTIFIED CORPORATE ENTITY:</span>
-            <span className="text-[#0E6247] dark:text-emerald-400 font-bold">GRAN JEFE SOLUTIONS</span>
-            <span className="text-[#C4A0B8] dark:text-[#7A4A38]">{"//"}</span>
-            <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-semibold">CAC BN: 9529101</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-bold">PLATFORMS WE&rsquo;VE BUILT</span>
+            <span className="text-[#7A4A38] dark:text-[#B88E7D]">{"//"}</span>
+            <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-semibold">Live and in use today</span>
           </div>
 
           <div className="flex items-center gap-2 text-[11px] text-[#7A4A38] dark:text-[#B88E7D]">
             <Award size={14} className="text-brand-terra-ink" />
-            <span>Sole Proprietorship • Active Status • Founded by Adeleke Sherifdeen</span>
+            <span>Founded by Adeleke Sherifdeen</span>
           </div>
         </div>
 

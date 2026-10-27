@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Logo } from '@/components/ui/Logo'
-import { ArrowUpRight, Mail, Phone, MapPin, ShieldCheck, Sparkles, BookOpen } from 'lucide-react'
+import { ArrowUpRight, Mail, Phone, MapPin, Sparkles, BookOpen } from 'lucide-react'
 
 const footerLinks = [
   { label: 'Work', href: '#work' },
@@ -68,10 +68,6 @@ export function Footer() {
             <p className="font-dm text-sm text-[#E6D0C2] max-w-sm leading-relaxed">
               Gran Jefe is an independent digital product and creative engineering studio building high-performance web platforms, sovereign payment engines, and mobile applications.
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-xs font-mono text-emerald-400">
-              <ShieldCheck size={13} />
-              <span>Certified CAC Entity: BN 9529101</span>
-            </div>
           </div>
 
           {/* Quick Links (2 cols) */}

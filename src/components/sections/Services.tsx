@@ -12,7 +12,6 @@ interface ServiceItem {
   title: string
   description: string
   includes: string[]
-  highlight: string
 }
 
 const services: ServiceItem[] = [
@@ -23,7 +22,6 @@ const services: ServiceItem[] = [
     title: 'Mobile Apps',
     description: 'iPhone and Android apps built from one shared codebase, so you reach both audiences without paying for two separate apps. Fast, smooth, and usable offline where it matters.',
     includes: ['iPhone & Android', 'One shared codebase', 'Works offline'],
-    highlight: 'Native 60FPS • Single Codebase',
   },
   {
     id: 'web',
@@ -32,7 +30,6 @@ const services: ServiceItem[] = [
     title: 'Websites & Web Apps',
     description: 'Business websites, online stores, dashboards and customer portals that load fast, look sharp on every screen, and turn visitors into enquiries and sales.',
     includes: ['Business websites', 'Online stores', 'Dashboards & portals'],
-    highlight: 'Core Web Vitals 95+ Score',
   },
   {
     id: 'backend',
@@ -41,7 +38,6 @@ const services: ServiceItem[] = [
     title: 'Backend Systems',
     description: 'The engine behind your product: user accounts, databases and business logic that stay secure and keep running as you grow.',
     includes: ['Accounts & logins', 'Databases', 'Admin tools'],
-    highlight: 'Sub-15ms Latency Guarantee',
   },
   {
     id: 'fintech',
@@ -50,7 +46,6 @@ const services: ServiceItem[] = [
     title: 'Payments & Fintech',
     description: 'Accept, send and track money safely: payment gateway setup, wallets with accurate balances, and checkout flows designed around compliance.',
     includes: ['Card & bank payments', 'Wallets & balances', 'Transaction history'],
-    highlight: 'Zero Financial Data Loss',
   },
   {
     id: 'integrations',
@@ -59,7 +54,6 @@ const services: ServiceItem[] = [
     title: 'Connecting Your Tools',
     description: 'Link your product to the services you already use, such as payment providers, analytics, email and sign-in, so data moves without manual work.',
     includes: ['Payments', 'Analytics', 'Email & sign-in'],
-    highlight: '99.99% Uptime Guarantee',
   },
   {
     id: 'mvp',
@@ -68,7 +62,6 @@ const services: ServiceItem[] = [
     title: 'MVPs for Founders',
     description: 'Turn your idea into a working first version you can put in front of users and investors, quickly and without cutting corners.',
     includes: ['Clickable prototype', 'Working first version', 'Launch support'],
-    highlight: '0 to Production in < 4 wks',
   },
 ]
 
@@ -140,7 +133,7 @@ export function Services() {
                     <Clock size={20} className="text-brand-terra-ink" />
                     <span>7 Business Days</span>
                   </div>
-                  <div className="text-xs font-dm text-emerald-400 font-semibold">100% Milestone Satisfaction Guarantee</div>
+                  <div className="text-xs font-dm text-emerald-400 font-semibold">Scope and price agreed before we start</div>
                 </div>
 
                 <button
@@ -197,11 +190,6 @@ export function Services() {
                         {item}
                       </span>
                     ))}
-                  </div>
-
-                  <div className="font-mono text-xs font-semibold text-[#0E6247] dark:text-emerald-400 flex items-center gap-1.5 pt-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span>{service.highlight}</span>
                   </div>
                 </div>
               </div>

@@ -202,10 +202,10 @@ export function Process() {
                     {activeStep.description}
                   </p>
 
-                  {/* Guaranteed Business Outcome */}
+                  {/* Client Outcome */}
                   <div className="p-4 rounded-2xl bg-[#FAF0E6] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 space-y-1">
                     <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[#0E6247] dark:text-emerald-400">
-                      <ShieldCheck size={14} /> CLIENT OUTCOME GUARANTEE
+                      <ShieldCheck size={14} /> WHAT THIS GIVES YOU
                     </div>
                     <div className="font-dm text-sm text-[#2E0E1D] dark:text-[#FFF0E3] font-medium leading-relaxed">
                       {activeStep.clientOutcome}

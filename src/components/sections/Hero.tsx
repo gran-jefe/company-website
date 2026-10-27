@@ -190,16 +190,16 @@ export function Hero() {
                   <Zap size={14} /> SPEED SCORE
                 </div>
                 <div className="mt-1 text-sm font-mono font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3]">
-                  99/100 Core Web Vitals
+                  99/100 Google speed score
                 </div>
               </div>
 
               <div className="p-3.5 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-xs hover:border-emerald-500/50 transition-colors">
                 <div className="flex items-center gap-1.5 text-[#0E6247] dark:text-emerald-400 text-xs font-mono font-bold">
-                  <ShieldCheck size={14} /> CAC CERTIFIED
+                  <ShieldCheck size={14} /> SHIPPED
                 </div>
                 <div className="mt-1 text-sm font-mono font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3]">
-                  BN: 9529101
+                  15+ live projects
                 </div>
               </div>
 
@@ -208,7 +208,7 @@ export function Hero() {
                   <Globe size={14} /> TRACK RECORD
                 </div>
                 <div className="mt-1 text-sm font-mono font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3]">
-                  UK &amp; Global Clients
+                  Clients in UK &amp; Nigeria
                 </div>
               </div>
             </div>
