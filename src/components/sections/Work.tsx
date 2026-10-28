@@ -399,7 +399,7 @@ export function Work() {
 
         {/* Industry Filter Tabs */}
         <AnimatedSection delay={0.1}>
-          <div className="mt-8 flex flex-wrap gap-2 pb-4 border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15">
+          <div className="mt-8 flex flex-nowrap sm:flex-wrap gap-2 pb-4 border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 overflow-x-auto sm:overflow-visible -mx-4 px-4 sm:mx-0 sm:px-0 swipe-row">
             {projectFilters.map((filter) => {
               const count = filter.id === 'all' ? allUserProjects.length : allUserProjects.filter((p) => filter.categories.includes(p.category)).length
               const isActive = activeFilter === filter.id
@@ -408,7 +408,7 @@ export function Work() {
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
                   aria-pressed={isActive}
-                  className={`min-h-[40px] px-4 py-2 rounded-xl text-xs font-dm font-semibold transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra ${
+                  className={`shrink-0 whitespace-nowrap min-h-[40px] px-4 py-2 rounded-xl text-xs font-dm font-semibold transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra ${
                     isActive
                       ? 'bg-[#2E0E1D] text-[#FFF0E3] dark:bg-[#FFF0E3] dark:text-[#2E0E1D] shadow-md'
                       : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] hover:text-[#2E0E1D] dark:hover:text-[#FFF0E3] border border-[#EAD3C4] dark:border-[#EAD3C4]/15'
@@ -424,8 +424,8 @@ export function Work() {
         {/* MODE 1: INTERACTIVE WORKSTATION CANVAS (DEFAULT) */}
         {filteredProjects.length > 0 && (
           <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left Sidebar: Interactive Project Selector List */}
-            <div className="lg:col-span-5 space-y-3 max-h-[640px] overflow-y-auto pr-2 custom-scrollbar">
+            {/* Left Sidebar: Interactive Project Selector List (swipeable row above the preview on phones and tablets) */}
+            <div className="lg:col-span-5 flex lg:block gap-3 lg:space-y-3 overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory lg:snap-none scroll-px-4 sm:scroll-px-0 lg:max-h-[640px] lg:overflow-y-auto -mx-4 px-4 sm:mx-0 sm:px-0 lg:pr-2 pb-2 lg:pb-0 custom-scrollbar swipe-row">
               {filteredProjects.map((project) => {
                 const isSelected = project.id === activeProject.id
                 return (
@@ -433,7 +433,7 @@ export function Work() {
                     key={project.id}
                     onClick={() => setSelectedProjectId(project.id)}
                     whileHover={{ x: 4 }}
-                    className={`w-full text-left p-4 rounded-2xl border transition-all duration-200 flex items-center justify-between gap-3 ${
+                    className={`w-[82%] sm:w-[48%] lg:w-full shrink-0 snap-start text-left p-4 rounded-2xl border transition-all duration-200 flex items-center justify-between gap-3 ${
                       isSelected
                         ? 'bg-[#2E0E1D] border-brand-terra text-[#FFF0E3] shadow-xl shadow-brand-terra/20 dark:bg-brand-terra dark:text-white dark:border-brand-terra'
                         : 'bg-[#FAF0E6] dark:bg-[#1D0E17] hover:bg-[#F3E2D5] dark:hover:bg-[#25121E] border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3]'

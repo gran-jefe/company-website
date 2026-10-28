@@ -72,15 +72,15 @@ export function TrustBar() {
           </div>
         </div>
 
-        {/* Proven Track Record Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+        {/* Proven Track Record Grid (swipeable row on phones) */}
+        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scroll-px-4 sm:scroll-px-0 -mx-4 px-4 sm:mx-0 sm:px-0 pb-2 sm:pb-0 swipe-row">
           {trustItems.map((item) => (
             <a
               key={item.id}
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-4 rounded-2xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/60 dark:hover:border-brand-terra/60 transition-all duration-300 flex flex-col justify-between hover:shadow-lg hover:shadow-brand-clay/10 dark:hover:shadow-black/50 hover:-translate-y-0.5"
+              className="group w-[78%] shrink-0 snap-start sm:w-auto p-4 rounded-2xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/60 dark:hover:border-brand-terra/60 transition-all duration-300 flex flex-col justify-between hover:shadow-lg hover:shadow-brand-clay/10 dark:hover:shadow-black/50 hover:-translate-y-0.5"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2.5">

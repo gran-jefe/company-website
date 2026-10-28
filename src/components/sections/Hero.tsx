@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ArrowUpRight, Sparkles, ShieldCheck, ShoppingBag, Zap, Globe, ExternalLink, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, ShieldCheck, Zap, Globe, ExternalLink, CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 interface HeroProject {
@@ -13,7 +13,6 @@ interface HeroProject {
   tabLabel: string
   client: string
   category: string
-  persona: 'startups' | 'retail' | 'luxury'
   image: string
   url: string
   metric: string
@@ -29,7 +28,6 @@ const heroShowcase: HeroProject[] = [
     tabLabel: 'Luxury property',
     client: 'Luxury Architecture & Real Estate',
     category: 'Digital Flagship',
-    persona: 'luxury',
     image: '/projects/projectcatalogue.jpg',
     url: 'https://www.projectcataloguelimited.com/',
     metric: 'Fast-Loading Property Showcase',
@@ -42,7 +40,6 @@ const heroShowcase: HeroProject[] = [
     tabLabel: 'Beauty retail',
     client: 'Beauty Brand, Uyo',
     category: 'Brand & E-Commerce',
-    persona: 'retail',
     image: '/projects/shesandhers.jpg',
     url: 'https://www.shesandhers.com/',
     metric: 'Online Catalogue with WhatsApp Ordering',
@@ -55,7 +52,6 @@ const heroShowcase: HeroProject[] = [
     tabLabel: 'EdTech startup',
     client: 'Exam Prep Startup, Nigeria',
     category: 'Exam Practice Platform',
-    persona: 'startups',
     image: '/projects/romanseries.jpg',
     url: 'https://www.romanseries.com.ng/',
     metric: 'Timed Practice for 5 Universities',
@@ -64,7 +60,6 @@ const heroShowcase: HeroProject[] = [
 ]
 
 export function Hero() {
-  const [activePersona, setActivePersona] = useState<'all' | 'startups' | 'retail' | 'luxury'>('all')
   const [activeProjectId, setActiveProjectId] = useState<string>('projectcatalogue')
 
   const activeProject = heroShowcase.find((p) => p.id === activeProjectId) || heroShowcase[0]
@@ -98,78 +93,11 @@ export function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-6 w-full z-10">
-        {/* Wispr Flow-style Persona Selector Pills */}
-        <div className="mb-6 flex flex-wrap items-center gap-2">
-          <span className="text-[11px] font-mono text-[#7A4A38] dark:text-[#B88E7D] font-bold uppercase tracking-wider mr-1">
-            Built for:
-          </span>
-
-          <button
-            onClick={() => {
-              setActivePersona('all')
-              setActiveProjectId('projectcatalogue')
-            }}
-            className={`px-3 py-1 rounded-full text-xs font-dm font-semibold transition-all ${
-              activePersona === 'all'
-                ? 'bg-[#2E0E1D] text-[#FFF0E3] shadow-sm dark:bg-[#FFF0E3] dark:text-[#2E0E1D] font-bold shadow-brand-cream/10'
-                : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/50 dark:hover:text-[#FFF0E3]'
-            }`}
-          >
-            All Work
-          </button>
-
-          <button
-            onClick={() => {
-              setActivePersona('startups')
-              setActiveProjectId('romanseries')
-            }}
-            className={`px-3 py-1 rounded-full text-xs font-dm font-semibold transition-all flex items-center gap-1.5 ${
-              activePersona === 'startups'
-                ? 'bg-brand-terra text-white shadow-sm'
-                : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/50 dark:hover:text-[#FFF0E3]'
-            }`}
-          >
-            <Zap size={12} className="text-amber-500" />
-            <span>Startups</span>
-          </button>
-
-          <button
-            onClick={() => {
-              setActivePersona('retail')
-              setActiveProjectId('shesandhers')
-            }}
-            className={`px-3 py-1 rounded-full text-xs font-dm font-semibold transition-all flex items-center gap-1.5 ${
-              activePersona === 'retail'
-                ? 'bg-brand-terra text-white shadow-sm'
-                : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/50 dark:hover:text-[#FFF0E3]'
-            }`}
-          >
-            <ShoppingBag size={12} className="text-pink-500" />
-            <span>Brands &amp; Retail</span>
-          </button>
-
-          <button
-            onClick={() => {
-              setActivePersona('luxury')
-              setActiveProjectId('projectcatalogue')
-            }}
-            className={`px-3 py-1 rounded-full text-xs font-dm font-semibold transition-all flex items-center gap-1.5 ${
-              activePersona === 'luxury'
-                ? 'bg-brand-terra text-white shadow-sm'
-                : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/50 dark:hover:text-[#FFF0E3]'
-            }`}
-          >
-            <Sparkles size={12} className="text-brand-terra-ink" />
-            <span>Luxury &amp; Property</span>
-          </button>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Bold Typography & Narrative (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Studio Badge */}
-            <div className="flex flex-wrap items-center gap-2.5">
-              {/* Studio Badge */}
+            {/* Studio Badge (hidden on phones to keep the headline above the fold) */}
+            <div className="hidden sm:flex flex-wrap items-center gap-2.5">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-xs font-mono shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-brand-terra animate-pulse" />
                 <span className="text-[#7A4A38] dark:text-[#E6D0C2] font-bold">STUDIO</span>
@@ -192,14 +120,21 @@ export function Hero() {
               Websites, online stores, web apps and mobile apps for growing businesses, backed by hands-on payments and fintech experience. Built to load fast, look polished, and win customers.
             </p>
 
+            {/* Key Business Outcome Proof: compact line on phones */}
+            <ul className="sm:hidden flex flex-wrap gap-x-4 gap-y-1.5 text-sm font-dm text-[#2E0E1D] dark:text-[#FFF0E3]">
+              <li className="flex items-center gap-1.5"><Zap size={14} className="text-brand-terra-ink dark:text-[#FF5528]" /> 99/100 speed score</li>
+              <li className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-[#0E6247] dark:text-emerald-400" /> 17 sites &amp; apps</li>
+              <li className="flex items-center gap-1.5"><Globe size={14} className="text-brand-terra-ink dark:text-[#FF5528]" /> UK &amp; Nigeria clients</li>
+            </ul>
+
             {/* Key Business Outcome Proof Badges */}
-            <div className="grid grid-cols-3 gap-3 max-w-lg pt-1">
+            <div className="hidden sm:grid grid-cols-3 gap-3 max-w-lg pt-1">
               <div className="p-3.5 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-xs hover:border-brand-terra/50 transition-colors">
                 <div className="flex items-center gap-1.5 text-brand-terra-ink dark:text-[#FF5528] text-xs font-mono font-bold">
                   <Zap size={14} /> SPEED SCORE
                 </div>
                 <div className="mt-1 text-sm font-mono font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3]">
-                  99/100 Google speed score
+                  99/100 on Google
                 </div>
               </div>
 
@@ -252,16 +187,6 @@ export function Hero() {
           {/* Right Column: Wispr Flow Style Interactive Visual Demo (5 cols) */}
           <div className="lg:col-span-5 w-full">
             <div className="relative">
-              {/* Rotating "Available for Q4 Sprints" Badge */}
-              <div className="absolute -top-7 -right-3 sm:-right-5 z-20 pointer-events-none">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                  className="w-20 h-20 rounded-full border border-dashed border-brand-terra/50 bg-[#FAF0E6]/95 dark:bg-[#1D0E17]/95 text-[#2E0E1D] dark:text-[#FFF0E3] backdrop-blur-md flex items-center justify-center text-[8px] font-mono uppercase tracking-widest text-center shadow-lg p-2 select-none"
-                >
-                  <span className="leading-tight font-bold">● Q4 SPRINTS ● AVAILABLE</span>
-                </motion.div>
-              </div>
 
               {/* 3D Tilted Interactive Card (Brand Editorial Aesthetic) */}
               <motion.div

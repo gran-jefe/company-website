@@ -193,3 +193,9 @@ html.dark body, .dark body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Swipeable rows on phones/tablets: hide the scrollbar, keep touch and keyboard scrolling */
+@media (max-width: 1023px) {
+  .swipe-row { scrollbar-width: none; }
+  .swipe-row::-webkit-scrollbar { display: none; }
+}

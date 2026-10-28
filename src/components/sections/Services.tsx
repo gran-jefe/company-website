@@ -156,9 +156,9 @@ export function Services() {
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <AnimatedSection key={service.id} delay={index * 0.06}>
-              <div className="h-full group relative p-7 rounded-2xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/60 dark:hover:border-brand-terra/60 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:shadow-brand-clay/10 dark:hover:shadow-black/60 hover:-translate-y-1.5 card-specular">
+              <div className="h-full group relative p-5 sm:p-7 rounded-2xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/60 dark:hover:border-brand-terra/60 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:shadow-brand-clay/10 dark:hover:shadow-black/60 hover:-translate-y-1.5 card-specular">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="hidden sm:flex items-center justify-between mb-4">
                     <span className="font-mono text-[11px] font-bold text-[#7A4A38] dark:text-[#B88E7D] group-hover:text-brand-terra-ink transition-colors">
                       {service.codeTag}
                     </span>
@@ -175,7 +175,7 @@ export function Services() {
                     />
                   </h3>
 
-                  <p className="font-dm font-normal text-[#6C4B59] dark:text-[#E6D0C2] text-sm leading-relaxed mb-6">
+                  <p className="font-dm font-normal text-[#6C4B59] dark:text-[#E6D0C2] text-sm leading-relaxed mb-4 sm:mb-6">
                     {service.description}
                   </p>
                 </div>
