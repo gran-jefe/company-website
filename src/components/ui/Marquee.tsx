@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Landmark, ShieldCheck, Globe, Building2, ShoppingBag, Smartphone, Zap } from 'lucide-react'
+import { Globe, Building2, ShoppingBag, GraduationCap, Leaf, Smartphone, Zap } from 'lucide-react'
 
 interface MarqueeItem {
   name: string
@@ -10,25 +10,8 @@ interface MarqueeItem {
   icon: React.ReactNode
 }
 
+// Studio client projects only; the founder's employer work appears in Work and About
 const marqueeItems: MarqueeItem[] = [
-  {
-    name: 'Nigeria High Commission (UK)',
-    subtext: 'Sovereign Consular Payments',
-    tag: 'Sovereign',
-    icon: <Landmark size={14} className="text-emerald-600 dark:text-emerald-400" />,
-  },
-  {
-    name: 'Celergate',
-    subtext: 'UK Open Banking Engine',
-    tag: 'Fintech',
-    icon: <ShieldCheck size={14} className="text-brand-terra-ink dark:text-[#FF5528]" />,
-  },
-  {
-    name: 'Payceler Global',
-    subtext: 'Cross-Border Remittance & KYC',
-    tag: 'Infrastructure',
-    icon: <Globe size={14} className="text-amber-600 dark:text-amber-400" />,
-  },
   {
     name: 'Project Catalogue',
     subtext: 'Luxury Architecture Showcase',
@@ -37,15 +20,33 @@ const marqueeItems: MarqueeItem[] = [
   },
   {
     name: "She's & Hers",
-    subtext: 'High-Converting E-Commerce',
+    subtext: 'Beauty Brand Catalogue',
     tag: 'Retail & Brand',
     icon: <ShoppingBag size={14} className="text-pink-600 dark:text-pink-400" />,
   },
   {
-    name: 'Remglo',
-    subtext: 'Remittance Agent Mobile App',
-    tag: 'Fintech',
-    icon: <Smartphone size={14} className="text-blue-600 dark:text-dev-cyan" />,
+    name: 'TechCompass Academy',
+    subtext: 'UK Tech Training Programmes',
+    tag: 'EdTech',
+    icon: <Globe size={14} className="text-blue-600 dark:text-dev-cyan" />,
+  },
+  {
+    name: 'Roman Series',
+    subtext: 'Exam Practice Platform',
+    tag: 'EdTech',
+    icon: <GraduationCap size={14} className="text-amber-600 dark:text-amber-400" />,
+  },
+  {
+    name: 'GraffyTea',
+    subtext: 'Herbal Tea Storefront',
+    tag: 'E-Commerce',
+    icon: <Leaf size={14} className="text-emerald-600 dark:text-emerald-400" />,
+  },
+  {
+    name: 'TechCompass Internships',
+    subtext: 'Student Talent Hub',
+    tag: 'EdTech',
+    icon: <Smartphone size={14} className="text-brand-terra-ink dark:text-[#FF5528]" />,
   },
   {
     name: 'Sub-Second Speed',

@@ -57,8 +57,8 @@ export function About() {
 
               <AnimatedSection delay={0.3}>
                 <div className="p-4 rounded-xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-center shadow-xs">
-                  <div className="font-syne font-bold text-2xl text-brand-terra-ink">15+</div>
-                  <div className="font-dm text-xs text-[#7A4A38] dark:text-[#E6D0C2] font-medium mt-1">Live projects</div>
+                  <div className="font-syne font-bold text-2xl text-brand-terra-ink">17</div>
+                  <div className="font-dm text-xs text-[#7A4A38] dark:text-[#E6D0C2] font-medium mt-1">Projects built</div>
                 </div>
               </AnimatedSection>
 

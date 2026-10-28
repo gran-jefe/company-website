@@ -18,6 +18,7 @@ import { AnimatedSection } from '@/components/ui/AnimatedSection'
 interface RealProject {
   id: string
   name: string
+  // custom_domain: launched on the client's own domain; vercel: finished build on a preview link, not launched yet
   deployGroup: 'custom_domain' | 'vercel'
   category: 'fintech' | 'edtech' | 'beauty_retail' | 'saas' | 'health_inst'
   categoryLabel: string
@@ -28,10 +29,11 @@ interface RealProject {
   stack: string[]
   imagePath: string
   accentColor: string
-  attribution?: string
+  // Set for work the founder built as an employee at Mabilla Group, not as a studio client project
+  founderRole?: string
 }
 
-const allUserProjects: RealProject[] = [
+const projectData: RealProject[] = [
   {
     id: 'nhc_london',
     name: 'Nigeria High Commission Payment Platform',
@@ -40,7 +42,7 @@ const allUserProjects: RealProject[] = [
     categoryLabel: 'Sovereign Digital Payments',
     domain: 'payments.nigeriahc.org.uk',
     liveUrl: 'https://payments.nigeriahc.org.uk',
-    summary: 'Official digital payment collection portal for administrative and consular charges for the Nigeria High Commission United Kingdom. Engineered full-stack architecture featuring consular service cart, fast secure Open Banking settlement processed in minutes, and automated receipt generation. Engineered in-house as Full-Stack Engineer at Mabilla Group.',
+    summary: 'Official digital payment collection portal for administrative and consular charges for the Nigeria High Commission United Kingdom. Engineered full-stack architecture featuring consular service cart, fast secure Open Banking settlement processed in minutes, and automated receipt generation.',
     highlights: [
       'Solo Full Stack (Next.js 15 & NestJS API)',
       'Open Banking & Instant Bank Settlement',
@@ -49,7 +51,7 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js 15', 'NestJS', 'TypeScript', 'Prisma', 'PostgreSQL', 'Tailwind CSS', 'AWS S3'],
     imagePath: '/projects/nhc_london.png',
     accentColor: 'border-t-4 border-t-emerald-500',
-    attribution: 'In-House Product of Mabilla Group | Full-Stack Engineering (Next.js 15 & NestJS)',
+    founderRole: 'Full-Stack Engineer',
   },
   {
     id: 'celergate_suite',
@@ -59,7 +61,7 @@ const allUserProjects: RealProject[] = [
     categoryLabel: 'UK Open Banking Payments',
     domain: 'celergate.co.uk',
     liveUrl: 'https://celergate.co.uk',
-    summary: 'Instant bank payment solution for modern businesses to accept payments directly from bank accounts with instant settlement and zero chargebacks. Built around the central Account identity hub powering sub-products Disbuz for enterprise payouts, Endoz for merchant collections, and Utility for bill payments. Engineered in-house as Full-Stack Engineer at Mabilla Group.',
+    summary: 'Instant bank payment solution for modern businesses to accept payments directly from bank accounts with instant settlement and zero chargebacks. Built around the central Account identity hub powering sub-products Disbuz for enterprise payouts, Endoz for merchant collections, and Utility for bill payments.',
     highlights: [
       'Central Account SSO & Identity Hub',
       'Instant Settlement & Zero Chargebacks',
@@ -68,7 +70,7 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'TanStack Query', 'Mantine'],
     imagePath: '/projects/celergate.png',
     accentColor: 'border-t-4 border-t-dev-cyan',
-    attribution: 'In-House Product of Mabilla Group | Full-Stack & Frontend Engineering',
+    founderRole: 'Full-Stack & Frontend Engineer',
   },
   {
     id: 'remglo_agent',
@@ -87,7 +89,7 @@ const allUserProjects: RealProject[] = [
     stack: ['React Native', 'Expo', 'TypeScript', 'Redux Toolkit', 'SumSub Mobile SDK', 'EAS Build'],
     imagePath: '/projects/remglo_agent.png',
     accentColor: 'border-t-4 border-t-brand-terra',
-    attribution: 'In-House Product of Mabilla Group | Solo Mobile Engineer',
+    founderRole: 'sole Mobile Engineer',
   },
   {
     id: 'payceler_remit',
@@ -97,7 +99,7 @@ const allUserProjects: RealProject[] = [
     categoryLabel: 'Global Payments & Remittance',
     domain: 'payceler.com',
     liveUrl: 'https://payceler.com',
-    summary: 'Global payments, remittances, collections, and payouts web platform built to deliver the 4S: Smart, Safe, Speed, Scale. Encompasses a multi-tenant sender web application, PWA, and enterprise operations admin dashboard with role-based access control and live transaction monitoring. Engineered in-house as Full-Stack Engineer at Mabilla Group.',
+    summary: 'Global payments, remittances, collections, and payouts web platform built to deliver the 4S: Smart, Safe, Speed, Scale. Encompasses a multi-tenant sender web application, PWA, and enterprise operations admin dashboard with role-based access control and live transaction monitoring.',
     highlights: [
       'Multi-Tenant Remittance Web & PWA',
       'Role-Based Operations Console (RBAC)',
@@ -106,7 +108,7 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'SumSub WebSDK'],
     imagePath: '/projects/payceler.png',
     accentColor: 'border-t-4 border-t-amber-500',
-    attribution: 'In-House Product of Mabilla Group | Full-Stack & Frontend Engineering',
+    founderRole: 'Full-Stack & Frontend Engineer',
   },
   {
     id: 'shesandhers',
@@ -271,32 +273,14 @@ const allUserProjects: RealProject[] = [
     accentColor: 'border-t-4 border-t-dev-cyan',
   },
   {
-    id: 'uniabuja',
-    name: 'Faculty of Arts | UniAbuja',
-    deployGroup: 'vercel',
-    category: 'health_inst',
-    categoryLabel: 'Academic Portal',
-    domain: 'uniabuja-arts.vercel.app',
-    liveUrl: 'https://uniabuja-arts.vercel.app/',
-    summary: 'Official academic portal for the Faculty of Arts at the University of Abuja. Features departmental news, academic staff profiles, course directories, and campus events.',
-    highlights: [
-      'Academic Staff Directory',
-      'Departmental & Course Catalogs',
-      'News & Events Publishing Engine',
-    ],
-    stack: ['Next.js', 'React', 'Tailwind CSS', 'Institutional CMS'],
-    imagePath: '/projects/uniabuja.jpg',
-    accentColor: 'border-t-4 border-t-amber-500',
-  },
-  {
     id: 'techcompass_landing',
     name: 'TechCompass Learning Academy',
-    deployGroup: 'vercel',
+    deployGroup: 'custom_domain',
     category: 'edtech',
-    categoryLabel: 'RoboTech Training',
-    domain: 'techcompass-landing.vercel.app',
-    liveUrl: 'https://tech-compass-landing.vercel.app/',
-    summary: 'Specialized landing platform for RoboKids (Ages 6-16) and RoboSteer (16+) tech training programs transforming learners into industry-ready tech professionals.',
+    categoryLabel: 'Tech Training Academy | UK',
+    domain: 'techcompass.co.uk',
+    liveUrl: 'https://www.techcompass.co.uk/',
+    summary: 'UK website for TechCompass, a tech training academy running RoboKids (ages 6-16) and RoboSteer (16+) programmes that take learners from foundations to industry-ready tech careers.',
     highlights: [
       'RoboKids & RoboSteer Tracks',
       'Interactive Course Previews',
@@ -305,6 +289,24 @@ const allUserProjects: RealProject[] = [
     stack: ['Next.js', 'React', 'Framer Motion', 'Tailwind CSS'],
     imagePath: '/projects/techcompass_landing.jpg',
     accentColor: 'border-t-4 border-t-dev-violet',
+  },
+  {
+    id: 'uniabuja',
+    name: 'Faculty of Arts | UniAbuja',
+    deployGroup: 'vercel',
+    category: 'health_inst',
+    categoryLabel: 'Academic Portal',
+    domain: 'uniabuja-arts.vercel.app',
+    liveUrl: 'https://uniabuja-arts.vercel.app/',
+    summary: 'Academic portal built for the Faculty of Arts at the University of Abuja. Features departmental news, academic staff profiles, course directories, and campus events.',
+    highlights: [
+      'Academic Staff Directory',
+      'Departmental & Course Catalogs',
+      'News & Events Publishing Engine',
+    ],
+    stack: ['Next.js', 'React', 'Tailwind CSS', 'Institutional CMS'],
+    imagePath: '/projects/uniabuja.jpg',
+    accentColor: 'border-t-4 border-t-amber-500',
   },
   {
     id: 'bluelakes',
@@ -353,6 +355,14 @@ const projectFilters: { id: ProjectFilterId; label: string; categories: RealProj
   { id: 'retail', label: 'Brands & retail', categories: ['beauty_retail'] },
   { id: 'education', label: 'Education', categories: ['edtech'] },
   { id: 'business', label: 'Business & organisations', categories: ['saas', 'health_inst'] },
+]
+
+const isLaunched = (project: RealProject) => project.deployGroup === 'custom_domain'
+
+// Studio client work leads; the founder's employer projects follow as supporting experience
+const allUserProjects: RealProject[] = [
+  ...projectData.filter((p) => !p.founderRole),
+  ...projectData.filter((p) => p.founderRole),
 ]
 
 export function Work() {
@@ -431,7 +441,7 @@ export function Work() {
                   >
                     <div className="space-y-1 min-w-0 flex-1">
                       <div className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-[#0E6247]" />
+                        <span className={`w-2 h-2 rounded-full ${isLaunched(project) ? 'bg-[#0E6247]' : 'bg-amber-500'}`} />
                         <span
                           className={`text-[10px] font-mono uppercase tracking-wider ${
                             isSelected ? 'text-[#FF6A3D] dark:text-white font-bold' : 'text-[#7A4A38] dark:text-[#B88E7D]'
@@ -439,6 +449,24 @@ export function Work() {
                         >
                           {project.categoryLabel}
                         </span>
+                        {project.founderRole && (
+                          <span
+                            className={`text-[10px] font-mono px-1.5 py-0.5 rounded border ${
+                              isSelected ? 'border-white/30 text-[#EAD3C4] dark:text-white/85' : 'border-[#EAD3C4] dark:border-[#EAD3C4]/20 text-[#7A4A38] dark:text-[#B88E7D]'
+                            }`}
+                          >
+                            Founder experience
+                          </span>
+                        )}
+                        {!isLaunched(project) && (
+                          <span
+                            className={`text-[10px] font-mono px-1.5 py-0.5 rounded border ${
+                              isSelected ? 'border-white/30 text-[#EAD3C4] dark:text-white/85' : 'border-amber-500/40 text-amber-800 dark:text-amber-300'
+                            }`}
+                          >
+                            Preview
+                          </span>
+                        )}
                       </div>
 
                       <h4 className="font-syne font-bold text-base truncate">
@@ -490,8 +518,8 @@ export function Work() {
                           {activeProject.liveUrl}
                         </span>
                       </div>
-                      <span className="text-[10px] text-[#0E6247] dark:text-emerald-400 font-mono flex-shrink-0">
-                        Live site
+                      <span className={`text-[10px] font-mono flex-shrink-0 ${isLaunched(activeProject) ? 'text-[#0E6247] dark:text-emerald-400' : 'text-amber-800 dark:text-amber-300'}`}>
+                        {isLaunched(activeProject) ? 'Live site' : 'Preview link'}
                       </span>
                     </div>
 
@@ -500,9 +528,9 @@ export function Work() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-3 py-1 rounded-lg bg-brand-terra hover:bg-[#B82A00] text-white text-xs font-semibold flex items-center gap-1.5 transition-colors"
-                      title="Open Live Website"
+                      title={isLaunched(activeProject) ? 'Open live website' : 'Open preview build'}
                     >
-                      <span>Visit Site</span>
+                      <span>{isLaunched(activeProject) ? 'Visit Site' : 'Open Preview'}</span>
                       <ExternalLink size={13} />
                     </a>
                   </div>
@@ -538,10 +566,12 @@ export function Work() {
                       {activeProject.summary}
                     </p>
 
-                    {activeProject.attribution && (
-                      <div className="p-3.5 rounded-xl bg-brand-terra/10 border border-brand-terra/30 font-mono text-xs text-brand-terra-ink flex items-center gap-2">
-                        <ShieldCheck size={15} className="flex-shrink-0" />
-                        <span>{activeProject.attribution}</span>
+                    {activeProject.founderRole && (
+                      <div className="p-3.5 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 font-dm text-sm text-[#5A3846] dark:text-[#E6D0C2] flex items-start gap-2.5 leading-relaxed">
+                        <ShieldCheck size={16} className="flex-shrink-0 mt-0.5 text-brand-terra-ink" />
+                        <span>
+                          <strong className="text-[#2E0E1D] dark:text-[#FFF0E3]">Founder experience.</strong> Built by Adeleke Sherifdeen as {activeProject.founderRole} at Mabilla Group. Shown to illustrate payments expertise, not as a Gran Jefe client project.
+                        </span>
                       </div>
                     )}
 
@@ -572,8 +602,8 @@ export function Work() {
                       </div>
 
                       <div className="flex items-center gap-2 text-xs font-mono text-[#7A4A38] dark:text-[#B88E7D]">
-                        <CheckCircle2 size={14} className="text-[#0E6247] dark:text-emerald-400" />
-                        <span>Live and in use</span>
+                        <CheckCircle2 size={14} className={isLaunched(activeProject) ? 'text-[#0E6247] dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'} />
+                        <span>{isLaunched(activeProject) ? 'Live and in use' : 'Built and running on a preview link, not yet launched on its own domain'}</span>
                       </div>
                     </div>
                   </div>

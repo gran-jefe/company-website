@@ -66,7 +66,7 @@ export function Footer() {
           <div className="md:col-span-4 space-y-4">
             <Logo variant="dark" size="sm" />
             <p className="font-dm text-sm text-[#E6D0C2] max-w-sm leading-relaxed">
-              Gran Jefe is an independent digital product and creative engineering studio building high-performance web platforms, sovereign payment engines, and mobile applications.
+              Gran Jefe is an independent digital product and creative engineering studio building high-performance web platforms, payment systems, and mobile applications.
             </p>
           </div>
 

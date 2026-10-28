@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     default: 'Gran Jefe Studio — Websites & Digital Products That Make Brands Impossible to Ignore',
     template: '%s | Gran Jefe Studio',
   },
-  description: 'Bespoke creative engineering studio building high-performance web platforms, sovereign payment engines, and mobile applications with sub-second speed.',
+  description: 'Bespoke creative engineering studio building high-performance web platforms, payment systems, and mobile applications with sub-second speed.',
   keywords: [
     'Gran Jefe',
     'Creative Engineering Studio',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Gran Jefe Studio — Websites & Digital Products That Make Brands Impossible to Ignore',
-    description: 'Bespoke creative engineering studio building high-performance web platforms, sovereign payment engines, and mobile applications with sub-second speed.',
+    description: 'Bespoke creative engineering studio building high-performance web platforms, payment systems, and mobile applications with sub-second speed.',
     url: 'https://thegranjefe.com',
     siteName: 'Gran Jefe Studio',
     images: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Gran Jefe Studio — Websites & Digital Products That Make Brands Impossible to Ignore',
-    description: 'Bespoke creative engineering studio building high-performance web platforms, sovereign payment engines, and mobile applications with sub-second speed.',
+    description: 'Bespoke creative engineering studio building high-performance web platforms, payment systems, and mobile applications with sub-second speed.',
     creator: '@thegranjefe',
     images: ['/projects/projectcatalogue.jpg'],
   },
@@ -76,7 +76,7 @@ const jsonLd = {
     '@type': 'Person',
     name: 'Adeleke Sherifdeen',
   },
-  description: 'Creative engineering studio building high-performance web platforms, sovereign payment engines, and mobile applications with sub-second speed.',
+  description: 'Creative engineering studio building high-performance web platforms, payment systems, and mobile applications with sub-second speed.',
   sameAs: [
     'https://github.com/granjefe',
   ],

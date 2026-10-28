@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Landmark, ShieldCheck, Zap, Globe, Building2, ArrowUpRight, Award } from 'lucide-react'
+import { Globe, Building2, ShoppingBag, GraduationCap, ArrowUpRight, Award } from 'lucide-react'
 
 interface TrustItem {
   id: string
@@ -13,34 +13,8 @@ interface TrustItem {
   link?: string
 }
 
+// Studio client projects only; the founder's employer work appears in Work and About
 const trustItems: TrustItem[] = [
-  {
-    id: 'nhc',
-    entity: 'Nigeria High Commission (UK)',
-    role: 'Sovereign Consular Payments & Administrative Portal',
-    location: 'London, UK',
-    icon: <Landmark size={18} className="text-emerald-600 dark:text-emerald-400" />,
-    badge: 'Sovereign Entity',
-    link: 'https://payments.nigeriahc.org.uk',
-  },
-  {
-    id: 'celergate',
-    entity: 'Celergate Open Banking',
-    role: 'Instant Bank Settlement & Merchant Collections',
-    location: 'United Kingdom',
-    icon: <ShieldCheck size={18} className="text-blue-600 dark:text-dev-cyan" />,
-    badge: 'UK Open Banking',
-    link: 'https://celergate.co.uk',
-  },
-  {
-    id: 'payceler',
-    entity: 'Payceler Global Remittance',
-    role: 'Cross-Border Payments & Biometric KYC Identity',
-    location: 'UK & Global',
-    icon: <Globe size={18} className="text-amber-600 dark:text-amber-400" />,
-    badge: 'Fintech Engine',
-    link: 'https://payceler.com',
-  },
   {
     id: 'projectcatalogue',
     entity: 'Project Catalogue Limited',
@@ -49,6 +23,33 @@ const trustItems: TrustItem[] = [
     icon: <Building2 size={18} className="text-brand-terra-ink" />,
     badge: 'Luxury Property',
     link: 'https://www.projectcataloguelimited.com',
+  },
+  {
+    id: 'techcompass_academy',
+    entity: 'TechCompass Academy',
+    role: 'RoboKids & RoboSteer Tech Training Programmes',
+    location: 'United Kingdom',
+    icon: <Globe size={18} className="text-blue-600 dark:text-dev-cyan" />,
+    badge: 'UK EdTech',
+    link: 'https://www.techcompass.co.uk/',
+  },
+  {
+    id: 'shesandhers',
+    entity: "She's & Hers Beauty Palace",
+    role: 'Beauty Brand Catalogue with WhatsApp Ordering',
+    location: 'Uyo, Nigeria',
+    icon: <ShoppingBag size={18} className="text-pink-600 dark:text-pink-400" />,
+    badge: 'Beauty Retail',
+    link: 'https://www.shesandhers.com/',
+  },
+  {
+    id: 'romanseries',
+    entity: 'Roman Series',
+    role: 'Post-UTME Exam Practice & Instant Scoring',
+    location: 'Nigeria',
+    icon: <GraduationCap size={18} className="text-amber-600 dark:text-amber-400" />,
+    badge: 'EdTech',
+    link: 'https://www.romanseries.com.ng/',
   },
 ]
 

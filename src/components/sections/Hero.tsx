@@ -3,25 +3,30 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ArrowUpRight, Sparkles, ShieldCheck, Zap, Globe, ExternalLink, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Sparkles, ShieldCheck, ShoppingBag, Zap, Globe, ExternalLink, CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 interface HeroProject {
   id: string
   title: string
+  shortName: string
+  tabLabel: string
   client: string
   category: string
-  persona: 'startups' | 'fintech' | 'luxury'
+  persona: 'startups' | 'retail' | 'luxury'
   image: string
   url: string
   metric: string
   tagline: string
 }
 
+// Studio client work only; founder experience at Mabilla Group is shown in Work and About
 const heroShowcase: HeroProject[] = [
   {
     id: 'projectcatalogue',
     title: 'Project Catalogue Limited',
+    shortName: 'Project Catalogue',
+    tabLabel: 'Luxury property',
     client: 'Luxury Architecture & Real Estate',
     category: 'Digital Flagship',
     persona: 'luxury',
@@ -31,34 +36,38 @@ const heroShowcase: HeroProject[] = [
     tagline: 'High-end architectural portfolio converting wealthy diaspora buyers.',
   },
   {
-    id: 'nhc',
-    title: 'Nigeria High Commission (UK)',
-    client: 'Diplomatic Consular Mission, London',
-    category: 'Sovereign Digital Payments',
-    persona: 'fintech',
-    image: '/projects/nhc_london.png',
-    url: 'https://payments.nigeriahc.org.uk',
-    metric: 'Thousands of UK Applicants Processed',
-    tagline: 'Sovereign consular cart & instant Open Banking settlement in minutes.',
+    id: 'shesandhers',
+    title: "She's & Hers Beauty Palace",
+    shortName: "She's & Hers",
+    tabLabel: 'Beauty retail',
+    client: 'Beauty Brand, Uyo',
+    category: 'Brand & E-Commerce',
+    persona: 'retail',
+    image: '/projects/shesandhers.jpg',
+    url: 'https://www.shesandhers.com/',
+    metric: 'Online Catalogue with WhatsApp Ordering',
+    tagline: 'Online home for a beauty brand serving 3,000+ clients in store and on WhatsApp.',
   },
   {
-    id: 'celergate',
-    title: 'Celergate Open Banking',
-    client: 'Enterprise UK Payment Infrastructure',
-    category: 'Fintech Architecture',
+    id: 'romanseries',
+    title: 'Roman Series Exam Engine',
+    shortName: 'Roman Series',
+    tabLabel: 'EdTech startup',
+    client: 'Exam Prep Startup, Nigeria',
+    category: 'Exam Practice Platform',
     persona: 'startups',
-    image: '/projects/celergate.png',
-    url: 'https://celergate.co.uk',
-    metric: 'Instant Bank Settlement • 0% Chargebacks',
-    tagline: 'B2B bank payment suite powering Disbuz payouts and Endoz collections.',
+    image: '/projects/romanseries.jpg',
+    url: 'https://www.romanseries.com.ng/',
+    metric: 'Timed Practice for 5 Universities',
+    tagline: 'Post-UTME past questions with timed tests, instant scoring and progress analytics.',
   },
 ]
 
 export function Hero() {
-  const [activePersona, setActivePersona] = useState<'all' | 'startups' | 'fintech' | 'luxury'>('all')
-  const [activeProjectId, setActiveProjectId] = useState<string>('nhc')
+  const [activePersona, setActivePersona] = useState<'all' | 'startups' | 'retail' | 'luxury'>('all')
+  const [activeProjectId, setActiveProjectId] = useState<string>('projectcatalogue')
 
-  const activeProject = heroShowcase.find((p) => p.id === activeProjectId) || heroShowcase[1]
+  const activeProject = heroShowcase.find((p) => p.id === activeProjectId) || heroShowcase[0]
 
   // 3D Perspective Tilt on Mouse Move
   const mouseX = useMotionValue(0)
@@ -98,7 +107,7 @@ export function Hero() {
           <button
             onClick={() => {
               setActivePersona('all')
-              setActiveProjectId('nhc')
+              setActiveProjectId('projectcatalogue')
             }}
             className={`px-3 py-1 rounded-full text-xs font-dm font-semibold transition-all ${
               activePersona === 'all'
@@ -112,7 +121,7 @@ export function Hero() {
           <button
             onClick={() => {
               setActivePersona('startups')
-              setActiveProjectId('celergate')
+              setActiveProjectId('romanseries')
             }}
             className={`px-3 py-1 rounded-full text-xs font-dm font-semibold transition-all flex items-center gap-1.5 ${
               activePersona === 'startups'
@@ -121,22 +130,22 @@ export function Hero() {
             }`}
           >
             <Zap size={12} className="text-amber-500" />
-            <span>High-Growth Startups</span>
+            <span>Startups</span>
           </button>
 
           <button
             onClick={() => {
-              setActivePersona('fintech')
-              setActiveProjectId('nhc')
+              setActivePersona('retail')
+              setActiveProjectId('shesandhers')
             }}
             className={`px-3 py-1 rounded-full text-xs font-dm font-semibold transition-all flex items-center gap-1.5 ${
-              activePersona === 'fintech'
-                ? 'bg-[#0E6247] text-white shadow-sm'
-                : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-emerald-500/50 dark:hover:text-[#FFF0E3]'
+              activePersona === 'retail'
+                ? 'bg-brand-terra text-white shadow-sm'
+                : 'bg-[#FAF0E6] dark:bg-[#1D0E17] text-[#6C4B59] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/50 dark:hover:text-[#FFF0E3]'
             }`}
           >
-            <ShieldCheck size={12} className="text-emerald-500" />
-            <span>Sovereign &amp; Fintech</span>
+            <ShoppingBag size={12} className="text-pink-500" />
+            <span>Brands &amp; Retail</span>
           </button>
 
           <button
@@ -151,7 +160,7 @@ export function Hero() {
             }`}
           >
             <Sparkles size={12} className="text-brand-terra-ink" />
-            <span>Luxury &amp; Brands</span>
+            <span>Luxury &amp; Property</span>
           </button>
         </div>
 
@@ -180,7 +189,7 @@ export function Hero() {
 
             {/* Plain-English Outcome-Driven Sub-headline */}
             <p className="text-base sm:text-lg md:text-xl font-dm text-[#6C4B59] dark:text-[#E6D0C2] leading-relaxed max-w-2xl font-normal">
-              High-converting web platforms, sovereign payment engines, and mobile applications. Engineered for sub-second speed, editorial visual finish, and measurable revenue growth.
+              Websites, online stores, web apps and mobile apps for growing businesses, backed by hands-on payments and fintech experience. Built to load fast, look polished, and win customers.
             </p>
 
             {/* Key Business Outcome Proof Badges */}
@@ -196,10 +205,10 @@ export function Hero() {
 
               <div className="p-3.5 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-xs hover:border-emerald-500/50 transition-colors">
                 <div className="flex items-center gap-1.5 text-[#0E6247] dark:text-emerald-400 text-xs font-mono font-bold">
-                  <ShieldCheck size={14} /> SHIPPED
+                  <ShieldCheck size={14} /> BUILT
                 </div>
                 <div className="mt-1 text-sm font-mono font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3]">
-                  15+ live projects
+                  17 sites &amp; apps
                 </div>
               </div>
 
@@ -338,10 +347,10 @@ export function Hero() {
                           }`}
                         >
                           <div className={`truncate text-[9px] font-mono uppercase tracking-wider ${isSelected ? 'text-brand-ember dark:text-white/80 font-bold' : 'text-[#7A4A38] dark:text-[#B88E7D]'}`}>
-                            {p.id === 'projectcatalogue' ? 'Luxury Dev' : p.id === 'nhc' ? 'Sovereign' : 'Fintech'}
+                            {p.tabLabel}
                           </div>
                           <div className={`truncate text-xs font-syne font-bold mt-0.5 ${isSelected ? 'text-[#FFF0E3]' : 'text-[#2E0E1D] dark:text-[#FFF0E3]'}`}>
-                            {p.title.split(' ')[0]}
+                            {p.shortName}
                           </div>
                         </button>
                       )
