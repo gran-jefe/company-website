@@ -142,7 +142,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2 text-xs text-[#B88E7D] pt-1">
                 <MapPin size={14} className="text-brand-terra-ink flex-shrink-0" />
-                <span>Ibadan &amp; Abuja, Nigeria • Operating Globally</span>
+                <span>Remote • Working with clients worldwide</span>
               </div>
             </div>
           </div>

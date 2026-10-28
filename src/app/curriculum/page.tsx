@@ -334,7 +334,7 @@ export default function CurriculumHubPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search tracks, skills, tech..."
-              className="w-full pl-9 pr-4 py-2 text-xs font-dm rounded-xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] placeholder:text-[#7A4A38] dark:placeholder:text-[#B88E7D] focus:outline-none focus:border-brand-terra focus:ring-1 focus:ring-brand-terra transition-all"
+              className="w-full pl-9 pr-4 py-2 text-xs font-dm rounded-xl bg-[#FFF0E3] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] placeholder:text-[#905F4C] dark:placeholder:text-[#B88E7D] focus:outline-none focus:border-brand-terra focus:ring-1 focus:ring-brand-terra transition-all"
             />
           </div>
         </div>

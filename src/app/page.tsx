@@ -6,6 +6,7 @@ import { TrustBar } from '@/components/sections/TrustBar'
 import { Services } from '@/components/sections/Services'
 import { Process } from '@/components/sections/Process'
 import { Work } from '@/components/sections/Work'
+import { Testimonials } from '@/components/sections/Testimonials'
 import { About } from '@/components/sections/About'
 import { Contact } from '@/components/sections/Contact'
 import { InteractiveCanvas } from '@/components/ui/InteractiveCanvas'
@@ -23,6 +24,7 @@ export default function Home() {
         <Marquee />
         <TrustBar />
         <Work />
+        <Testimonials />
         <Services />
         <Process />
         <About />

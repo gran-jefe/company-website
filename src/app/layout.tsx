@@ -77,6 +77,7 @@ const jsonLd = {
     name: 'Adeleke Sherifdeen',
   },
   description: 'Creative engineering studio building high-performance web platforms, payment systems, and mobile applications with sub-second speed.',
+  areaServed: 'Worldwide',
   sameAs: [
     'https://github.com/granjefe',
   ],

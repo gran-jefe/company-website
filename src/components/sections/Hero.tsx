@@ -124,7 +124,7 @@ export function Hero() {
             <ul className="sm:hidden flex flex-wrap gap-x-4 gap-y-1.5 text-sm font-dm text-[#2E0E1D] dark:text-[#FFF0E3]">
               <li className="flex items-center gap-1.5"><Zap size={14} className="text-brand-terra-ink dark:text-[#FF5528]" /> 99/100 speed score</li>
               <li className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-[#0E6247] dark:text-emerald-400" /> 17 sites &amp; apps</li>
-              <li className="flex items-center gap-1.5"><Globe size={14} className="text-brand-terra-ink dark:text-[#FF5528]" /> UK &amp; Nigeria clients</li>
+              <li className="flex items-center gap-1.5"><Globe size={14} className="text-brand-terra-ink dark:text-[#FF5528]" /> Clients anywhere, remote</li>
             </ul>
 
             {/* Key Business Outcome Proof Badges */}
@@ -149,10 +149,10 @@ export function Hero() {
 
               <div className="p-3.5 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-xs hover:border-brand-terra/50 transition-colors">
                 <div className="flex items-center gap-1.5 text-brand-terra-ink dark:text-[#FF5528] text-xs font-mono font-bold">
-                  <Globe size={14} /> TRACK RECORD
+                  <Globe size={14} /> WORKS WITH
                 </div>
                 <div className="mt-1 text-sm font-mono font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3]">
-                  Clients in UK &amp; Nigeria
+                  Clients anywhere, remotely
                 </div>
               </div>
             </div>

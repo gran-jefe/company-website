@@ -80,7 +80,7 @@ export function Navbar() {
           <div className="hidden lg:flex items-center gap-2 pl-3 border-l border-[#EAD3C4] dark:border-[#EAD3C4]/20 text-[11px] font-mono text-[#7A4A38] dark:text-[#C4A0B8]">
             <span>STUDIO</span>
             <span className="text-[#C4A0B8] dark:text-[#7A4A38]">/</span>
-            <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-semibold">IBADAN &amp; LONDON</span>
+            <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-semibold">REMOTE, WORLDWIDE</span>
           </div>
         </div>
 

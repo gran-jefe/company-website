@@ -41,7 +41,7 @@ export function About() {
 
                 <div className="pt-2.5 border-t border-[#EAD3C4]/60 dark:border-[#EAD3C4]/15 text-[11px] font-dm text-[#7A4A38] dark:text-[#E6D0C2] flex items-center gap-1.5">
                   <MapPin size={12} className="text-brand-terra-ink flex-shrink-0" />
-                  <span>Ibadan &amp; Abuja, Nigeria • Serving Clients Globally</span>
+                  <span>Remote • Working with clients worldwide</span>
                 </div>
               </div>
             </AnimatedSection>
@@ -90,7 +90,7 @@ export function About() {
                   Our founder&rsquo;s background includes engineering sovereign financial infrastructure as Full-Stack Engineer at Mabilla Group, architecting digital consular payment systems for the <strong className="text-[#2E0E1D] dark:text-[#FFF0E3]">Nigeria High Commission United Kingdom</strong>, UK Open Banking payment engines for <strong className="text-[#2E0E1D] dark:text-[#FFF0E3]">Celergate</strong>, and cross-border remittance platforms with biometric verification.
                 </p>
                 <p>
-                  Today, Gran Jefe is a registered business in Nigeria working with founders, brands and companies in the UK and Nigeria who want products that are fast, polished, and built to last.
+                  Today, Gran Jefe is a registered business in Nigeria, working remotely with founders, brands and companies wherever they are, who want products that are fast, polished, and built to last.
                 </p>
               </div>
             </AnimatedSection>

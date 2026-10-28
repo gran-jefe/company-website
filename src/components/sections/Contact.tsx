@@ -189,8 +189,8 @@ Sent via thegranjefe.com`
                       type="text"
                       value={nameInput}
                       onChange={(e) => setNameInput(e.target.value)}
-                      placeholder="Alex Morgan"
-                      className="w-full px-4 py-3 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] font-dm text-sm outline-none focus:border-brand-terra transition-colors placeholder:text-[#7A4A38] dark:placeholder:text-[#B88E7D]"
+                      placeholder="e.g. Alex Morgan"
+                      className="w-full px-4 py-3 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] font-dm text-sm outline-none focus:border-brand-terra transition-colors placeholder:text-[#905F4C] dark:placeholder:text-[#B88E7D]"
                     />
                   </div>
 
@@ -217,12 +217,12 @@ Sent via thegranjefe.com`
                           setEmailInput(e.target.value)
                           if (!emailTouched) setEmailTouched(true)
                         }}
-                        placeholder="alex@company.com"
+                        placeholder="e.g. alex@company.com"
                         className={`w-full px-4 py-3 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border ${
                           showEmailError
                             ? 'border-rose-500 focus:border-rose-500 focus:ring-1 focus:ring-rose-500'
                             : 'border-[#EAD3C4] dark:border-[#EAD3C4]/15 focus:border-brand-terra focus:ring-1 focus:ring-brand-terra'
-                        } text-[#2E0E1D] dark:text-[#FFF0E3] font-dm text-sm focus:outline-none transition-colors placeholder:text-[#7A4A38] dark:placeholder:text-[#B88E7D]`}
+                        } text-[#2E0E1D] dark:text-[#FFF0E3] font-dm text-sm focus:outline-none transition-colors placeholder:text-[#905F4C] dark:placeholder:text-[#B88E7D]`}
                       />
                     </div>
                     {showEmailError && (
@@ -242,7 +242,7 @@ Sent via thegranjefe.com`
                     value={messageInput}
                     onChange={(e) => setMessageInput(e.target.value)}
                     placeholder="Share brief details about your website, conversion goals, or technical stack..."
-                    className="w-full px-4 py-3 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] font-dm text-sm outline-none focus:border-brand-terra transition-colors placeholder:text-[#7A4A38] dark:placeholder:text-[#B88E7D] resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-[#FFF0E3] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] font-dm text-sm outline-none focus:border-brand-terra transition-colors placeholder:text-[#905F4C] dark:placeholder:text-[#B88E7D] resize-none"
                   />
                 </div>
 
@@ -285,7 +285,7 @@ Sent via thegranjefe.com`
                     href={generateWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="py-3.5 px-6 rounded-xl bg-[#0E6247] hover:bg-[#127A59] text-white font-dm font-semibold text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-950/20 hover:scale-[1.01] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                    className="py-3.5 px-6 rounded-xl border-2 border-[#0E6247] dark:border-emerald-400 text-[#0E6247] dark:text-emerald-300 bg-transparent hover:bg-[#0E6247]/10 dark:hover:bg-emerald-400/10 font-dm font-semibold text-sm flex items-center justify-center gap-2 transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                   >
                     <MessageCircle size={16} />
                     <span>Chat on WhatsApp Direct</span>

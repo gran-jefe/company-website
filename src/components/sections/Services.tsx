@@ -12,6 +12,20 @@ interface ServiceItem {
   title: string
   description: string
   includes: string[]
+  startingPrice: Price
+}
+
+interface Price {
+  gbp: number
+  ngn: number
+}
+
+// Average starting prices shown on the site. Edit these to change what visitors see.
+const REBUILD_PRICE: Price = { gbp: 600, ngn: 1_200_000 }
+
+function formatPrice({ gbp, ngn }: Price) {
+  const naira = ngn >= 1_000_000 ? `₦${+(ngn / 1_000_000).toFixed(1)}m` : `₦${Math.round(ngn / 1000)}k`
+  return `£${gbp.toLocaleString('en-GB')} · ${naira}`
 }
 
 const services: ServiceItem[] = [
@@ -22,6 +36,7 @@ const services: ServiceItem[] = [
     title: 'Mobile Apps',
     description: 'iPhone and Android apps built from one shared codebase, so you reach both audiences without paying for two separate apps. Fast, smooth, and usable offline where it matters.',
     includes: ['iPhone & Android', 'One shared codebase', 'Works offline'],
+    startingPrice: { gbp: 2500, ngn: 4_000_000 },
   },
   {
     id: 'web',
@@ -30,6 +45,7 @@ const services: ServiceItem[] = [
     title: 'Websites & Web Apps',
     description: 'Business websites, online stores, dashboards and customer portals that load fast, look sharp on every screen, and turn visitors into enquiries and sales.',
     includes: ['Business websites', 'Online stores', 'Dashboards & portals'],
+    startingPrice: { gbp: 500, ngn: 800_000 },
   },
   {
     id: 'backend',
@@ -38,6 +54,7 @@ const services: ServiceItem[] = [
     title: 'Backend Systems',
     description: 'The engine behind your product: user accounts, databases and business logic that stay secure and keep running as you grow.',
     includes: ['Accounts & logins', 'Databases', 'Admin tools'],
+    startingPrice: { gbp: 1500, ngn: 2_500_000 },
   },
   {
     id: 'fintech',
@@ -46,6 +63,7 @@ const services: ServiceItem[] = [
     title: 'Payments & Fintech',
     description: 'Accept, send and track money safely: payment gateway setup, wallets with accurate balances, and checkout flows designed around compliance.',
     includes: ['Card & bank payments', 'Wallets & balances', 'Transaction history'],
+    startingPrice: { gbp: 3000, ngn: 5_000_000 },
   },
   {
     id: 'integrations',
@@ -54,6 +72,7 @@ const services: ServiceItem[] = [
     title: 'Connecting Your Tools',
     description: 'Link your product to the services you already use, such as payment providers, analytics, email and sign-in, so data moves without manual work.',
     includes: ['Payments', 'Analytics', 'Email & sign-in'],
+    startingPrice: { gbp: 300, ngn: 500_000 },
   },
   {
     id: 'mvp',
@@ -62,6 +81,7 @@ const services: ServiceItem[] = [
     title: 'MVPs for Founders',
     description: 'Turn your idea into a working first version you can put in front of users and investors, quickly and without cutting corners.',
     includes: ['Clickable prototype', 'Working first version', 'Launch support'],
+    startingPrice: { gbp: 2000, ngn: 3_000_000 },
   },
 ]
 
@@ -133,6 +153,7 @@ export function Services() {
                     <Clock size={20} className="text-brand-terra-ink" />
                     <span>7 Business Days</span>
                   </div>
+                  <div className="text-sm font-dm text-[#FFF0E3] font-semibold">From {formatPrice(REBUILD_PRICE)}</div>
                   <div className="text-xs font-dm text-emerald-400 font-semibold">Scope and price agreed before we start</div>
                 </div>
 
@@ -191,11 +212,22 @@ export function Services() {
                       </span>
                     ))}
                   </div>
+
+                  <div className="flex items-baseline justify-between gap-2 pt-1">
+                    <span className="text-xs font-dm text-[#7A4A38] dark:text-[#B88E7D]">Typical starting price</span>
+                    <span className="font-syne font-bold text-sm text-[#2E0E1D] dark:text-[#FFF0E3]">
+                      From {formatPrice(service.startingPrice)}
+                    </span>
+                  </div>
                 </div>
               </div>
             </AnimatedSection>
           ))}
         </div>
+
+        <p className="mt-6 text-sm font-dm text-[#6C4B59] dark:text-[#E6D0C2] leading-relaxed">
+          Prices are average starting points. Your exact quote depends on scope, and we agree it in writing before any work starts.
+        </p>
       </div>
     </section>
   )
