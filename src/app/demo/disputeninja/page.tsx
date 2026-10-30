@@ -429,14 +429,14 @@ export default function DisputeNinjaDemoPage() {
       </footer>
 
       {/* ======================================================== */}
-      {/* 7. FLOATING PRESENTER CONTROL BAR (For Adeleke's Loom)    */}
+      {/* 7. PROTOTYPE ARCHITECTURE SUMMARY BAR                    */}
       {/* ======================================================== */}
       <aside className="fixed bottom-4 right-4 z-50 max-w-sm w-full p-4 rounded-2xl bg-white/95 border border-[#9886FE]/50 shadow-2xl backdrop-blur-xl text-xs space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#10B981] animate-ping" />
             <span className="font-mono font-bold text-[#120A0B] uppercase text-[11px]">
-              Silent Loom Guide
+              Component Architecture
             </span>
           </div>
 
@@ -445,7 +445,7 @@ export default function DisputeNinjaDemoPage() {
               href="/"
               className="text-[10px] text-[#5A5052] hover:text-[#120A0B] flex items-center gap-1 font-mono"
             >
-              <span>Back to Studio</span>
+              <span>Gran Jefe Studio</span>
               <ExternalLink size={10} />
             </Link>
             <button
@@ -489,7 +489,7 @@ export default function DisputeNinjaDemoPage() {
               </div>
 
               <span className="text-[10px] font-mono text-[#7A7072]">
-                Click 1→4 on Loom
+                Key Insights 1→4
               </span>
             </div>
           </div>
