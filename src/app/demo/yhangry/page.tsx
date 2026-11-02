@@ -1,540 +1,271 @@
 'use client'
 
-import React, { useState } from 'react'
-import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  Sparkles, 
-  CheckCircle2, 
-  ArrowRight, 
-  Clock, 
-  UtensilsCrossed, 
-  Wine, 
-  Users, 
-  Check, 
-  ExternalLink, 
-  Eye, 
-  EyeOff, 
-  ChefHat, 
-  HeartHandshake, 
-  ShieldCheck, 
-  TrendingDown, 
-  PartyPopper, 
-  Sparkle
-} from 'lucide-react'
+import React, { useId, useState } from 'react'
+import { ArrowRight, CircleCheck, Minus, Plus, ShieldCheck } from 'lucide-react'
 import { DemoTracker } from '@/components/demo/DemoTracker'
+import { ConceptRibbon, PitchNote, PitchPoint } from '@/components/demo/PitchNote'
+import { useNumberField } from '@/components/demo/useNumberField'
 
-// Dining Occasions
+// yhangry brand tokens, taken from yhangry.com and its booking flow
+const C = {
+  navy: '#1D1D35',
+  coral: '#F95738',
+  purple: '#432790',
+  lilac: '#F4F1FB',
+  warm: '#F8F5F2',
+  muted: '#55556A',
+  line: '#E3E3EA',
+}
+
 interface Occasion {
   id: string
   name: string
-  subtitle: string
-  defaultGuests: number
-  recommendedTier: string
+  detail: string
+  guests: number
+  menu: string
 }
 
 const OCCASIONS: Occasion[] = [
-  {
-    id: 'dinner-party',
-    name: 'Dinner Party & Birthday',
-    subtitle: 'Relax with friends while a private chef handles the kitchen',
-    defaultGuests: 8,
-    recommendedTier: 'plated',
-  },
-  {
-    id: 'intimate',
-    name: 'Romantic & Date Night',
-    subtitle: 'An unforgettable restaurant experience in your living room',
-    defaultGuests: 2,
-    recommendedTier: 'tasting',
-  },
-  {
-    id: 'hen-weekend',
-    name: 'Hen Do & Weekend Away',
-    subtitle: 'Stress-free feast for the whole group in an Airbnb or cottage',
-    defaultGuests: 12,
-    recommendedTier: 'sharing',
-  },
-  {
-    id: 'corporate',
-    name: 'Corporate & Client Dining',
-    subtitle: 'Impress VIP partners or reward high-performing teams',
-    defaultGuests: 14,
-    recommendedTier: 'plated',
-  },
+  { id: 'dinner', name: 'Dinner party or birthday', detail: 'Friends round, someone else in the kitchen', guests: 8, menu: 'plated' },
+  { id: 'date', name: 'Date night', detail: 'A restaurant evening at home', guests: 2, menu: 'tasting' },
+  { id: 'weekend', name: 'Hen do or weekend away', detail: 'Airbnb, cottage or holiday rental', guests: 12, menu: 'sharing' },
+  { id: 'work', name: 'Team or client dinner', detail: 'Reward the team or host a client', guests: 14, menu: 'plated' },
 ]
 
-// Menu Tiers
-interface MenuTier {
+interface Menu {
   id: string
   name: string
-  description: string
   courses: number
-  pricePerHead: number
-  highlight: string
-  sampleDishes: string[]
+  perHead: number
+  dishes: string
 }
 
-const MENU_TIERS: MenuTier[] = [
+const MENUS: Menu[] = [
+  { id: 'sharing', name: 'Sharing feast', courses: 2, perHead: 38, dishes: 'Crispy pork belly, burrata and heirloom tomatoes, tiramisu' },
+  { id: 'plated', name: 'Three-course plated', courses: 3, perHead: 55, dishes: 'Seared scallops, dry-aged beef fillet, chocolate fondant' },
+  { id: 'tasting', name: 'Tasting menu', courses: 5, perHead: 85, dishes: 'Truffle arancini, Dover sole, blackberry tart and more' },
+]
+
+// Comparison assumption, shown in the summary
+const RESTAURANT_PER_HEAD = 120
+
+const PITCH: PitchPoint[] = [
   {
-    id: 'sharing',
-    name: 'Bistro Sharing Feast',
-    description: 'Abundant Mediterranean or Asian sharing platters served family-style at the center of the table.',
-    courses: 2,
-    pricePerHead: 38,
-    highlight: 'Best Value for Groups',
-    sampleDishes: ['Slow-cooked Crispy Pork Belly', 'Burrata with Heirloom Tomatoes', 'Tiramisu Platters'],
+    title: 'Price is the first question',
+    body: 'First-time hosts often assume a private chef is out of reach. Showing a real total for their guest count, before they leave the homepage, turns "maybe one day" into a booking.',
   },
   {
-    id: 'plated',
-    name: '3-Course Classic Plated',
-    description: 'Individually plated restaurant-grade dining curated by vetted London and UK private chefs.',
-    courses: 3,
-    pricePerHead: 55,
-    highlight: 'Most Popular',
-    sampleDishes: ['Pan-seared King Scallops', '28-Day Dry Aged Beef Fillet', 'Dark Chocolate & Salted Caramel Fondant'],
+    title: 'Set against the night out',
+    body: 'A restaurant bill is the number people already have in mind. Putting the two side by side makes the decision feel sensible, not indulgent.',
   },
   {
-    id: 'tasting',
-    name: '5-Course Chef Tasting Menu',
-    description: 'Michelin-trained chef culinary journey featuring canapés, amuse-bouche, and seasonal gastronomy.',
-    courses: 5,
-    pricePerHead: 85,
-    highlight: 'Culinary Masterclass',
-    sampleDishes: ['Truffle Arancini & Caviar', 'Dover Sole Meunière', 'Deconstructed Blackberry Tart'],
+    title: 'Reassurance where it counts',
+    body: 'What the chef handles, and your booking protection, sit right next to the button, so the last worry is answered at the moment of choosing.',
+  },
+  {
+    title: 'Feels like your booking flow',
+    body: 'Same DM Sans, navy, coral and purple selection as the current funnel. Prices and menus live in one list, ready to read from your live pricing.',
   },
 ]
 
+const gbp = (n: number) => `£${Math.round(n).toLocaleString('en-GB')}`
+
 export default function YhangryDemoPage() {
-  const [selectedOccasionId, setSelectedOccasionId] = useState<string>('dinner-party')
-  const [selectedTierId, setSelectedTierId] = useState<string>('plated')
-  const [guests, setGuests] = useState<number>(8)
-  const [showPresenterGuide, setShowPresenterGuide] = useState<boolean>(true)
-  const [presenterStep, setPresenterStep] = useState<number>(1)
+  const [occasionId, setOccasionId] = useState('dinner')
+  const [menuId, setMenuId] = useState('plated')
+  const guests = useNumberField(8, { min: 2, max: 40, label: 'a guest count' })
+  const guestsId = useId()
 
-  // Find active selections
-  const activeTier = MENU_TIERS.find((t) => t.id === selectedTierId) || MENU_TIERS[1]
+  const menu = MENUS.find((m) => m.id === menuId) ?? MENUS[1]
+  const total = guests.value * menu.perHead
+  const restaurant = guests.value * RESTAURANT_PER_HEAD
+  const saving = Math.max(0, restaurant - total)
 
-  // Pricing calculations
-  const totalChefPrice = guests * activeTier.pricePerHead
-  const perHeadPrice = activeTier.pricePerHead
+  const chooseOccasion = (o: Occasion) => {
+    setOccasionId(o.id)
+    guests.set(o.guests)
+    setMenuId(o.menu)
+  }
 
-  // London restaurant dining comparison
-  // Avg London fine dining: £65 food + £35 wine markup + £20 transport/service = ~£120/head
-  const restaurantCostPerHead = 120
-  const restaurantTotal = guests * restaurantCostPerHead
-  // Savings from bringing own wine + no Uber/babysitter surge
-  const totalSavings = Math.max(0, restaurantTotal - totalChefPrice)
-
-  // Presenter insights
-  const presenterSteps = [
-    {
-      step: 1,
-      tag: 'Eliminate Booking Dread',
-      headline: 'Demystifying the "Private Chef" Price Tag',
-      detail:
-        'First-time hosts assume private chefs cost thousands. By showing £38–£55 per head with an interactive slider, yhangry instantly becomes more affordable than eating out.',
-    },
-    {
-      step: 2,
-      tag: 'The Restaurant Comparison Engine',
-      headline: 'The £600+ Party Savings Reveal',
-      detail:
-        'Comparing the chef cost against a London restaurant bill (expensive wine markup + taxis) turns private dining from an extravagant luxury into a financially smart decision.',
-    },
-    {
-      step: 3,
-      tag: 'Zero Friction Reassurance',
-      headline: 'The 4-Pillar Inclusions Guarantee',
-      detail:
-        'Hosts worry about cleaning dishes or buying ingredients. Explicitly showing that the chef buys groceries, serves table-side, and scrubs the kitchen creates instant booking peace of mind.',
-    },
-    {
-      step: 4,
-      tag: 'Tailored for Siddhi & Heinin',
-      headline: 'Plug-and-Play UK Consumer Tech UX',
-      detail:
-        'Engineered to match yhangry’s vibrant coral (#FF5A36) and warm charcoal tokens, fully responsive, zero heavy external packages, and 100% WCAG AA compliant.',
-    },
-  ]
+  const focus = 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#432790] focus-visible:ring-offset-2'
+  const option = (selected: boolean) =>
+    `w-full rounded-[8px] border p-4 text-left transition-colors duration-150 ${focus} ${
+      selected ? 'border-[#432790] bg-[#F4F1FB] shadow-[inset_0_0_0_1px_#432790]' : 'border-[#E3E3EA] bg-white hover:border-[#B9B9C6]'
+    }`
 
   return (
-    <div className="min-h-screen bg-[#FAF7F2] text-[#1C1917] font-sans antialiased selection:bg-[#FF5A36] selection:text-white pb-32">
+    <div className="min-h-screen overflow-x-hidden bg-white [color-scheme:light]" style={{ color: C.navy }}>
       <DemoTracker target="yhangry" targetName="yhangry (Siddhi Mittal)" />
-      {/* Sovereign Context Header */}
-      <header className="sticky top-0 z-50 bg-[#FAF7F2]/90 backdrop-blur-md border-b border-stone-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-[#FF5A36] flex items-center justify-center text-white font-black text-lg shadow-sm">
-              y
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold text-stone-900 tracking-tight text-base">
-                  yhangry
-                </span>
-                <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-orange-100 text-[#FF5A36] border border-orange-200">
-                  London &bull; YC W22
-                </span>
-              </div>
-              <p className="text-[11px] text-stone-500 hidden sm:block">
-                The UK's Leading Private Chef & Event Catering Platform
-              </p>
-            </div>
-          </div>
+      <ConceptRibbon company="yhangry" className="bg-[#1D1D35] text-white/85" />
 
-          <div className="flex items-center gap-2 sm:gap-4">
-            <div className="hidden md:flex items-center gap-2 text-xs text-stone-600 bg-white px-3 py-1.5 rounded-lg border border-stone-200 shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#FF5A36] animate-pulse" />
-              <span>Tailored Prototype for Siddhi Mittal</span>
-            </div>
-
-            <Link
-              href="/"
-              className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-stone-900 text-white hover:bg-stone-800 transition-colors flex items-center gap-1.5 min-h-[44px]"
-            >
-              <span>Gran Jefe Studio</span>
-              <ExternalLink size={13} />
-            </Link>
-          </div>
+      <header className="border-b" style={{ borderColor: C.line }}>
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+          <span className="text-[28px] font-bold tracking-tight">yhangry</span>
+          <a
+            href="https://yhangry.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex min-h-[44px] items-center rounded-[8px] px-5 text-[19px] font-bold text-white transition-colors duration-150 hover:bg-[#E84A2C] ${focus}`}
+            style={{ backgroundColor: C.coral }}
+          >
+            Find local chef
+          </a>
         </div>
       </header>
 
-      {/* Hero Header */}
-      <section className="pt-10 pb-8 px-4 sm:px-6 max-w-5xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 border border-orange-200 text-[#FF5A36] text-xs font-semibold mb-4">
-          <ChefHat size={14} />
-          <span>Interactive Party Budget & Menu Estimator</span>
-        </div>
-
-        <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-stone-900 max-w-3xl mx-auto leading-tight">
-          Private chef dining at home,{' '}
-          <span className="text-[#FF5A36]">for less than a London restaurant</span>.
-        </h1>
-
-        <p className="mt-4 text-stone-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-          See exactly how much a vetted private chef costs for your celebration, what is included, 
-          and how much your party saves on wine markups and travel.
+      <section className="mx-auto max-w-3xl px-4 pb-10 pt-12 text-center sm:px-6 sm:pt-16">
+        <h1 className="text-4xl font-bold leading-tight sm:text-[52px]">What will a private chef cost for your event?</h1>
+        <p className="mx-auto mt-4 max-w-xl text-balance text-lg leading-relaxed" style={{ color: C.muted }}>
+          Tell us the occasion and how many are coming. You will see a full price, what the chef takes care of, and how it compares with eating out.
         </p>
       </section>
 
-      {/* Interactive Main Layout */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Left Column: Interactive Controls */}
-          <div className="lg:col-span-7 space-y-6">
-            {/* Occasion Selection */}
-            <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm space-y-4">
-              <span className="text-xs font-bold text-stone-400 uppercase tracking-wider font-mono">
-                Step 1: What is the occasion?
-              </span>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {OCCASIONS.map((occ) => {
-                  const isSelected = selectedOccasionId === occ.id
-                  return (
-                    <button
-                      key={occ.id}
-                      onClick={() => {
-                        setSelectedOccasionId(occ.id)
-                        setGuests(occ.defaultGuests)
-                        setSelectedTierId(occ.recommendedTier)
-                      }}
-                      className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer relative min-h-[72px] ${
-                        isSelected
-                          ? 'border-[#FF5A36] bg-orange-50/50 shadow-sm ring-1 ring-[#FF5A36]'
-                          : 'border-stone-200 hover:border-stone-300 bg-white'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="font-bold text-xs sm:text-sm text-stone-900">
-                          {occ.name}
-                        </span>
-                        {isSelected && (
-                          <CheckCircle2 size={15} className="text-[#FF5A36]" />
-                        )}
-                      </div>
-                      <p className="text-[11px] text-stone-500 leading-snug">
-                        {occ.subtitle}
-                      </p>
-                    </button>
-                  )
-                })}
-              </div>
+      <main className="mx-auto grid max-w-6xl gap-10 px-4 pb-28 sm:px-6 lg:grid-cols-[minmax(0,1fr)_380px]">
+        <div className="space-y-10">
+          <fieldset>
+            <legend className="text-2xl font-bold">
+              <span style={{ color: C.purple }}>1.</span> What is the occasion?
+            </legend>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {OCCASIONS.map((o) => (
+                <button key={o.id} type="button" aria-pressed={occasionId === o.id} onClick={() => chooseOccasion(o)} className={option(occasionId === o.id)}>
+                  <span className="block font-bold">{o.name}</span>
+                  <span className="mt-1 block text-[15px]" style={{ color: C.muted }}>{o.detail}</span>
+                </button>
+              ))}
             </div>
+          </fieldset>
 
-            {/* Menu Tier Selection */}
-            <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm space-y-4">
-              <span className="text-xs font-bold text-stone-400 uppercase tracking-wider font-mono">
-                Step 2: Choose Dining Style
-              </span>
-
-              <div className="space-y-3">
-                {MENU_TIERS.map((tier) => {
-                  const isSelected = selectedTierId === tier.id
-                  return (
-                    <button
-                      key={tier.id}
-                      onClick={() => setSelectedTierId(tier.id)}
-                      className={`w-full p-4 rounded-xl border text-left transition-all cursor-pointer relative min-h-[80px] ${
-                        isSelected
-                          ? 'border-[#FF5A36] bg-orange-50/40 shadow-sm ring-1 ring-[#FF5A36]'
-                          : 'border-stone-200 hover:border-stone-300 bg-white'
-                      }`}
-                    >
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <div className="flex items-center gap-2">
-                            <span className="font-bold text-stone-900 text-sm">
-                              {tier.name}
-                            </span>
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 font-semibold">
-                              {tier.courses} Courses
-                            </span>
-                            {tier.highlight && (
-                              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-orange-100 text-[#FF5A36]">
-                                {tier.highlight}
-                              </span>
-                            )}
-                          </div>
-                          <p className="text-xs text-stone-500 mt-1 leading-relaxed">
-                            {tier.description}
-                          </p>
-                        </div>
-
-                        <div className="text-right shrink-0 ml-3">
-                          <span className="text-lg font-extrabold text-stone-900">
-                            £{tier.pricePerHead}
-                          </span>
-                          <span className="text-[11px] text-stone-400 block font-mono">
-                            / person
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Sample Dishes */}
-                      <div className="mt-2.5 pt-2 border-t border-stone-100 flex flex-wrap gap-1.5">
-                        {tier.sampleDishes.map((dish, i) => (
-                          <span
-                            key={i}
-                            className="text-[10px] px-2 py-0.5 rounded bg-stone-100 text-stone-600 font-medium"
-                          >
-                            &bull; {dish}
-                          </span>
-                        ))}
-                      </div>
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* Guest Count Slider */}
-            <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm space-y-5">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-stone-400 uppercase tracking-wider font-mono">
-                  Step 3: Number of Guests
-                </span>
-                <span className="text-xs text-stone-500 font-mono">
-                  2 to 30 Guests
-                </span>
-              </div>
-
-              <div className="flex items-baseline justify-between">
-                <div className="flex items-center gap-2">
-                  <Users size={22} className="text-[#FF5A36]" />
-                  <span className="text-3xl sm:text-4xl font-black text-stone-900">
-                    {guests}
-                  </span>
-                  <span className="text-sm font-semibold text-stone-500">
-                    Dinner Guests
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-1.5">
-                  {[2, 6, 8, 12, 16].map((count) => (
-                    <button
-                      key={count}
-                      onClick={() => setGuests(count)}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-mono font-medium transition-colors cursor-pointer min-h-[44px] ${
-                        guests === count
-                          ? 'bg-stone-900 text-white'
-                          : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
-                      }`}
-                    >
-                      {count}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
+          <div>
+            <label htmlFor={guestsId} className="text-2xl font-bold">
+              <span style={{ color: C.purple }}>2.</span> How many guests?
+            </label>
+            <div className="mt-4 flex items-center gap-3">
+              <button
+                type="button"
+                aria-label="Remove a guest"
+                onClick={() => guests.set(Math.max(2, guests.value - 1))}
+                disabled={guests.value <= 2}
+                className={`inline-flex h-12 w-12 items-center justify-center rounded-[8px] border transition-colors duration-150 hover:bg-[#F8F5F2] disabled:cursor-not-allowed disabled:opacity-40 ${focus}`}
+                style={{ borderColor: C.line }}
+              >
+                <Minus size={20} aria-hidden="true" />
+              </button>
               <input
-                type="range"
-                min="2"
-                max="30"
-                step="1"
-                value={guests}
-                onChange={(e) => setGuests(Number(e.target.value))}
-                className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#FF5A36]"
+                id={guestsId}
+                inputMode="numeric"
+                value={guests.raw}
+                onChange={guests.onChange}
+                aria-invalid={guests.error ? true : undefined}
+                aria-describedby={`${guestsId}-hint`}
+                className={`h-12 w-24 rounded-[8px] border text-center text-xl font-bold tabular-nums outline-none focus:border-[#432790] focus:shadow-[inset_0_0_0_1px_#432790] ${
+                  guests.error ? 'border-[#C42B1C]' : 'border-[#E3E3EA]'
+                }`}
               />
-
-              <div className="flex items-center justify-between text-[11px] text-stone-400 font-mono">
-                <span>2 guests</span>
-                <span>10 guests</span>
-                <span>20 guests</span>
-                <span>30 guests</span>
-              </div>
+              <button
+                type="button"
+                aria-label="Add a guest"
+                onClick={() => guests.set(Math.min(40, guests.value + 1))}
+                disabled={guests.value >= 40}
+                className={`inline-flex h-12 w-12 items-center justify-center rounded-[8px] border transition-colors duration-150 hover:bg-[#F8F5F2] disabled:cursor-not-allowed disabled:opacity-40 ${focus}`}
+                style={{ borderColor: C.line }}
+              >
+                <Plus size={20} aria-hidden="true" />
+              </button>
             </div>
+            <p
+              id={`${guestsId}-hint`}
+              role={guests.error ? 'alert' : undefined}
+              className={`mt-2 text-[15px] ${guests.error ? 'text-[#C42B1C]' : ''}`}
+              style={guests.error ? undefined : { color: C.muted }}
+            >
+              {guests.error ? `${guests.error}. Pricing shows ${guests.value} guests for now.` : 'Between 2 and 40 guests.'}
+            </p>
           </div>
 
-          {/* Right Column: Live Price Breakdown & Guarantee */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white rounded-2xl p-6 border-2 border-[#FF5A36]/30 shadow-lg space-y-6 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-36 h-36 bg-orange-500/5 rounded-full blur-2xl pointer-events-none" />
-
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-stone-400">
-                  Instant Estimate
-                </span>
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200">
-                  <Check size={11} />
-                  Includes Groceries & Clean-up
-                </span>
-              </div>
-
-              <div>
-                <span className="text-xs text-stone-500 font-medium">
-                  Total for All {guests} Guests:
-                </span>
-                <div className="text-4xl sm:text-5xl font-black text-stone-900 tracking-tight mt-1">
-                  £{totalChefPrice.toLocaleString()}
-                </div>
-                <p className="text-xs text-stone-500 mt-1 font-mono">
-                  That is only <strong className="text-stone-900">£{perHeadPrice} / person</strong> for private dining.
-                </p>
-              </div>
-
-              {/* Inclusions Checklist */}
-              <div className="space-y-2.5 pt-3 border-t border-stone-100 text-xs">
-                <div className="flex items-center gap-2 text-stone-700">
-                  <CheckCircle2 size={15} className="text-[#FF5A36] shrink-0" />
-                  <span>Chef buys 100% fresh, locally sourced groceries</span>
-                </div>
-                <div className="flex items-center gap-2 text-stone-700">
-                  <CheckCircle2 size={15} className="text-[#FF5A36] shrink-0" />
-                  <span>Chef cooks live in your home kitchen</span>
-                </div>
-                <div className="flex items-center gap-2 text-stone-700">
-                  <CheckCircle2 size={15} className="text-[#FF5A36] shrink-0" />
-                  <span>Full table service for all {activeTier.courses} courses</span>
-                </div>
-                <div className="flex items-center gap-2 text-stone-700">
-                  <CheckCircle2 size={15} className="text-[#FF5A36] shrink-0" />
-                  <span>Kitchen scrubbed, wiped, and left spotless</span>
-                </div>
-              </div>
-
-              {/* London Restaurant Comparison Box */}
-              <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-emerald-900 flex items-center gap-1.5">
-                    <TrendingDown size={14} className="text-emerald-600" />
-                    Estimated Savings vs Restaurant:
+          <fieldset>
+            <legend className="text-2xl font-bold">
+              <span style={{ color: C.purple }}>3.</span> Pick a menu style
+            </legend>
+            <div className="mt-4 space-y-3">
+              {MENUS.map((m) => (
+                <button key={m.id} type="button" aria-pressed={menuId === m.id} onClick={() => setMenuId(m.id)} className={option(menuId === m.id)}>
+                  <span className="flex items-baseline justify-between gap-4">
+                    <span className="font-bold">
+                      {m.name} <span className="font-normal" style={{ color: C.muted }}>· {m.courses} courses</span>
+                    </span>
+                    <span className="shrink-0 font-bold tabular-nums">
+                      {gbp(m.perHead)} <span className="text-[15px] font-normal" style={{ color: C.muted }}>pp</span>
+                    </span>
                   </span>
-                  <span className="text-sm font-black font-mono text-emerald-700">
-                    +£{totalSavings.toLocaleString()}
-                  </span>
-                </div>
-                <p className="text-[11px] text-emerald-800 leading-relaxed">
-                  A high-end restaurant dinner for {guests} with wine markups (£35/bottle) and taxis easily costs <strong>£{restaurantTotal.toLocaleString()}</strong>.
-                  With yhangry, you bring your own favorite wine and save <strong>£{totalSavings.toLocaleString()}</strong>.
-                </p>
+                  <span className="mt-1 block text-[15px]" style={{ color: C.muted }}>{m.dishes}</span>
+                </button>
+              ))}
+            </div>
+          </fieldset>
+        </div>
+
+        <aside aria-label="Your estimate" className="lg:sticky lg:top-6 lg:self-start">
+          <div className="overflow-hidden rounded-[16px] border" style={{ borderColor: C.line }}>
+            <section aria-live="polite" className="p-6">
+              <p className="text-[15px] font-bold" style={{ color: C.muted }}>Your estimate</p>
+              <p className="mt-1 text-5xl font-bold tabular-nums">{gbp(total)}</p>
+              <p className="mt-2 text-[15px]" style={{ color: C.muted }}>
+                {gbp(menu.perHead)} per person · {guests.value} guests · {menu.courses} courses
+              </p>
+
+              <ul className="mt-5 space-y-2.5 border-t pt-5 text-[15px]" style={{ borderColor: C.line }}>
+                {['Your chef shops for every ingredient', 'Cooks fresh in your kitchen', `Serves all ${menu.courses} courses`, 'Leaves the kitchen clean'].map((item) => (
+                  <li key={item} className="flex items-start gap-2.5">
+                    <CircleCheck size={18} className="mt-0.5 shrink-0" style={{ color: C.purple }} aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-5 rounded-[8px] p-4 text-[15px] leading-relaxed" style={{ backgroundColor: C.lilac }}>
+                {saving > 0 ? (
+                  <>
+                    About <strong className="tabular-nums">{gbp(saving)} less</strong> than a London restaurant for the same group.
+                  </>
+                ) : (
+                  <>A restaurant-level menu, cooked and served at home for the same group.</>
+                )}
+                <span className="mt-1 block text-sm" style={{ color: C.muted }}>
+                  Based on roughly {gbp(RESTAURANT_PER_HEAD)} a head with drinks and service ({gbp(restaurant)} in total).
+                </span>
               </div>
 
-              {/* Primary Call to Action */}
               <a
                 href="https://yhangry.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 px-4 rounded-xl bg-[#FF5A36] hover:bg-[#e04a28] text-white font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg min-h-[44px]"
+                className={`mt-5 inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-[8px] text-[19px] font-bold text-white transition-colors duration-150 hover:bg-[#E84A2C] ${focus}`}
+                style={{ backgroundColor: C.coral }}
               >
-                <span>Find Chefs for This Event</span>
-                <ArrowRight size={15} />
+                Find chefs for this event
+                <ArrowRight size={20} aria-hidden="true" />
               </a>
+              <p className="mt-3 text-center text-sm" style={{ color: C.muted }}>Prices are illustrative and vary by chef.</p>
+            </section>
 
-              <p className="text-center text-[10px] text-stone-400">
-                100% money-back guarantee &bull; 4.9/5 stars across 4,000+ UK events
+            <div className="border-t px-6 py-4" style={{ backgroundColor: C.warm, borderColor: C.line }}>
+              <p className="flex items-center gap-2 font-bold">
+                <ShieldCheck size={18} aria-hidden="true" /> Booking protection
               </p>
+              <ul className="mt-2 grid gap-1.5 text-[15px]">
+                {['Fraud protection', 'Free 7 day cancellation', 'Insurance cover'].map((item) => (
+                  <li key={item} className="flex items-center gap-2">
+                    <CircleCheck size={16} aria-hidden="true" /> {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-        </div>
+        </aside>
       </main>
 
-      {/* Floating Intervention Drawer (Zero Loom Mentions) */}
-      <aside className="fixed bottom-4 right-4 z-50 max-w-sm w-full bg-stone-900 text-white rounded-2xl p-4 shadow-2xl border border-stone-700/60 space-y-3 backdrop-blur-md">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#FF5A36] animate-ping" />
-            <span className="font-mono font-bold text-white uppercase text-[11px]">
-              Component Architecture
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <Link
-              href="/"
-              className="text-[10px] text-stone-400 hover:text-white flex items-center gap-1 font-mono"
-            >
-              <span>Gran Jefe Studio</span>
-              <ExternalLink size={10} />
-            </Link>
-            <button
-              onClick={() => setShowPresenterGuide(!showPresenterGuide)}
-              className="text-stone-400 hover:text-white cursor-pointer"
-            >
-              {showPresenterGuide ? <EyeOff size={13} /> : <Eye size={13} />}
-            </button>
-          </div>
-        </div>
-
-        {showPresenterGuide && (
-          <div className="space-y-2.5 pt-1">
-            <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
-              <span className="text-[10px] font-mono text-[#FF5A36] font-bold">
-                {presenterSteps[presenterStep - 1].tag}
-              </span>
-              <p className="font-bold text-white text-[11px] leading-snug">
-                {presenterSteps[presenterStep - 1].headline}
-              </p>
-              <p className="text-[10px] text-stone-300 leading-relaxed">
-                {presenterSteps[presenterStep - 1].detail}
-              </p>
-            </div>
-
-            <div className="flex items-center justify-between pt-1">
-              <div className="flex items-center gap-1">
-                {[1, 2, 3, 4].map((step) => (
-                  <button
-                    key={step}
-                    onClick={() => setPresenterStep(step)}
-                    className={`w-6 h-6 rounded-md text-[10px] font-mono font-bold transition-all cursor-pointer ${
-                      presenterStep === step
-                        ? 'bg-[#FF5A36] text-white'
-                        : 'bg-white/5 text-stone-400 border border-white/10 hover:border-white/30'
-                    }`}
-                  >
-                    {step}
-                  </button>
-                ))}
-              </div>
-
-              <span className="text-[10px] font-mono text-stone-400">
-                Key Insights 1→4
-              </span>
-            </div>
-          </div>
-        )}
-      </aside>
+      <PitchNote id="yhangry" company="yhangry" points={PITCH} accent={C.purple} />
     </div>
   )
 }

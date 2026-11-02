@@ -1,608 +1,443 @@
 'use client'
 
-import React, { useState } from 'react'
-import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  TrendingUp, 
-  ShieldCheck, 
-  Lock, 
-  CheckCircle2, 
-  ArrowRight, 
-  Sparkles, 
-  Activity, 
-  Zap, 
-  ChevronRight, 
-  Star, 
-  ExternalLink, 
-  Eye, 
-  EyeOff, 
-  Check, 
-  DollarSign, 
-  BarChart3, 
-  Bot, 
-  Layers, 
-  RefreshCw 
-} from 'lucide-react'
+import React, { useId, useMemo, useState } from 'react'
+import { ArrowRight, Bot, KeyRound, LineChart, Lock, Wallet } from 'lucide-react'
 import { DemoTracker } from '@/components/demo/DemoTracker'
+import { ConceptRibbon, PitchNote, PitchPoint } from '@/components/demo/PitchNote'
+import { useNumberField } from '@/components/demo/useNumberField'
 
-// Strategy presets
+// Coinrule brand tokens, taken from coinrule.com
+const C = {
+  ink: '#242E38',
+  muted: '#5B6573',
+  navy: '#1B1F30',
+  indigo: '#4641FF',
+  purple: '#852EF6',
+  mint: '#00FFD4',
+  yellow: '#FFD835',
+  profit: '#0E8345',
+  line: '#E4E7EC',
+  canvas: '#F6F7FB',
+}
+
+type Risk = 'Low' | 'Moderate' | 'Aggressive'
+
 interface Strategy {
   id: string
   name: string
   asset: string
-  description: string
-  baseReturnPercent: number
-  benchmarkReturnPercent: number
-  tradesCount: number
+  rule: string
+  returnPer90d: number
+  holdPer90d: number
+  tradesPer90d: number
   winRate: number
-  riskLevel: 'Low' | 'Moderate' | 'Aggressive'
+  risk: Risk
 }
 
 const STRATEGIES: Strategy[] = [
   {
     id: 'rsi-dip',
-    name: 'RSI "Buy The Dip"',
-    asset: 'Bitcoin (BTC)',
-    description: 'Executes buy orders when RSI dips below 30 on 4H candles and takes 4.5% profit on bounce.',
-    baseReturnPercent: 38.4,
-    benchmarkReturnPercent: 14.2,
-    tradesCount: 22,
+    name: 'Buy the dip on RSI',
+    asset: 'BTC',
+    rule: 'Buy when 4h RSI drops below 30, take profit at +4.5%.',
+    returnPer90d: 38.4,
+    holdPer90d: 14.2,
+    tradesPer90d: 22,
     winRate: 81.8,
-    riskLevel: 'Low',
+    risk: 'Low',
   },
   {
-    id: 'dca-trend',
-    name: 'Dynamic Volatility DCA',
-    asset: 'Ethereum (ETH)',
-    description: 'Increases accumulation multiplier during market pullbacks and trails stop-loss in bull legs.',
-    baseReturnPercent: 44.7,
-    benchmarkReturnPercent: 18.6,
-    tradesCount: 36,
+    id: 'smart-dca',
+    name: 'Smart DCA',
+    asset: 'ETH',
+    rule: 'Accumulate weekly, buy more on pullbacks, trail a stop in rallies.',
+    returnPer90d: 44.7,
+    holdPer90d: 18.6,
+    tradesPer90d: 36,
     winRate: 77.8,
-    riskLevel: 'Moderate',
+    risk: 'Moderate',
   },
   {
-    id: 'breakout-momentum',
-    name: 'Moving Average Breakout',
-    asset: 'Solana (SOL)',
-    description: 'Catches upward breakouts when 20 EMA crosses 50 EMA with 24h volume confirmation.',
-    baseReturnPercent: 62.1,
-    benchmarkReturnPercent: 26.5,
-    tradesCount: 28,
+    id: 'ema-breakout',
+    name: 'EMA crossover breakout',
+    asset: 'SOL',
+    rule: 'Enter when the 20 EMA crosses the 50 EMA on rising 24h volume.',
+    returnPer90d: 62.1,
+    holdPer90d: 26.5,
+    tradesPer90d: 28,
     winRate: 71.4,
-    riskLevel: 'Aggressive',
+    risk: 'Aggressive',
   },
   {
-    id: 'grid-rebalance',
-    name: 'Multi-Asset Basket Rebalancing',
-    asset: 'Top 10 Crypto Basket',
-    description: 'Automates weekly rebalancing to lock in high-volatility gains into stable assets.',
-    baseReturnPercent: 29.8,
-    benchmarkReturnPercent: 12.0,
-    tradesCount: 48,
+    id: 'basket',
+    name: 'Top 10 basket rebalance',
+    asset: 'Top 10',
+    rule: 'Rebalance weekly and move outsized gains into stablecoins.',
+    returnPer90d: 29.8,
+    holdPer90d: 12.0,
+    tradesPer90d: 48,
     winRate: 85.4,
-    riskLevel: 'Low',
+    risk: 'Low',
   },
 ]
 
-export default function CoinruleDemoPage() {
-  // Simulator State
-  const [initialCapital, setInitialCapital] = useState<number>(5000)
-  const [selectedStrategyId, setSelectedStrategyId] = useState<string>('rsi-dip')
-  const [timeframeDays, setTimeframeDays] = useState<number>(90)
-  const [showPresenterGuide, setShowPresenterGuide] = useState<boolean>(true)
-  const [presenterStep, setPresenterStep] = useState<number>(1)
+const TIMEFRAMES = [30, 90, 180, 365]
 
-  const strategy = STRATEGIES.find((s) => s.id === selectedStrategyId) || STRATEGIES[0]
+const RISK_COLOR: Record<Risk, string> = {
+  Low: 'text-[#0B6B39] bg-[#E6F6EE]',
+  Moderate: 'text-[#8A4B00] bg-[#FFF4D6]',
+  Aggressive: 'text-[#B4232A] bg-[#FDECEC]',
+}
 
-  // Timeframe scaling factor
-  const timeFactor = timeframeDays / 90
-  const adjustedReturnPercent = (strategy.baseReturnPercent * timeFactor).toFixed(1)
-  const adjustedBenchmarkPercent = (strategy.benchmarkReturnPercent * timeFactor).toFixed(1)
+const PITCH: PitchPoint[] = [
+  {
+    title: 'Proof before the paywall',
+    body: 'New visitors have to trust a rule with real money before they have seen it work. A backtest on their own capital answers "would this have made me money?" in one screen.',
+  },
+  {
+    title: 'Rule vs. holding, side by side',
+    body: 'The chart frames every template against simple buy and hold, which is the comparison a first-time trader is already making in their head.',
+  },
+  {
+    title: 'Custody worry handled up front',
+    body: 'Trade-only API keys and funds that stay on the exchange sit right under the result, at the moment someone decides whether to connect.',
+  },
+  {
+    title: 'Drops into the existing app',
+    body: 'Built in your current palette and Lato. The template data is a single typed array, so it can point at real backtest output with no layout changes.',
+  },
+]
 
-  const finalCapital = Math.round(initialCapital * (1 + (parseFloat(adjustedReturnPercent) / 100)))
-  const netProfit = finalCapital - initialCapital
-  const benchmarkFinal = Math.round(initialCapital * (1 + (parseFloat(adjustedBenchmarkPercent) / 100)))
-  const benchmarkProfit = benchmarkFinal - initialCapital
-  const outperformance = netProfit - benchmarkProfit
+const usd = (n: number) => `$${Math.round(n).toLocaleString('en-US')}`
 
-  // Presenter Guided Script Steps (for Adeleke's walkthrough)
-  const presenterSteps = [
-    {
-      id: 1,
-      tag: '01 / CONVERSION BOTTLENECK',
-      headline: 'Retail Traders Want Proof Before Subscribing',
-      detail: 'Visitors to coinrule.com are hesitant to pay $29–$449/mo without seeing tangible backtested results on their capital.',
-    },
-    {
-      id: 2,
-      tag: '02 / THE INTERACTIVE WEAPON',
-      headline: 'Instant Live Strategy Profit Simulator',
-      detail: 'Prospective traders slide their capital and immediately see how much alpha Coinrule generates over passive holding.',
-    },
-    {
-      id: 3,
-      tag: '03 / NON-CUSTODIAL TRUST CONSOLE',
-      headline: 'Eliminating "Will You Steal My Funds?" Fear',
-      detail: 'Highlighting that exchange funds remain on Binance/Coinbase with zero withdrawal API permissions removes signup friction.',
-    },
-    {
-      id: 4,
-      tag: '04 / HIGH-CONVERTING UPSELL CTA',
-      headline: 'Frictionless Upgrade into Paid Tier',
-      detail: 'Directly linking profitable backtests to "Deploy This Rule" triggers instant account activations.',
-    },
-  ]
+// Deterministic equity curve that starts at 1 and ends at 1 + pct/100
+function curve(pct: number, seed: number, wobble: number, points = 48) {
+  return Array.from({ length: points + 1 }, (_, i) => {
+    const t = i / points
+    const noise = Math.sin(i * 0.9 + seed) * Math.sin(i * 0.31 + seed * 2) * Math.sin(Math.PI * t)
+    return 1 + (pct / 100) * t + wobble * noise
+  })
+}
+
+function EquityChart({ rule, hold }: { rule: number[]; hold: number[] }) {
+  const w = 600
+  const h = 180
+  const all = [...rule, ...hold]
+  const min = Math.min(...all)
+  const max = Math.max(...all)
+  const toPath = (series: number[]) =>
+    series
+      .map((v, i) => {
+        const x = (i / (series.length - 1)) * w
+        const y = h - 8 - ((v - min) / (max - min || 1)) * (h - 16)
+        return `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`
+      })
+      .join(' ')
 
   return (
-    <div className="min-h-screen bg-[#0A0E1A] text-white selection:bg-[#00D4FF] selection:text-[#0A0E1A] font-sans antialiased">
+    <svg viewBox={`0 0 ${w} ${h}`} className="h-44 w-full" preserveAspectRatio="none" aria-hidden="true">
+      {[0.25, 0.5, 0.75].map((f) => (
+        <line key={f} x1="0" x2={w} y1={h * f} y2={h * f} stroke={C.line} strokeWidth="1" />
+      ))}
+      <path d={toPath(hold)} fill="none" stroke="#A5ADBA" strokeWidth="2" strokeDasharray="5 5" vectorEffect="non-scaling-stroke" />
+      <path d={toPath(rule)} fill="none" stroke={C.indigo} strokeWidth="2.5" vectorEffect="non-scaling-stroke" />
+    </svg>
+  )
+}
+
+export default function CoinruleDemoPage() {
+  const [strategyId, setStrategyId] = useState('rsi-dip')
+  const [days, setDays] = useState(90)
+  const capital = useNumberField(5000, { min: 100, max: 1_000_000, label: 'your capital', format: usd })
+  const capitalId = useId()
+
+  const strategy = STRATEGIES.find((s) => s.id === strategyId) ?? STRATEGIES[0]
+  const factor = days / 90
+  const rulePct = strategy.returnPer90d * factor
+  const holdPct = strategy.holdPer90d * factor
+  const ruleFinal = capital.value * (1 + rulePct / 100)
+  const holdFinal = capital.value * (1 + holdPct / 100)
+  const profit = ruleFinal - capital.value
+  const edge = ruleFinal - holdFinal
+  const trades = Math.max(1, Math.round(strategy.tradesPer90d * factor))
+
+  const series = useMemo(
+    () => ({
+      rule: curve(rulePct, STRATEGIES.indexOf(strategy) + 1, 0.05),
+      hold: curve(holdPct, STRATEGIES.indexOf(strategy) + 7, 0.035),
+    }),
+    [rulePct, holdPct, strategy],
+  )
+
+  const focus = 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4641FF] focus-visible:ring-offset-2'
+
+  return (
+    <div className="min-h-screen overflow-x-hidden [color-scheme:light]" style={{ backgroundColor: C.canvas, color: C.ink }}>
       <DemoTracker target="coinrule" targetName="Coinrule (Gabriele Musella)" />
-      
-      {/* ======================================================== */}
-      {/* 1. COINRULE NATIVE TOP ANNOUNCEMENT BANNER               */}
-      {/* ======================================================== */}
-      <div className="w-full bg-[#111827] border-b border-white/5 py-2.5 px-4 text-center text-xs font-medium text-zinc-300 flex items-center justify-center gap-2">
-        <span className="px-2 py-0.5 rounded-full bg-[#00D4FF]/20 text-[#00D4FF] text-[10px] font-bold uppercase tracking-wider">
-          New
-        </span>
-        <span className="text-zinc-200">AI-Powered Trading Assistant is now live on Coinrule</span>
-        <ArrowRight size={13} className="text-[#00D4FF]" />
-      </div>
+      <ConceptRibbon company="Coinrule" className="bg-[#1B1F30] text-white/85" />
 
-      {/* ======================================================== */}
-      {/* 2. COINRULE 1:1 NATIVE NAVBAR                            */}
-      {/* ======================================================== */}
-      <header className="sticky top-0 z-40 bg-[#0A0E1A]/90 backdrop-blur-md border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#0052FF] to-[#00D4FF] flex items-center justify-center text-white font-extrabold text-base shadow-lg shadow-[#00D4FF]/20">
-              ⚡
-            </div>
-            <div className="flex items-baseline gap-1.5">
-              <span className="font-extrabold text-xl tracking-tight text-white font-sans">
-                Coinrule
-              </span>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/5 text-[#00D4FF] border border-[#00D4FF]/20 hidden sm:inline">
-                YC S21
-              </span>
-            </div>
+      {/* Hero, in Coinrule's purple-to-mint brand gradient */}
+      <section className="bg-[linear-gradient(115deg,#852EF6_0%,#4641FF_48%,#1FB8E0_80%,#00E5C3_100%)] pb-40 text-white">
+        <header className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
+          <div className="flex items-center gap-2.5">
+            <Bot size={30} aria-hidden="true" />
+            <span className="text-xl font-bold tracking-[0.14em]">COINRULE</span>
           </div>
-
-          {/* Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8 text-xs font-medium text-zinc-300">
-            <a href="#strategies" className="hover:text-white transition-colors">Strategies</a>
-            <a href="#exchanges" className="hover:text-white transition-colors">Exchanges</a>
-            <a href="#pricing" className="hover:text-white transition-colors">Pricing</a>
-            <a href="#learn" className="hover:text-white transition-colors">Learn</a>
-          </nav>
-
-          {/* Action CTAs */}
-          <div className="flex items-center gap-4">
-            <button className="text-xs font-medium text-zinc-300 hover:text-white transition-colors hidden sm:block">
-              Sign In
-            </button>
+          <div className="flex items-center gap-2 sm:gap-4">
             <a
-              href="https://wa.me/2348085448371?text=Hi%20Adeleke%2C%20saw%20the%20Coinrule%20strategy%20simulator"
+              href="https://coinrule.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-xl text-xs font-semibold bg-[#00D4FF] hover:bg-[#00B8DE] text-[#0A0E1A] transition-all shadow-md shadow-[#00D4FF]/25 hover:scale-102 cursor-pointer font-bold"
+              className={`hidden min-h-[44px] items-center px-2 text-[15px] hover:underline sm:inline-flex ${focus}`}
             >
-              Get Started Free
+              Log in
             </a>
-          </div>
-        </div>
-      </header>
-
-      {/* ======================================================== */}
-      {/* 3. COINRULE 1:1 NATIVE HERO                              */}
-      {/* ======================================================== */}
-      <section className="relative pt-16 pb-12 sm:pt-24 sm:pb-16 px-4 sm:px-6 overflow-hidden">
-        {/* Ambient Glows */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#0052FF]/20 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute top-1/3 right-1/4 w-[400px] h-[250px] bg-[#00D4FF]/15 rounded-full blur-[120px] pointer-events-none" />
-
-        <div className="max-w-4xl mx-auto text-center space-y-6 relative z-10">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-zinc-300 shadow-inner">
-            <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-            <span>Automated Trading Made Easy — No Code Required</span>
-          </div>
-
-          {/* Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
-            Automate your crypto &amp; stocks.{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D4FF] via-[#3B82F6] to-[#10B981]">
-              Outperform the market.
-            </span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="max-w-2xl mx-auto text-base sm:text-lg text-zinc-400 leading-relaxed">
-            Create automated trading rules 24/7 across Binance, Coinbase, Kraken, and TradingView without writing a single line of code.
-          </p>
-
-          {/* Hero CTAs */}
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href="#simulator"
-              className="w-full sm:w-auto px-7 py-3 rounded-xl text-sm font-bold bg-[#00D4FF] hover:bg-[#00B8DE] text-[#0A0E1A] shadow-lg shadow-[#00D4FF]/20 transition-all hover:scale-102 text-center"
+              href="https://coinrule.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-flex min-h-[44px] items-center rounded-full border-2 border-white px-5 text-[15px] transition-colors duration-150 hover:bg-white hover:text-[#4641FF] ${focus}`}
             >
-              Simulate Strategy Returns
+              Get started
             </a>
-            <button className="w-full sm:w-auto px-6 py-3 rounded-xl text-sm font-medium bg-white/5 hover:bg-white/10 text-zinc-300 border border-white/10 transition-colors text-center">
-              Explore 250+ Strategy Templates
-            </button>
           </div>
+        </header>
 
-          {/* Exchange Marquee Strip */}
-          <div className="pt-8 text-center space-y-3">
-            <p className="text-[11px] font-mono uppercase tracking-widest text-zinc-500">
-              Seamless Non-Custodial Integration With Leading Venues
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-medium text-zinc-400">
-              <span className="hover:text-white transition-colors">Binance</span>
-              <span className="hover:text-white transition-colors">Coinbase Advanced</span>
-              <span className="hover:text-white transition-colors">Kraken</span>
-              <span className="hover:text-white transition-colors">OKX</span>
-              <span className="hover:text-white transition-colors">Trading 212</span>
-              <span className="hover:text-white transition-colors">Alpaca</span>
-            </div>
-          </div>
+        <div className="mx-auto max-w-6xl px-4 pt-10 sm:px-6 sm:pt-16">
+          <h1 className="max-w-2xl text-4xl font-bold leading-[1.1] sm:text-[52px]">
+            Test a rule on your own numbers before it trades.
+          </h1>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/90 sm:text-xl">
+            Pick a template, enter your capital, and see how an automated rule would have done against simply holding.
+          </p>
+          <a
+            href="#backtest"
+            className={`mt-8 inline-flex min-h-[52px] items-center gap-2 rounded-full px-7 text-lg font-bold shadow-sm transition-transform duration-150 hover:-translate-y-px active:translate-y-0 ${focus}`}
+            style={{ backgroundColor: C.yellow, color: C.navy }}
+          >
+            Run the backtest
+            <ArrowRight size={18} aria-hidden="true" />
+          </a>
         </div>
       </section>
 
-      {/* ======================================================== */}
-      {/* 4. THE INTERACTIVE STRATEGY PROFIT SIMULATOR             */}
-      {/* (The High-Converting Component Tailored for Coinrule)    */}
-      {/* ======================================================== */}
-      <section id="simulator" className="relative py-12 px-4 sm:px-6">
-        <div className="max-w-5xl mx-auto">
-          
-          {/* Main Card Container */}
-          <div className="relative rounded-3xl bg-[#111827]/80 border border-white/10 shadow-2xl shadow-black/80 p-6 sm:p-10 space-y-8 backdrop-blur-xl">
-            
-            {/* Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
-              <div className="space-y-1">
-                <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#00D4FF]">
-                  <Sparkles size={13} />
-                  <span>INTERACTIVE STRATEGY BACKTESTER</span>
-                </div>
-                <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
-                  See How Much Alpha Coinrule Generates on Your Capital
-                </h2>
-                <p className="text-xs sm:text-sm text-zinc-400">
-                  Select a pre-built automated rule, adjust your capital, and compare automated execution against passive buy &amp; hold.
+      {/* Backtester, framed as a screen inside the Coinrule app */}
+      <main id="backtest" className="mx-auto -mt-28 max-w-6xl scroll-mt-6 px-4 pb-24 sm:px-6">
+        <div className="overflow-hidden rounded-[14px] border bg-white shadow-[0_24px_60px_-20px_rgba(27,31,48,0.35)]" style={{ borderColor: C.line }}>
+          <div className="flex items-center gap-2 border-b px-4 py-3" style={{ borderColor: C.line }} aria-hidden="true">
+            <span className="h-3 w-3 rounded-full bg-[#FF5F57]" />
+            <span className="h-3 w-3 rounded-full bg-[#FEBC2E]" />
+            <span className="h-3 w-3 rounded-full bg-[#28C840]" />
+          </div>
+
+          <div className="grid lg:grid-cols-[200px_minmax(0,1fr)]">
+            <nav aria-label="App sections (preview)" className="hidden flex-col gap-1 p-4 lg:flex" style={{ backgroundColor: C.navy }}>
+              <div className="mb-4 flex items-center gap-2 px-2 pt-2 text-white">
+                <Bot size={22} aria-hidden="true" />
+                <span className="text-sm font-bold tracking-[0.14em]">COINRULE</span>
+              </div>
+              {['Rules', 'Exchanges', 'Strategies', 'Backtest', 'Settings'].map((item) => {
+                const active = item === 'Backtest'
+                return (
+                  <span
+                    key={item}
+                    aria-current={active ? 'page' : undefined}
+                    className={`rounded-[6px] px-3 py-2 text-sm ${active ? 'bg-white/10 font-bold text-white' : 'text-[#C3C8D4]'}`}
+                    style={active ? { boxShadow: `inset 3px 0 0 ${C.mint}` } : undefined}
+                  >
+                    {item}
+                  </span>
+                )
+              })}
+            </nav>
+
+            <div className="p-4 sm:p-6 lg:p-8">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h2 className="text-2xl font-bold">Backtest a template</h2>
+                <p className="text-sm" style={{ color: C.muted }}>
+                  Paper mode · no exchange connected
                 </p>
               </div>
 
-              <div className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-zinc-400 self-start sm:self-auto shrink-0 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-                <span>Live Alpha Engine</span>
-              </div>
-            </div>
-
-            {/* Strategy Selector Tabs */}
-            <div className="space-y-2.5">
-              <label className="text-xs font-semibold text-zinc-300 uppercase tracking-wider font-mono">
-                Select Automated Rule Template:
-              </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                {STRATEGIES.map((strat) => (
-                  <button
-                    key={strat.id}
-                    onClick={() => setSelectedStrategyId(strat.id)}
-                    className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
-                      selectedStrategyId === strat.id
-                        ? 'bg-[#00D4FF]/10 border-[#00D4FF] shadow-lg shadow-[#00D4FF]/10'
-                        : 'bg-[#1F2937]/50 border-white/5 hover:border-white/20 text-zinc-400'
-                    }`}
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-zinc-300">
-                          {strat.asset}
-                        </span>
-                        <span className={`text-[10px] font-mono font-bold ${
-                          strat.riskLevel === 'Low' ? 'text-[#10B981]' : strat.riskLevel === 'Moderate' ? 'text-[#F59E0B]' : 'text-[#EF4444]'
-                        }`}>
-                          {strat.riskLevel} Risk
-                        </span>
-                      </div>
-                      <div className="font-bold text-sm text-white">{strat.name}</div>
+              <div className="mt-6 grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
+                {/* Controls */}
+                <div className="space-y-6">
+                  <fieldset>
+                    <legend className="text-sm font-bold">Rule template</legend>
+                    <div className="mt-3 space-y-2">
+                      {STRATEGIES.map((s) => {
+                        const selected = s.id === strategyId
+                        return (
+                          <button
+                            key={s.id}
+                            type="button"
+                            aria-pressed={selected}
+                            onClick={() => setStrategyId(s.id)}
+                            className={`w-full rounded-[10px] border p-3 text-left transition-colors duration-150 ${focus} ${
+                              selected ? 'border-[#4641FF] bg-[#F1F0FF]' : 'border-[#E4E7EC] hover:border-[#A5ADBA]'
+                            }`}
+                          >
+                            <span className="flex items-center justify-between gap-2">
+                              <span className="font-bold">{s.name}</span>
+                              <span className={`rounded-[6px] px-2 py-0.5 text-xs font-bold ${RISK_COLOR[s.risk]}`}>{s.risk} risk</span>
+                            </span>
+                            <span className="mt-1 block text-sm leading-relaxed" style={{ color: C.muted }}>
+                              <span className="font-bold" style={{ color: C.ink }}>{s.asset}</span> · {s.rule}
+                            </span>
+                          </button>
+                        )
+                      })}
                     </div>
-                    <div className="mt-2 pt-2 border-t border-white/5 flex items-center justify-between text-[11px] font-mono">
-                      <span className="text-zinc-500">Win Rate:</span>
-                      <span className="text-[#10B981] font-bold">{strat.winRate}%</span>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
+                  </fieldset>
 
-            {/* Interactive Sliders */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4 pb-4">
-              
-              {/* Slider 1: Capital Amount */}
-              <div className="space-y-3.5">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-zinc-300">
-                    Allocated Trading Capital
-                  </span>
-                  <span className="text-xl font-mono font-bold text-[#00D4FF]">
-                    ${initialCapital.toLocaleString()}
-                  </span>
-                </div>
-
-                <input
-                  type="range"
-                  min={1000}
-                  max={50000}
-                  step={500}
-                  value={initialCapital}
-                  onChange={(e) => setInitialCapital(Number(e.target.value))}
-                  className="w-full h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-[#00D4FF]"
-                />
-
-                {/* Quick Presets */}
-                <div className="flex items-center gap-2 pt-1">
-                  <span className="text-[10px] font-mono text-zinc-500">Presets:</span>
-                  {[2500, 5000, 10000, 25000].map((preset) => (
-                    <button
-                      key={preset}
-                      onClick={() => setInitialCapital(preset)}
-                      className={`px-2.5 py-0.5 rounded-md text-[10px] font-mono font-medium transition-colors cursor-pointer ${
-                        initialCapital === preset
-                          ? 'bg-[#00D4FF] text-[#0A0E1A] font-bold'
-                          : 'bg-white/5 text-zinc-400 hover:text-white border border-white/10'
+                  <div>
+                    <label htmlFor={capitalId} className="text-sm font-bold">
+                      Starting capital
+                    </label>
+                    <div
+                      className={`mt-2 flex min-h-[48px] items-center rounded-[10px] border bg-white px-3 focus-within:ring-2 ${
+                        capital.error ? 'border-[#B4232A] focus-within:ring-[#B4232A]' : 'border-[#E4E7EC] focus-within:ring-[#4641FF]'
                       }`}
                     >
-                      ${preset >= 1000 ? `${preset / 1000}k` : preset}
-                    </button>
-                  ))}
-                </div>
-              </div>
+                      <span className="text-lg font-bold" style={{ color: C.muted }}>$</span>
+                      <input
+                        id={capitalId}
+                        inputMode="numeric"
+                        value={capital.raw}
+                        onChange={capital.onChange}
+                        aria-invalid={capital.error ? true : undefined}
+                        aria-describedby={capital.error ? `${capitalId}-err` : undefined}
+                        className="w-full self-stretch bg-transparent px-2 text-lg font-bold tabular-nums focus:outline-none"
+                      />
+                    </div>
+                    {capital.error && (
+                      <p id={`${capitalId}-err`} role="alert" className="mt-1.5 text-sm text-[#B4232A]">
+                        {capital.error}. Showing results for {usd(capital.value)}.
+                      </p>
+                    )}
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {[1000, 5000, 10000, 25000].map((p) => (
+                        <button
+                          key={p}
+                          type="button"
+                          aria-pressed={capital.value === p && !capital.error}
+                          onClick={() => capital.set(p)}
+                          className={`min-h-[44px] rounded-full border px-4 text-sm font-bold tabular-nums transition-colors duration-150 ${focus} ${
+                            capital.value === p && !capital.error
+                              ? 'border-[#4641FF] bg-[#4641FF] text-white'
+                              : 'border-[#E4E7EC] hover:border-[#A5ADBA]'
+                          }`}
+                        >
+                          {usd(p)}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
 
-              {/* Slider 2: Backtest Timeframe */}
-              <div className="space-y-3.5">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-zinc-300">
-                    Backtest Timeframe
-                  </span>
-                  <span className="text-xl font-mono font-bold text-[#10B981]">
-                    {timeframeDays} Days
-                  </span>
-                </div>
-
-                <input
-                  type="range"
-                  min={30}
-                  max={365}
-                  step={15}
-                  value={timeframeDays}
-                  onChange={(e) => setTimeframeDays(Number(e.target.value))}
-                  className="w-full h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-[#10B981]"
-                />
-
-                <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500">
-                  <span>30 Days</span>
-                  <span className="text-zinc-300">90 Days (Standard Quarter)</span>
-                  <span>365 Days (1 Year)</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Results Grid (Coinrule Style) */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-              
-              {/* Card 1: Final Simulated Balance */}
-              <div className="p-5 rounded-2xl bg-[#1F2937]/60 border border-white/10 space-y-1">
-                <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#00D4FF] flex items-center gap-1.5">
-                  <TrendingUp size={13} /> Final Capital with Coinrule
-                </div>
-                <div className="text-2xl sm:text-3xl font-mono font-extrabold text-white">
-                  ${finalCapital.toLocaleString()}
-                </div>
-                <div className="text-[11px] text-[#10B981] font-mono font-semibold">
-                  +${netProfit.toLocaleString()} (+{adjustedReturnPercent}%)
-                </div>
-              </div>
-
-              {/* Card 2: Market Benchmark (Buy & Hold) */}
-              <div className="p-5 rounded-2xl bg-[#1F2937]/60 border border-white/10 space-y-1">
-                <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
-                  <BarChart3 size={13} /> Passive Buy &amp; Hold
-                </div>
-                <div className="text-2xl sm:text-3xl font-mono font-extrabold text-zinc-300">
-                  ${benchmarkFinal.toLocaleString()}
-                </div>
-                <div className="text-[11px] text-zinc-400 font-mono">
-                  +${benchmarkProfit.toLocaleString()} (+{adjustedBenchmarkPercent}%)
-                </div>
-              </div>
-
-              {/* Card 3: Outperformance Alpha */}
-              <div className="p-5 rounded-2xl bg-[#1F2937]/60 border-2 border-[#10B981]/50 space-y-1 shadow-lg shadow-[#10B981]/5">
-                <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#10B981] flex items-center gap-1.5">
-                  <Zap size={13} /> Coinrule Alpha Generated
-                </div>
-                <div className="text-2xl sm:text-3xl font-mono font-extrabold text-[#10B981]">
-                  +${outperformance.toLocaleString()}
-                </div>
-                <div className="text-[11px] text-zinc-300 font-dm">
-                  Excess gain above standard holding
-                </div>
-              </div>
-            </div>
-
-            {/* Non-Custodial Security Strip (Removes Fear of Lost Funds) */}
-            <div className="pt-6 border-t border-white/10">
-              <div className="text-[10px] font-mono uppercase font-bold text-zinc-400 mb-3.5 flex items-center gap-2">
-                <Lock size={12} className="text-[#00D4FF]" />
-                <span>Non-Custodial Architecture &amp; Exchange API Security</span>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-                <div className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2">
-                  <Check size={14} className="text-[#10B981] shrink-0" />
-                  <span className="text-zinc-300 text-[11px]">Zero Withdrawal Permissions</span>
+                  <fieldset>
+                    <legend className="text-sm font-bold">Backtest period</legend>
+                    <div className="mt-2 grid grid-cols-4 rounded-[10px] border p-1" style={{ borderColor: C.line }}>
+                      {TIMEFRAMES.map((d) => (
+                        <button
+                          key={d}
+                          type="button"
+                          aria-pressed={days === d}
+                          onClick={() => setDays(d)}
+                          className={`min-h-[44px] rounded-[6px] text-sm font-bold transition-colors duration-150 ${focus} ${
+                            days === d ? 'bg-[#1B1F30] text-white' : 'hover:bg-[#F1F2F6]'
+                          }`}
+                        >
+                          {d === 365 ? '1 year' : `${d} days`}
+                        </button>
+                      ))}
+                    </div>
+                  </fieldset>
                 </div>
 
-                <div className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2">
-                  <Check size={14} className="text-[#10B981] shrink-0" />
-                  <span className="text-zinc-300 text-[11px]">Funds Remain on Exchange</span>
-                </div>
+                {/* Results */}
+                <section aria-live="polite" aria-label="Backtest result" className="rounded-[14px] border p-4 sm:p-6" style={{ borderColor: C.line }}>
+                  <p className="text-sm font-bold" style={{ color: C.muted }}>
+                    P&amp;L · {strategy.name} on {strategy.asset}
+                  </p>
+                  <p className="mt-1 flex flex-wrap items-baseline gap-x-3 tabular-nums">
+                    <span className="text-4xl font-black sm:text-5xl" style={{ color: C.profit }}>
+                      +{rulePct.toFixed(1)}%
+                    </span>
+                    <span className="text-2xl font-bold">+{usd(profit)}</span>
+                  </p>
 
-                <div className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2">
-                  <Check size={14} className="text-[#10B981] shrink-0" />
-                  <span className="text-zinc-300 text-[11px]">256-Bit API Key Encryption</span>
-                </div>
+                  <div className="mt-4">
+                    <EquityChart rule={series.rule} hold={series.hold} />
+                    <div className="mt-2 flex flex-wrap gap-4 text-sm" style={{ color: C.muted }}>
+                      <span className="inline-flex items-center gap-2">
+                        <span className="h-0.5 w-5 bg-[#4641FF]" aria-hidden="true" /> This rule
+                      </span>
+                      <span className="inline-flex items-center gap-2">
+                        <span className="h-0.5 w-5 border-t-2 border-dashed border-[#A5ADBA]" aria-hidden="true" /> Buy and hold
+                      </span>
+                    </div>
+                  </div>
 
-                <div className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-center gap-2">
-                  <Check size={14} className="text-[#10B981] shrink-0" />
-                  <span className="text-zinc-300 text-[11px]">Cloudflare DDoS Protected</span>
-                </div>
-              </div>
-            </div>
+                  <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-4 border-t pt-5 sm:grid-cols-4" style={{ borderColor: C.line }}>
+                    {[
+                      ['Final balance', usd(ruleFinal)],
+                      ['Buy and hold', usd(holdFinal)],
+                      ['Win rate', `${strategy.winRate}%`],
+                      ['Trades', String(trades)],
+                    ].map(([label, value]) => (
+                      <div key={label}>
+                        <dt className="text-xs font-bold uppercase tracking-wide" style={{ color: C.muted }}>{label}</dt>
+                        <dd className="mt-1 text-lg font-bold tabular-nums">{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
 
-            {/* Direct Call to Action */}
-            <div className="pt-2 text-center">
-              <a
-                href="https://wa.me/2348085448371?text=Hi%20Adeleke%2C%20saw%20the%20Coinrule%20strategy%20simulator"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold bg-[#00D4FF] hover:bg-[#00B8DE] text-[#0A0E1A] shadow-lg shadow-[#00D4FF]/25 transition-all hover:scale-102 cursor-pointer"
-              >
-                <span>Deploy This Strategy on Coinrule Now</span>
-                <ChevronRight size={15} />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+                  <p className="mt-5 rounded-[10px] bg-[#F1F0FF] px-4 py-3 text-sm leading-relaxed">
+                    The rule finishes <strong className="tabular-nums">{usd(edge)}</strong> ahead of holding {strategy.asset} over{' '}
+                    {days === 365 ? 'a year' : `${days} days`}.
+                  </p>
 
-      {/* ======================================================== */}
-      {/* 5. COINRULE SOCIAL PROOF & PRICING PREVIEW               */}
-      {/* ======================================================== */}
-      <section className="py-16 px-4 sm:px-6 border-t border-white/5 bg-[#111827]/40">
-        <div className="max-w-4xl mx-auto space-y-8 text-center">
-          <p className="text-xs font-mono uppercase tracking-widest text-zinc-500">
-            Backed by Y Combinator &bull; Over $100M+ in Automated Trading Volume
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-            <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-              <div className="text-xs font-mono text-[#00D4FF]">Free Tier</div>
-              <div className="text-xl font-bold text-white">$0 / month</div>
-              <p className="text-xs text-zinc-400">Up to 5 live bots, basic market rules, paper trading testing.</p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-white/5 border-2 border-[#00D4FF] space-y-2 relative">
-              <span className="absolute -top-2.5 right-4 px-2 py-0.5 rounded-full bg-[#00D4FF] text-[#0A0E1A] text-[9px] font-bold uppercase font-mono">
-                Most Popular
-              </span>
-              <div className="text-xs font-mono text-[#00D4FF]">Trader Plan</div>
-              <div className="text-xl font-bold text-white">$44.42 / month</div>
-              <p className="text-xs text-zinc-400">Unlimited backtests, multiple exchanges, trailing stop-losses.</p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-              <div className="text-xs font-mono text-[#00D4FF]">Pro Plan</div>
-              <div className="text-xl font-bold text-white">$499.50 / month</div>
-              <p className="text-xs text-zinc-400">Unlimited concurrent bots, dedicated execution queues, custom APIs.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ======================================================== */}
-      {/* 6. COINRULE 1:1 NATIVE FOOTER                            */}
-      {/* ======================================================== */}
-      <footer className="py-12 px-4 sm:px-8 border-t border-white/5 text-xs text-zinc-500">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-zinc-300">Coinrule Ltd.</span>
-            <span>London, UK &bull; © 2026. All rights reserved.</span>
-          </div>
-
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-zinc-300 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-zinc-300 transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-zinc-300 transition-colors">Exchange Status</a>
-          </div>
-        </div>
-      </footer>
-
-      {/* ======================================================== */}
-      {/* 7. PROTOTYPE ARCHITECTURE SUMMARY BAR                    */}
-      {/* ======================================================== */}
-      <aside className="fixed bottom-4 right-4 z-50 max-w-sm w-full p-4 rounded-2xl bg-[#111827]/95 border border-[#00D4FF]/40 shadow-2xl backdrop-blur-xl text-xs space-y-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#10B981] animate-ping" />
-            <span className="font-mono font-bold text-white uppercase text-[11px]">
-              Component Architecture
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <Link
-              href="/"
-              className="text-[10px] text-zinc-400 hover:text-white flex items-center gap-1 font-mono"
-            >
-              <span>Gran Jefe Studio</span>
-              <ExternalLink size={10} />
-            </Link>
-            <button
-              onClick={() => setShowPresenterGuide(!showPresenterGuide)}
-              className="text-zinc-400 hover:text-white"
-            >
-              {showPresenterGuide ? <EyeOff size={13} /> : <Eye size={13} />}
-            </button>
-          </div>
-        </div>
-
-        {showPresenterGuide && (
-          <div className="space-y-2.5 pt-1">
-            <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
-              <span className="text-[10px] font-mono text-[#00D4FF] font-bold">
-                {presenterSteps[presenterStep - 1].tag}
-              </span>
-              <p className="font-bold text-white text-[11px] leading-snug">
-                {presenterSteps[presenterStep - 1].headline}
-              </p>
-              <p className="text-[10px] text-zinc-400 leading-relaxed">
-                {presenterSteps[presenterStep - 1].detail}
-              </p>
-            </div>
-
-            <div className="flex items-center justify-between pt-1">
-              <div className="flex items-center gap-1">
-                {[1, 2, 3, 4].map((step) => (
-                  <button
-                    key={step}
-                    onClick={() => setPresenterStep(step)}
-                    className={`w-6 h-6 rounded-md text-[10px] font-mono font-bold transition-all cursor-pointer ${
-                      presenterStep === step
-                        ? 'bg-[#00D4FF] text-[#0A0E1A]'
-                        : 'bg-white/5 text-zinc-400 border border-white/10 hover:border-white/30'
-                    }`}
+                  <a
+                    href="https://coinrule.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`mt-5 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-[10px] px-5 font-bold text-white transition-colors duration-150 hover:bg-[#3530E0] ${focus}`}
+                    style={{ backgroundColor: C.indigo }}
                   >
-                    {step}
-                  </button>
-                ))}
+                    Deploy this rule
+                    <ArrowRight size={18} aria-hidden="true" />
+                  </a>
+                  <p className="mt-3 text-xs leading-relaxed" style={{ color: C.muted }}>
+                    Illustrative backtest using template assumptions, not live market data. Past performance does not guarantee future results.
+                  </p>
+                </section>
               </div>
-
-              <span className="text-[10px] font-mono text-zinc-400">
-                Key Insights 1→4
-              </span>
             </div>
           </div>
-        )}
-      </aside>
 
+          <ul className="grid gap-4 border-t px-4 py-5 text-sm sm:grid-cols-3 sm:px-8" style={{ borderColor: C.line }}>
+            {[
+              { icon: Wallet, text: 'Your funds stay on your exchange' },
+              { icon: KeyRound, text: 'Trade-only API keys, no withdrawal access' },
+              { icon: Lock, text: 'Keys encrypted at rest' },
+            ].map(({ icon: Icon, text }) => (
+              <li key={text} className="flex items-center gap-3">
+                <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-[6px] bg-[#F1F0FF] text-[#4641FF]">
+                  <Icon size={16} aria-hidden="true" />
+                </span>
+                {text}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <p className="mt-10 flex items-center justify-center gap-2 text-sm" style={{ color: C.muted }}>
+          <LineChart size={16} aria-hidden="true" />
+          Templates run on Binance, Coinbase, Kraken, OKX and more.
+        </p>
+      </main>
+
+      <PitchNote id="coinrule" company="Coinrule" points={PITCH} accent={C.indigo} />
     </div>
   )
 }

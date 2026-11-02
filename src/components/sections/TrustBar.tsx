@@ -18,19 +18,19 @@ const trustItems: TrustItem[] = [
   {
     id: 'nhc_london',
     entity: 'Nigeria High Commission London',
-    role: 'Official Consular Payments & Revenue Collection Portal',
+    role: 'Consular Payments Portal (Engineered at Mabilla Group)',
     location: 'United Kingdom',
     icon: <Landmark size={18} className="text-[#0E6247] dark:text-emerald-400" />,
-    badge: 'Sovereign Gov',
+    badge: 'Mabilla Group',
     link: 'https://payments.nigeriahc.org.uk',
   },
   {
     id: 'celergate',
     entity: 'Celergate Open Banking',
-    role: 'UK Open Banking & Account-to-Account Settlement Engine',
+    role: 'UK Open Banking Engine (Engineered at Mabilla Group)',
     location: 'United Kingdom',
     icon: <Zap size={18} className="text-brand-terra-ink dark:text-[#FF5528]" />,
-    badge: 'UK Open Banking',
+    badge: 'Mabilla Group',
     link: 'https://celergate.co.uk',
   },
   {
@@ -39,7 +39,7 @@ const trustItems: TrustItem[] = [
     role: 'Luxury Architectural Showcase & Real Estate Dev',
     location: 'Nigeria',
     icon: <Building2 size={18} className="text-brand-terra-ink" />,
-    badge: 'Luxury Property',
+    badge: 'Studio Client',
     link: 'https://www.projectcataloguelimited.com',
   },
   {
@@ -48,7 +48,7 @@ const trustItems: TrustItem[] = [
     role: 'RoboKids & RoboSteer Tech Training Programmes',
     location: 'United Kingdom',
     icon: <Globe size={18} className="text-blue-600 dark:text-dev-cyan" />,
-    badge: 'UK EdTech',
+    badge: 'Studio Client',
     link: 'https://www.techcompass.co.uk/',
   },
   {
@@ -57,7 +57,7 @@ const trustItems: TrustItem[] = [
     role: 'Beauty Brand Catalogue with WhatsApp Ordering',
     location: 'Uyo, Nigeria',
     icon: <ShoppingBag size={18} className="text-pink-600 dark:text-pink-400" />,
-    badge: 'Beauty Retail',
+    badge: 'Studio Client',
     link: 'https://www.shesandhers.com/',
   },
   {
@@ -66,7 +66,7 @@ const trustItems: TrustItem[] = [
     role: 'Post-UTME Exam Practice & Instant Scoring',
     location: 'Nigeria',
     icon: <GraduationCap size={18} className="text-amber-600 dark:text-amber-400" />,
-    badge: 'EdTech',
+    badge: 'Studio Client',
     link: 'https://www.romanseries.com.ng/',
   },
 ]
@@ -79,14 +79,14 @@ export function TrustBar() {
         <div className="mb-5 pb-4 border-b border-[#EAD3C4]/70 dark:border-[#EAD3C4]/15 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#7A4A38] dark:text-[#E6D0C2]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
-            <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-bold">PLATFORMS WE&rsquo;VE BUILT</span>
+            <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-bold">PROVEN PLATFORMS &amp; FOUNDER TRACK RECORD</span>
             <span className="text-[#7A4A38] dark:text-[#B88E7D]">{"//"}</span>
-            <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-semibold">Live and in use today</span>
+            <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-semibold">Live in production</span>
           </div>
 
-          <div className="flex items-center gap-2 text-[11px] text-[#7A4A38] dark:text-[#B88E7D]">
+          <div className="flex items-center gap-2 text-xs text-[#7A4A38] dark:text-[#B88E7D]">
             <Award size={14} className="text-brand-terra-ink" />
-            <span>Founded by Adeleke Sherifdeen</span>
+            <span>Founded by Adeleke Sherifdeen (Full-Stack Engineer at Mabilla Group)</span>
           </div>
         </div>
 
@@ -105,7 +105,7 @@ export function TrustBar() {
                   <div className="p-2 rounded-xl bg-[#FAF0E6] dark:bg-[#25121E] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-brand-terra-ink group-hover:scale-105 transition-transform shadow-xs">
                     {item.icon}
                   </div>
-                  <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-[#FAF0E6] dark:bg-[#25121E] text-[#7A4A38] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-[#FAF0E6] dark:bg-[#25121E] text-[#7A4A38] dark:text-[#E6D0C2] border border-[#EAD3C4] dark:border-[#EAD3C4]/15">
                     {item.location}
                   </span>
                 </div>
@@ -123,7 +123,7 @@ export function TrustBar() {
                 </p>
               </div>
 
-              <div className="mt-3.5 pt-2.5 border-t border-[#EAD3C4]/60 dark:border-[#EAD3C4]/15 flex items-center justify-between text-[10px] font-mono text-[#7A4A38] dark:text-[#B88E7D]">
+              <div className="mt-3.5 pt-2.5 border-t border-[#EAD3C4]/60 dark:border-[#EAD3C4]/15 flex items-center justify-between text-xs font-mono text-[#7A4A38] dark:text-[#B88E7D]">
                 <span>{item.badge}</span>
                 <span className="text-[#0E6247] dark:text-emerald-400 font-semibold flex items-center gap-1">
                   ● Verified Live

@@ -17,56 +17,60 @@ interface HeroProject {
   url: string
   metric: string
   tagline: string
+  // Employer work is labelled as such so it is never mistaken for studio client work
+  builtAtMabilla?: boolean
 }
 
-// Sovereign and institutional projects elevated for above-the-fold impact alongside flagship studio work
+// Founder experience at Mabilla Group leads, followed by flagship studio client work
 const heroShowcase: HeroProject[] = [
   {
     id: 'nhc_london',
     title: 'Nigeria High Commission Payment Platform',
     shortName: 'Nigeria High Comm',
-    tabLabel: 'Sovereign Gov',
+    tabLabel: 'Government',
     client: 'Nigeria High Commission United Kingdom',
-    category: 'Sovereign Digital Payments',
+    category: 'Government payments',
     image: '/projects/nhc_london.png',
     url: 'https://payments.nigeriahc.org.uk',
-    metric: 'Official Consular Payments (UK)',
-    tagline: 'Official sovereign digital payment collection portal for administrative & consular charges with UK Open Banking.',
+    metric: 'UK consular payments',
+    tagline: 'Architected by Adeleke Sherifdeen as Full-Stack Engineer at Mabilla Group, with UK Open Banking and automated audit receipts.',
+    builtAtMabilla: true,
   },
   {
     id: 'celergate',
     title: 'Celergate Open Banking Platform',
     shortName: 'Celergate',
-    tabLabel: 'Open Banking',
+    tabLabel: 'Fintech',
     client: 'Celergate UK',
-    category: 'UK Open Banking Payments',
+    category: 'Open banking',
     image: '/projects/celergate.png',
     url: 'https://celergate.co.uk',
-    metric: 'Instant Bank Settlement',
-    tagline: 'Instant bank payment engine accepting payments directly from UK bank accounts with zero chargebacks.',
+    metric: 'Instant bank settlement',
+    tagline: 'Engineered by Adeleke Sherifdeen at Mabilla Group: a UK Open Banking engine for instant account-to-account settlement.',
+    builtAtMabilla: true,
   },
   {
     id: 'projectcatalogue',
     title: 'Project Catalogue Limited',
     shortName: 'Project Catalogue',
-    tabLabel: 'Luxury property',
+    tabLabel: 'Property',
     client: 'Luxury Architecture & Real Estate',
-    category: 'Digital Flagship',
+    category: 'Digital flagship',
     image: '/projects/projectcatalogue.jpg',
     url: 'https://www.projectcataloguelimited.com/',
-    metric: 'Fast-Loading Property Showcase',
+    metric: 'Fast-loading property showcase',
     tagline: 'High-end architectural portfolio converting wealthy diaspora buyers.',
   },
   {
     id: 'shesandhers',
     title: "She's & Hers Beauty Palace",
     shortName: "She's & Hers",
-    tabLabel: 'Beauty retail',
+    tabLabel: 'Retail',
     client: 'Beauty Brand, Uyo',
-    category: 'Brand & E-Commerce',
+    category: 'Brand & e-commerce',
     image: '/projects/shesandhers.jpg',
     url: 'https://www.shesandhers.com/',
-    metric: 'WhatsApp Ordering System',
+    metric: 'WhatsApp ordering system',
     tagline: 'Online home for a beauty brand serving 3,000+ clients in store and on WhatsApp.',
   },
 ]
@@ -111,7 +115,7 @@ export function Hero() {
             {/* Studio Badge (hidden on phones to keep the headline above the fold) */}
             <div className="hidden sm:flex flex-wrap items-center gap-2.5">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-xs font-mono shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-brand-terra animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-brand-terra motion-safe:animate-pulse" />
                 <span className="text-[#7A4A38] dark:text-[#E6D0C2] font-bold">STUDIO</span>
                 <span className="text-[#C4A0B8] dark:text-[#7A4A38]">{"//"}</span>
                 <span className="text-[#2E0E1D] dark:text-[#FFF0E3] font-bold">EST. 2025</span>
@@ -140,7 +144,7 @@ export function Hero() {
                 <li className="flex items-center gap-1.5"><Globe size={14} className="text-brand-terra-ink dark:text-[#FF5528]" /> Remote, worldwide</li>
               </ul>
               <div className="flex flex-wrap items-center gap-1.5 text-xs font-dm pt-0.5">
-                <span className="font-mono text-[#7A4A38] dark:text-[#E6D0C2] font-semibold">Sovereign &amp; FinTech Proof:</span>
+                <span className="text-[#7A4A38] dark:text-[#E6D0C2] font-semibold">Engineered at Mabilla Group:</span>
                 <span className="px-2 py-0.5 rounded-md bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 font-semibold text-[#2E0E1D] dark:text-[#FFF0E3]">
                   Nigeria High Commission
                 </span>
@@ -206,18 +210,18 @@ export function Hero() {
               </Button>
             </div>
 
-            {/* Sovereign & Institutional Impact: Above-the-Fold Proof */}
+            {/* Founder experience at Mabilla Group: above-the-fold proof */}
             <div className="pt-3 border-t border-[#EAD3C4]/70 dark:border-[#EAD3C4]/15 space-y-2.5">
-              <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#7A4A38] dark:text-[#E6D0C2] font-bold">
-                <ShieldCheck size={14} className="text-[#0E6247] dark:text-emerald-400 shrink-0" />
-                <span>Sovereign &amp; Institutional Client Proof:</span>
-              </div>
+              <p className="flex items-center gap-2 text-sm font-dm font-semibold text-[#7A4A38] dark:text-[#E6D0C2]">
+                <ShieldCheck size={14} className="text-[#0E6247] dark:text-emerald-400 shrink-0" aria-hidden="true" />
+                <span>Founder experience: payment platforms engineered at Mabilla Group</span>
+              </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 <a
                   href="https://payments.nigeriahc.org.uk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 shadow-xs hover:shadow-md transition-all group min-h-[44px]"
+                  className="flex items-center justify-between p-3 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 shadow-xs hover:shadow-md transition-all group min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra"
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
                     <div className="w-8 h-8 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center shrink-0">
@@ -228,7 +232,7 @@ export function Hero() {
                         Nigeria High Commission
                       </div>
                       <div className="text-xs font-dm text-[#6C4B59] dark:text-[#E6D0C2] truncate">
-                        UK Consular Payments Portal
+                        UK consular payments portal
                       </div>
                     </div>
                   </div>
@@ -239,7 +243,7 @@ export function Hero() {
                   href="https://celergate.co.uk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/50 dark:hover:border-brand-terra/50 shadow-xs hover:shadow-md transition-all group min-h-[44px]"
+                  className="flex items-center justify-between p-3 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/50 dark:hover:border-brand-terra/50 shadow-xs hover:shadow-md transition-all group min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra"
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
                     <div className="w-8 h-8 rounded-xl bg-brand-terra/10 dark:bg-brand-terra/20 border border-brand-terra/30 flex items-center justify-center shrink-0">
@@ -247,10 +251,10 @@ export function Hero() {
                     </div>
                     <div className="min-w-0">
                       <div className="font-syne font-bold text-xs text-[#2E0E1D] dark:text-[#FFF0E3] group-hover:text-brand-terra-ink dark:group-hover:text-[#FF5528] transition-colors truncate">
-                        Celergate
+                        Celergate Open Banking
                       </div>
                       <div className="text-xs font-dm text-[#6C4B59] dark:text-[#E6D0C2] truncate">
-                        UK Open Banking Engine
+                        UK open banking engine
                       </div>
                     </div>
                   </div>
@@ -279,7 +283,7 @@ export function Hero() {
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                   </div>
 
-                  <div className="px-3 py-0.5 rounded-full bg-[#FFF0E3] dark:bg-[#170A13] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[11px] text-[#6C4B59] dark:text-[#E6D0C2] font-mono truncate max-w-[200px]">
+                  <div className="px-3 py-0.5 rounded-full bg-[#FFF0E3] dark:bg-[#170A13] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-xs text-[#6C4B59] dark:text-[#E6D0C2] font-mono truncate max-w-[200px]">
                     {activeProject.url.replace('https://', '')}
                   </div>
 
@@ -287,7 +291,7 @@ export function Hero() {
                     href={activeProject.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-[11px] font-bold text-brand-terra-ink dark:text-[#FF5528] hover:text-brand-ember transition-colors relative z-10"
+                    className="flex items-center gap-1 min-h-[44px] -my-3 text-xs font-bold text-brand-terra-ink dark:text-[#FF5528] hover:text-brand-ember transition-colors relative z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra rounded-md"
                   >
                     <span>Visit Live</span>
                     <ExternalLink size={12} />
@@ -310,7 +314,7 @@ export function Hero() {
 
                   <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between z-10 pointer-events-none">
                     <div>
-                      <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-brand-terra text-white uppercase tracking-wider shadow-sm">
+                      <span className="px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-brand-terra text-white uppercase tracking-wider shadow-sm">
                         {activeProject.category}
                       </span>
                       <h3 className="mt-1 font-syne font-bold text-xl sm:text-2xl text-white drop-shadow-md">
@@ -322,11 +326,13 @@ export function Hero() {
 
                 {/* Demonstrable Value Panel */}
                 <div className="p-5 bg-[#FAF0E6] dark:bg-[#1D0E17] border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 space-y-4">
-                  <div className="flex items-center justify-between text-[11px] font-mono">
+                  <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
                     <span className="text-[#0E6247] dark:text-emerald-400 font-bold flex items-center gap-1.5">
                       <Zap size={13} /> {activeProject.metric}
                     </span>
-                    <span className="text-[#7A4A38] dark:text-[#B88E7D] font-medium">Live project</span>
+                    <span className="text-[#7A4A38] dark:text-[#B88E7D] font-medium">
+                      {activeProject.builtAtMabilla ? 'Founder experience, Mabilla Group' : 'Studio client, live'}
+                    </span>
                   </div>
 
                   <p className="text-xs font-dm text-[#5A3846] dark:text-[#E6D0C2] leading-relaxed font-medium">
@@ -334,20 +340,22 @@ export function Hero() {
                   </p>
 
                   {/* Interactive Project Switcher Chips */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15">
+                  <div className="grid grid-cols-2 gap-2 pt-3 border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15">
                     {heroShowcase.map((p) => {
                       const isSelected = p.id === activeProject.id
                       return (
                         <button
                           key={p.id}
+                          type="button"
+                          aria-pressed={isSelected}
                           onClick={() => setActiveProjectId(p.id)}
-                          className={`p-2.5 rounded-xl text-left transition-all ${
+                          className={`min-h-[44px] p-2.5 rounded-xl text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra ${
                             isSelected
                               ? 'bg-[#2E0E1D] text-[#FFF0E3] dark:bg-brand-terra dark:text-[#FFF0E3] shadow-md font-semibold dark:shadow-brand-terra/20'
                               : 'bg-[#FFF0E3] dark:bg-[#25121E] text-[#6C4B59] dark:text-[#E6D0C2] hover:bg-[#F3E2D5] dark:hover:bg-[#301627] border border-[#EAD3C4] dark:border-[#EAD3C4]/15'
                           }`}
                         >
-                          <div className={`truncate text-[9px] font-mono uppercase tracking-wider ${isSelected ? 'text-brand-ember dark:text-white/80 font-bold' : 'text-[#7A4A38] dark:text-[#B88E7D]'}`}>
+                          <div className={`truncate text-xs font-dm ${isSelected ? 'text-brand-ember dark:text-white/80 font-bold' : 'text-[#7A4A38] dark:text-[#B88E7D]'}`}>
                             {p.tabLabel}
                           </div>
                           <div className={`truncate text-xs font-syne font-bold mt-0.5 ${isSelected ? 'text-[#FFF0E3]' : 'text-[#2E0E1D] dark:text-[#FFF0E3]'}`}>

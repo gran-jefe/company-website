@@ -1,592 +1,219 @@
 'use client'
 
-import React, { useState } from 'react'
-import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  Users, 
-  Clock, 
-  TrendingUp, 
-  CheckCircle2, 
-  ArrowRight, 
-  Sparkles, 
-  Zap, 
-  ExternalLink, 
-  Eye, 
-  EyeOff, 
-  Layers, 
-  ShieldCheck, 
-  Building2, 
-  CalendarCheck, 
-  FileCheck2, 
-  Check
-} from 'lucide-react'
+import React, { useId, useState } from 'react'
+import { ArrowRight } from 'lucide-react'
 import { DemoTracker } from '@/components/demo/DemoTracker'
+import { ConceptRibbon, PitchNote, PitchPoint } from '@/components/demo/PitchNote'
+import { useNumberField } from '@/components/demo/useNumberField'
 
-// Current legacy setup options
-interface LegacyStack {
-  id: string
-  name: string
-  description: string
-  adminHoursPerEmployeeMonth: number
-  toolCostPerSeatMonth: number
-  painPoints: string[]
+// Humaans brand tokens, taken from humaans.io
+const C = {
+  canvas: '#FFFAFA',
+  ink: '#171313',
+  heading: '#290000',
+  coral: '#FE5555',
+  muted: '#6B6565',
+  line: '#EDE5E5',
+  blush: '#FFE9E2',
 }
 
-const LEGACY_STACKS: LegacyStack[] = [
+const serif = 'font-[family-name:var(--font-newsreader)]'
+
+interface Setup {
+  id: string
+  name: string
+  detail: string
+  hoursPerPersonMonth: number
+}
+
+const SETUPS: Setup[] = [
+  { id: 'sheets', name: 'Spreadsheets and Slack', detail: 'Trackers, checklists and shared folders', hoursPerPersonMonth: 1.8 },
+  { id: 'legacy', name: 'An older HRIS', detail: 'Slow self-service, lots of manual follow-up', hoursPerPersonMonth: 1.2 },
+  { id: 'tools', name: 'A tool for each job', detail: 'Separate apps for leave, documents and onboarding', hoursPerPersonMonth: 1.5 },
+]
+
+// Model assumptions, all disclosed to the visitor below the result
+const A = {
+  onboardingHoursNow: 6,
+  onboardingHoursHumaans: 1.5,
+  routineShareAutomated: 0.65,
+  hourlyCost: 40,
+}
+
+const PITCH: PitchPoint[] = [
   {
-    id: 'spreadsheets',
-    name: 'Spreadsheets + Slack + Notion',
-    description: 'Ad-hoc trackers, manual onboarding checklists, and scattered Google Drive folders.',
-    adminHoursPerEmployeeMonth: 1.8,
-    toolCostPerSeatMonth: 8,
-    painPoints: ['Zero single source of truth', 'Frequent payroll sync errors', 'Security/GDPR exposure'],
+    title: 'Agentic AI, in hours',
+    body: '"An AI workforce that executes admin end to end" is a big promise. A buyer believes it faster when they see the hours it gives back for their own headcount.',
   },
   {
-    id: 'legacy-hris',
-    name: 'Clunky Legacy HRIS (Workday / Bamboo)',
-    description: 'Slow, bloated enterprise software with dated UIs and sluggish employee self-service.',
-    adminHoursPerEmployeeMonth: 1.2,
-    toolCostPerSeatMonth: 16,
-    painPoints: ['High employee abandonment', 'Slow page loads & complex navigation', 'Steep annual lock-in'],
+    title: 'A number for the business case',
+    body: 'People leaders still have to sell a switch to finance. The yearly value, with every assumption shown, is something they can paste straight into that conversation.',
   },
   {
-    id: 'fragmented',
-    name: 'Multi-Tool Fragmentation',
-    description: 'Separate subscriptions for time-off, document signing, org charts, and onboarding.',
-    adminHoursPerEmployeeMonth: 1.5,
-    toolCostPerSeatMonth: 22,
-    painPoints: ['Duplicate data entry', 'High software sprawl costs', 'Disjointed employee experience'],
+    title: 'Quiet, in your voice',
+    body: 'Set in an editorial serif on your warm white, with black buttons and one coral accent. No dashboards, no hype, just the answer.',
+  },
+  {
+    title: 'Easy to tune',
+    body: 'Every assumption is a named constant, so your team can calibrate it against real customer data before it goes live.',
   },
 ]
 
+const gbp = (n: number) => `£${Math.round(n).toLocaleString('en-GB')}`
+
 export default function HumaansDemoPage() {
-  const [headcount, setHeadcount] = useState<number>(120)
-  const [selectedStackId, setSelectedStackId] = useState<string>('legacy-hris')
-  const [showPresenterGuide, setShowPresenterGuide] = useState<boolean>(true)
-  const [presenterStep, setPresenterStep] = useState<number>(1)
-  const [activeTab, setActiveTab] = useState<'calculator' | 'workflows' | 'integrations'>('calculator')
+  const [setupId, setSetupId] = useState('legacy')
+  const headcount = useNumberField(120, { min: 10, max: 5000, label: 'your headcount' })
+  const hires = useNumberField(4, { min: 0, max: 500, label: 'monthly hires' })
+  const headcountId = useId()
+  const hiresId = useId()
 
-  // Find active legacy stack
-  const activeStack = LEGACY_STACKS.find((s) => s.id === selectedStackId) || LEGACY_STACKS[1]
+  const setup = SETUPS.find((s) => s.id === setupId) ?? SETUPS[1]
+  const routineNow = headcount.value * setup.hoursPerPersonMonth
+  const monthlyNow = routineNow + hires.value * A.onboardingHoursNow
+  const monthlyHumaans = routineNow * (1 - A.routineShareAutomated) + hires.value * A.onboardingHoursHumaans
+  const monthlySaved = monthlyNow - monthlyHumaans
+  const weeklySaved = (monthlySaved * 12) / 52
+  const yearlyValue = monthlySaved * 12 * A.hourlyCost
+  const humaansShare = monthlyNow > 0 ? (monthlyHumaans / monthlyNow) * 100 : 0
 
-  // Quantitative ROI calculations
-  // Average people ops hourly rate in UK/Europe: ~£35/hr
-  const peopleOpsHourlyRate = 35
+  const focus = 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171313] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FFFAFA]'
 
-  // Hours spent on legacy admin per month
-  const monthlyLegacyHours = headcount * activeStack.adminHoursPerEmployeeMonth
-  // Humaans reduces admin overhead by ~70%
-  const monthlyHumaansHours = monthlyLegacyHours * 0.3
-  const monthlyHoursSaved = monthlyLegacyHours - monthlyHumaansHours
-  const weeklyHoursSaved = monthlyHoursSaved / 4.33
-
-  // Annual financial savings
-  const annualTimeSavings = monthlyHoursSaved * peopleOpsHourlyRate * 12
-  const annualToolSavings = headcount * (activeStack.toolCostPerSeatMonth - 6) * 12
-  const totalAnnualSavings = Math.max(12000, Math.floor(annualTimeSavings + Math.max(0, annualToolSavings)))
-
-  // Onboarding velocity
-  const legacyOnboardingDays = 14
-  const humaansOnboardingDays = 2
-
-  // Presenter insights
-  const presenterSteps = [
-    {
-      step: 1,
-      tag: 'B2B Enterprise Decision Trigger',
-      headline: 'Quantifying Administrative Sludge',
-      detail:
-        'People Ops leaders hate switching HRIS because of perceived migration hassle. Showing an exact metric (34 hours recovered weekly) immediately justifies the transition to leadership.',
-    },
-    {
-      step: 2,
-      tag: 'Financial Realism',
-      headline: 'The £35k+ Overhead Recovery Model',
-      detail:
-        'Blends direct time-saved with software consolidation (retiring disparate document signing and leave trackers), giving procurement an undeniable business case.',
-    },
-    {
-      step: 3,
-      tag: 'Design-Forward Craft',
-      headline: 'London Scale-Up Aesthetic Alignment',
-      detail:
-        'Built with Humaans\' signature minimalist ivory palette (#F9F9F7), crisp typography, subtle pill tags, and zero clunky enterprise widgets.',
-    },
-    {
-      step: 4,
-      tag: 'Studio Authority Delivery',
-      headline: 'Direct Outreach for Giovanni Luperti',
-      detail:
-        'Positioned from Adeleke Sherifdeen (Gran Jefe Studio) leveraging UK sovereign systems credibility, ready to deliver as clean Next.js/React code.',
-    },
-  ]
+  const numberInput = (field: ReturnType<typeof useNumberField>, id: string, label: string, hint: string) => (
+    <div>
+      <label htmlFor={id} className="text-[15px] font-medium">
+        {label}
+      </label>
+      <input
+        id={id}
+        inputMode="numeric"
+        value={field.raw}
+        onChange={field.onChange}
+        aria-invalid={field.error ? true : undefined}
+        aria-describedby={`${id}-hint`}
+        className={`mt-2 h-12 w-full rounded-[8px] border bg-white px-3 text-lg tabular-nums outline-none focus:border-[#171313] ${
+          field.error ? 'border-[#B42318]' : 'border-[#E3D9D9]'
+        }`}
+      />
+      <p id={`${id}-hint`} role={field.error ? 'alert' : undefined} className={`mt-1.5 text-sm ${field.error ? 'text-[#B42318]' : ''}`} style={field.error ? undefined : { color: C.muted }}>
+        {field.error ? `${field.error}. Using ${field.value} for now.` : hint}
+      </p>
+    </div>
+  )
 
   return (
-    <div className="min-h-screen bg-[#F9F9F7] text-[#121212] font-sans antialiased selection:bg-[#121212] selection:text-white pb-32">
+    <div className="min-h-screen overflow-x-hidden [color-scheme:light]" style={{ backgroundColor: C.canvas, color: C.ink }}>
       <DemoTracker target="humaans" targetName="Humaans (Giovanni Luperti)" />
-      {/* Sovereign Context Header */}
-      <header className="sticky top-0 z-50 bg-[#F9F9F7]/90 backdrop-blur-md border-b border-[#E8E8E4]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#121212] flex items-center justify-center text-white font-bold text-sm">
-              h
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold text-[#121212] tracking-tight text-base lowercase">
-                  humaans
-                </span>
-                <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-300">
-                  London &bull; YC W21
-                </span>
-              </div>
-              <p className="text-[11px] text-stone-500 hidden sm:block">
-                The Fastest HRIS for Scaling Tech Organizations
-              </p>
-            </div>
-          </div>
+      <ConceptRibbon company="Humaans" className="bg-[#171313] text-white/85" />
 
-          <div className="flex items-center gap-2 sm:gap-4">
-            <div className="hidden md:flex items-center gap-2 text-xs text-stone-600 bg-white px-3 py-1.5 rounded-lg border border-stone-200">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Tailored Prototype for Giovanni Luperti</span>
-            </div>
-
-            <Link
-              href="/"
-              className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-[#121212] text-white hover:bg-stone-800 transition-colors flex items-center gap-1.5 min-h-[44px]"
-            >
-              <span>Gran Jefe Studio</span>
-              <ExternalLink size={13} />
-            </Link>
-          </div>
-        </div>
+      <header className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
+        <span className="text-2xl font-extrabold tracking-tight" style={{ color: C.coral }}>
+          Humaans
+        </span>
+        <a
+          href="https://humaans.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex min-h-[44px] items-center rounded-[10px] px-4 text-[15px] font-medium text-white transition-colors duration-150 hover:bg-[#3A3333] ${focus}`}
+          style={{ backgroundColor: C.ink }}
+        >
+          Book a demo
+        </a>
       </header>
 
-      {/* Hero Header */}
-      <section className="pt-10 pb-8 px-4 sm:px-6 max-w-5xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-stone-200 text-stone-800 text-xs font-semibold mb-4 shadow-xs">
-          <Sparkles size={13} className="text-emerald-600" />
-          <span>Interactive People Ops Velocity & ROI Simulator</span>
-        </div>
+      <main className="mx-auto grid max-w-6xl gap-12 px-4 pb-24 pt-10 sm:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16 lg:pt-20">
+        <div>
+          <h1 className={`${serif} text-5xl leading-[1.05] tracking-[-1px] sm:text-[64px]`} style={{ color: C.heading }}>
+            Give your people team back their week.
+          </h1>
+          <p className="mt-6 max-w-md text-lg leading-relaxed" style={{ color: C.muted }}>
+            See how much admin moves off your plate when Humaans and its AI workforce handle the routine work end to end.
+          </p>
 
-        <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-stone-900 max-w-3xl mx-auto leading-tight">
-          Eliminate HR administrative sludge.{' '}
-          <span className="text-emerald-700">Reclaim 30+ hours every week.</span>
-        </h1>
-
-        <p className="mt-4 text-stone-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-          Calculate the exact time and overhead your team saves by moving from clunky legacy HR systems 
-          to Humaans' lightning-fast people operations core.
-        </p>
-
-        {/* Navigation Tabs */}
-        <div className="flex items-center justify-center gap-2 mt-8">
-          <button
-            onClick={() => setActiveTab('calculator')}
-            className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all min-h-[44px] cursor-pointer ${
-              activeTab === 'calculator'
-                ? 'bg-[#121212] text-white shadow-sm'
-                : 'bg-white text-stone-600 hover:text-stone-900 border border-stone-200'
-            }`}
-          >
-            Efficiency & ROI Engine
-          </button>
-          <button
-            onClick={() => setActiveTab('workflows')}
-            className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all min-h-[44px] cursor-pointer ${
-              activeTab === 'workflows'
-                ? 'bg-[#121212] text-white shadow-sm'
-                : 'bg-white text-stone-600 hover:text-stone-900 border border-stone-200'
-            }`}
-          >
-            Zero-Friction Workflows
-          </button>
-          <button
-            onClick={() => setActiveTab('integrations')}
-            className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all min-h-[44px] cursor-pointer ${
-              activeTab === 'integrations'
-                ? 'bg-[#121212] text-white shadow-sm'
-                : 'bg-white text-stone-600 hover:text-stone-900 border border-stone-200'
-            }`}
-          >
-            Unified Stack Integration
-          </button>
-        </div>
-      </section>
-
-      {/* Main Interactive Workspace */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-6">
-        <AnimatePresence mode="wait">
-          {activeTab === 'calculator' && (
-            <motion.div
-              key="calculator"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.2 }}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-8"
-            >
-              {/* Left Column: Interactive Inputs */}
-              <div className="lg:col-span-7 space-y-6">
-                {/* Headcount Slider */}
-                <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-xs space-y-5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-stone-400 uppercase tracking-wider font-mono">
-                      Step 1: Organization Headcount
-                    </span>
-                    <span className="text-xs text-stone-500 font-mono">
-                      20 to 500 Employees
-                    </span>
-                  </div>
-
-                  <div className="flex items-baseline justify-between">
-                    <div className="flex items-center gap-2">
-                      <Users size={24} className="text-stone-700" />
-                      <span className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-                        {headcount}
-                      </span>
-                      <span className="text-sm font-semibold text-stone-500">
-                        Team Members
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-1.5">
-                      {[30, 80, 150, 300].map((preset) => (
-                        <button
-                          key={preset}
-                          onClick={() => setHeadcount(preset)}
-                          className={`px-2.5 py-1 rounded-lg text-xs font-mono font-medium transition-colors cursor-pointer min-h-[44px] ${
-                            headcount === preset
-                              ? 'bg-stone-900 text-white'
-                              : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
-                          }`}
-                        >
-                          {preset}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <input
-                    type="range"
-                    min="20"
-                    max="500"
-                    step="5"
-                    value={headcount}
-                    onChange={(e) => setHeadcount(Number(e.target.value))}
-                    className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#121212]"
-                  />
-
-                  <div className="flex items-center justify-between text-[11px] text-stone-400 font-mono">
-                    <span>20</span>
-                    <span>150</span>
-                    <span>300</span>
-                    <span>500</span>
-                  </div>
-                </div>
-
-                {/* Current Setup Selection */}
-                <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-xs space-y-4">
-                  <span className="text-xs font-bold text-stone-400 uppercase tracking-wider font-mono">
-                    Step 2: Current People Operations Setup
-                  </span>
-
-                  <div className="space-y-3">
-                    {LEGACY_STACKS.map((stack) => {
-                      const isSelected = selectedStackId === stack.id
-                      return (
-                        <button
-                          key={stack.id}
-                          onClick={() => setSelectedStackId(stack.id)}
-                          className={`w-full p-4 rounded-xl border text-left transition-all cursor-pointer relative min-h-[76px] ${
-                            isSelected
-                              ? 'border-stone-900 bg-stone-50/70 shadow-xs ring-1 ring-stone-900'
-                              : 'border-stone-200 hover:border-stone-300 bg-white'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between mb-1">
-                            <span className="font-bold text-stone-900 text-sm">
-                              {stack.name}
-                            </span>
-                            {isSelected && (
-                              <CheckCircle2 size={16} className="text-stone-900" />
-                            )}
-                          </div>
-                          <p className="text-xs text-stone-500 leading-relaxed">
-                            {stack.description}
-                          </p>
-                          <div className="mt-2 flex flex-wrap gap-1.5">
-                            {stack.painPoints.map((pain, i) => (
-                              <span
-                                key={i}
-                                className="text-[10px] px-2 py-0.5 rounded bg-rose-50 text-rose-700 font-medium border border-rose-100"
-                              >
-                                &bull; {pain}
-                              </span>
-                            ))}
-                          </div>
-                        </button>
-                      )
-                    })}
-                  </div>
-                </div>
-
-                {/* European Enterprise Trust */}
-                <div className="p-4 rounded-xl bg-white border border-stone-200 flex items-start gap-3">
-                  <ShieldCheck size={18} className="text-emerald-700 shrink-0 mt-0.5" />
-                  <div className="text-xs text-stone-600 leading-relaxed">
-                    <strong className="text-stone-900 font-semibold">
-                      Enterprise Grade & GDPR Compliant:
-                    </strong>{' '}
-                    SOC 2 Type II certified, UK & EU data residency, direct webhooks to Slack, Google Workspace, and payroll providers.
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Live Velocity & Financial ROI */}
-              <div className="lg:col-span-5 space-y-6">
-                <div className="bg-white rounded-2xl p-6 border-2 border-stone-900 shadow-md space-y-6 relative overflow-hidden">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-stone-400">
-                      Calculated Velocity
-                    </span>
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-semibold border border-emerald-200">
-                      <Zap size={11} />
-                      70% Faster Workflows
-                    </span>
-                  </div>
-
-                  <div>
-                    <span className="text-xs text-stone-500 font-medium">
-                      Admin Time Recovered Every Week:
-                    </span>
-                    <div className="text-4xl sm:text-5xl font-black text-stone-900 tracking-tight mt-1 flex items-baseline gap-2">
-                      <span>{Math.round(weeklyHoursSaved)}</span>
-                      <span className="text-base font-semibold text-stone-500 font-sans">
-                        hours / week
-                      </span>
-                    </div>
-                    <p className="text-xs text-stone-500 mt-1">
-                      Time redirected toward talent acquisition and team retention.
-                    </p>
-                  </div>
-
-                  {/* Quantitative Metrics Matrix */}
-                  <div className="space-y-3 pt-3 border-t border-stone-100 text-xs">
-                    <div className="flex items-center justify-between text-stone-600">
-                      <span>Annual Overhead Recovered:</span>
-                      <span className="font-mono font-black text-emerald-700 text-sm">
-                        £{totalAnnualSavings.toLocaleString()} / yr
-                      </span>
-                    </div>
-
-                    <div className="flex items-center justify-between text-stone-600">
-                      <span>New Hire Onboarding Time:</span>
-                      <span className="font-mono font-semibold text-stone-900">
-                        {legacyOnboardingDays} days &rarr;{' '}
-                        <strong className="text-emerald-700">{humaansOnboardingDays} days</strong>
-                      </span>
-                    </div>
-
-                    <div className="flex items-center justify-between text-stone-600">
-                      <span>Disparate Subscriptions Retired:</span>
-                      <span className="font-mono text-stone-900 font-semibold">
-                        3 Tools Replaced
-                      </span>
-                    </div>
-
-                    <div className="flex items-center justify-between text-stone-600">
-                      <span>Self-Service Adoption Rate:</span>
-                      <span className="font-mono text-stone-900 font-semibold">
-                        98% (Sub-second UI)
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* ROI Summary Box */}
-                  <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-1.5">
-                    <span className="text-xs font-bold text-stone-900 flex items-center gap-1.5">
-                      <TrendingUp size={14} className="text-emerald-700" />
-                      Executive Leadership Impact:
-                    </span>
-                    <p className="text-[11px] text-stone-600 leading-relaxed">
-                      At {headcount} employees, transitioning to Humaans recaptures roughly{' '}
-                      <strong>{Math.round(monthlyHoursSaved)} hours</strong> of repetitive monthly admin work, 
-                      providing an immediate <strong>3.8x ROI</strong> on software license costs.
-                    </p>
-                  </div>
-
-                  {/* Primary CTA */}
-                  <a
-                    href="https://humaans.io/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-3.5 px-4 rounded-xl bg-[#121212] hover:bg-stone-800 text-white font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-md min-h-[44px]"
-                  >
-                    <span>Explore Humaans Platform</span>
-                    <ArrowRight size={15} />
-                  </a>
-
-                  <p className="text-center text-[10px] text-stone-400">
-                    Trusted by high-growth European tech leaders &bull; Setup in minutes
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          )}
-
-          {activeTab === 'workflows' && (
-            <motion.div
-              key="workflows"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.2 }}
-              className="bg-white rounded-2xl p-8 border border-stone-200 shadow-xs space-y-6 max-w-3xl mx-auto"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center text-stone-900">
-                  <CalendarCheck size={20} />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-stone-900">
-                    Automated Onboarding & Leave Approvals
-                  </h3>
-                  <p className="text-xs text-stone-500">
-                    Replace manual email threads with one-click automated Slack actions.
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                <div className="p-4 rounded-xl border border-stone-200 bg-stone-50/50 space-y-1">
-                  <span className="text-[10px] font-mono text-stone-400 uppercase">Contract Signing</span>
-                  <p className="text-sm font-bold text-stone-900">Auto-Generated PDFs</p>
-                  <span className="text-[11px] text-emerald-700 font-semibold">100% Paperless</span>
-                </div>
-                <div className="p-4 rounded-xl border border-stone-200 bg-stone-50/50 space-y-1">
-                  <span className="text-[10px] font-mono text-stone-400 uppercase">Time Off Tracking</span>
-                  <p className="text-sm font-bold text-stone-900">Slack Slash Commands</p>
-                  <span className="text-[11px] text-emerald-700 font-semibold">Sub-5s Requests</span>
-                </div>
-                <div className="p-4 rounded-xl border border-stone-200 bg-stone-50/50 space-y-1">
-                  <span className="text-[10px] font-mono text-stone-400 uppercase">Org Directory</span>
-                  <p className="text-sm font-bold text-stone-900">Dynamic Reporting Tree</p>
-                  <span className="text-[11px] text-stone-600 font-semibold">Instant Search</span>
-                </div>
-              </div>
-            </motion.div>
-          )}
-
-          {activeTab === 'integrations' && (
-            <motion.div
-              key="integrations"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.2 }}
-              className="bg-white rounded-2xl p-8 border border-stone-200 shadow-xs space-y-6 max-w-3xl mx-auto"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center text-stone-900">
-                  <Layers size={20} />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-stone-900">
-                    Connect With Your Existing Stack
-                  </h3>
-                  <p className="text-xs text-stone-500">
-                    Bidirectional synchronization with your company's core platforms.
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-center">
-                <div className="p-3 rounded-xl border border-stone-200 bg-stone-50 font-bold text-xs text-stone-800">
-                  Google Workspace
-                </div>
-                <div className="p-3 rounded-xl border border-stone-200 bg-stone-50 font-bold text-xs text-stone-800">
-                  Slack
-                </div>
-                <div className="p-3 rounded-xl border border-stone-200 bg-stone-50 font-bold text-xs text-stone-800">
-                  Pleo
-                </div>
-                <div className="p-3 rounded-xl border border-stone-200 bg-stone-50 font-bold text-xs text-stone-800">
-                  Pento / Payroll
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </main>
-
-      {/* Floating Intervention Drawer (Zero Loom Mentions) */}
-      <aside className="fixed bottom-4 right-4 z-50 max-w-sm w-full bg-stone-900 text-white rounded-2xl p-4 shadow-2xl border border-stone-700/60 space-y-3 backdrop-blur-md">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span className="font-mono font-bold text-white uppercase text-[11px]">
-              Component Architecture
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <Link
-              href="/"
-              className="text-[10px] text-stone-400 hover:text-white flex items-center gap-1 font-mono"
-            >
-              <span>Gran Jefe Studio</span>
-              <ExternalLink size={10} />
-            </Link>
-            <button
-              onClick={() => setShowPresenterGuide(!showPresenterGuide)}
-              className="text-stone-400 hover:text-white cursor-pointer"
-            >
-              {showPresenterGuide ? <EyeOff size={13} /> : <Eye size={13} />}
-            </button>
-          </div>
-        </div>
-
-        {showPresenterGuide && (
-          <div className="space-y-2.5 pt-1">
-            <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
-              <span className="text-[10px] font-mono text-emerald-400 font-bold">
-                {presenterSteps[presenterStep - 1].tag}
-              </span>
-              <p className="font-bold text-white text-[11px] leading-snug">
-                {presenterSteps[presenterStep - 1].headline}
-              </p>
-              <p className="text-[10px] text-stone-300 leading-relaxed">
-                {presenterSteps[presenterStep - 1].detail}
-              </p>
-            </div>
-
-            <div className="flex items-center justify-between pt-1">
-              <div className="flex items-center gap-1">
-                {[1, 2, 3, 4].map((step) => (
+          <fieldset className="mt-10">
+            <legend className="text-[15px] font-medium">How do you run people ops today?</legend>
+            <div className="mt-3 space-y-2">
+              {SETUPS.map((s) => {
+                const selected = s.id === setupId
+                return (
                   <button
-                    key={step}
-                    onClick={() => setPresenterStep(step)}
-                    className={`w-6 h-6 rounded-md text-[10px] font-mono font-bold transition-all cursor-pointer ${
-                      presenterStep === step
-                        ? 'bg-white text-stone-900'
-                        : 'bg-white/5 text-stone-400 border border-white/10 hover:border-white/30'
+                    key={s.id}
+                    type="button"
+                    aria-pressed={selected}
+                    onClick={() => setSetupId(s.id)}
+                    className={`w-full rounded-[8px] border p-4 text-left transition-colors duration-150 ${focus} ${
+                      selected ? 'border-[#171313] bg-white shadow-[inset_0_0_0_1px_#171313]' : 'border-[#E3D9D9] hover:border-[#B8ABAB]'
                     }`}
                   >
-                    {step}
+                    <span className="block font-medium">{s.name}</span>
+                    <span className="mt-0.5 block text-[15px]" style={{ color: C.muted }}>{s.detail}</span>
                   </button>
-                ))}
-              </div>
+                )
+              })}
+            </div>
+          </fieldset>
 
-              <span className="text-[10px] font-mono text-stone-400">
-                Key Insights 1→4
-              </span>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {numberInput(headcount, headcountId, 'Employees', '10 to 5,000 people')}
+            {numberInput(hires, hiresId, 'New hires per month', 'Used for onboarding time')}
+          </div>
+        </div>
+
+        <section aria-live="polite" aria-label="Time back with Humaans" className="self-start rounded-[16px] border bg-white p-6 sm:p-10 lg:sticky lg:top-6" style={{ borderColor: C.line }}>
+          <p className="text-[15px] font-medium" style={{ color: C.muted }}>Time back every week</p>
+          <p className={`${serif} mt-2 text-7xl leading-none tracking-[-2px] tabular-nums sm:text-8xl`} style={{ color: C.heading }}>
+            {Math.round(weeklySaved)}
+            <span className="ml-3 align-baseline text-2xl tracking-normal sm:text-3xl">hours</span>
+          </p>
+          <p className="mt-4 text-lg leading-relaxed">
+            Worth about <strong className="font-semibold tabular-nums">{gbp(yearlyValue)}</strong> a year in people team time, for {headcount.value.toLocaleString('en-GB')} employees.
+          </p>
+
+          <div className="mt-8 space-y-4">
+            <div>
+              <div className="flex justify-between text-[15px]">
+                <span>Admin hours a month today</span>
+                <span className="font-medium tabular-nums">{Math.round(monthlyNow)}</span>
+              </div>
+              <div className="mt-2 h-3 rounded-full" style={{ backgroundColor: C.ink }} />
+            </div>
+            <div>
+              <div className="flex justify-between text-[15px]">
+                <span>With Humaans</span>
+                <span className="font-medium tabular-nums">{Math.round(monthlyHumaans)}</span>
+              </div>
+              <div className="mt-2 h-3 rounded-full" style={{ backgroundColor: C.blush }}>
+                <div className="h-3 rounded-full transition-[width] duration-200 motion-reduce:transition-none" style={{ width: `${humaansShare}%`, backgroundColor: C.coral }} />
+              </div>
             </div>
           </div>
-        )}
-      </aside>
+
+          <a
+            href="https://humaans.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`mt-10 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-[10px] text-[15px] font-medium text-white transition-colors duration-150 hover:bg-[#3A3333] ${focus}`}
+            style={{ backgroundColor: C.ink }}
+          >
+            Book a demo
+            <ArrowRight size={16} aria-hidden="true" />
+          </a>
+
+          <details className="mt-6 border-t pt-4 text-sm" style={{ borderColor: C.line, color: C.muted }}>
+            <summary className={`min-h-[44px] cursor-pointer content-center font-medium ${focus}`} style={{ color: C.ink }}>
+              How this is worked out
+            </summary>
+            <ul className="mt-2 list-disc space-y-1 pl-5 leading-relaxed">
+              <li>{setup.hoursPerPersonMonth} admin hours per employee a month with {setup.name.toLowerCase()}.</li>
+              <li>{Math.round(A.routineShareAutomated * 100)}% of routine admin handled by Humaans and its AI agents.</li>
+              <li>Onboarding drops from {A.onboardingHoursNow} to {A.onboardingHoursHumaans} hours per hire.</li>
+              <li>People team time valued at {gbp(A.hourlyCost)} an hour.</li>
+            </ul>
+          </details>
+        </section>
+      </main>
+
+      <PitchNote id="humaans" company="Humaans" points={PITCH} accent={C.ink} />
     </div>
   )
 }
