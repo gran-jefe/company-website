@@ -24,6 +24,7 @@ import {
   Layers, 
   RefreshCw 
 } from 'lucide-react'
+import { DemoTracker } from '@/components/demo/DemoTracker'
 
 // Strategy presets
 interface Strategy {
@@ -136,6 +137,7 @@ export default function CoinruleDemoPage() {
 
   return (
     <div className="min-h-screen bg-[#0A0E1A] text-white selection:bg-[#00D4FF] selection:text-[#0A0E1A] font-sans antialiased">
+      <DemoTracker target="coinrule" targetName="Coinrule (Gabriele Musella)" />
       
       {/* ======================================================== */}
       {/* 1. COINRULE NATIVE TOP ANNOUNCEMENT BANNER               */}

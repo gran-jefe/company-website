@@ -21,6 +21,7 @@ import {
   FileCheck2, 
   Check
 } from 'lucide-react'
+import { DemoTracker } from '@/components/demo/DemoTracker'
 
 // Current legacy setup options
 interface LegacyStack {
@@ -123,6 +124,7 @@ export default function HumaansDemoPage() {
 
   return (
     <div className="min-h-screen bg-[#F9F9F7] text-[#121212] font-sans antialiased selection:bg-[#121212] selection:text-white pb-32">
+      <DemoTracker target="humaans" targetName="Humaans (Giovanni Luperti)" />
       {/* Sovereign Context Header */}
       <header className="sticky top-0 z-50 bg-[#F9F9F7]/90 backdrop-blur-md border-b border-[#E8E8E4]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">

@@ -23,6 +23,7 @@ import {
   PiggyBank,
   Smartphone
 } from 'lucide-react'
+import { DemoTracker } from '@/components/demo/DemoTracker'
 
 // Deposit channels supported by Cleva
 interface DepositChannel {
@@ -143,6 +144,7 @@ export default function ClevaDemoPage() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] font-sans antialiased selection:bg-[#2563EB] selection:text-white pb-32">
+      <DemoTracker target="cleva" targetName="Cleva (Tolu Alabi)" />
       {/* Sovereign Context Header */}
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">

@@ -24,6 +24,7 @@ import {
   Sun,
   Moon
 } from 'lucide-react'
+import { DemoTracker } from '@/components/demo/DemoTracker'
 
 export default function DisputeNinjaDemoPage() {
   // Calculator State
@@ -75,6 +76,7 @@ export default function DisputeNinjaDemoPage() {
 
   return (
     <div className="min-h-screen bg-[#F8F4F1] text-[#120A0B] selection:bg-[#9886FE] selection:text-white font-sans antialiased">
+      <DemoTracker target="disputeninja" targetName="DisputeNinja (Max Wu)" />
       
       {/* ======================================================== */}
       {/* 1. DISPUTENINJA NATIVE LIGHT TOP BANNER                  */}

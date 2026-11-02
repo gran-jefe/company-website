@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Globe, Building2, ShoppingBag, GraduationCap, ArrowUpRight, Award } from 'lucide-react'
+import { Globe, Building2, ShoppingBag, GraduationCap, ArrowUpRight, Award, Landmark, Zap } from 'lucide-react'
 
 interface TrustItem {
   id: string
@@ -13,8 +13,26 @@ interface TrustItem {
   link?: string
 }
 
-// Studio client projects only; the founder's employer work appears in Work and About
+// Sovereign, institutional, and studio client platforms live and verified in production
 const trustItems: TrustItem[] = [
+  {
+    id: 'nhc_london',
+    entity: 'Nigeria High Commission London',
+    role: 'Official Consular Payments & Revenue Collection Portal',
+    location: 'United Kingdom',
+    icon: <Landmark size={18} className="text-[#0E6247] dark:text-emerald-400" />,
+    badge: 'Sovereign Gov',
+    link: 'https://payments.nigeriahc.org.uk',
+  },
+  {
+    id: 'celergate',
+    entity: 'Celergate Open Banking',
+    role: 'UK Open Banking & Account-to-Account Settlement Engine',
+    location: 'United Kingdom',
+    icon: <Zap size={18} className="text-brand-terra-ink dark:text-[#FF5528]" />,
+    badge: 'UK Open Banking',
+    link: 'https://celergate.co.uk',
+  },
   {
     id: 'projectcatalogue',
     entity: 'Project Catalogue Limited',
@@ -73,7 +91,7 @@ export function TrustBar() {
         </div>
 
         {/* Proven Track Record Grid (swipeable row on phones) */}
-        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scroll-px-4 sm:scroll-px-0 -mx-4 px-4 sm:mx-0 sm:px-0 pb-2 sm:pb-0 swipe-row">
+        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scroll-px-4 sm:scroll-px-0 -mx-4 px-4 sm:mx-0 sm:px-0 pb-2 sm:pb-0 swipe-row">
           {trustItems.map((item) => (
             <a
               key={item.id}

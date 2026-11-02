@@ -1,11 +1,14 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Mail, Check, Send, Copy, ArrowUpRight, ShieldCheck, MessageCircle, Clock, Sparkles, RotateCcw, Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
+import { Mail, Check, Send, Copy, ArrowUpRight, ShieldCheck, MessageCircle, Clock, Sparkles, RotateCcw, Loader2, CheckCircle2, AlertCircle, Calendar } from 'lucide-react'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 
 export function Contact() {
+  const calBookingUrl = process.env.NEXT_PUBLIC_CAL_URL || 'https://cal.com/granjefe/15min'
+  const calendlyBookingUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/granjefe/15min'
+
   const [selectedServices, setSelectedServices] = useState<string[]>(['7-Day Rebuild Sprint'])
   const [selectedTimeline, setSelectedTimeline] = useState<string>('7-Day Sprint')
   const [copiedCli, setCopiedCli] = useState(false)
@@ -118,11 +121,109 @@ Sent via thegranjefe.com`
           </div>
         </AnimatedSection>
 
+        {/* Direct Calendar Booking Card (Instant 15-Minute Discovery Call) */}
+        <AnimatedSection delay={0.06}>
+          <div className="mt-10 mb-6 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#FAF0E6] via-[#FAF0E6] to-[#F3E2D5] dark:from-[#1D0E17] dark:via-[#1D0E17] dark:to-[#25121E] border-2 border-brand-terra/30 dark:border-brand-terra/40 shadow-xl max-w-3xl mx-auto relative overflow-hidden">
+            <div className="absolute -top-12 -right-12 w-44 h-44 bg-brand-terra/10 dark:bg-brand-terra/15 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="space-y-3 max-w-lg">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-terra/10 dark:bg-brand-terra/20 border border-brand-terra/25 text-xs font-mono font-bold text-brand-terra-ink dark:text-[#FF5528]">
+                  <Calendar size={13} />
+                  <span>FAST-TRACK DISCOVERY</span>
+                  <span className="text-brand-terra/40">{"//"}</span>
+                  <span className="text-[#0E6247] dark:text-emerald-400">INSTANT BOOKING</span>
+                </div>
+
+                <h3 className="font-syne font-bold text-2xl sm:text-3xl text-[#2E0E1D] dark:text-[#FFF0E3] leading-tight">
+                  Book a 15-Minute Discovery Call
+                </h3>
+
+                <p className="font-dm text-sm text-[#6C4B59] dark:text-[#E6D0C2] leading-relaxed">
+                  Skip the back-and-forth email wait. High-value clients can book directly into our calendar for a focused 15-minute scoping and pricing conversation with Adeleke Sherifdeen.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 pt-1 text-xs font-dm text-[#7A4A38] dark:text-[#E6D0C2]">
+                  <span className="flex items-center gap-1.5 font-medium">
+                    <Clock size={13} className="text-brand-terra-ink dark:text-[#FF5528]" />
+                    15-minute video or phone
+                  </span>
+                  <span className="flex items-center gap-1.5 font-medium">
+                    <ShieldCheck size={13} className="text-[#0E6247] dark:text-emerald-400" />
+                    Direct with Lead Engineer
+                  </span>
+                  <span className="flex items-center gap-1.5 font-medium">
+                    <CheckCircle2 size={13} className="text-brand-terra-ink dark:text-[#FF5528]" />
+                    Actionable architecture &amp; pricing
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-stretch sm:items-start md:items-end justify-center shrink-0 gap-2.5">
+                <a
+                  href={calBookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="min-h-[44px] py-3.5 px-6 rounded-xl bg-brand-terra hover:bg-[#B82A00] text-white font-dm font-semibold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-brand-terra/25 hover:scale-[1.02] active:scale-95 transition-all text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra group"
+                >
+                  <Calendar size={16} />
+                  <span>Book on Cal.com</span>
+                  <ArrowUpRight size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+
+                <div className="flex flex-col md:items-end gap-1 text-xs font-mono text-[#7A4A38] dark:text-[#B88E7D] self-center md:self-end">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>Slots available this week</span>
+                  </div>
+                  <div className="text-xs text-[#905F4C] dark:text-[#A88070]">
+                    Or prefer Calendly?{' '}
+                    <a
+                      href={calendlyBookingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-brand-terra-ink dark:text-[#FF5528] underline underline-offset-2 hover:text-[#B82A00]"
+                    >
+                      Book via Calendly
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Section Divider */}
+        <div className="relative my-8 text-center max-w-3xl mx-auto">
+          <div className="absolute inset-0 flex items-center" aria-hidden="true">
+            <div className="w-full border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15" />
+          </div>
+          <div className="relative flex justify-center">
+            <span className="px-4 py-1.5 rounded-full bg-[#FFF0E3] dark:bg-[#11070D] text-xs font-mono font-semibold text-[#7A4A38] dark:text-[#E6D0C2] uppercase tracking-wider border border-[#EAD3C4] dark:border-[#EAD3C4]/15">
+              Or send a detailed project brief below
+            </span>
+          </div>
+        </div>
+
         {/* Contact Form Card */}
         <AnimatedSection delay={0.1}>
-          <div className="mt-12 p-6 md:p-10 rounded-3xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-xl max-w-3xl mx-auto space-y-8">
+          <div className="mt-4 p-6 md:p-10 rounded-3xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 shadow-xl max-w-3xl mx-auto space-y-8">
             {!isSubmitted ? (
               <form onSubmit={handleSubmitForm} className="space-y-6">
+                {/* Form Top Shortcut */}
+                <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#EAD3C4]/70 dark:border-[#EAD3C4]/15 text-xs font-dm text-[#6C4B59] dark:text-[#E6D0C2]">
+                  <span>Fill out your requirements below:</span>
+                  <a
+                    href={calBookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-brand-terra-ink dark:text-[#FF5528] hover:underline font-semibold font-mono"
+                  >
+                    <Calendar size={13} />
+                    <span>Prefer an instant call? Book on Cal.com</span>
+                    <ArrowUpRight size={12} />
+                  </a>
+                </div>
                 {/* Service Selection Chips */}
                 <div>
                   <div className="flex items-center justify-between mb-3">
@@ -266,7 +367,7 @@ Sent via thegranjefe.com`
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="py-3.5 px-6 rounded-xl bg-brand-terra hover:bg-[#B82A00] disabled:opacity-75 text-white font-dm font-semibold text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-brand-terra/20 hover:scale-[1.01] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra cursor-pointer"
+                    className="min-h-[44px] py-3.5 px-6 rounded-xl bg-brand-terra hover:bg-[#B82A00] disabled:opacity-75 text-white font-dm font-semibold text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-brand-terra/20 hover:scale-[1.01] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra cursor-pointer"
                   >
                     {isSubmitting ? (
                       <>
@@ -285,7 +386,7 @@ Sent via thegranjefe.com`
                     href={generateWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="py-3.5 px-6 rounded-xl border-2 border-[#0E6247] dark:border-emerald-400 text-[#0E6247] dark:text-emerald-300 bg-transparent hover:bg-[#0E6247]/10 dark:hover:bg-emerald-400/10 font-dm font-semibold text-sm flex items-center justify-center gap-2 transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                    className="min-h-[44px] py-3.5 px-6 rounded-xl border-2 border-[#0E6247] dark:border-emerald-400 text-[#0E6247] dark:text-emerald-300 bg-transparent hover:bg-[#0E6247]/10 dark:hover:bg-emerald-400/10 font-dm font-semibold text-sm flex items-center justify-center gap-2 transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                   >
                     <MessageCircle size={16} />
                     <span>Chat on WhatsApp Direct</span>
@@ -316,10 +417,20 @@ Sent via thegranjefe.com`
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
                   <a
+                    href={calBookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto py-3 px-5 rounded-xl bg-brand-terra hover:bg-[#B82A00] text-white text-xs font-semibold font-dm flex items-center justify-center gap-2 shadow-sm min-h-[44px]"
+                  >
+                    <Calendar size={14} />
+                    <span>Book Discovery Call Now</span>
+                  </a>
+
+                  <a
                     href={generateWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto py-2.5 px-5 rounded-xl bg-[#0E6247] hover:bg-[#127A59] text-white text-xs font-semibold font-dm flex items-center justify-center gap-2 shadow-sm"
+                    className="w-full sm:w-auto py-3 px-5 rounded-xl bg-[#0E6247] hover:bg-[#127A59] text-white text-xs font-semibold font-dm flex items-center justify-center gap-2 shadow-sm min-h-[44px]"
                   >
                     <MessageCircle size={14} />
                     <span>Fast-Track on WhatsApp</span>
@@ -328,7 +439,7 @@ Sent via thegranjefe.com`
                   <button
                     type="button"
                     onClick={() => setIsSubmitted(false)}
-                    className="w-full sm:w-auto py-2.5 px-5 rounded-xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-xs font-mono text-[#6C4B59] dark:text-[#E6D0C2] hover:text-brand-terra-ink flex items-center justify-center gap-1.5"
+                    className="w-full sm:w-auto py-3 px-5 rounded-xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-xs font-mono text-[#6C4B59] dark:text-[#E6D0C2] hover:text-brand-terra-ink flex items-center justify-center gap-1.5 min-h-[44px] cursor-pointer"
                   >
                     <RotateCcw size={13} />
                     <span>Send Another Inquiry</span>

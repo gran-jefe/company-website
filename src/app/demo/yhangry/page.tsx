@@ -22,6 +22,7 @@ import {
   PartyPopper, 
   Sparkle
 } from 'lucide-react'
+import { DemoTracker } from '@/components/demo/DemoTracker'
 
 // Dining Occasions
 interface Occasion {
@@ -159,6 +160,7 @@ export default function YhangryDemoPage() {
 
   return (
     <div className="min-h-screen bg-[#FAF7F2] text-[#1C1917] font-sans antialiased selection:bg-[#FF5A36] selection:text-white pb-32">
+      <DemoTracker target="yhangry" targetName="yhangry (Siddhi Mittal)" />
       {/* Sovereign Context Header */}
       <header className="sticky top-0 z-50 bg-[#FAF7F2]/90 backdrop-blur-md border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">

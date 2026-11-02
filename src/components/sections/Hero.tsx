@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ArrowUpRight, ShieldCheck, Zap, Globe, ExternalLink, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, ShieldCheck, Zap, Globe, ExternalLink, CheckCircle2, Landmark } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 interface HeroProject {
@@ -19,8 +19,32 @@ interface HeroProject {
   tagline: string
 }
 
-// Studio client work only; founder experience at Mabilla Group is shown in Work and About
+// Sovereign and institutional projects elevated for above-the-fold impact alongside flagship studio work
 const heroShowcase: HeroProject[] = [
+  {
+    id: 'nhc_london',
+    title: 'Nigeria High Commission Payment Platform',
+    shortName: 'Nigeria High Comm',
+    tabLabel: 'Sovereign Gov',
+    client: 'Nigeria High Commission United Kingdom',
+    category: 'Sovereign Digital Payments',
+    image: '/projects/nhc_london.png',
+    url: 'https://payments.nigeriahc.org.uk',
+    metric: 'Official Consular Payments (UK)',
+    tagline: 'Official sovereign digital payment collection portal for administrative & consular charges with UK Open Banking.',
+  },
+  {
+    id: 'celergate',
+    title: 'Celergate Open Banking Platform',
+    shortName: 'Celergate',
+    tabLabel: 'Open Banking',
+    client: 'Celergate UK',
+    category: 'UK Open Banking Payments',
+    image: '/projects/celergate.png',
+    url: 'https://celergate.co.uk',
+    metric: 'Instant Bank Settlement',
+    tagline: 'Instant bank payment engine accepting payments directly from UK bank accounts with zero chargebacks.',
+  },
   {
     id: 'projectcatalogue',
     title: 'Project Catalogue Limited',
@@ -42,25 +66,13 @@ const heroShowcase: HeroProject[] = [
     category: 'Brand & E-Commerce',
     image: '/projects/shesandhers.jpg',
     url: 'https://www.shesandhers.com/',
-    metric: 'Online Catalogue with WhatsApp Ordering',
+    metric: 'WhatsApp Ordering System',
     tagline: 'Online home for a beauty brand serving 3,000+ clients in store and on WhatsApp.',
-  },
-  {
-    id: 'romanseries',
-    title: 'Roman Series Exam Engine',
-    shortName: 'Roman Series',
-    tabLabel: 'EdTech startup',
-    client: 'Exam Prep Startup, Nigeria',
-    category: 'Exam Practice Platform',
-    image: '/projects/romanseries.jpg',
-    url: 'https://www.romanseries.com.ng/',
-    metric: 'Timed Practice for 5 Universities',
-    tagline: 'Post-UTME past questions with timed tests, instant scoring and progress analytics.',
   },
 ]
 
 export function Hero() {
-  const [activeProjectId, setActiveProjectId] = useState<string>('projectcatalogue')
+  const [activeProjectId, setActiveProjectId] = useState<string>('nhc_london')
 
   const activeProject = heroShowcase.find((p) => p.id === activeProjectId) || heroShowcase[0]
 
@@ -121,11 +133,22 @@ export function Hero() {
             </p>
 
             {/* Key Business Outcome Proof: compact line on phones */}
-            <ul className="sm:hidden flex flex-wrap gap-x-4 gap-y-1.5 text-sm font-dm text-[#2E0E1D] dark:text-[#FFF0E3]">
-              <li className="flex items-center gap-1.5"><Zap size={14} className="text-brand-terra-ink dark:text-[#FF5528]" /> 99/100 speed score</li>
-              <li className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-[#0E6247] dark:text-emerald-400" /> 17 sites &amp; apps</li>
-              <li className="flex items-center gap-1.5"><Globe size={14} className="text-brand-terra-ink dark:text-[#FF5528]" /> Clients anywhere, remote</li>
-            </ul>
+            <div className="sm:hidden space-y-2">
+              <ul className="flex flex-wrap gap-x-4 gap-y-1.5 text-sm font-dm text-[#2E0E1D] dark:text-[#FFF0E3]">
+                <li className="flex items-center gap-1.5"><Zap size={14} className="text-brand-terra-ink dark:text-[#FF5528]" /> 99/100 speed score</li>
+                <li className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-[#0E6247] dark:text-emerald-400" /> 17 sites &amp; apps</li>
+                <li className="flex items-center gap-1.5"><Globe size={14} className="text-brand-terra-ink dark:text-[#FF5528]" /> Remote, worldwide</li>
+              </ul>
+              <div className="flex flex-wrap items-center gap-1.5 text-xs font-dm pt-0.5">
+                <span className="font-mono text-[#7A4A38] dark:text-[#E6D0C2] font-semibold">Sovereign &amp; FinTech Proof:</span>
+                <span className="px-2 py-0.5 rounded-md bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 font-semibold text-[#2E0E1D] dark:text-[#FFF0E3]">
+                  Nigeria High Commission
+                </span>
+                <span className="px-2 py-0.5 rounded-md bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 font-semibold text-[#2E0E1D] dark:text-[#FFF0E3]">
+                  Celergate
+                </span>
+              </div>
+            </div>
 
             {/* Key Business Outcome Proof Badges */}
             <div className="hidden sm:grid grid-cols-3 gap-3 max-w-lg pt-1">
@@ -165,7 +188,7 @@ export function Hero() {
                   const contactSection = document.querySelector('#contact')
                   if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="py-3.5 px-7 text-sm font-dm font-semibold flex items-center justify-center gap-2 group shadow-xl shadow-brand-terra/20 hover:scale-[1.02] transition-all bg-brand-terra hover:bg-[#B82A00] text-white"
+                className="py-3.5 px-7 text-sm font-dm font-semibold flex items-center justify-center gap-2 group shadow-xl shadow-brand-terra/20 hover:scale-[1.02] transition-all bg-brand-terra hover:bg-[#B82A00] text-white min-h-[44px]"
               >
                 <span>Start a Project</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -177,10 +200,63 @@ export function Hero() {
                   const workSection = document.querySelector('#work')
                   if (workSection) workSection.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="py-3.5 px-6 text-sm font-dm font-semibold flex items-center justify-center gap-2 bg-[#FAF0E6] hover:bg-[#F3E2D5] border-[#EAD3C4] dark:bg-[#1D0E17] dark:hover:bg-[#25121E] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] transition-all shadow-xs"
+                className="py-3.5 px-6 text-sm font-dm font-semibold flex items-center justify-center gap-2 bg-[#FAF0E6] hover:bg-[#F3E2D5] border-[#EAD3C4] dark:bg-[#1D0E17] dark:hover:bg-[#25121E] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] transition-all shadow-xs min-h-[44px]"
               >
                 <span>Selected Work ↓</span>
               </Button>
+            </div>
+
+            {/* Sovereign & Institutional Impact: Above-the-Fold Proof */}
+            <div className="pt-3 border-t border-[#EAD3C4]/70 dark:border-[#EAD3C4]/15 space-y-2.5">
+              <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#7A4A38] dark:text-[#E6D0C2] font-bold">
+                <ShieldCheck size={14} className="text-[#0E6247] dark:text-emerald-400 shrink-0" />
+                <span>Sovereign &amp; Institutional Client Proof:</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <a
+                  href="https://payments.nigeriahc.org.uk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-3 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 shadow-xs hover:shadow-md transition-all group min-h-[44px]"
+                >
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center shrink-0">
+                      <Landmark size={15} className="text-[#0E6247] dark:text-emerald-400" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="font-syne font-bold text-xs text-[#2E0E1D] dark:text-[#FFF0E3] group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors truncate">
+                        Nigeria High Commission
+                      </div>
+                      <div className="text-xs font-dm text-[#6C4B59] dark:text-[#E6D0C2] truncate">
+                        UK Consular Payments Portal
+                      </div>
+                    </div>
+                  </div>
+                  <ArrowUpRight size={14} className="text-[#7A4A38] group-hover:text-emerald-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-1.5" />
+                </a>
+
+                <a
+                  href="https://celergate.co.uk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-3 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 hover:border-brand-terra/50 dark:hover:border-brand-terra/50 shadow-xs hover:shadow-md transition-all group min-h-[44px]"
+                >
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="w-8 h-8 rounded-xl bg-brand-terra/10 dark:bg-brand-terra/20 border border-brand-terra/30 flex items-center justify-center shrink-0">
+                      <Zap size={15} className="text-brand-terra-ink dark:text-[#FF5528]" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="font-syne font-bold text-xs text-[#2E0E1D] dark:text-[#FFF0E3] group-hover:text-brand-terra-ink dark:group-hover:text-[#FF5528] transition-colors truncate">
+                        Celergate
+                      </div>
+                      <div className="text-xs font-dm text-[#6C4B59] dark:text-[#E6D0C2] truncate">
+                        UK Open Banking Engine
+                      </div>
+                    </div>
+                  </div>
+                  <ArrowUpRight size={14} className="text-[#7A4A38] group-hover:text-brand-terra-ink group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-1.5" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -258,7 +334,7 @@ export function Hero() {
                   </p>
 
                   {/* Interactive Project Switcher Chips */}
-                  <div className="grid grid-cols-3 gap-2 pt-1 border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15">
                     {heroShowcase.map((p) => {
                       const isSelected = p.id === activeProject.id
                       return (
