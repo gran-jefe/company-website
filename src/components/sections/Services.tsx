@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { Smartphone, Layout, Server, ShieldCheck, Cpu, Rocket, ArrowUpRight, Zap, Clock, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react'
@@ -23,12 +24,12 @@ interface Price {
 // Average starting prices shown on the site. Edit these to change what visitors see.
 const REBUILD_PRICE: Price = { gbp: 600, ngn: 1_200_000 }
 
-function formatPrice({ gbp, ngn }: Price) {
+export function formatPrice({ gbp, ngn }: Price) {
   const naira = ngn >= 1_000_000 ? `₦${+(ngn / 1_000_000).toFixed(1)}m` : `₦${Math.round(ngn / 1000)}k`
   return `£${gbp.toLocaleString('en-GB')} · ${naira}`
 }
 
-const services: ServiceItem[] = [
+export const services: ServiceItem[] = [
   {
     id: 'mobile',
     codeTag: 'MOBILE APPLICATIONS',
@@ -85,7 +86,8 @@ const services: ServiceItem[] = [
   },
 ]
 
-export function Services() {
+export function Services({ isPage = false }: { isPage?: boolean }) {
+  const Heading = isPage ? 'h1' : 'h2'
   return (
     <section id="services" className="bg-[#FAF0E6] dark:bg-[#140A10] py-20 md:py-28 relative border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -93,10 +95,10 @@ export function Services() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <SectionLabel>What We Do</SectionLabel>
-              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-bold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
+              <Heading className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-bold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
                 Websites, apps and payment systems.{' '}
                 <span className="text-brand-terra-ink">Built around your goals.</span>
-              </h2>
+              </Heading>
             </div>
             <p className="font-mono text-xs text-[#7A4A38] dark:text-[#B88E7D] max-w-xs">
               {"// Built with proven, widely supported tools: Next.js, React Native, Node.js and Python."}
@@ -157,17 +159,13 @@ export function Services() {
                   <div className="text-xs font-dm text-emerald-400 font-semibold">Scope and price agreed before we start</div>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => {
-                    const contactSection = document.querySelector('#contact')
-                    if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' })
-                  }}
-                  className="mt-2 w-full sm:w-auto py-3 px-6 rounded-xl bg-brand-terra hover:bg-[#B82A00] text-white font-dm font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-terra/20 transition-all hover:scale-[1.02]"
+                <Link
+                  href="/contact"
+                  className="mt-2 w-full sm:w-auto min-h-[44px] py-3 px-6 rounded-xl bg-brand-terra hover:bg-[#B82A00] text-white font-dm font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-terra/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   <span>Book a 7-Day Rebuild Sprint</span>
                   <ArrowRight size={15} />
-                </button>
+                </Link>
               </div>
             </div>
           </div>

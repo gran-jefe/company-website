@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion'
 import { ArrowRight, ArrowUpRight, ShieldCheck, Zap, Globe, ExternalLink, CheckCircle2, Landmark } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
 
 interface HeroProject {
   id: string
@@ -186,28 +186,21 @@ export function Hero() {
 
             {/* Action CTAs */}
             <div className="pt-2 flex flex-col sm:flex-row gap-3.5 items-stretch sm:items-center">
-              <Button
-                variant="filled"
-                onClick={() => {
-                  const contactSection = document.querySelector('#contact')
-                  if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="py-3.5 px-7 text-sm font-dm font-semibold flex items-center justify-center gap-2 group shadow-xl shadow-brand-terra/20 hover:scale-[1.02] transition-all bg-brand-terra hover:bg-[#B82A00] text-white min-h-[44px]"
+              <Link
+                href="/contact"
+                className="rounded-lg py-3.5 px-7 text-sm font-dm font-semibold flex items-center justify-center gap-2 group shadow-xl shadow-brand-terra/20 transition-colors bg-brand-terra hover:bg-[#B82A00] text-white min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra focus-visible:ring-offset-2"
               >
                 <span>Start a Project</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Button>
+              </Link>
 
-              <Button
-                variant="outlined"
-                onClick={() => {
-                  const workSection = document.querySelector('#work')
-                  if (workSection) workSection.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="py-3.5 px-6 text-sm font-dm font-semibold flex items-center justify-center gap-2 bg-[#FAF0E6] hover:bg-[#F3E2D5] border-[#EAD3C4] dark:bg-[#1D0E17] dark:hover:bg-[#25121E] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] transition-all shadow-xs min-h-[44px]"
+              <Link
+                href="/work"
+                className="rounded-lg border py-3.5 px-6 text-sm font-dm font-semibold flex items-center justify-center gap-2 bg-[#FAF0E6] hover:bg-[#F3E2D5] border-[#EAD3C4] dark:bg-[#1D0E17] dark:hover:bg-[#25121E] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] transition-colors shadow-xs min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra focus-visible:ring-offset-2"
               >
-                <span>Selected Work ↓</span>
-              </Button>
+                <span>See our work</span>
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
             </div>
 
             {/* Founder experience at Mabilla Group: above-the-fold proof */}

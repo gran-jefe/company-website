@@ -5,7 +5,8 @@ import { SectionLabel } from '@/components/ui/SectionLabel'
 import { Logo } from '@/components/ui/Logo'
 import { ShieldCheck, Award, MapPin, Globe, Sparkles } from 'lucide-react'
 
-export function About() {
+export function About({ isPage = false }: { isPage?: boolean }) {
+  const Heading = isPage ? 'h1' : 'h2'
   return (
     <section id="about" className="bg-[#FAF0E6] dark:bg-[#140A10] py-20 md:py-28 relative border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-[#2E0E1D] dark:text-[#FFF0E3] transition-colors duration-300">
       {/* Ambient background glow */}
@@ -75,10 +76,10 @@ export function About() {
           <div className="lg:col-span-7 space-y-6">
             <AnimatedSection>
               <SectionLabel>The Studio</SectionLabel>
-              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-bold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
+              <Heading className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-bold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
                 Craftsmanship first.{' '}
                 <span className="text-brand-terra-ink">No shortcuts.</span>
-              </h2>
+              </Heading>
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>

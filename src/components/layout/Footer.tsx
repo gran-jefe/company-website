@@ -6,21 +6,14 @@ import { Logo } from '@/components/ui/Logo'
 import { ArrowUpRight, Mail, Phone, MapPin, Sparkles, BookOpen } from 'lucide-react'
 
 const footerLinks = [
-  { label: 'Work', href: '#work' },
-  { label: 'Services', href: '#services' },
-  { label: 'Process', href: '#process' },
-  { label: 'Studio', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/' },
+  { label: 'Work', href: '/work' },
+  { label: 'Services', href: '/services' },
+  { label: 'Studio', href: '/studio' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export function Footer() {
-  const handleNavClick = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   return (
     <footer className="bg-[#0C0409] border-t border-[#EAD3C4]/15 text-[#E6D0C2] pt-16 pb-12 relative overflow-hidden transition-colors duration-300">
       {/* Ambient Glow */}
@@ -40,13 +33,13 @@ export function Footer() {
           </div>
 
           <div className="flex flex-wrap items-center gap-4">
-            <button
-              onClick={() => handleNavClick('#contact')}
-              className="py-3.5 px-7 rounded-xl bg-brand-terra hover:bg-[#B82A00] text-white font-dm font-semibold text-sm flex items-center gap-2 shadow-lg shadow-brand-terra/20 transition-all hover:scale-[1.02]"
+            <Link
+              href="/contact"
+              className="min-h-[44px] py-3.5 px-7 rounded-xl bg-brand-terra hover:bg-[#B82A00] text-white font-dm font-semibold text-sm flex items-center gap-2 shadow-lg shadow-brand-terra/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <span>Start a Project</span>
               <ArrowUpRight size={16} />
-            </button>
+            </Link>
 
             <a
               href="https://wa.me/2349061770885"
@@ -75,13 +68,13 @@ export function Footer() {
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#FFF0E3]">Navigation</h4>
             <div className="flex flex-col space-y-2">
               {footerLinks.map((link) => (
-                <button
+                <Link
                   key={link.href}
-                  onClick={() => handleNavClick(link.href)}
-                  className="text-left text-sm font-dm text-[#E6D0C2] hover:text-brand-terra-ink transition-colors"
+                  href={link.href}
+                  className="text-left text-sm font-dm text-[#E6D0C2] hover:text-[#FF6A3D] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
                 >
                   {link.label}
-                </button>
+                </Link>
               ))}
             </div>
           </div>

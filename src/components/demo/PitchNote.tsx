@@ -82,7 +82,7 @@ export function PitchNote({ id, company, points, accent, accentText = '#FFFFFF',
     : 'border-black/15 hover:bg-black/5 disabled:text-black/35'
   const ring = dark ? 'focus-visible:ring-white' : 'focus-visible:ring-[#16161D]'
   const waText = encodeURIComponent(`Hi Adeleke, I saw the ${company} concept you put together.`)
-  const waUrl = `https://wa.me/2348085448371?text=${waText}`
+  const waUrl = `https://wa.me/2349061770885?text=${waText}`
   const point = points[step]
 
   if (!open) {

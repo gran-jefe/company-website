@@ -5,7 +5,8 @@ import { Mail, Check, Send, Copy, ArrowUpRight, ShieldCheck, MessageCircle, Cloc
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 
-export function Contact() {
+export function Contact({ isPage = false }: { isPage?: boolean }) {
+  const Heading = isPage ? 'h1' : 'h2'
   const calBookingUrl = process.env.NEXT_PUBLIC_CAL_URL || 'https://cal.com/granjefe/15min'
   const calendlyBookingUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/granjefe/15min'
 
@@ -112,9 +113,9 @@ Sent via thegranjefe.com`
         <AnimatedSection>
           <div className="text-center max-w-2xl mx-auto">
             <SectionLabel>Get In Touch</SectionLabel>
-            <h2 className="mt-4 text-4xl sm:text-5xl font-syne font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
+            <Heading className="mt-4 text-4xl sm:text-5xl font-syne font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
               Let&rsquo;s talk about <span className="text-brand-terra-ink">your project.</span>
-            </h2>
+            </Heading>
             <p className="mt-4 text-[#6C4B59] dark:text-[#E6D0C2] font-dm text-base">
               Ready to rebuild an underperforming site, launch a new digital product, or discuss technical architecture? Reach out to start a conversation.
             </p>

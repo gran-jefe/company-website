@@ -91,6 +91,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      // Lets Next jump to the top on route changes while in-page scrolling stays smooth
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <head>

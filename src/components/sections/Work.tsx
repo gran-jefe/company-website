@@ -1,8 +1,9 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, ViewTransition } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   ExternalLink,
   CheckCircle2,
@@ -14,337 +15,7 @@ import {
 } from 'lucide-react'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
-
-interface RealProject {
-  id: string
-  name: string
-  // custom_domain: launched on the client's own domain; vercel: finished build on a preview link, not launched yet
-  deployGroup: 'custom_domain' | 'vercel'
-  category: 'fintech' | 'edtech' | 'beauty_retail' | 'saas' | 'health_inst'
-  categoryLabel: string
-  domain: string
-  liveUrl: string
-  summary: string
-  highlights: string[]
-  stack: string[]
-  imagePath: string
-  accentColor: string
-  // Set for work the founder built as an employee at Mabilla Group, not as a studio client project
-  founderRole?: string
-}
-
-const projectData: RealProject[] = [
-  {
-    id: 'nhc_london',
-    name: 'Nigeria High Commission Payment Platform',
-    deployGroup: 'custom_domain',
-    category: 'fintech',
-    categoryLabel: 'Sovereign Digital Payments',
-    domain: 'payments.nigeriahc.org.uk',
-    liveUrl: 'https://payments.nigeriahc.org.uk',
-    summary: 'Official digital payment collection portal for administrative and consular charges for the Nigeria High Commission United Kingdom. Engineered full-stack architecture featuring consular service cart, fast secure Open Banking settlement processed in minutes, and automated receipt generation.',
-    highlights: [
-      'Solo Full Stack (Next.js 15 & NestJS API)',
-      'Open Banking & Instant Bank Settlement',
-      'Automated PDF Receipts & Audit Queue',
-    ],
-    stack: ['Next.js 15', 'NestJS', 'TypeScript', 'Prisma', 'PostgreSQL', 'Tailwind CSS', 'AWS S3'],
-    imagePath: '/projects/nhc_london.png',
-    accentColor: 'border-t-4 border-t-emerald-500',
-    founderRole: 'Full-Stack Engineer',
-  },
-  {
-    id: 'celergate_suite',
-    name: 'Celergate Open Banking Platform',
-    deployGroup: 'custom_domain',
-    category: 'fintech',
-    categoryLabel: 'UK Open Banking Payments',
-    domain: 'celergate.co.uk',
-    liveUrl: 'https://celergate.co.uk',
-    summary: 'Instant bank payment solution for modern businesses to accept payments directly from bank accounts with instant settlement and zero chargebacks. Built around the central Account identity hub powering sub-products Disbuz for enterprise payouts, Endoz for merchant collections, and Utility for bill payments.',
-    highlights: [
-      'Central Account SSO & Identity Hub',
-      'Instant Settlement & Zero Chargebacks',
-      'Modular Design System (40% Speedup)',
-    ],
-    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'TanStack Query', 'Mantine'],
-    imagePath: '/projects/celergate.png',
-    accentColor: 'border-t-4 border-t-dev-cyan',
-    founderRole: 'Full-Stack & Frontend Engineer',
-  },
-  {
-    id: 'remglo_agent',
-    name: 'Remglo Payceler Remittance Agent Mobile App',
-    deployGroup: 'custom_domain',
-    category: 'fintech',
-    categoryLabel: 'Remittance Mobile App | Solo Build',
-    domain: 'agentapi.payceler.net',
-    liveUrl: 'https://payceler.com',
-    summary: 'Dedicated cross-platform remittance field agent mobile application for Payceler and Remglo. Solo-engineered with React Native and Expo in-house at Mabilla Group, featuring dynamic multi-tenant configuration, biometric KYC identity verification using SumSub Mobile SDK, transaction authorization, and real-time cross-border transfer processing.',
-    highlights: [
-      'Solo Mobile Engineer (React Native & Expo)',
-      'SumSub Biometric KYC Mobile SDK',
-      'Dynamic Multi-Tenant Agent Architecture',
-    ],
-    stack: ['React Native', 'Expo', 'TypeScript', 'Redux Toolkit', 'SumSub Mobile SDK', 'EAS Build'],
-    imagePath: '/projects/remglo_agent.png',
-    accentColor: 'border-t-4 border-t-brand-terra',
-    founderRole: 'sole Mobile Engineer',
-  },
-  {
-    id: 'payceler_remit',
-    name: 'Payceler Global Payments & Remittance Web',
-    deployGroup: 'custom_domain',
-    category: 'fintech',
-    categoryLabel: 'Global Payments & Remittance',
-    domain: 'payceler.com',
-    liveUrl: 'https://payceler.com',
-    summary: 'Global payments, remittances, collections, and payouts web platform built to deliver the 4S: Smart, Safe, Speed, Scale. Encompasses a multi-tenant sender web application, PWA, and enterprise operations admin dashboard with role-based access control and live transaction monitoring.',
-    highlights: [
-      'Multi-Tenant Remittance Web & PWA',
-      'Role-Based Operations Console (RBAC)',
-      'Sub-Second Global Rate Calculator',
-    ],
-    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'SumSub WebSDK'],
-    imagePath: '/projects/payceler.png',
-    accentColor: 'border-t-4 border-t-amber-500',
-    founderRole: 'Full-Stack & Frontend Engineer',
-  },
-  {
-    id: 'shesandhers',
-    name: "She's & Hers Beauty Palace",
-    deployGroup: 'custom_domain',
-    category: 'beauty_retail',
-    categoryLabel: 'Beauty Brand & Palace',
-    domain: 'shesandhers.com',
-    liveUrl: 'https://www.shesandhers.com/',
-    summary: 'Beauty Palace brand for wigs, weave-ons, hair accessories, makeup, cosmetics, and jewelry. Serving 3,000+ clients with in-store & WhatsApp ordering in Uyo, Nigeria.',
-    highlights: [
-      '3,000+ Clients Served Across Nigeria',
-      'Wigs, Hair, Makeup & Jewelry Palace',
-      'In-Store & WhatsApp Order Direct',
-    ],
-    stack: ['Next.js', 'React', 'Tailwind CSS', 'WhatsApp Business'],
-    imagePath: '/projects/shesandhers.jpg',
-    accentColor: 'border-t-4 border-t-brand-terra',
-  },
-  {
-    id: 'romanseries',
-    name: 'Roman Series Exam Engine',
-    deployGroup: 'custom_domain',
-    category: 'edtech',
-    categoryLabel: 'EdTech & Assessment',
-    domain: 'romanseries.com.ng',
-    liveUrl: 'https://www.romanseries.com.ng/',
-    summary: 'Interactive examination practice engine for Post-UTME past questions for UI, OAU, UNILAG, ABU, and FUTA. Features timed test simulation, instant scoring, and performance analytics.',
-    highlights: [
-      'Timed Exam Simulation Engine',
-      'Instant Scoring & Analytics',
-      'Multi-University Question Bank',
-    ],
-    stack: ['React', 'Next.js', 'TypeScript', 'PostgreSQL'],
-    imagePath: '/projects/romanseries.jpg',
-    accentColor: 'border-t-4 border-t-amber-500',
-  },
-  {
-    id: 'techcompass',
-    name: 'TechCompass Internship Hub',
-    deployGroup: 'custom_domain',
-    category: 'edtech',
-    categoryLabel: 'EdTech & Talent Portal',
-    domain: 'techcompass.org',
-    liveUrl: 'https://www.techcompass.org/',
-    summary: 'Career platform connecting Nigerian students with top tech internship opportunities, mentorship pathways, and industry talent pipelines.',
-    highlights: [
-      'Student & Employer Matching',
-      'Verified Internship Pipeline',
-      'Career Mentorship Pathways',
-    ],
-    stack: ['Next.js', 'React', 'Node.js', 'Tailwind CSS'],
-    imagePath: '/projects/techcompass.jpg',
-    accentColor: 'border-t-4 border-t-dev-cyan',
-  },
-  {
-    id: 'graffytea',
-    name: 'GraffyTea Storefront',
-    deployGroup: 'custom_domain',
-    category: 'beauty_retail',
-    categoryLabel: 'Herbal Teas & Wellness',
-    domain: 'graffytea.com.ng',
-    liveUrl: 'https://www.graffytea.com.ng/',
-    summary: 'Artisanal storefront for delicately curated herbal teas and natural wellness products inspired by nature to cultivate mind and body focus.',
-    highlights: [
-      'Curated Herbal Tea Catalog',
-      'Mind & Body Focus Formulations',
-      'Fast Mobile Checkout',
-    ],
-    stack: ['Next.js', 'React', 'Tailwind CSS', 'Payment Gateway'],
-    imagePath: '/projects/graffytea.jpg',
-    accentColor: 'border-t-4 border-t-emerald-500',
-  },
-  {
-    id: 'projectcatalogue',
-    name: 'Project Catalogue Limited',
-    deployGroup: 'custom_domain',
-    category: 'saas',
-    categoryLabel: 'Luxury Real Estate & Dev',
-    domain: 'projectcataloguelimited.com',
-    liveUrl: 'https://www.projectcataloguelimited.com/',
-    summary: 'Premier luxury real estate development and architectural firm turning concepts into architectural masterpieces with elegance and precision.',
-    highlights: [
-      'Luxury Real Estate Showcase',
-      'Architectural Design & Planning',
-      'High-End Development Projects',
-    ],
-    stack: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion'],
-    imagePath: '/projects/projectcatalogue.jpg',
-    accentColor: 'border-t-4 border-t-amber-500',
-  },
-  {
-    id: 'sawt',
-    name: 'Sawt Vocal Extractor',
-    deployGroup: 'vercel',
-    category: 'saas',
-    categoryLabel: 'Audio AI & Media Tech',
-    domain: 'sawt-sigma.vercel.app',
-    liveUrl: 'https://sawt-sigma.vercel.app/',
-    summary: 'Specialized audio processing web tool that isolates trending TikTok audio tracks into clean, vocals-only audio stems for creators.',
-    highlights: [
-      'Vocal Stem Isolation Engine',
-      'Instant Audio Export & Download',
-      'Fast Client-Side Processing',
-    ],
-    stack: ['Next.js', 'Web Audio API', 'Python Engine'],
-    imagePath: '/projects/sawt.jpg',
-    accentColor: 'border-t-4 border-t-dev-violet',
-  },
-  {
-    id: 'justbreathe',
-    name: 'Just Breathe Wellness',
-    deployGroup: 'vercel',
-    category: 'health_inst',
-    categoryLabel: 'Health & Student Support',
-    domain: 'just-breathe-two.vercel.app',
-    liveUrl: 'https://just-breathe-two.vercel.app/',
-    summary: 'A safe, anonymous wellness coaching platform for Nigerian university students navigating anxiety, burnout, and academic pressure.',
-    highlights: [
-      'Anonymous Support Space',
-      'Peer & Coach Booking System',
-      'Mental Health Resource Hub',
-    ],
-    stack: ['Next.js', 'React', 'Tailwind CSS', 'Booking API'],
-    imagePath: '/projects/justbreathe.jpg',
-    accentColor: 'border-t-4 border-t-brand-terra',
-  },
-  {
-    id: 'daarul',
-    name: 'Daarul Muslimaat Institute',
-    deployGroup: 'vercel',
-    category: 'edtech',
-    categoryLabel: 'EdTech & Global Institute',
-    domain: 'daarul-muslimaat.vercel.app',
-    liveUrl: 'https://daarul-muslimaat.vercel.app/',
-    summary: 'Online Quranic memorization, Tajweed, and Islamic studies institute offering structured online classes for female students worldwide.',
-    highlights: [
-      'Structured Online Curriculum',
-      'Student Portal & Enrollment',
-      'Global Female Institute',
-    ],
-    stack: ['Next.js', 'React', 'Student Portal', 'Video Engine'],
-    imagePath: '/projects/daarul.jpg',
-    accentColor: 'border-t-4 border-t-emerald-500',
-  },
-  {
-    id: 'cvmirror',
-    name: 'CV Mirror Checker',
-    deployGroup: 'vercel',
-    category: 'saas',
-    categoryLabel: 'Career Tech & SaaS',
-    domain: 'c-vmirror.vercel.app',
-    liveUrl: 'https://c-vmirror.vercel.app/',
-    summary: 'Automated, structured CV critique tool providing instant feedback, formatting analysis, and actionable improvement recommendations before job submissions.',
-    highlights: [
-      'Structured CV Scoring Engine',
-      'Instant Format & Content Critique',
-      'ATS Compliance Recommendations',
-    ],
-    stack: ['React', 'Next.js', 'TypeScript', 'Parser Engine'],
-    imagePath: '/projects/cvmirror.jpg',
-    accentColor: 'border-t-4 border-t-dev-cyan',
-  },
-  {
-    id: 'techcompass_landing',
-    name: 'TechCompass Learning Academy',
-    deployGroup: 'custom_domain',
-    category: 'edtech',
-    categoryLabel: 'Tech Training Academy | UK',
-    domain: 'techcompass.co.uk',
-    liveUrl: 'https://www.techcompass.co.uk/',
-    summary: 'UK website for TechCompass, a tech training academy running RoboKids (ages 6-16) and RoboSteer (16+) programmes that take learners from foundations to industry-ready tech careers.',
-    highlights: [
-      'RoboKids & RoboSteer Tracks',
-      'Interactive Course Previews',
-      'Student Enrollment Engine',
-    ],
-    stack: ['Next.js', 'React', 'Framer Motion', 'Tailwind CSS'],
-    imagePath: '/projects/techcompass_landing.jpg',
-    accentColor: 'border-t-4 border-t-dev-violet',
-  },
-  {
-    id: 'uniabuja',
-    name: 'Faculty of Arts | UniAbuja',
-    deployGroup: 'vercel',
-    category: 'health_inst',
-    categoryLabel: 'Academic Portal',
-    domain: 'uniabuja-arts.vercel.app',
-    liveUrl: 'https://uniabuja-arts.vercel.app/',
-    summary: 'Academic portal built for the Faculty of Arts at the University of Abuja. Features departmental news, academic staff profiles, course directories, and campus events.',
-    highlights: [
-      'Academic Staff Directory',
-      'Departmental & Course Catalogs',
-      'News & Events Publishing Engine',
-    ],
-    stack: ['Next.js', 'React', 'Tailwind CSS', 'Institutional CMS'],
-    imagePath: '/projects/uniabuja.jpg',
-    accentColor: 'border-t-4 border-t-amber-500',
-  },
-  {
-    id: 'bluelakes',
-    name: 'Bluelakes Enterprises Limited',
-    deployGroup: 'vercel',
-    category: 'saas',
-    categoryLabel: 'Property & UK Investment',
-    domain: 'bluelakes-enterprises-rbih.vercel.app',
-    liveUrl: 'https://bluelakes-enterprises-rbih.vercel.app/',
-    summary: 'Trusted property investment and real estate development platform serving property investors and development projects across England.',
-    highlights: [
-      'UK Property Investment Hub',
-      'Portfolio & Asset Management',
-      'Investor Relations Platform',
-    ],
-    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
-    imagePath: '/projects/bluelakes.jpg',
-    accentColor: 'border-t-4 border-t-dev-cyan',
-  },
-  {
-    id: 'bexterybites',
-    name: 'Bextery Bites',
-    deployGroup: 'vercel',
-    category: 'beauty_retail',
-    categoryLabel: 'Gourmet Pastries & Bakery',
-    domain: 'bextery-bites.vercel.app',
-    liveUrl: 'https://bextery-bites.vercel.app/',
-    summary: 'Artisanal gourmet treats, custom celebration cakes, and event catering storefront engineered for effortless online ordering and customer delight.',
-    highlights: [
-      'Custom Cake & Pastry Catalog',
-      'Event Catering Order Portal',
-      '1-Click Mobile Checkout',
-    ],
-    stack: ['Next.js', 'React', 'Tailwind CSS', 'Vercel App'],
-    imagePath: '/projects/bexterybites.jpg',
-    accentColor: 'border-t-4 border-t-amber-500',
-  },
-]
+import { RealProject, isLaunched, orderedProjects as allUserProjects, projectSlug } from '@/data/projects'
 
 type ProjectFilterId = 'all' | 'fintech' | 'retail' | 'education' | 'business'
 
@@ -357,15 +28,9 @@ const projectFilters: { id: ProjectFilterId; label: string; categories: RealProj
   { id: 'business', label: 'Business & organisations', categories: ['saas', 'health_inst'] },
 ]
 
-const isLaunched = (project: RealProject) => project.deployGroup === 'custom_domain'
 
-// Studio client work leads; the founder's employer projects follow as supporting experience
-const allUserProjects: RealProject[] = [
-  ...projectData.filter((p) => !p.founderRole),
-  ...projectData.filter((p) => p.founderRole),
-]
-
-export function Work() {
+export function Work({ isPage = false }: { isPage?: boolean }) {
+  const Heading = isPage ? 'h1' : 'h2'
   const [activeFilter, setActiveFilter] = useState<ProjectFilterId>('all')
   const [selectedProjectId, setSelectedProjectId] = useState<string>(allUserProjects[0].id)
 
@@ -389,10 +54,10 @@ export function Work() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div>
               <SectionLabel>Selected Work &amp; Case Studies</SectionLabel>
-              <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
+              <Heading className="mt-4 text-3xl sm:text-4xl md:text-5xl font-syne font-extrabold text-[#2E0E1D] dark:text-[#FFF0E3] tracking-tight">
                 Crafted for impact.{' '}
                 <span className="font-serif italic font-normal text-brand-terra-ink dark:text-brand-ember">Engineered to scale.</span>
-              </h2>
+              </Heading>
             </div>
           </div>
         </AnimatedSection>
@@ -537,15 +202,17 @@ export function Work() {
 
                   {/* Live Screenshot Viewport */}
                   <div className="relative w-full h-72 md:h-80 bg-[#1D0E17] overflow-hidden border-b border-[#EAD3C4] dark:border-[#EAD3C4]/15 group">
-                    <Image
-                      src={activeProject.imagePath}
-                      alt={activeProject.name}
-                      fill
-                      priority
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                      unoptimized
-                    />
+                    <ViewTransition name={`project-${activeProject.id}`} share="project-morph">
+                      <Image
+                        src={activeProject.imagePath}
+                        alt={activeProject.name}
+                        fill
+                        priority
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                        unoptimized
+                      />
+                    </ViewTransition>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
 
                     <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4">
@@ -587,6 +254,14 @@ export function Work() {
                         </div>
                       ))}
                     </div>
+
+                    <Link
+                      href={`/work/${projectSlug(activeProject)}`}
+                      className="inline-flex min-h-[44px] items-center gap-2 rounded-xl border border-brand-terra/40 px-4 font-dm text-sm font-semibold text-brand-terra-ink hover:bg-brand-terra/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra"
+                    >
+                      <span>Read the case study</span>
+                      <ArrowRight size={15} aria-hidden="true" />
+                    </Link>
 
                     {/* Built With */}
                     <div className="pt-4 border-t border-[#EAD3C4] dark:border-[#EAD3C4]/15 flex flex-wrap items-center justify-between gap-4">
@@ -639,16 +314,13 @@ export function Work() {
           <div className="mt-16 p-6 md:p-8 rounded-2xl bg-[#FAF0E6] dark:bg-[#1D0E17] border border-[#EAD3C4] dark:border-[#EAD3C4]/15 text-center shadow-sm">
             <p className="font-dm text-base text-[#2E0E1D] dark:text-[#E6D0C2] font-medium">
               Have a project like these in mind?{' '}
-              <button
-                onClick={() => {
-                  const contactSection = document.querySelector('#contact')
-                  if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="inline-flex items-center gap-1.5 text-brand-terra-ink font-semibold hover:text-[#9A2400] dark:hover:text-brand-ember transition-colors underline underline-offset-4 ml-1 group"
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-1.5 text-brand-terra-ink font-semibold hover:text-[#9A2400] dark:hover:text-brand-ember transition-colors underline underline-offset-4 ml-1 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra rounded"
               >
                 <span>Tell us about it</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
             </p>
           </div>
         </AnimatedSection>

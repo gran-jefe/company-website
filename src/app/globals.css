@@ -199,3 +199,48 @@ html.dark body, .dark body {
   .swipe-row { scrollbar-width: none; }
   .swipe-row::-webkit-scrollbar { display: none; }
 }
+
+
+/* ---------------------------------------------------------------
+   Page transitions (React <ViewTransition>, see app/(site)/layout.tsx)
+   Calm crossfade with a slight rise; the header stays fixed.
+---------------------------------------------------------------- */
+::view-transition-old(.page-fade) {
+  animation: 120ms ease-in both vt-fade-out;
+}
+::view-transition-new(.page-fade) {
+  animation: 200ms ease-out 60ms both vt-fade-in;
+}
+@keyframes vt-fade-out {
+  to { opacity: 0; }
+}
+@keyframes vt-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+}
+
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+/* Project screenshot morphs from its card into the case study hero */
+::view-transition-group(.project-morph) {
+  animation-duration: 320ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  z-index: 50;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

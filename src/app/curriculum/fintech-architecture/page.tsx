@@ -83,7 +83,7 @@ export default function FintechArchitectureCurriculumPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 sm:gap-4">
             <Link
-              href="/#curriculum"
+              href="/curriculum"
               className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-dm font-semibold text-zinc-600 dark:text-zinc-400 hover:text-brand-terra-ink dark:hover:text-brand-ember transition-colors py-1.5 px-2.5 sm:px-3 rounded-lg bg-zinc-100 hover:bg-zinc-200/80 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
             >
               <ArrowLeft size={14} />
@@ -469,7 +469,7 @@ export default function FintechArchitectureCurriculumPage() {
         {/* Footer Navigation */}
         <div className="mt-14 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <Link
-            href="/#curriculum"
+            href="/curriculum"
             className="inline-flex items-center gap-2 text-sm font-dm font-semibold text-brand-terra-ink dark:text-brand-ember hover:underline"
           >
             <ArrowLeft size={16} /> Explore All Learning Tracks
