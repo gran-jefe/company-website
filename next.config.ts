@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
           source: '/favicon.ico',
           destination: '/favicon.png',
         },
+        {
+          // Static client demo storefronts in /public: serve each folder's index.html
+          source: '/:demo(foodrascals|craftycottage|hafsy-couture)',
+          destination: '/:demo/index.html',
+        },
       ],
     };
   },

@@ -2,899 +2,999 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Food Rascals • The Galley Kitchen | Lagos Gourmet Platters & Seafood Boils</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              red: '#FF3B30',
-              orange: '#FF5E1E',
-              amber: '#FF9F0A',
-              charcoal: '#0C0D0E',
-              surface: '#151719',
-              card: '#1C1F22',
-              border: '#292D32'
-            }
-          },
-          fontFamily: {
-            display: ['"Syne"', 'sans-serif'],
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Food Rascals | Party platters, smokey jollof and seafood boils in Lagos</title>
+  <meta name="description" content="The Galley Kitchen by Food Rascals: Me &amp; You platters for 6 to 8, Asun smokey jollof, seafood boils and Singapore noodles. Build your tray and order on WhatsApp.">
+  <meta name="theme-color" content="#0C0D0E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <style>
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .food-card {
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+    :root {
+      color-scheme: dark;
+      /* Brand */
+      --orange: #FF5E1E;
+      --orange-hover: #FF7A45;
+      --amber: #FF9F0A;
+      --red: #FF6259;
+      --wa: #25D366;
+      --wa-hover: #3BE07A;
+      /* Surfaces */
+      --charcoal: #0C0D0E;
+      --surface: #151719;
+      --card: #1C1F22;
+      --raised: #24282C;
+      --line: #2F3439;
+      --line-strong: #6B737B;
+      /* Text */
+      --text: #F5F5F5;
+      --text-2: #B4B9BE;
+      /* Radii */
+      --r-6: 6px; --r-10: 10px; --r-14: 14px; --r-20: 20px;
+      --ease: 160ms ease;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
-    .food-card:hover {
-      transform: translateY(-4px);
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body {
+      margin: 0; font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 16px; line-height: 1.6; color: var(--text); background: var(--charcoal);
+      overflow-x: hidden; -webkit-font-smoothing: antialiased;
+      padding-bottom: calc(80px + var(--safe-bottom));
     }
-    .chat-bubble {
-      animation: popIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    @media (min-width: 768px) { body { padding-bottom: 88px; } } /* room for the floating store-sync button */
+    body.lock { overflow: hidden; }
+    img { display: block; max-width: 100%; height: auto; }
+    h1, h2, h3, p { margin: 0; }
+    a { color: inherit; }
+    button, input, select { font: inherit; color: inherit; }
+    .display { font-family: "Syne", "Plus Jakarta Sans", sans-serif; letter-spacing: -0.01em; }
+
+    :where(a, button, input, select, [tabindex]):focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+    .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+    @media (min-width: 640px) { .container { padding: 0 24px; } }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .icon { width: 20px; height: 20px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-sm { width: 16px; height: 16px; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px; padding: 0 20px; border-radius: var(--r-10); border: 1px solid transparent;
+      font-size: 15px; font-weight: 700; line-height: 1.2; text-decoration: none; cursor: pointer; white-space: nowrap;
+      transition: background-color var(--ease), border-color var(--ease), color var(--ease), transform var(--ease);
+      -webkit-tap-highlight-color: transparent;
     }
-    @keyframes popIn {
-      from { opacity: 0; transform: translateY(8px) scale(0.97); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+    .btn:active:not(:disabled) { transform: translateY(1px); }
+    .btn:disabled { cursor: not-allowed; opacity: .5; }
+    .btn-primary { background: var(--orange); color: var(--charcoal); }
+    .btn-primary:hover:not(:disabled) { background: var(--orange-hover); }
+    .btn-wa { background: var(--wa); color: var(--charcoal); }
+    .btn-wa:hover:not(:disabled) { background: var(--wa-hover); }
+    .btn-ghost { background: var(--card); color: var(--text); border-color: var(--line-strong); }
+    .btn-ghost:hover:not(:disabled) { background: var(--raised); border-color: var(--text-2); }
+    .btn-block { width: 100%; }
+    .btn.is-added { background: var(--wa); color: var(--charcoal); }
+    .icon-btn {
+      width: 44px; height: 44px; display: inline-grid; place-items: center; flex-shrink: 0;
+      border-radius: var(--r-10); border: 1px solid transparent; background: transparent; color: var(--text-2); cursor: pointer;
+      transition: background-color var(--ease), color var(--ease);
+    }
+    .icon-btn:hover:not(:disabled) { background: var(--raised); color: var(--text); }
+    .icon-btn:disabled { opacity: .35; cursor: not-allowed; }
+    .spinner { width: 16px; height: 16px; border-radius: 50%; border: 2px solid currentColor; border-right-color: transparent; animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ---------- Header ---------- */
+    .preview-strip { background: var(--surface); color: var(--text-2); font-size: 12px; text-align: center; padding: 8px 16px; border-bottom: 1px solid var(--line); line-height: 1.4; }
+    .site-header { position: sticky; top: 0; z-index: 30; background: var(--charcoal); border-bottom: 1px solid var(--line); }
+    .header-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 68px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; min-height: 44px; }
+    .brand-mark { width: 40px; height: 40px; border-radius: var(--r-10); background: var(--orange); color: var(--charcoal); display: grid; place-items: center; font-family: "Syne", sans-serif; font-weight: 800; font-size: 16px; }
+    .brand-name { display: block; font-family: "Syne", sans-serif; font-weight: 800; font-size: 18px; line-height: 1.1; white-space: nowrap; }
+    .brand-sub { display: block; font-size: 12px; color: var(--text-2); margin-top: 2px; white-space: nowrap; }
+    .header-actions { display: flex; align-items: center; gap: 8px; }
+    .ig-link { display: none; }
+    @media (min-width: 768px) { .ig-link { display: inline-flex; } }
+    .count-badge { min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--orange); color: var(--charcoal); font-size: 12px; font-weight: 800; display: inline-grid; place-items: center; }
+    .count-badge[data-empty="true"] { background: var(--raised); color: var(--text-2); }
+    .cart-btn .label { display: none; }
+    @media (min-width: 480px) { .cart-btn .label { display: inline; } }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 40px 0 48px; border-bottom: 1px solid var(--line); }
+    @media (min-width: 960px) { .hero { padding: 72px 0; } }
+    .hero-grid { display: grid; gap: 40px; align-items: center; }
+    @media (min-width: 960px) { .hero-grid { grid-template-columns: 1.15fr 1fr; gap: 56px; } }
+    .eyebrow { font-size: 14px; font-weight: 700; color: var(--amber); }
+    .hero h1 { margin-top: 12px; font-size: clamp(40px, 7vw, 72px); line-height: 1.02; font-weight: 800; }
+    .hero h1 .accent { background: linear-gradient(90deg, var(--orange), var(--amber)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { margin-top: 20px; font-size: 17px; line-height: 1.65; color: var(--text-2); max-width: 54ch; }
+    .hero-actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .stats { margin: 36px 0 0; padding: 24px 0 0; border-top: 1px solid var(--line); list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .stats strong { display: block; font-family: "Syne", sans-serif; font-size: clamp(15px, 4vw, 22px); font-weight: 800; color: var(--text); line-height: 1.2; white-space: nowrap; }
+    .stats span { font-size: 13px; color: var(--text-2); }
+
+    /* Chat preview */
+    .chat-preview { background: #0B141A; border: 1px solid var(--line); border-radius: var(--r-20); overflow: hidden; }
+    .chat-head { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #1F2C34; }
+    .chat-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--orange); color: var(--charcoal); display: grid; place-items: center; font-weight: 800; font-size: 13px; flex-shrink: 0; }
+    .chat-head strong { display: block; font-size: 15px; }
+    .chat-head span { font-size: 12px; color: #8FD9A8; }
+    .chat-body { padding: 16px; display: grid; gap: 8px; }
+    .bubble { max-width: 85%; padding: 8px 12px; border-radius: var(--r-14); font-size: 14px; line-height: 1.5; }
+    .bubble.out { justify-self: end; background: #005C4B; border-top-right-radius: var(--r-6); }
+    .bubble.in { justify-self: start; background: #1F2C34; border-top-left-radius: var(--r-6); }
+    .bubble time { display: block; text-align: right; font-size: 12px; color: #C8DDD7; margin-top: 2px; }
+    .bubble.in time { color: #9AA6AD; }
+    .chat-foot { padding: 12px 16px 16px; border-top: 1px solid var(--line); display: grid; gap: 12px; }
+    .chat-foot p { font-size: 14px; color: var(--text-2); }
+
+    /* ---------- Sections ---------- */
+    .section { padding: 56px 0; }
+    @media (min-width: 960px) { .section { padding: 80px 0; } }
+    .section-head { display: grid; gap: 8px; margin-bottom: 24px; max-width: 680px; }
+    .section-head h2 { font-family: "Syne", sans-serif; font-weight: 800; font-size: clamp(28px, 4vw, 40px); line-height: 1.1; }
+    .section-head p { color: var(--text-2); }
+
+    /* ---------- Filters ---------- */
+    .filters { display: flex; gap: 8px; overflow-x: auto; padding: 4px 2px 12px; margin: 0 -2px 8px; scrollbar-width: none; }
+    .filters::-webkit-scrollbar { display: none; }
+    .chip {
+      flex-shrink: 0; min-height: 44px; padding: 0 16px; border-radius: 999px; white-space: nowrap; cursor: pointer;
+      border: 1px solid var(--line-strong); background: var(--card); color: var(--text-2); font-size: 14px; font-weight: 600;
+      transition: background-color var(--ease), border-color var(--ease), color var(--ease);
+    }
+    .chip:hover { color: var(--text); border-color: var(--text-2); }
+    .chip[aria-pressed="true"] { background: var(--orange); border-color: var(--orange); color: var(--charcoal); }
+    .chip .n { margin-left: 6px; font-weight: 500; opacity: .85; }
+    .results-note { font-size: 14px; color: var(--text-2); margin-bottom: 16px; }
+
+    /* ---------- Menu ---------- */
+    .menu-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+    @media (min-width: 820px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+    .dish {
+      display: grid; grid-template-columns: 112px 1fr; gap: 16px; padding: 16px;
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--r-14);
+      transition: border-color var(--ease), box-shadow var(--ease);
+    }
+    .dish:hover { border-color: var(--line-strong); }
+    .dish.flash { border-color: var(--amber); box-shadow: 0 0 0 2px var(--amber); }
+    .dish.is-out { background: var(--surface); }
+    .dish.is-out img { filter: grayscale(1); opacity: .6; }
+    .dish-img { position: relative; }
+    .dish-img img { width: 112px; height: 112px; border-radius: var(--r-10); object-fit: cover; background: var(--raised); }
+    .dish-body { display: grid; gap: 4px; align-content: start; min-width: 0; }
+    .badge { justify-self: start; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: var(--r-6); background: var(--raised); color: var(--amber); }
+    .badge.out { background: #3A1614; color: #FFB3AD; }
+    .badge.new { background: #10301E; color: #8FE3AE; }
+    .dish h3 { font-size: 17px; font-weight: 700; line-height: 1.3; }
+    .portion { font-size: 14px; font-weight: 600; color: var(--orange-hover); }
+    .dish-desc { font-size: 14px; line-height: 1.5; color: var(--text-2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .dish-foot { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 12px; border-top: 1px solid var(--line); }
+    .price { font-family: "Syne", sans-serif; font-weight: 800; font-size: 20px; font-variant-numeric: tabular-nums; }
+    .dish-actions { display: flex; gap: 8px; }
+    .icon-btn.wa { background: var(--wa); color: var(--charcoal); }
+    .icon-btn.wa:hover:not(:disabled) { background: var(--wa-hover); color: var(--charcoal); }
+
+    /* ---------- How it works ---------- */
+    .how { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px; }
+    @media (min-width: 820px) { .steps { grid-template-columns: repeat(3, 1fr); gap: 32px; } }
+    .steps li { padding-top: 16px; border-top: 2px solid var(--orange); }
+    .steps .num { font-family: "Syne", sans-serif; font-weight: 800; color: var(--orange); font-size: 14px; }
+    .steps h3 { margin-top: 4px; font-size: 18px; font-weight: 700; }
+    .steps p { margin-top: 4px; font-size: 15px; color: var(--text-2); }
+
+    /* ---------- Footer ---------- */
+    .site-footer { padding: 40px 0; font-size: 14px; color: var(--text-2); }
+    .site-footer .foot-name { font-family: "Syne", sans-serif; font-weight: 800; color: var(--text); font-size: 18px; }
+    .site-footer p { margin-top: 8px; }
+    .site-footer a { color: var(--orange-hover); text-underline-offset: 3px; }
+
+    /* ---------- Mobile bar + floating sync button ---------- */
+    .mobile-bar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; display: flex; gap: 8px;
+      padding: 12px 16px calc(12px + var(--safe-bottom)); background: var(--surface); border-top: 1px solid var(--line);
+    }
+    .mobile-bar .btn { flex: 1; padding: 0 12px; }
+    @media (min-width: 768px) { .mobile-bar { display: none; } }
+    .sync-fab { display: none; }
+    @media (min-width: 768px) {
+      .sync-fab { display: inline-flex; position: fixed; right: 24px; bottom: 24px; z-index: 25; border-radius: 999px; box-shadow: 0 8px 24px rgba(0,0,0,.45); }
+    }
+
+    /* ---------- Dialogs ---------- */
+    .overlay { position: fixed; inset: 0; z-index: 40; background: rgba(0,0,0,.65); opacity: 0; visibility: hidden; transition: opacity var(--ease), visibility var(--ease); }
+    .overlay.open { opacity: 1; visibility: visible; }
+    .drawer {
+      position: fixed; z-index: 50; top: 0; right: 0; bottom: 0; width: min(440px, 100%);
+      display: flex; flex-direction: column; background: var(--surface); border-left: 1px solid var(--line);
+      transform: translateX(100%); visibility: hidden; transition: transform 200ms ease, visibility 200ms ease;
+    }
+    .drawer.open { transform: none; visibility: visible; }
+    .drawer-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 12px 12px 20px; border-bottom: 1px solid var(--line); }
+    .drawer-head h2 { font-family: "Syne", sans-serif; font-weight: 800; font-size: 20px; }
+    .drawer-body { flex: 1; overflow-y: auto; padding: 8px 20px 20px; }
+    .drawer-foot { border-top: 1px solid var(--line); padding: 16px 20px calc(16px + var(--safe-bottom)); display: grid; gap: 12px; background: var(--card); }
+
+    .cart-list { list-style: none; margin: 0; padding: 0; }
+    .cart-item { display: grid; grid-template-columns: 56px 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .cart-item img { width: 56px; height: 56px; border-radius: var(--r-10); object-fit: cover; }
+    .cart-item h3 { font-size: 15px; font-weight: 700; line-height: 1.3; }
+    .cart-item .sub { font-size: 13px; color: var(--text-2); }
+    .cart-controls { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 8px; }
+    .stepper { display: inline-flex; align-items: center; border: 1px solid var(--line-strong); border-radius: var(--r-10); }
+    .stepper output { min-width: 28px; text-align: center; font-weight: 800; font-variant-numeric: tabular-nums; }
+    .line-total { font-weight: 800; font-variant-numeric: tabular-nums; }
+    .empty { text-align: center; padding: 48px 8px; display: grid; justify-items: center; gap: 12px; }
+    .empty .icon-wrap { width: 56px; height: 56px; border-radius: var(--r-14); background: var(--raised); color: var(--orange); display: grid; place-items: center; }
+    .empty h3 { font-size: 18px; font-weight: 800; }
+    .empty p { font-size: 15px; color: var(--text-2); max-width: 32ch; }
+
+    .field { display: grid; gap: 6px; }
+    .field label { font-size: 14px; font-weight: 700; }
+    .field .opt { font-weight: 500; color: var(--text-2); }
+    .input {
+      width: 100%; min-height: 48px; padding: 10px 14px; border-radius: var(--r-10);
+      border: 1px solid var(--line-strong); background: var(--charcoal); color: var(--text); font-size: 16px;
+      transition: border-color var(--ease), box-shadow var(--ease);
+    }
+    .input::placeholder { color: #8C9399; }
+    .input:hover { border-color: var(--text-2); }
+    .input:focus-visible { outline: none; border-color: var(--amber); box-shadow: 0 0 0 3px rgba(255, 159, 10, .3); }
+    .input[aria-invalid="true"] { border-color: var(--red); }
+    .error-msg { display: none; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #FF9A93; }
+    .error-msg.show { display: flex; }
+    .total-row { display: flex; justify-content: space-between; align-items: baseline; }
+    .total-row span { font-size: 14px; color: var(--text-2); }
+    .total-row strong { font-family: "Syne", sans-serif; font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; }
+    .foot-note { font-size: 13px; color: var(--text-2); }
+
+    /* Simulator */
+    .sim { background: #0B141A; border-left-color: #22303A; }
+    .sim .drawer-head { background: #1F2C34; border-bottom-color: #22303A; padding-left: 16px; }
+    .sim-id { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .sim-id strong { display: block; font-size: 16px; }
+    .sim-id span { font-size: 12px; color: #8FD9A8; }
+    .sim-intro { font-size: 13px; color: #B9C4CA; background: #182229; border-radius: var(--r-10); padding: 10px 12px; margin: 12px 0; text-align: center; }
+    .sim-log { display: grid; gap: 8px; padding-bottom: 8px; }
+    .sim-log .bubble { animation: pop 180ms ease-out; }
+    @keyframes pop { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    .sim-tools { padding: 12px 16px 8px; border-top: 1px solid #22303A; background: #111B21; }
+    .sim-tools p { font-size: 13px; font-weight: 700; color: #B9C4CA; margin-bottom: 8px; }
+    .cmds { display: flex; flex-wrap: nowrap; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px 4px; }
+    .cmds::-webkit-scrollbar { display: none; }
+    .cmd { flex-shrink: 0; white-space: nowrap; }
+    @media (min-width: 768px) { .cmds { flex-wrap: wrap; overflow: visible; margin: 0; padding: 0; } }
+    .cmd {
+      display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: var(--r-10); cursor: pointer;
+      background: #1F2C34; border: 1px solid #3A4A55; color: #E9EDEF; font-size: 13px; font-weight: 600;
+      transition: background-color var(--ease), border-color var(--ease);
+    }
+    .cmd:hover { background: #2A3942; border-color: #5A6B76; }
+    .cmd .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .sim-form { display: flex; gap: 8px; padding: 8px 16px calc(12px + var(--safe-bottom)); background: #111B21; }
+    .sim-form .input { border-radius: 999px; background: #2A3942; border-color: #3A4A55; min-height: 44px; font-size: 15px; }
+
+    /* ---------- Toast ---------- */
+    .toast-region { position: fixed; z-index: 60; left: 16px; right: 16px; bottom: calc(92px + var(--safe-bottom)); display: grid; justify-items: center; pointer-events: none; }
+    @media (min-width: 768px) { .toast-region { left: 24px; right: auto; bottom: 24px; justify-items: start; } }
+    /* While a drawer is open, keep toasts clear of its controls */
+    body.lock .toast-region { top: 76px; bottom: auto; }
+    @media (min-width: 768px) { body.lock .toast-region { top: auto; bottom: 24px; } }
+    .toast { pointer-events: auto; display: flex; align-items: center; gap: 12px; max-width: 420px; width: 100%; padding: 8px 8px 8px 16px; background: #F5F5F5; color: var(--charcoal); border-radius: var(--r-14); font-size: 15px; font-weight: 500; box-shadow: 0 8px 24px rgba(0,0,0,.5); animation: pop 180ms ease-out; }
+    .toast .icon { color: #157A3B; }
+    .toast p { flex: 1; padding: 6px 0; line-height: 1.4; }
+    .toast button { min-height: 44px; padding: 0 12px; border: 0; border-radius: var(--r-10); background: #E2E2E2; color: var(--charcoal); font-weight: 700; cursor: pointer; }
+    .toast button:hover { background: #D2D2D2; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
     }
   </style>
 </head>
-<body class="bg-brand-charcoal text-neutral-100 font-sans antialiased selection:bg-brand-orange selection:text-white pb-24 sm:pb-12">
+<body>
+  <!-- Inline icon set (Lucide paths, ISC licence) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+    <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+  </svg>
 
-  <!-- TOP DISPATCH TICKER -->
-  <aside class="bg-gradient-to-r from-brand-orange via-brand-red to-brand-amber text-brand-charcoal text-[11px] sm:text-xs font-bold py-2 px-4 text-center tracking-wide flex items-center justify-center gap-2" aria-label="Announcement">
-    <span class="flex h-2 w-2 rounded-full bg-brand-charcoal animate-pulse" aria-hidden="true"></span>
-    <span>THE GALLEY KITCHEN • DELIVERING ACROSS LAGOS (ISLAND &amp; MAINLAND) • EAT WHATEVER, EAT WHENEVER</span>
-  </aside>
+  <a href="#menu" class="sr-only">Skip to the menu</a>
 
-  <!-- NAVIGATION -->
-  <header class="sticky top-0 z-40 bg-brand-charcoal/90 backdrop-blur-md border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
-      
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-brand-red to-brand-orange flex items-center justify-center shadow-lg shadow-brand-red/20 font-display font-extrabold text-white text-lg tracking-wider">
-          FR
-        </div>
-        <div>
-          <a href="#" class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-white block leading-none">
-            FOOD RASCALS
-          </a>
-          <span class="text-[10px] text-brand-amber font-semibold uppercase tracking-widest">The Galley Kitchen</span>
-        </div>
-      </div>
+  <div class="preview-strip">Concept preview for Food Rascals, prepared by Gran Jefe</div>
 
-      <!-- NAV ACTIONS -->
-      <div class="flex items-center gap-2 sm:gap-4">
-        <a href="https://www.instagram.com/foodrascals.ng/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 text-xs text-neutral-400 hover:text-white px-3 py-2 rounded-full border border-brand-border hover:border-neutral-500 transition-colors">
-          <i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-400"></i>
+  <header class="site-header">
+    <div class="container header-row">
+      <a href="#top" class="brand" aria-label="Food Rascals, back to top">
+        <span class="brand-mark" aria-hidden="true">FR</span>
+        <span>
+          <span class="brand-name">Food Rascals</span>
+          <span class="brand-sub">The Galley Kitchen, Lagos</span>
+        </span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn-ghost ig-link" href="https://www.instagram.com/foodrascals.ng/" target="_blank" rel="noopener noreferrer">
+          <svg class="icon icon-sm" aria-hidden="true"><use href="#i-camera"/></svg>
           <span>@foodrascals.ng</span>
         </a>
-
-        <!-- CART SUMMARY BUTTON -->
-        <button onclick="toggleCartDrawer()" class="bg-brand-card hover:bg-neutral-800 text-white px-4 py-2.5 rounded-full text-xs font-semibold flex items-center gap-2 border border-brand-border shadow-sm min-h-[44px]">
-          <i data-lucide="shopping-bag" class="w-4 h-4 text-brand-orange"></i>
-          <span class="hidden sm:inline">Tray Cart</span>
-          <span id="cartCountBadge" class="bg-brand-orange text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+        <button type="button" class="btn btn-ghost cart-btn" data-open="cart" aria-haspopup="dialog" aria-controls="cart" id="cartBtn">
+          <svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg>
+          <span class="label">Your tray</span>
+          <span class="count-badge" data-count data-empty="true" aria-hidden="true">0</span>
         </button>
-
-        <a href="#menu-catalog" class="bg-gradient-to-r from-brand-orange to-brand-red hover:brightness-110 text-white text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg shadow-brand-red/30 transition-all min-h-[44px] flex items-center">
-          Order Menu
-        </a>
       </div>
     </div>
   </header>
 
-  <!-- HERO BANNER -->
-  <section class="relative py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-brand-surface via-brand-charcoal to-brand-charcoal border-b border-brand-border overflow-hidden">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-      
-      <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/10 border border-brand-orange/30 text-brand-orange text-xs font-semibold">
-          <i data-lucide="flame" class="w-3.5 h-3.5"></i>
-          <span>Signature Lagos Party Platters &amp; Seafood Boils</span>
-        </div>
-
-        <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.08]">
-          EAT WHATEVER. <br/>
-          <span class="bg-gradient-to-r from-brand-orange via-brand-amber to-brand-red bg-clip-text text-transparent">EAT WHENEVER.</span>
-        </h1>
-
-        <p class="text-neutral-300 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
-          The Galley Kitchen brings you Lagos' most satisfying feasts: signature Asun Smokey Jollof bowls, 6–8 person crowd-pleasing Me &amp; You Platters, rich Cajun-Lagos Seafood Boils, and 3-Liter Singapore Noodles.
-        </p>
-
-        <!-- CTAS -->
-        <div class="flex flex-col sm:flex-row gap-3 pt-2 justify-center lg:justify-start">
-          <a href="#menu-catalog" class="bg-gradient-to-r from-brand-orange to-brand-red hover:brightness-110 text-white font-bold text-xs uppercase tracking-wider px-7 py-3.5 rounded-2xl shadow-xl shadow-brand-red/25 flex items-center justify-center gap-2 min-h-[44px]">
-            <i data-lucide="utensils" class="w-4 h-4"></i>
-            <span>Explore Today's Menu</span>
-          </a>
-          <button onclick="toggleWhatsAppSimulator()" class="bg-brand-card hover:bg-neutral-800 text-neutral-200 border border-brand-border hover:border-brand-orange/40 font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-2xl flex items-center justify-center gap-2 transition-all min-h-[44px]">
-            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
-            <span>Test WhatsApp Menu Bot</span>
-          </button>
-        </div>
-
-        <!-- TRUST PERKS -->
-        <div class="pt-6 grid grid-cols-3 gap-3 border-t border-brand-border/60 text-center sm:text-left">
-          <div>
-            <span class="block font-display font-extrabold text-brand-orange text-lg sm:text-xl">6–8 People</span>
-            <span class="text-[11px] text-neutral-400">Large Platter Feasts</span>
-          </div>
-          <div>
-            <span class="block font-display font-extrabold text-brand-amber text-lg sm:text-xl">1.5L – 3L</span>
-            <span class="text-[11px] text-neutral-400">Generous Food Bowls</span>
-          </div>
-          <div>
-            <span class="block font-display font-extrabold text-emerald-400 text-lg sm:text-xl">100% WhatsApp</span>
-            <span class="text-[11px] text-neutral-400">Instant Order Routing</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- HERO VISUAL: FEATURED PLATTER HERO CARD -->
-      <div class="lg:col-span-5 relative max-w-md mx-auto w-full">
-        <div class="relative bg-brand-card rounded-3xl p-4 border border-brand-border shadow-2xl shadow-black/80 overflow-hidden">
-          <div class="relative h-72 sm:h-80 w-full rounded-2xl overflow-hidden bg-neutral-900 border border-brand-border">
-            <img src="/foodrascals/images/seafood-boil.jpg" alt="Food Rascals Seafood Boil" class="w-full h-full object-cover">
-            
-            <span class="absolute top-3 left-3 bg-brand-charcoal/90 backdrop-blur-md text-brand-amber text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-brand-amber/30 flex items-center gap-1.5">
-              <i data-lucide="sparkles" class="w-3 h-3 text-brand-amber"></i> Top Chef Special
-            </span>
-
-            <span class="absolute bottom-3 right-3 bg-brand-red text-white text-xs font-display font-extrabold px-3 py-1.5 rounded-xl shadow-lg">
-              ₦50,000
-            </span>
-          </div>
-
-          <div class="p-4 space-y-2">
-            <div class="flex justify-between items-start">
-              <div>
-                <h3 class="font-display font-black text-xl text-white">Seafood Boil Feast</h3>
-                <p class="text-xs text-neutral-400 mt-0.5">Crab, jumbo tiger prawns, sweet corn cobs &amp; spiced potatoes in garlic butter pepper broth.</p>
-              </div>
-            </div>
-
-            <div class="pt-3 flex gap-2">
-              <button onclick="quickAddFood('seafood-boil')" class="flex-1 bg-gradient-to-r from-brand-orange to-brand-red hover:brightness-110 text-white py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow min-h-[44px]">
-                <i data-lucide="plus" class="w-4 h-4"></i> Add to Order
-              </button>
-              <button onclick="orderDirectWhatsApp('Seafood Boil Feast', '₦50,000', 'Feeds 3-4 seafood lovers')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1 min-h-[44px]">
-                <i data-lucide="message-circle" class="w-4 h-4"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- LIVE WHATSAPP SYNC EXPLANATION BANNER -->
-  <aside class="bg-brand-surface border-y border-brand-border py-4 px-4 sm:px-6" aria-label="WhatsApp Store Sync Demo Banner">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3 text-left">
-        <div class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30">
-          <i data-lucide="zap" class="w-5 h-5"></i>
-        </div>
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
         <div>
-          <h4 class="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
-            <span>Powered by WhatsApp Store Sync</span>
-            <span class="bg-emerald-500/20 text-emerald-300 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-400/30">Zero Dashboard</span>
-          </h4>
-          <p class="text-[11px] sm:text-xs text-neutral-400">
-            Food Rascals updates this menu directly from WhatsApp. When a tray sells out, they simply text: <code class="text-brand-amber font-mono bg-neutral-900 px-1.5 py-0.5 rounded">Sold out: Seafood Boil</code>.
-          </p>
+          <p class="eyebrow">Party platters, smokey jollof and seafood boils</p>
+          <h1 class="display">Eat whatever.<br><span class="accent">Eat whenever.</span></h1>
+          <p class="lead">The Galley Kitchen cooks Lagos-sized trays: Asun smokey jollof, Me &amp; You platters that feed 6 to 8, seafood boils and 3-litre Singapore noodles. Build your tray here and it lands on WhatsApp as one clean order.</p>
+          <div class="hero-actions">
+            <a href="#menu" class="btn btn-primary">
+              <svg class="icon" aria-hidden="true"><use href="#i-utensils"/></svg>
+              See today's menu
+            </a>
+            <button type="button" class="btn btn-ghost" data-open="sim" aria-haspopup="dialog" aria-controls="sim">
+              <svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>
+              Try the WhatsApp store sync
+            </button>
+          </div>
+          <ul class="stats">
+            <li><strong>6–8</strong><span>people per platter</span></li>
+            <li><strong>1.5L–3L</strong><span>party trays</span></li>
+            <li><strong>WhatsApp</strong><span>orders, no app needed</span></li>
+          </ul>
+        </div>
+
+        <div class="chat-preview" aria-label="Example of the WhatsApp store sync">
+          <div class="chat-head">
+            <span class="chat-avatar" aria-hidden="true">FR</span>
+            <div><strong>Food Rascals store bot</strong><span>Updates this website from WhatsApp</span></div>
+          </div>
+          <div class="chat-body">
+            <div class="bubble out">Sold out: Seafood Boil<time>18:42</time></div>
+            <div class="bubble in">Done. <b>Seafood Boil Feast</b> now shows as sold out on your website.<time>18:42</time></div>
+            <div class="bubble out">Price: Asun Smokey, 38000<time>18:44</time></div>
+            <div class="bubble in">Updated. <b>Asun Smokey Jollof Rice</b> is now ₦38,000.<time>18:44</time></div>
+          </div>
+          <div class="chat-foot">
+            <p>No dashboard and no laptop. The kitchen updates the menu by texting the store bot.</p>
+            <button type="button" class="btn btn-wa btn-block" data-open="sim" aria-haspopup="dialog" aria-controls="sim">
+              <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>
+              Try it live on this page
+            </button>
+          </div>
         </div>
       </div>
+    </section>
 
-      <button onclick="toggleWhatsAppSimulator()" class="w-full md:w-auto bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow flex items-center justify-center gap-2 shrink-0 min-h-[44px]">
-        <i data-lucide="play" class="w-3.5 h-3.5"></i>
-        <span>Try The Live WhatsApp Simulator</span>
-      </button>
-    </div>
-  </aside>
-
-  <!-- MAIN MENU SHOWCASE -->
-  <main id="menu-catalog" class="py-12 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
-    
-    <!-- CATEGORY FILTER PILLS -->
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
-      <div>
-        <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">The Galley Kitchen</span>
-        <h2 class="font-display font-black text-2xl sm:text-4xl text-white mt-1">Official Food Rascals Menu</h2>
-        <p class="text-xs sm:text-sm text-neutral-400 mt-1">Authentic Nigerian party bowls, loaded crowd platters, and seafood specialties.</p>
+    <!-- MENU -->
+    <section class="section" id="menu" aria-labelledby="menuTitle">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="menuTitle">The Galley Kitchen menu</h2>
+          <p>Party bowls, crowd platters and seafood, cooked fresh for delivery across Lagos Island and Mainland.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter the menu" id="filters"></div>
+        <p class="results-note" id="resultsNote" aria-live="polite"></p>
+        <ul class="menu-grid" id="menuGrid"></ul>
       </div>
+    </section>
 
-      <!-- FILTER BUTTONS -->
-      <nav class="flex gap-2 overflow-x-auto no-scrollbar pb-1" aria-label="Menu categories">
-        <button onclick="filterCategory('all', this)" class="category-btn active bg-brand-orange text-white px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap min-h-[44px] flex items-center">All Dishes</button>
-        <button onclick="filterCategory('platters', this)" class="category-btn bg-brand-card text-neutral-300 hover:text-white px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap border border-brand-border min-h-[44px] flex items-center">Me &amp; You Platters</button>
-        <button onclick="filterCategory('jollof', this)" class="category-btn bg-brand-card text-neutral-300 hover:text-white px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap border border-brand-border min-h-[44px] flex items-center">Smokey Jollof Trays</button>
-        <button onclick="filterCategory('seafood', this)" class="category-btn bg-brand-card text-neutral-300 hover:text-white px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap border border-brand-border min-h-[44px] flex items-center">Seafood &amp; Noodles</button>
-      </nav>
-    </div>
-
-    <!-- DYNAMIC PRODUCT GRID -->
-    <div id="foodGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Injected by JavaScript -->
-    </div>
+    <!-- HOW IT WORKS -->
+    <section class="section how" aria-labelledby="howTitle">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="howTitle">How ordering works</h2>
+          <p>No app to download and no account to create.</p>
+        </div>
+        <ol class="steps">
+          <li><span class="num">01</span><h3>Build your tray</h3><p>Add jollof, platters, seafood or noodles and pick your delivery area.</p></li>
+          <li><span class="num">02</span><h3>Send it on WhatsApp</h3><p>Your dishes, quantities, area and estimated total arrive as one message.</p></li>
+          <li><span class="num">03</span><h3>Pay and get it hot</h3><p>The kitchen confirms the delivery time, takes a transfer and dispatches.</p></li>
+        </ol>
+      </div>
+    </section>
   </main>
 
-  <!-- HOW ORDERING WORKS -->
-  <section class="py-12 sm:py-16 px-4 sm:px-6 bg-brand-surface border-t border-brand-border">
-    <div class="max-w-6xl mx-auto text-center space-y-10">
-      
-      <div class="space-y-2">
-        <span class="text-xs font-bold uppercase tracking-widest text-brand-amber">Simple Lagos Ordering</span>
-        <h3 class="font-display font-black text-2xl sm:text-3xl text-white">How Food Rascals Works</h3>
-        <p class="text-xs sm:text-sm text-neutral-400 max-w-md mx-auto">No confusing app signups. Your entire tray order compiles straight to Food Rascals' official WhatsApp line.</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <div class="bg-brand-card p-6 rounded-3xl border border-brand-border text-left space-y-3">
-          <div class="w-10 h-10 rounded-2xl bg-brand-red/20 text-brand-red flex items-center justify-center font-display font-black text-lg border border-brand-red/30">
-            1
-          </div>
-          <h4 class="font-display font-bold text-white text-base">Select Your Trays</h4>
-          <p class="text-xs text-neutral-400 leading-relaxed">
-            Pick from 1.5L Asun Jollof, 3L Singapore Noodles, Seafood Boils, or 6–8 Person Party Platters with golden yam &amp; dodo.
-          </p>
-        </div>
-
-        <div class="bg-brand-card p-6 rounded-3xl border border-brand-border text-left space-y-3">
-          <div class="w-10 h-10 rounded-2xl bg-brand-orange/20 text-brand-orange flex items-center justify-center font-display font-black text-lg border border-brand-orange/30">
-            2
-          </div>
-          <h4 class="font-display font-bold text-white text-base">Compile on WhatsApp</h4>
-          <p class="text-xs text-neutral-400 leading-relaxed">
-            Click "Order via WhatsApp". Your exact meals, portion sizes, delivery notes, and totals are formatted automatically into a clean message.
-          </p>
-        </div>
-
-        <div class="bg-brand-card p-6 rounded-3xl border border-brand-border text-left space-y-3">
-          <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-display font-black text-lg border border-emerald-500/30">
-            3
-          </div>
-          <h4 class="font-display font-bold text-white text-base">Cooked Fresh &amp; Dispatched</h4>
-          <p class="text-xs text-neutral-400 leading-relaxed">
-            The Galley Kitchen confirms delivery window, receives transfer payment, and dispatches piping-hot to your home, office, or event.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-10 px-4 sm:px-6 border-t border-brand-border bg-brand-charcoal text-center text-xs text-neutral-400">
-    <div class="max-w-7xl mx-auto space-y-4">
-      <div class="flex items-center justify-center gap-2">
-        <div class="w-6 h-6 rounded-lg bg-brand-red flex items-center justify-center text-[10px] font-black text-white">FR</div>
-        <span class="font-display font-bold text-white tracking-wide">FOOD RASCALS • THE GALLEY KITCHEN</span>
-      </div>
-      <p class="text-[11px] text-neutral-400">Lagos, Nigeria • Instagram: <a href="https://www.instagram.com/foodrascals.ng/" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline">@foodrascals.ng</a></p>
-      <p class="text-[10px] text-neutral-400">© 2026 Food Rascals. Interactive WhatsApp Storefront Prototype engineered by Gran Jefe.</p>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="foot-name">Food Rascals</div>
+      <p>The Galley Kitchen · Lagos, Nigeria · Instagram <a href="https://www.instagram.com/foodrascals.ng/" target="_blank" rel="noopener noreferrer">@foodrascals.ng</a></p>
+      <p>© 2026 Food Rascals. Concept preview by Gran Jefe.</p>
     </div>
   </footer>
 
-  <!-- ======================================================== -->
-  <!-- CART DRAWER MODAL -->
-  <!-- ======================================================== -->
-  <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex justify-end transition-opacity">
-    <div class="w-full max-w-md bg-brand-surface h-full flex flex-col border-l border-brand-border shadow-2xl">
-      
-      <!-- HEADER -->
-      <div class="p-5 border-b border-brand-border flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-orange"></i>
-          <h3 class="font-display font-black text-lg text-white">Your Food Tray Order</h3>
-        </div>
-        <button onclick="toggleCartDrawer()" aria-label="Close cart drawer" class="w-11 h-11 rounded-full bg-brand-card hover:bg-neutral-800 text-neutral-400 hover:text-white flex items-center justify-center">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <!-- ITEMS LIST -->
-      <div id="cartItemsList" class="flex-1 overflow-y-auto p-5 space-y-4">
-        <!-- Injected via JavaScript -->
-      </div>
-
-      <!-- DELIVERY ADDRESS & CONTACT -->
-      <div class="p-5 border-t border-brand-border bg-brand-card space-y-3">
-        <label for="deliveryArea" class="block text-xs font-bold text-neutral-300">Delivery Area (Lagos)</label>
-        <select id="deliveryArea" class="w-full bg-neutral-900 border border-brand-border text-xs text-white rounded-xl p-3 focus:outline-none focus:border-brand-orange min-h-[44px]">
-          <option value="Lekki Phase 1 / Ikoyi / Victoria Island">Lekki Phase 1 / Ikoyi / Victoria Island</option>
-          <option value="Chevron / Ajah / Sangotedo">Chevron / Ajah / Sangotedo</option>
-          <option value="Ikeja / Maryland / Magodo">Ikeja / Maryland / Magodo</option>
-          <option value="Surulere / Yaba">Surulere / Yaba</option>
-          <option value="Gbagada / Ogudu">Gbagada / Ogudu</option>
-          <option value="Outside Lagos / Event Bulk Delivery">Outside Lagos / Event Bulk Delivery</option>
-        </select>
-
-        <label for="orderNotes" class="block text-xs font-bold text-neutral-300">Special Cooking / Dietary Notes</label>
-        <input type="text" id="orderNotes" placeholder="e.g. Extra spicy, no onions, delivery by 2PM" class="w-full bg-neutral-900 border border-brand-border text-xs text-white rounded-xl p-3 focus:outline-none focus:border-brand-orange min-h-[44px]">
-
-        <!-- TOTALS -->
-        <div class="pt-2 flex justify-between items-center text-sm font-bold">
-          <span class="text-neutral-400">Total Estimate:</span>
-          <span id="cartTotalPrice" class="font-display text-xl text-brand-orange">₦0</span>
-        </div>
-
-        <button onclick="dispatchCartWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg min-h-[44px]">
-          <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span>Send Tray Order via WhatsApp</span>
-        </button>
-      </div>
-
-    </div>
+  <!-- MOBILE BAR + DESKTOP FLOATING BUTTON -->
+  <div class="mobile-bar">
+    <button type="button" class="btn btn-ghost" data-open="sim" aria-haspopup="dialog" aria-controls="sim">
+      <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span>Store sync</span>
+    </button>
+    <button type="button" class="btn btn-primary" data-open="cart" aria-haspopup="dialog" aria-controls="cart" id="mobileCartBtn"></button>
   </div>
-
-  <!-- ======================================================== -->
-  <!-- LIVE WHATSAPP SIMULATOR DRAWER (OPTION 2 DEMO) -->
-  <!-- ======================================================== -->
-  <div id="waSimulatorDrawer" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden flex justify-end transition-opacity">
-    <div class="w-full max-w-md bg-[#0B141A] h-full flex flex-col border-l border-neutral-800 shadow-2xl font-sans">
-      
-      <!-- WHATSAPP HEADER -->
-      <div class="bg-[#1F2C34] p-3.5 px-4 flex items-center justify-between border-b border-neutral-800 text-white">
-        <div class="flex items-center gap-3">
-          <div class="relative">
-            <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white font-black text-sm">
-              FR
-            </div>
-            <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-400 rounded-full border-2 border-[#1F2C34]"></span>
-          </div>
-          <div>
-            <div class="flex items-center gap-1.5">
-              <span class="font-bold text-sm">Food Rascals Bot</span>
-              <i data-lucide="badge-check" class="w-4 h-4 text-emerald-400 fill-emerald-400"></i>
-            </div>
-            <span class="text-[11px] text-emerald-400 block leading-tight">online • Live Store Sync</span>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-1">
-          <button onclick="resetMenuDemo()" title="Reset Menu Demo" aria-label="Reset Menu Demo" class="w-11 h-11 rounded-full hover:bg-neutral-700/50 text-neutral-400 hover:text-white flex items-center justify-center">
-            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
-          </button>
-          <button onclick="toggleWhatsAppSimulator()" aria-label="Close WhatsApp Simulator" class="w-11 h-11 rounded-full hover:bg-neutral-700/50 text-neutral-400 hover:text-white flex items-center justify-center">
-            <i data-lucide="x" class="w-5 h-5"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- WHATSAPP CHAT MESSAGES -->
-      <div id="waChatBody" class="flex-1 overflow-y-auto p-4 space-y-3 bg-[#0B141A] bg-opacity-95">
-        
-        <!-- INTRO BOT BUBBLE -->
-        <div class="bg-[#1F2C34] text-neutral-200 p-3 rounded-2xl rounded-tl-sm text-xs leading-relaxed max-w-[85%] border border-neutral-800/80 shadow">
-          👋 <strong class="text-white">Welcome Chef!</strong> This is the Food Rascals Store Sync Bot. 
-          <br><br>
-          You don't need any computer or website login. Whenever you drop a new tray or run out of stock, just text me right here!
-          <br><br>
-          <em class="text-brand-amber">Tap any test command below to watch your website live-update:</em>
-        </div>
-
-      </div>
-
-      <!-- INTERACTIVE SUGGESTION CHIPS -->
-      <div class="p-3 bg-[#111B21] border-t border-neutral-800 space-y-2">
-        <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block px-1">Quick Test Actions:</span>
-        <div class="flex flex-wrap gap-1.5">
-          <button onclick="simulateSendText('Sold out: Seafood Boil')" class="bg-[#1F2C34] hover:bg-neutral-700 text-rose-400 text-[11px] font-semibold px-2.5 py-1.5 rounded-lg border border-rose-500/30">
-            🔴 Sold out: Seafood Boil
-          </button>
-          <button onclick="simulateSendText('Restock: Seafood Boil')" class="bg-[#1F2C34] hover:bg-neutral-700 text-emerald-400 text-[11px] font-semibold px-2.5 py-1.5 rounded-lg border border-emerald-500/30">
-            🟢 Restock: Seafood Boil
-          </button>
-          <button onclick="simulateSendText('Price: Asun Smokey, 38000')" class="bg-[#1F2C34] hover:bg-neutral-700 text-brand-amber text-[11px] font-semibold px-2.5 py-1.5 rounded-lg border border-brand-amber/30">
-            💰 Price: Asun Smokey, 38,000
-          </button>
-          <button onclick="simulateSendText('Add: Peppered Snails Tray, 45000, Giant grilled ocean snails in hot pepper glaze')" class="bg-[#1F2C34] hover:bg-neutral-700 text-sky-400 text-[11px] font-semibold px-2.5 py-1.5 rounded-lg border border-sky-500/30">
-            ✨ Add: Peppered Snails Tray
-          </button>
-          <button onclick="simulateSendText('Catalog')" class="bg-[#1F2C34] hover:bg-neutral-700 text-neutral-300 text-[11px] font-semibold px-2.5 py-1.5 rounded-lg border border-neutral-700">
-            📋 Catalog
-          </button>
-        </div>
-      </div>
-
-      <!-- INPUT BAR -->
-      <form onsubmit="handleChatSubmit(event)" class="bg-[#1F2C34] p-2.5 flex items-center gap-2 border-t border-neutral-800">
-        <input type="text" id="waCustomInput" placeholder="Type command (e.g. Sold out: Singapore noodles)" class="flex-1 bg-[#2A3942] text-white placeholder-neutral-400 text-xs rounded-full px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-emerald-500 min-h-[44px]">
-        <button type="submit" aria-label="Send WhatsApp command" class="w-11 h-11 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center shrink-0">
-          <i data-lucide="send" class="w-4 h-4"></i>
-        </button>
-      </form>
-
-    </div>
-  </div>
-
-  <!-- FLOATING SYNC DEMO TOGGLE BUTTON -->
-  <button onclick="toggleWhatsAppSimulator()" class="fixed bottom-6 right-6 z-40 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-3 rounded-full shadow-2xl flex items-center gap-2 border border-emerald-400/40 text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all min-h-[44px]">
-    <span class="relative flex h-3 w-3" aria-hidden="true">
-      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
-      <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
-    </span>
-    <i data-lucide="message-circle" class="w-4 h-4"></i>
-    <span>Try WhatsApp Store Sync</span>
+  <button type="button" class="btn btn-wa sync-fab" data-open="sim" aria-haspopup="dialog" aria-controls="sim">
+    <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>
+    Try WhatsApp store sync
   </button>
 
-  <!-- FLOATING TOAST -->
-  <div id="liveToast" class="fixed top-20 right-4 z-50 bg-brand-surface border border-brand-orange/50 text-white p-3 px-4 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-[-100px] opacity-0 transition-all duration-300 pointer-events-none">
-    <div class="w-8 h-8 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0">
-      <i data-lucide="sparkles" class="w-4 h-4"></i>
+  <div class="overlay" id="overlay"></div>
+
+  <!-- CART DIALOG -->
+  <div class="drawer" id="cart" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="drawer-head">
+      <h2 id="cartTitle">Your tray</h2>
+      <button type="button" class="icon-btn" data-close aria-label="Close your tray">
+        <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+      </button>
     </div>
-    <div id="toastContent" class="text-xs font-medium"></div>
+    <div class="drawer-body" id="cartBody"></div>
+    <div class="drawer-foot" id="cartFoot">
+      <div class="field">
+        <label for="area">Delivery area</label>
+        <select class="input" id="area" aria-describedby="areaError">
+          <option value="">Choose your area</option>
+          <option>Lekki Phase 1 / Ikoyi / Victoria Island</option>
+          <option>Chevron / Ajah / Sangotedo</option>
+          <option>Ikeja / Maryland / Magodo</option>
+          <option>Surulere / Yaba</option>
+          <option>Gbagada / Ogudu</option>
+          <option>Outside Lagos / event bulk delivery</option>
+        </select>
+        <p class="error-msg" id="areaError" role="alert">
+          <svg class="icon icon-sm" aria-hidden="true"><use href="#i-alert"/></svg>
+          <span>Choose an area so the kitchen can quote delivery.</span>
+        </p>
+      </div>
+      <div class="field">
+        <label for="notes">Cooking or delivery notes <span class="opt">(optional)</span></label>
+        <input class="input" id="notes" type="text" maxlength="160" placeholder="For example: extra spicy, deliver by 2pm">
+      </div>
+      <div class="total-row"><span>Estimated total</span><strong id="cartTotal" aria-live="polite">₦0</strong></div>
+      <button type="button" class="btn btn-wa btn-block" id="sendOrder">
+        <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>
+        <span>Send order on WhatsApp</span>
+      </button>
+      <p class="foot-note">The kitchen confirms availability, delivery fee and payment details on WhatsApp.</p>
+    </div>
   </div>
 
-  <!-- ======================================================== -->
-  <!-- JAVASCRIPT APP LOGIC -->
-  <!-- ======================================================== -->
+  <!-- STORE SYNC SIMULATOR DIALOG -->
+  <div class="drawer sim" id="sim" role="dialog" aria-modal="true" aria-labelledby="simTitle">
+    <div class="drawer-head">
+      <div class="sim-id">
+        <span class="chat-avatar" aria-hidden="true">FR</span>
+        <div><strong id="simTitle">Food Rascals store bot</strong><span>Demo: changes apply to this page</span></div>
+      </div>
+      <div style="display:flex;gap:4px">
+        <button type="button" class="icon-btn" id="resetMenu" aria-label="Reset the menu to its original state">
+          <svg class="icon" aria-hidden="true"><use href="#i-reset"/></svg>
+        </button>
+        <button type="button" class="icon-btn" data-close aria-label="Close the store bot">
+          <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="drawer-body" id="simBody">
+      <p class="sim-intro">You're the chef. Text the bot to change the website menu, no login needed.</p>
+      <div class="sim-log" id="simLog" aria-live="polite"></div>
+    </div>
+    <div class="sim-tools">
+      <p>Try a command</p>
+      <div class="cmds" id="cmds"></div>
+    </div>
+    <form class="sim-form" id="simForm">
+      <label for="simInput" class="sr-only">Message the store bot</label>
+      <input class="input" id="simInput" type="text" autocomplete="off" maxlength="140" placeholder="For example: Sold out: Singapore noodles">
+      <button type="submit" class="icon-btn wa" aria-label="Send message to the store bot">
+        <svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>
+      </button>
+    </form>
+  </div>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+
   <script>
-    // INITIAL EXACT MENU FROM THEIR WHATSAPP CATALOG
-    const DEFAULT_FOODS = [
-      {
-        id: 'asun-jollof',
-        name: 'Asun Smokey Jollof Rice',
-        portion: '1.5 Liters • Comes with 3 Jumbo Turkey cuts',
-        price: 35000,
-        category: 'jollof',
-        img: '/foodrascals/images/asun-smokey-jollof.jpg',
-        badge: 'Signature Wood-Smoked',
-        inStock: true,
-        desc: 'Deeply aromatic firewood-infused party jollof with spicy tender chopped goat meat (asun) and 3 large fried turkey cuts.'
-      },
-      {
-        id: 'me-you-platter-50k',
-        name: 'Rascals Special ME & YOU PLATTER',
-        portion: 'Feeds 6–8 People • Grand Feast Edition',
-        price: 50000,
-        category: 'platters',
-        img: '/foodrascals/images/rascals-me-you-platter-50k.jpg',
-        badge: 'Feeds 6–8 People',
-        inStock: true,
-        desc: 'Massive party platter packed with golden roasted fries, crispy plantains, grilled peppered chicken, sausages, beef skewers, and dipping sauces.'
-      },
-      {
-        id: 'seafood-boil',
-        name: 'Seafood Boil Feast',
-        portion: 'Full Feast Tray • Feeds 3–4',
-        price: 50000,
-        category: 'seafood',
-        img: '/foodrascals/images/seafood-boil.jpg',
-        badge: 'Cajun-Lagos Fusion',
-        inStock: true,
-        desc: 'Fresh crab, jumbo tiger prawns, sweet corn on the cob, and spiced red potatoes drenched in garlic butter scotch bonnet pepper broth.'
-      },
-      {
-        id: 'singapore-noodles',
-        name: 'Singapore Noodles 🍜',
-        portion: '3 Liters Mega Tray',
-        price: 35000,
-        category: 'seafood',
-        img: '/foodrascals/images/singapore-noodles.jpg',
-        badge: '3-Liter Tray',
-        inStock: true,
-        desc: 'Wok-tossed vermicelli noodles with shredded chicken breast, beef stripes, bell peppers, fresh prawns, and authentic chili aromatics.'
-      },
-      {
-        id: 'me-you-platter-35k',
-        name: 'Rascals Special ME & YOU PLATTER (Yam & Dodo)',
-        portion: 'Feeds 6–8 People • Traditional Grills',
-        price: 35000,
-        category: 'platters',
-        img: '/foodrascals/images/rascals-me-you-platter-35k.jpg',
-        badge: 'Crowd Bestseller',
-        inStock: true,
-        desc: 'Crispy golden fried yam fingers, caramelized sweet plantains (dodo), peppered gizzard, grilled fish cuts, and signature Galley hot dip.'
-      },
-      {
-        id: 'me-you-platter-sides',
-        name: 'Rascals Special ME & YOU PLATTER 😉',
-        portion: 'Can Feed 6–8 People 😉',
-        price: 35000,
-        category: 'platters',
-        img: '/foodrascals/images/rascals-platter-yam-dodo.jpg',
-        badge: 'Snack & Share Platter',
-        inStock: true,
-        desc: 'The ultimate Lagos hangout platter. Endless yam chips, seasoned plantain discs, peppered protein cuts, and double dipping pots.'
-      }
+    'use strict';
+
+    const WHATSAPP_NUMBER = '2347018285225';
+    const STORAGE_KEY = 'foodrascals-tray-v1';
+    const STORAGE_TTL_MS = 2 * 24 * 60 * 60 * 1000; // 2 days: menus and prices change
+
+    const CATEGORIES = [
+      { id: 'all', label: 'All dishes' },
+      { id: 'platters', label: 'Me & You platters' },
+      { id: 'jollof', label: 'Smokey jollof' },
+      { id: 'seafood', label: 'Seafood & noodles' },
     ];
 
-    let currentFoods = JSON.parse(JSON.stringify(DEFAULT_FOODS));
-    let cart = [];
-    let currentFilter = 'all';
+    // Menu from Food Rascals' WhatsApp catalog
+    const DEFAULT_MENU = [
+      { id: 'asun-jollof', name: 'Asun Smokey Jollof Rice', portion: '1.5 litres with 3 jumbo turkey cuts', price: 35000, cat: 'jollof', img: 'asun-smokey-jollof', badge: 'Wood-smoked', desc: 'Firewood party jollof with spicy chopped goat meat (asun) and three large fried turkey cuts.' },
+      { id: 'platter-50k', name: 'Me & You Platter, grand feast', portion: 'Feeds 6 to 8 people', price: 50000, cat: 'platters', img: 'rascals-me-you-platter-50k', badge: 'Biggest platter', desc: 'Fries, plantain, grilled peppered chicken, sausages, beef skewers and dipping sauces.' },
+      { id: 'seafood-boil', name: 'Seafood Boil Feast', portion: 'Full tray, feeds 3 to 4', price: 50000, cat: 'seafood', img: 'seafood-boil', badge: 'Cajun-Lagos', desc: 'Crab, tiger prawns, corn on the cob and spiced potatoes in garlic butter scotch bonnet broth.' },
+      { id: 'singapore-noodles', name: 'Singapore Noodles', portion: '3-litre tray', price: 35000, cat: 'seafood', img: 'singapore-noodles', badge: '3-litre tray', desc: 'Wok-tossed vermicelli with shredded chicken, beef strips, peppers, prawns and chilli.' },
+      { id: 'platter-yam-dodo', name: 'Me & You Platter, yam and dodo', portion: 'Feeds 6 to 8 people', price: 35000, cat: 'platters', img: 'rascals-me-you-platter-35k', badge: 'Crowd favourite', desc: 'Fried yam, caramelised plantain, peppered gizzard, grilled fish and the Galley hot dip.' },
+      { id: 'platter-share', name: 'Me & You Platter, snack and share', portion: 'Feeds 6 to 8 people', price: 35000, cat: 'platters', img: 'rascals-platter-yam-dodo', badge: 'Hangout platter', desc: 'Yam chips, seasoned plantain, peppered protein cuts and double dipping pots.' },
+    ];
 
-    // RENDER MENU ITEMS
-    function renderFoods() {
-      const grid = document.getElementById('foodGrid');
-      grid.innerHTML = '';
+    const COMMANDS = [
+      { text: 'Sold out: Seafood Boil', label: 'Sold out: Seafood Boil', dot: '#FF6259' },
+      { text: 'Restock: Seafood Boil', label: 'Restock: Seafood Boil', dot: '#25D366' },
+      { text: 'Price: Asun Smokey, 38000', label: 'Price: Asun Smokey, 38,000', dot: '#FF9F0A' },
+      { text: 'Add: Peppered Snails Tray, 45000, Giant snails in hot pepper glaze', label: 'Add: Peppered Snails Tray', dot: '#5AC8FA' },
+      { text: 'Catalog', label: 'Catalog', dot: '#B4B9BE' },
+    ];
 
-      const filtered = currentFilter === 'all' 
-        ? currentFoods 
-        : currentFoods.filter(f => f.category === currentFilter);
+    const clone = v => JSON.parse(JSON.stringify(v));
+    const naira = n => '₦' + Number(n).toLocaleString('en-NG');
+    const $ = id => document.getElementById(id);
+    const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const imgSrc = d => `/foodrascals/images/thumbs/${d.img}.jpg`;
+    const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      filtered.forEach(food => {
-        const card = document.createElement('div');
-        card.id = `card-${food.id}`;
-        card.className = `food-card bg-brand-card rounded-3xl p-4 border border-brand-border flex flex-col justify-between space-y-4 ${!food.inStock ? 'opacity-65' : ''}`;
+    let menu = clone(DEFAULT_MENU);
+    let filter = 'all';
+    const byId = id => menu.find(d => d.id === id);
 
-        card.innerHTML = `
-          <div class="space-y-3">
-            <div class="relative h-60 w-full rounded-2xl overflow-hidden bg-neutral-900 border border-brand-border">
-              <img src="${food.img}" alt="${food.name}" class="w-full h-full object-cover">
-              
-              <span class="absolute top-2.5 left-2.5 ${food.inStock ? 'bg-brand-charcoal/90 text-brand-amber border-brand-amber/30' : 'bg-rose-950/90 text-rose-400 border-rose-500/40'} text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border">
-                ${food.inStock ? food.badge : '🔴 SOLD OUT'}
-              </span>
-
-              <span class="absolute bottom-2.5 right-2.5 bg-brand-charcoal/90 text-white font-display font-extrabold text-sm px-3 py-1 rounded-xl border border-brand-border">
-                ₦${food.price.toLocaleString()}
-              </span>
-            </div>
-
-            <div>
-              <h3 class="font-display font-bold text-lg text-white leading-snug">${food.name}</h3>
-              <span class="text-xs font-semibold text-brand-orange block mt-0.5">${food.portion}</span>
-              <p class="text-xs text-neutral-400 mt-1.5 leading-relaxed line-clamp-2">${food.desc}</p>
-            </div>
-          </div>
-
-          <div class="pt-2 flex gap-2">
-            ${food.inStock ? `
-              <button onclick="quickAddFood('${food.id}')" class="flex-1 bg-gradient-to-r from-brand-orange to-brand-red hover:brightness-110 text-white py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow min-h-[44px]">
-                <i data-lucide="plus" class="w-3.5 h-3.5"></i> Add Tray
-              </button>
-              <button onclick="orderDirectWhatsApp('${food.name}', '₦${food.price.toLocaleString()}', '${food.portion}')" title="Order directly on WhatsApp" aria-label="Order ${food.name} directly on WhatsApp" class="w-11 h-11 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl flex items-center justify-center shrink-0 min-h-[44px] min-w-[44px]">
-                <i data-lucide="message-circle" class="w-4 h-4"></i>
-              </button>
-            ` : `
-              <button disabled class="w-full bg-neutral-800 text-neutral-500 py-3 rounded-xl text-xs font-bold uppercase tracking-wider cursor-not-allowed border border-neutral-700 min-h-[44px]">
-                Currently Sold Out
-              </button>
-            `}
-          </div>
-        `;
-
-        grid.appendChild(card);
-      });
-
-      lucide.createIcons();
+    /* ---------- Safe persistence (tray only, not demo menu edits) ---------- */
+    function loadTray() {
+      try {
+        const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+        if (!data || typeof data.savedAt !== 'number' || Date.now() - data.savedAt > STORAGE_TTL_MS) {
+          localStorage.removeItem(STORAGE_KEY);
+          return {};
+        }
+        const clean = {};
+        for (const [id, q] of Object.entries(data.items || {})) {
+          if (DEFAULT_MENU.some(d => d.id === id) && Number.isInteger(q) && q > 0 && q < 100) clean[id] = q;
+        }
+        return clean;
+      } catch (e) { return {}; }
     }
-
-    // CATEGORY FILTER
-    function filterCategory(cat, btn) {
-      currentFilter = cat;
-      document.querySelectorAll('.category-btn').forEach(b => {
-        b.className = 'category-btn bg-brand-card text-neutral-300 hover:text-white px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap border border-brand-border min-h-[44px] flex items-center';
-      });
-      btn.className = 'category-btn active bg-brand-orange text-white px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap min-h-[44px] flex items-center';
-      renderFoods();
+    function saveTray() {
+      try {
+        const items = Object.fromEntries(Object.entries(tray).filter(([id]) => DEFAULT_MENU.some(d => d.id === id)));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ items, savedAt: Date.now() }));
+      } catch (e) { /* storage unavailable: tray still works for this visit */ }
     }
+    let tray = loadTray();
+    const trayCount = () => Object.values(tray).reduce((a, b) => a + b, 0);
+    const trayTotal = () => Object.entries(tray).reduce((s, [id, q]) => s + (byId(id)?.price || 0) * q, 0);
 
-    // CART OPERATIONS
-    function quickAddFood(foodId) {
-      const item = currentFoods.find(f => f.id === foodId);
-      if (!item) return;
-
-      const existing = cart.find(c => c.id === foodId);
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        cart.push({ ...item, qty: 1 });
+    /* ---------- Toast ---------- */
+    let toastTimer;
+    function toast(message, action) {
+      const region = $('toastRegion');
+      clearTimeout(toastTimer);
+      region.innerHTML = '';
+      const el = document.createElement('div');
+      el.className = 'toast';
+      el.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><p></p>';
+      el.querySelector('p').textContent = message;
+      if (action) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = action.label;
+        b.addEventListener('click', () => { region.innerHTML = ''; action.onClick(); });
+        el.appendChild(b);
       }
-
-      updateCartBadge();
-      showToast(`Added 1x ${item.name} to order tray!`);
+      region.appendChild(el);
+      toastTimer = setTimeout(() => { region.innerHTML = ''; }, 4000);
     }
 
-    function updateCartBadge() {
-      const totalCount = cart.reduce((acc, item) => acc + item.qty, 0);
-      document.getElementById('cartCountBadge').innerText = totalCount;
-      renderCartItems();
-    }
-
-    function toggleCartDrawer() {
-      const drawer = document.getElementById('cartDrawer');
-      drawer.classList.toggle('hidden');
-      renderCartItems();
-    }
-
-    function renderCartItems() {
-      const list = document.getElementById('cartItemsList');
-      if (!list) return;
-
-      if (cart.length === 0) {
-        list.innerHTML = `
-          <div class="h-64 flex flex-col items-center justify-center text-center space-y-3 text-neutral-500">
-            <i data-lucide="utensils" class="w-10 h-10 opacity-40"></i>
-            <p class="text-xs">Your tray cart is currently empty.<br>Add some Asun Jollof or a Me &amp; You Platter!</p>
-          </div>
-        `;
-        document.getElementById('cartTotalPrice').innerText = '₦0';
-        lucide.createIcons();
-        return;
+    /* ---------- WhatsApp ---------- */
+    function openWhatsApp(text, btn) {
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+      let label;
+      if (btn) {
+        label = btn.innerHTML;
+        btn.disabled = true;
+        btn.setAttribute('aria-busy', 'true');
+        btn.innerHTML = '<span class="spinner" aria-hidden="true"></span><span>Opening WhatsApp…</span>';
       }
-
-      let total = 0;
-      list.innerHTML = '';
-
-      cart.forEach((item, idx) => {
-        const itemTotal = item.price * item.qty;
-        total += itemTotal;
-
-        const row = document.createElement('div');
-        row.className = 'bg-brand-card p-3 rounded-2xl border border-brand-border flex items-center justify-between gap-3';
-        row.innerHTML = `
-          <div class="flex items-center gap-3">
-            <img src="${item.img}" class="w-12 h-12 rounded-xl object-cover border border-brand-border">
-            <div>
-              <h4 class="font-bold text-xs text-white leading-tight">${item.name}</h4>
-              <span class="text-[11px] text-brand-orange font-semibold">₦${item.price.toLocaleString()}</span>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <button onclick="changeQty(${idx}, -1)" class="w-7 h-7 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-white font-bold text-xs flex items-center justify-center">-</button>
-            <span class="text-xs font-bold text-white w-4 text-center">${item.qty}</span>
-            <button onclick="changeQty(${idx}, 1)" class="w-7 h-7 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-white font-bold text-xs flex items-center justify-center">+</button>
-          </div>
-        `;
-        list.appendChild(row);
-      });
-
-      document.getElementById('cartTotalPrice').innerText = `₦${total.toLocaleString()}`;
-      lucide.createIcons();
-    }
-
-    function changeQty(idx, delta) {
-      if (!cart[idx]) return;
-      cart[idx].qty += delta;
-      if (cart[idx].qty <= 0) {
-        cart.splice(idx, 1);
-      }
-      updateCartBadge();
-    }
-
-    // DISPATCH COMPILED CART TO WHATSAPP
-    function dispatchCartWhatsApp() {
-      if (cart.length === 0) {
-        alert('Please add at least one meal to your cart first.');
-        return;
-      }
-
-      const area = document.getElementById('deliveryArea').value;
-      const notes = document.getElementById('orderNotes').value || 'None';
-      const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-
-      let itemsSummary = '';
-      cart.forEach((item, i) => {
-        itemsSummary += `${i + 1}. *${item.name}* (${item.portion})\n   Qty: ${item.qty} tray(s) - ₦${(item.price * item.qty).toLocaleString()}\n`;
-      });
-
-      const message = `*NEW FOOD TRAY ORDER - FOOD RASCALS*\n` +
-                      `_The Galley Kitchen Lagos_\n\n` +
-                      `🍱 *ORDER DETAILS:*\n${itemsSummary}\n` +
-                      `📍 *Delivery Area:* ${area}\n` +
-                      `📝 *Dietary / Cooking Notes:* ${notes}\n` +
-                      `💰 *ESTIMATED TOTAL:* ₦${total.toLocaleString()}\n\n` +
-                      `Hello Food Rascals! I would like to place this food tray order. Please confirm availability and send account payment details!`;
-
-      // Official Food Rascals Lagos order routing line
-      window.open(`https://wa.me/2348000000000?text=${encodeURIComponent(message)}`, '_blank');
-    }
-
-    // DIRECT SINGLE ITEM ORDER
-    function orderDirectWhatsApp(name, price, portion) {
-      const message = `*FOOD RASCALS ORDER INQUIRY*\n\n` +
-                      `🍱 *Dish:* ${name}\n` +
-                      `📦 *Portion:* ${portion}\n` +
-                      `💰 *Price:* ${price}\n` +
-                      `📍 *Delivery:* Lagos (Island / Mainland)\n\n` +
-                      `Hello Food Rascals! Is the *${name}* available for dispatch today?`;
-
-      window.open(`https://wa.me/2348000000000?text=${encodeURIComponent(message)}`, '_blank');
-    }
-
-    // ========================================================
-    // WHATSAPP LIVE STORE SYNC SIMULATOR
-    // ========================================================
-    function toggleWhatsAppSimulator() {
-      const drawer = document.getElementById('waSimulatorDrawer');
-      drawer.classList.toggle('hidden');
-    }
-
-    function simulateSendText(text) {
-      document.getElementById('waCustomInput').value = text;
-      handleChatSubmit(new Event('submit'));
-    }
-
-    function handleChatSubmit(e) {
-      e.preventDefault();
-      const input = document.getElementById('waCustomInput');
-      const text = input.value.trim();
-      if (!text) return;
-
-      input.value = '';
-      appendUserBubble(text);
-
-      // Simulate bot processing delay
+      const win = window.open(url, '_blank');
+      if (win) win.opener = null;
+      else window.location.href = url; // pop-up blocked: open in the same tab
       setTimeout(() => {
-        processBotCommand(text);
-      }, 400);
+        if (!btn) return;
+        btn.innerHTML = label;
+        btn.removeAttribute('aria-busy');
+        btn.disabled = btn.id === 'sendOrder' ? trayCount() === 0 : false;
+      }, 1500);
     }
 
-    function appendUserBubble(text) {
-      const body = document.getElementById('waChatBody');
-      const bubble = document.createElement('div');
-      bubble.className = 'chat-bubble bg-[#005C4B] text-white p-3 rounded-2xl rounded-tr-sm text-xs leading-relaxed max-w-[85%] ml-auto shadow border border-emerald-700/50 flex flex-col items-end';
-      
-      const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      bubble.innerHTML = `
-        <span>${text}</span>
-        <span class="text-[9px] text-emerald-200/80 mt-1 flex items-center gap-1">
-          ${time} <i data-lucide="check-check" class="w-3 h-3 text-cyan-300"></i>
-        </span>
-      `;
-      body.appendChild(bubble);
-      body.scrollTop = body.scrollHeight;
-      lucide.createIcons();
+    /* ---------- Menu ---------- */
+    function renderFilters() {
+      $('filters').innerHTML = CATEGORIES.map(c => {
+        const n = c.id === 'all' ? menu.length : menu.filter(d => d.cat === c.id).length;
+        return `<button type="button" class="chip" data-filter="${c.id}" aria-pressed="${c.id === filter}">${esc(c.label)}<span class="n">${n}</span></button>`;
+      }).join('');
     }
 
-    function appendBotBubble(replyText) {
-      const body = document.getElementById('waChatBody');
-      const bubble = document.createElement('div');
-      bubble.className = 'chat-bubble bg-[#1F2C34] text-neutral-200 p-3 rounded-2xl rounded-tl-sm text-xs leading-relaxed max-w-[85%] border border-neutral-800 shadow';
-      
-      const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      bubble.innerHTML = `
-        <div>${replyText.replace(/\n/g, '<br>').replace(/\*(.*?)\*/g, '<strong class="text-white">$1</strong>')}</div>
-        <span class="text-[9px] text-neutral-400 mt-1 block text-right">${time}</span>
-      `;
-      body.appendChild(bubble);
-      body.scrollTop = body.scrollHeight;
-      lucide.createIcons();
+    function renderMenu() {
+      const list = menu.filter(d => filter === 'all' || d.cat === filter);
+      const label = CATEGORIES.find(c => c.id === filter).label;
+      $('resultsNote').textContent = filter === 'all' ? `${list.length} dishes on today's menu` : `${list.length} ${list.length === 1 ? 'dish' : 'dishes'} in ${label}`;
+      $('menuGrid').innerHTML = list.map(d => {
+        const out = d.soldOut;
+        const badge = out ? '<span class="badge out">Sold out today</span>'
+          : d.isNew ? '<span class="badge new">New on the menu</span>'
+          : `<span class="badge">${esc(d.badge)}</span>`;
+        return `
+        <li class="dish${out ? ' is-out' : ''}" id="dish-${esc(d.id)}">
+          <div class="dish-img"><img src="${imgSrc(d)}" alt="${esc(d.name)}" width="112" height="112" loading="lazy" decoding="async"></div>
+          <div class="dish-body">
+            ${badge}
+            <h3>${esc(d.name)}</h3>
+            <span class="portion">${esc(d.portion)}</span>
+            <p class="dish-desc">${esc(d.desc)}</p>
+          </div>
+          <div class="dish-foot">
+            <span class="price">${naira(d.price)}</span>
+            <div class="dish-actions">
+              ${out
+                ? '<button type="button" class="btn btn-ghost" disabled>Sold out</button>'
+                : `<button type="button" class="btn btn-primary" data-add="${esc(d.id)}" aria-label="Add ${esc(d.name)} to your tray">
+                     <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg><span>Add</span>
+                   </button>
+                   <button type="button" class="icon-btn wa" data-direct="${esc(d.id)}" aria-label="Order ${esc(d.name)} on WhatsApp">
+                     <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>
+                   </button>`}
+            </div>
+          </div>
+        </li>`;
+      }).join('');
     }
 
-    function processBotCommand(rawText) {
-      const lower = rawText.toLowerCase().trim();
+    /* ---------- Tray ---------- */
+    function addToTray(id, btn) {
+      const d = byId(id);
+      if (!d || d.soldOut) return;
+      tray[id] = (tray[id] || 0) + 1;
+      saveTray();
+      renderTray();
+      if (btn) {
+        const original = btn.innerHTML;
+        btn.classList.add('is-added');
+        btn.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Added</span>';
+        setTimeout(() => { btn.classList.remove('is-added'); btn.innerHTML = original; }, 1300);
+      }
+      toast(`${d.name} added. ${trayCount()} in your tray.`, { label: 'View tray', onClick: () => openDialog('cart') });
+    }
 
-      // 1. SOLD OUT: [Item]
-      if (lower.startsWith('sold out:') || lower.startsWith('soldout:')) {
-        const query = lower.replace(/^sold\s*out:\s*/, '');
-        const target = currentFoods.find(f => f.name.toLowerCase().includes(query) || f.id.includes(query));
+    function changeQty(id, delta) {
+      const next = (tray[id] || 0) + delta;
+      if (next < 1) return;
+      tray[id] = Math.min(next, 99);
+      saveTray();
+      renderTray();
+    }
 
-        if (target) {
-          target.inStock = false;
-          renderFoods();
-          flashCard(target.id, 'border-rose-500');
-          appendBotBubble(`🔴 Done Chef! *${target.name}* is now marked as *SOLD OUT* on your website.\n\n🌐 Customers visiting foodrascals.ng can see it is unavailable.`);
-          showToast(`⚡ WhatsApp Sync: "${target.name}" marked as SOLD OUT`);
+    function removeFromTray(id) {
+      const name = byId(id)?.name || 'Item';
+      delete tray[id];
+      saveTray();
+      renderTray();
+      toast(`${name} removed from your tray.`);
+      ($('cartBody').querySelector('button') || $('cart').querySelector('[data-close]')).focus();
+    }
+
+    function renderTray() {
+      // Drop items the kitchen has removed or sold out
+      for (const id of Object.keys(tray)) if (!byId(id)) delete tray[id];
+      const count = trayCount();
+      document.querySelectorAll('[data-count]').forEach(el => { el.textContent = count; el.dataset.empty = String(count === 0); });
+      $('cartBtn').setAttribute('aria-label', `Open your tray, ${count} ${count === 1 ? 'item' : 'items'}`);
+      $('mobileCartBtn').innerHTML = count
+        ? `<svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg><span>Tray · ${count} · ${naira(trayTotal())}</span>`
+        : '<svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg><span>Your tray</span>';
+      $('cartTotal').textContent = naira(trayTotal());
+      $('sendOrder').disabled = count === 0;
+      $('cartFoot').hidden = count === 0;
+
+      const body = $('cartBody');
+      if (!count) {
+        body.innerHTML = `
+          <div class="empty">
+            <span class="icon-wrap"><svg class="icon" aria-hidden="true"><use href="#i-utensils"/></svg></span>
+            <h3>Your tray is empty</h3>
+            <p>Add a jollof tray or a Me &amp; You platter and send it to the kitchen in one message.</p>
+            <button type="button" class="btn btn-primary" data-browse>See the menu</button>
+          </div>`;
+        return;
+      }
+      body.innerHTML = `<ul class="cart-list">${Object.entries(tray).map(([id, q]) => {
+        const d = byId(id);
+        const soldOut = d.soldOut ? ' · <b style="color:#FFB3AD">sold out, remove to send</b>' : '';
+        return `
+        <li class="cart-item">
+          <img src="${imgSrc(d)}" alt="" width="56" height="56">
+          <div>
+            <h3>${esc(d.name)}</h3>
+            <div class="sub">${naira(d.price)} per tray${soldOut}</div>
+            <div class="cart-controls">
+              <div class="stepper">
+                <button type="button" class="icon-btn" data-dec="${esc(id)}" aria-label="One less ${esc(d.name)}" ${q <= 1 ? 'disabled' : ''}>
+                  <svg class="icon" aria-hidden="true"><use href="#i-minus"/></svg>
+                </button>
+                <output aria-label="Quantity of ${esc(d.name)}">${q}</output>
+                <button type="button" class="icon-btn" data-inc="${esc(id)}" aria-label="One more ${esc(d.name)}">
+                  <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>
+                </button>
+              </div>
+              <span class="line-total">${naira(d.price * q)}</span>
+              <button type="button" class="icon-btn" data-remove="${esc(id)}" aria-label="Remove ${esc(d.name)} from your tray">
+                <svg class="icon" aria-hidden="true"><use href="#i-trash"/></svg>
+              </button>
+            </div>
+          </div>
+        </li>`;
+      }).join('')}</ul>`;
+    }
+
+    function validateArea(show) {
+      const el = $('area');
+      const ok = el.value !== '';
+      if (show || el.getAttribute('aria-invalid') === 'true') {
+        el.setAttribute('aria-invalid', String(!ok));
+        $('areaError').classList.toggle('show', !ok);
+      }
+      return ok;
+    }
+
+    function sendOrder() {
+      if (!trayCount()) return;
+      const soldOut = Object.keys(tray).filter(id => byId(id).soldOut);
+      if (soldOut.length) {
+        toast(`${byId(soldOut[0]).name} just sold out. Remove it to send your order.`);
+        return;
+      }
+      if (!validateArea(true)) { $('area').focus(); return; }
+      const notes = $('notes').value.trim();
+      const lines = Object.entries(tray).map(([id, q], i) => {
+        const d = byId(id);
+        return `${i + 1}. ${d.name} (${d.portion}) × ${q} = ${naira(d.price * q)}`;
+      });
+      const msg = [
+        'Hello Food Rascals, I would like to order:',
+        '',
+        ...lines,
+        '',
+        `*Estimated total:* ${naira(trayTotal())}`,
+        `*Delivery area:* ${$('area').value}`,
+        notes ? `*Notes:* ${notes}` : null,
+        '',
+        'Please confirm availability, the delivery fee and your account details. Thank you!',
+      ].filter(l => l !== null).join('\n');
+      openWhatsApp(msg, $('sendOrder'));
+      toast('WhatsApp opened with your order. Tap send so the kitchen receives it.');
+    }
+
+    function orderDirect(id, btn) {
+      const d = byId(id);
+      const msg = [
+        'Hello Food Rascals, is this available today?',
+        '',
+        `*Dish:* ${d.name}`,
+        `*Portion:* ${d.portion}`,
+        `*Price:* ${naira(d.price)}`,
+        '',
+        'I would like it delivered in Lagos.',
+      ].join('\n');
+      openWhatsApp(msg, btn);
+      toast(`WhatsApp opened for ${d.name}. Tap send to ask the kitchen.`);
+    }
+
+    /* ---------- Dialogs ---------- */
+    let openId = null;
+    let lastFocus = null;
+    function openDialog(id) {
+      if (openId && openId !== id) closeDialog(false);
+      lastFocus = document.activeElement;
+      openId = id;
+      $(id).classList.add('open');
+      $('overlay').classList.add('open');
+      document.body.classList.add('lock');
+      if (id === 'cart') renderTray();
+      setTimeout(() => (id === 'sim' ? $('simInput') : $(id).querySelector('[data-close]')).focus(), 60);
+    }
+    function closeDialog(restoreFocus = true) {
+      if (!openId) return;
+      $(openId).classList.remove('open');
+      $('overlay').classList.remove('open');
+      document.body.classList.remove('lock');
+      openId = null;
+      if (restoreFocus && lastFocus && document.body.contains(lastFocus)) lastFocus.focus();
+    }
+    document.addEventListener('keydown', e => {
+      if (!openId) return;
+      if (e.key === 'Escape') { e.preventDefault(); closeDialog(); return; }
+      if (e.key === 'Tab') {
+        const els = [...$(openId).querySelectorAll('button:not([disabled]), input:not([disabled]), select, a[href]')].filter(el => el.offsetParent !== null);
+        if (!els.length) return;
+        const first = els[0], last = els[els.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    /* ---------- Store sync simulator ---------- */
+    const time = () => new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    function bubble(kind, html) {
+      const el = document.createElement('div');
+      el.className = `bubble ${kind}`;
+      el.innerHTML = `${html}<time>${time()}</time>`;
+      $('simLog').appendChild(el);
+      $('simBody').scrollTop = $('simBody').scrollHeight;
+    }
+    // Bot replies use *bold* like WhatsApp; everything is escaped first
+    const botSay = text => bubble('in', esc(text).replace(/\*(.+?)\*/g, '<b>$1</b>').replace(/\n/g, '<br>'));
+
+    function findDish(query) {
+      const q = query.toLowerCase().trim();
+      if (q.length < 3) return null;
+      return menu.find(d => d.name.toLowerCase().includes(q) || d.id.includes(q.replace(/\s+/g, '-')));
+    }
+
+    function flashDish(id) {
+      const el = $(`dish-${id}`);
+      if (!el) return;
+      el.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'center' });
+      el.classList.add('flash');
+      setTimeout(() => el.classList.remove('flash'), 2200);
+    }
+
+    function applyChange(id) {
+      if (filter !== 'all' && byId(id)?.cat !== filter) filter = 'all';
+      renderFilters();
+      renderMenu();
+      renderTray();
+      setTimeout(() => flashDish(id), 120);
+    }
+
+    function runCommand(raw) {
+      const text = raw.trim();
+      const lower = text.toLowerCase();
+      let m;
+
+      if ((m = lower.match(/^sold\s*out:\s*(.+)$/))) {
+        const d = findDish(m[1]);
+        if (d) {
+          d.soldOut = true;
+          applyChange(d.id);
+          botSay(`Done, chef. *${d.name}* now shows as sold out on your website.`);
+          toast(`Store sync: ${d.name} marked sold out.`);
           return;
         }
+        return botSay(`I couldn't find "${m[1]}" on the menu. Send *Catalog* to see the names.`);
       }
 
-      // 2. RESTOCK: [Item]
-      if (lower.startsWith('restock:') || lower.startsWith('available:')) {
-        const query = lower.replace(/^(restock|available):\s*/, '');
-        const target = currentFoods.find(f => f.name.toLowerCase().includes(query) || f.id.includes(query));
-
-        if (target) {
-          target.inStock = true;
-          renderFoods();
-          flashCard(target.id, 'border-emerald-500');
-          appendBotBubble(`🟢 Restocked! *${target.name}* is back *AVAILABLE* and open for tray orders on your website.`);
-          showToast(`⚡ WhatsApp Sync: "${target.name}" is now RESTOCKED!`);
+      if ((m = lower.match(/^(?:restock|available):\s*(.+)$/))) {
+        const d = findDish(m[1]);
+        if (d) {
+          d.soldOut = false;
+          applyChange(d.id);
+          botSay(`Restocked. *${d.name}* is open for orders again.`);
+          toast(`Store sync: ${d.name} is back on the menu.`);
           return;
         }
+        return botSay(`I couldn't find "${m[1]}" on the menu. Send *Catalog* to see the names.`);
       }
 
-      // 3. PRICE: [Item], [NewPrice]
-      if (lower.startsWith('price:')) {
-        const parts = rawText.replace(/^price:\s*/i, '').split(/[,:]/);
-        if (parts.length >= 2) {
-          const query = parts[0].toLowerCase().trim();
-          const newPrice = parseInt(parts[1].replace(/[^0-9]/g, ''), 10);
-          const target = currentFoods.find(f => f.name.toLowerCase().includes(query) || f.id.includes(query));
-
-          if (target && !isNaN(newPrice)) {
-            target.price = newPrice;
-            renderFoods();
-            flashCard(target.id, 'border-brand-amber');
-            appendBotBubble(`💰 Updated! Price for *${target.name}* changed to *₦${newPrice.toLocaleString()}* on the website.`);
-            showToast(`⚡ WhatsApp Sync: "${target.name}" price updated to ₦${newPrice.toLocaleString()}`);
-            return;
-          }
+      if ((m = text.match(/^price:\s*([^,]+),\s*([\d,\s]+)$/i))) {
+        const d = findDish(m[1]);
+        const price = parseInt(m[2].replace(/\D/g, ''), 10);
+        if (d && price > 0) {
+          d.price = price;
+          applyChange(d.id);
+          botSay(`Updated. *${d.name}* is now *${naira(price)}* on your website.`);
+          toast(`Store sync: ${d.name} is now ${naira(price)}.`);
+          return;
         }
+        return botSay('Use this format: *Price: dish name, 38000*');
       }
 
-      // 4. ADD: [Name], [Price], [Desc]
-      if (lower.startsWith('add:')) {
-        const parts = rawText.replace(/^add:\s*/i, '').split(',');
-        if (parts.length >= 2) {
-          const name = parts[0].trim();
-          const price = parseInt(parts[1].replace(/[^0-9]/g, ''), 10);
-          const desc = parts[2]?.trim() || 'Freshly prepared specialty tray from The Galley Kitchen.';
-
-          if (name && !isNaN(price)) {
-            const newFood = {
-              id: 'custom-' + Date.now(),
-              name: name,
-              portion: 'Specialty Menu Drop',
-              price: price,
-              category: 'platters',
-              img: '/foodrascals/images/rascals-me-you-platter-50k.jpg',
-              badge: '🔥 New Menu Drop',
-              inStock: true,
-              desc: desc
-            };
-            currentFoods.unshift(newFood);
-            renderFoods();
-            flashCard(newFood.id, 'border-brand-orange');
-            appendBotBubble(`✨ *New Menu Drop Live!* Added *${name}* at *₦${price.toLocaleString()}* directly to the top of your website!`);
-            showToast(`⚡ WhatsApp Sync: Added "${name}" to live menu!`);
-            return;
-          }
+      if ((m = text.match(/^add:\s*([^,]+),\s*([\d,\s]+?)(?:,\s*(.+))?$/i))) {
+        const name = m[1].trim();
+        const price = parseInt(m[2].replace(/\D/g, ''), 10);
+        if (name.length >= 3 && price > 0) {
+          const dish = {
+            id: 'new-' + Date.now(), name, price, cat: 'platters', isNew: true,
+            portion: 'New tray from the kitchen', img: 'rascals-me-you-platter-50k', badge: 'New',
+            desc: (m[3] || 'Fresh from The Galley Kitchen.').trim(),
+          };
+          menu.unshift(dish);
+          applyChange(dish.id);
+          botSay(`Live. *${name}* is now at the top of your menu for *${naira(price)}*.`);
+          toast(`Store sync: ${name} added to the menu.`);
+          return;
         }
+        return botSay('Use this format: *Add: dish name, 45000, short description*');
       }
 
-      // 5. CATALOG
       if (lower === 'catalog' || lower === 'menu') {
-        const summary = currentFoods.map((f, i) => `${i + 1}. *${f.name}* - ₦${f.price.toLocaleString()} [${f.inStock ? '✅ In Stock' : '❌ Sold Out'}]`).join('\n');
-        appendBotBubble(`📋 *ACTIVE LAGOS MENU:*\n\n${summary}`);
-        return;
+        return botSay('*Your menu right now:*\n' + menu.map((d, i) => `${i + 1}. ${d.name}, ${naira(d.price)}${d.soldOut ? ' (sold out)' : ''}`).join('\n'));
       }
 
-      // DEFAULT
-      appendBotBubble(`👋 Try one of these quick commands:\n• *Sold out: Seafood Boil*\n• *Restock: Seafood Boil*\n• *Price: Asun Smokey, 38000*\n• *Add: Peppered Snails Tray, 45000, Giant grilled snails*\n• *Catalog*`);
+      botSay('Try one of these:\n*Sold out: Seafood Boil*\n*Restock: Seafood Boil*\n*Price: Asun Smokey, 38000*\n*Add: Peppered Snails Tray, 45000, short description*\n*Catalog*');
     }
 
-    function flashCard(cardId, borderColorClass) {
-      setTimeout(() => {
-        const el = document.getElementById(`card-${cardId}`);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          el.classList.add(borderColorClass, 'ring-2', 'ring-brand-orange');
-          setTimeout(() => {
-            el.classList.remove(borderColorClass, 'ring-2', 'ring-brand-orange');
-          }, 2000);
-        }
-      }, 200);
+    function sendToBot(text) {
+      if (!text.trim()) return;
+      bubble('out', esc(text));
+      setTimeout(() => runCommand(text), 350);
     }
 
-    function resetMenuDemo() {
-      currentFoods = JSON.parse(JSON.stringify(DEFAULT_FOODS));
-      renderFoods();
-      appendBotBubble(`🔄 *Menu Reset:* All food items and prices restored to authentic defaults!`);
-      showToast('Restored default menu.');
-    }
+    $('cmds').innerHTML = COMMANDS.map((c, i) =>
+      `<button type="button" class="cmd" data-cmd="${i}"><span class="dot" style="background:${c.dot}" aria-hidden="true"></span>${esc(c.label)}</button>`
+    ).join('');
+    botSay('Welcome, chef. When a tray sells out or a price changes, text me here and your website updates straight away. Tap a command below to try it.');
 
-    function showToast(msg) {
-      const toast = document.getElementById('liveToast');
-      const content = document.getElementById('toastContent');
-      content.innerText = msg;
-      toast.classList.remove('translate-y-[-100px]', 'opacity-0');
-      toast.classList.add('translate-y-0', 'opacity-100');
+    $('simForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const input = $('simInput');
+      sendToBot(input.value);
+      input.value = '';
+    });
+    $('resetMenu').addEventListener('click', () => {
+      menu = clone(DEFAULT_MENU);
+      filter = 'all';
+      renderFilters();
+      renderMenu();
+      renderTray();
+      botSay('Menu reset. All dishes and prices are back to the originals.');
+      toast('Menu reset to the original dishes and prices.');
+    });
 
-      setTimeout(() => {
-        toast.classList.add('translate-y-[-100px]', 'opacity-0');
-        toast.classList.remove('translate-y-0', 'opacity-100');
-      }, 3500);
-    }
+    /* ---------- Events ---------- */
+    document.addEventListener('click', e => {
+      const t = e.target.closest('button, [data-open]');
+      if (!t) return;
+      if (t.dataset.open) openDialog(t.dataset.open);
+      else if (t.hasAttribute('data-close')) closeDialog();
+      else if (t.dataset.add) addToTray(t.dataset.add, t);
+      else if (t.dataset.direct) orderDirect(t.dataset.direct, t);
+      else if (t.dataset.inc) changeQty(t.dataset.inc, 1);
+      else if (t.dataset.dec) changeQty(t.dataset.dec, -1);
+      else if (t.dataset.remove) removeFromTray(t.dataset.remove);
+      else if (t.dataset.cmd) sendToBot(COMMANDS[Number(t.dataset.cmd)].text);
+      else if (t.dataset.filter) {
+        filter = t.dataset.filter;
+        document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', String(c === t)));
+        renderMenu();
+      }
+      else if (t.hasAttribute('data-browse')) { closeDialog(false); location.hash = 'menu'; }
+    });
+    $('overlay').addEventListener('click', () => closeDialog());
+    $('sendOrder').addEventListener('click', sendOrder);
+    $('area').addEventListener('change', () => validateArea(false));
 
-    // INITIALIZE ON LOAD
-    renderFoods();
+    /* ---------- Init ---------- */
+    renderFilters();
+    renderMenu();
+    renderTray();
   </script>
 </body>
 </html>

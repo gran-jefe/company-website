@@ -604,7 +604,7 @@
     const byId = Object.fromEntries(PRODUCTS.map(p => [p.id, p]));
 
     const naira = n => '₦' + Number(n).toLocaleString('en-NG');
-    const imgSrc = p => `products/${p.img}.jpg`;
+    const imgSrc = p => `/hafsy-couture/products/${p.img}.jpg`;
     const catLabel = id => (CATEGORIES.find(c => c.id === id) || {}).label || '';
     const minQty = p => p.moq || 1;
     const $ = id => document.getElementById(id);
