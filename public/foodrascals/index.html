@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Food Rascals • The Galley Kitchen | Lagos Gourmet Platters & Seafood Boils</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#FF3B30',
+              orange: '#FF5E1E',
+              amber: '#FF9F0A',
+              charcoal: '#0C0D0E',
+              surface: '#151719',
+              card: '#1C1F22',
+              border: '#292D32'
+            }
+          },
+          fontFamily: {
+            display: ['"Syne"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .food-card {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+    }
+    .food-card:hover {
+      transform: translateY(-4px);
+    }
+    .chat-bubble {
+      animation: popIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: translateY(8px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-brand-charcoal text-neutral-100 font-sans antialiased selection:bg-brand-orange selection:text-white pb-24 sm:pb-12">
+
+  <!-- TOP DISPATCH TICKER -->
+  <aside class="bg-gradient-to-r from-brand-orange via-brand-red to-brand-amber text-brand-charcoal text-[11px] sm:text-xs font-bold py-2 px-4 text-center tracking-wide flex items-center justify-center gap-2" aria-label="Announcement">
+    <span class="flex h-2 w-2 rounded-full bg-brand-charcoal animate-pulse" aria-hidden="true"></span>
+    <span>THE GALLEY KITCHEN • DELIVERING ACROSS LAGOS (ISLAND &amp; MAINLAND) • EAT WHATEVER, EAT WHENEVER</span>
+  </aside>
+
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-brand-charcoal/90 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-brand-red to-brand-orange flex items-center justify-center shadow-lg shadow-brand-red/20 font-display font-extrabold text-white text-lg tracking-wider">
+          FR
+        </div>
+        <div>
+          <a href="#" class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-white block leading-none">
+            FOOD RASCALS
+          </a>
+          <span class="text-[10px] text-brand-amber font-semibold uppercase tracking-widest">The Galley Kitchen</span>
+        </div>
+      </div>
+
+      <!-- NAV ACTIONS -->
+      <div class="flex items-center gap-2 sm:gap-4">
+        <a href="https://www.instagram.com/foodrascals.ng/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 text-xs text-neutral-400 hover:text-white px-3 py-2 rounded-full border border-brand-border hover:border-neutral-500 transition-colors">
+          <i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-400"></i>
+          <span>@foodrascals.ng</span>
+        </a>
+
+        <!-- CART SUMMARY BUTTON -->
+        <button onclick="toggleCartDrawer()" class="bg-brand-card hover:bg-neutral-800 text-white px-4 py-2.5 rounded-full text-xs font-semibold flex items-center gap-2 border border-brand-border shadow-sm min-h-[44px]">
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-brand-orange"></i>
+          <span class="hidden sm:inline">Tray Cart</span>
+          <span id="cartCountBadge" class="bg-brand-orange text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+        </button>
+
+        <a href="#menu-catalog" class="bg-gradient-to-r from-brand-orange to-brand-red hover:brightness-110 text-white text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg shadow-brand-red/30 transition-all min-h-[44px] flex items-center">
+          Order Menu
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="relative py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-brand-surface via-brand-charcoal to-brand-charcoal border-b border-brand-border overflow-hidden">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      
+      <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/10 border border-brand-orange/30 text-brand-orange text-xs font-semibold">
+          <i data-lucide="flame" class="w-3.5 h-3.5"></i>
+          <span>Signature Lagos Party Platters &amp; Seafood Boils</span>
+        </div>
+
+        <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.08]">
+          EAT WHATEVER. <br/>
+          <span class="bg-gradient-to-r from-brand-orange via-brand-amber to-brand-red bg-clip-text text-transparent">EAT WHENEVER.</span>
+        </h1>
+
+        <p class="text-neutral-300 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+          The Galley Kitchen brings you Lagos' most satisfying feasts: signature Asun Smokey Jollof bowls, 6–8 person crowd-pleasing Me &amp; You Platters, rich Cajun-Lagos Seafood Boils, and 3-Liter Singapore Noodles.
+        </p>
+
+        <!-- CTAS -->
+        <div class="flex flex-col sm:flex-row gap-3 pt-2 justify-center lg:justify-start">
+          <a href="#menu-catalog" class="bg-gradient-to-r from-brand-orange to-brand-red hover:brightness-110 text-white font-bold text-xs uppercase tracking-wider px-7 py-3.5 rounded-2xl shadow-xl shadow-brand-red/25 flex items-center justify-center gap-2 min-h-[44px]">
+            <i data-lucide="utensils" class="w-4 h-4"></i>
+            <span>Explore Today's Menu</span>
+          </a>
+          <button onclick="toggleWhatsAppSimulator()" class="bg-brand-card hover:bg-neutral-800 text-neutral-200 border border-brand-border hover:border-brand-orange/40 font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-2xl flex items-center justify-center gap-2 transition-all min-h-[44px]">
+            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+            <span>Test WhatsApp Menu Bot</span>
+          </button>
+        </div>
+
+        <!-- TRUST PERKS -->
+        <div class="pt-6 grid grid-cols-3 gap-3 border-t border-brand-border/60 text-center sm:text-left">
+          <div>
+            <span class="block font-display font-extrabold text-brand-orange text-lg sm:text-xl">6–8 People</span>
+            <span class="text-[11px] text-neutral-400">Large Platter Feasts</span>
+          </div>
+          <div>
+            <span class="block font-display font-extrabold text-brand-amber text-lg sm:text-xl">1.5L – 3L</span>
+            <span class="text-[11px] text-neutral-400">Generous Food Bowls</span>
+          </div>
+          <div>
+            <span class="block font-display font-extrabold text-emerald-400 text-lg sm:text-xl">100% WhatsApp</span>
+            <span class="text-[11px] text-neutral-400">Instant Order Routing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO VISUAL: FEATURED PLATTER HERO CARD -->
+      <div class="lg:col-span-5 relative max-w-md mx-auto w-full">
+        <div class="relative bg-brand-card rounded-3xl p-4 border border-brand-border shadow-2xl shadow-black/80 overflow-hidden">
+          <div class="relative h-72 sm:h-80 w-full rounded-2xl overflow-hidden bg-neutral-900 border border-brand-border">
+            <img src="/foodrascals/images/seafood-boil.jpg" alt="Food Rascals Seafood Boil" class="w-full h-full object-cover">
+            
+            <span class="absolute top-3 left-3 bg-brand-charcoal/90 backdrop-blur-md text-brand-amber text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-brand-amber/30 flex items-center gap-1.5">
+              <i data-lucide="sparkles" class="w-3 h-3 text-brand-amber"></i> Top Chef Special
+            </span>
+
+            <span class="absolute bottom-3 right-3 bg-brand-red text-white text-xs font-display font-extrabold px-3 py-1.5 rounded-xl shadow-lg">
+              ₦50,000
+            </span>
+          </div>
+
+          <div class="p-4 space-y-2">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-display font-black text-xl text-white">Seafood Boil Feast</h3>
+                <p class="text-xs text-neutral-400 mt-0.5">Crab, jumbo tiger prawns, sweet corn cobs &amp; spiced potatoes in garlic butter pepper broth.</p>
+              </div>
+            </div>
+
+            <div class="pt-3 flex gap-2">
+              <button onclick="quickAddFood('seafood-boil')" class="flex-1 bg-gradient-to-r from-brand-orange to-brand-red hover:brightness-110 text-white py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow min-h-[44px]">
+                <i data-lucide="plus" class="w-4 h-4"></i> Add to Order
+              </button>
+              <button onclick="orderDirectWhatsApp('Seafood Boil Feast', '₦50,000', 'Feeds 3-4 seafood lovers')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1 min-h-[44px]">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LIVE WHATSAPP SYNC EXPLANATION BANNER -->
+  <aside class="bg-brand-surface border-y border-brand-border py-4 px-4 sm:px-6" aria-label="WhatsApp Store Sync Demo Banner">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3 text-left">
+        <div class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30">
+          <i data-lucide="zap" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h4 class="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
+            <span>Powered by WhatsApp Store Sync</span>
+            <span class="bg-emerald-500/20 text-emerald-300 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-400/30">Zero Dashboard</span>
+          </h4>
+          <p class="text-[11px] sm:text-xs text-neutral-400">
+            Food Rascals updates this menu directly from WhatsApp. When a tray sells out, they simply text: <code class="text-brand-amber font-mono bg-neutral-900 px-1.5 py-0.5 rounded">Sold out: Seafood Boil</code>.
+          </p>
+        </div>
+      </div>
+
+      <button onclick="toggleWhatsAppSimulator()" class="w-full md:w-auto bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow flex items-center justify-center gap-2 shrink-0 min-h-[44px]">
+        <i data-lucide="play" class="w-3.5 h-3.5"></i>
+        <span>Try The Live WhatsApp Simulator</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN MENU SHOWCASE -->
+  <main id="menu-catalog" class="py-12 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+    
+    <!-- CATEGORY FILTER PILLS -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">The Galley Kitchen</span>
+        <h2 class="font-display font-black text-2xl sm:text-4xl text-white mt-1">Official Food Rascals Menu</h2>
+        <p class="text-xs sm:text-sm text-neutral-400 mt-1">Authentic Nigerian party bowls, loaded crowd platters, and seafood specialties.</p>
+      </div>
+
+      <!-- FILTER BUTTONS -->
+      <nav class="flex gap-2 overflow-x-auto no-scrollbar pb-1" aria-label="Menu categories">
+        <button onclick="filterCategory('all', this)" class="category-btn active bg-brand-orange text-white px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap min-h-[44px] flex items-center">All Dishes</button>
+        <button onclick="filterCategory('platters', this)" class="category-btn bg-brand-card text-neutral-300 hover:text-white px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap border border-brand-border min-h-[44px] flex items-center">Me &amp; You Platters</button>
+        <button onclick="filterCategory('jollof', this)" class="category-btn bg-brand-card text-neutral-300 hover:text-white px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap border border-brand-border min-h-[44px] flex items-center">Smokey Jollof Trays</button>
+        <button onclick="filterCategory('seafood', this)" class="category-btn bg-brand-card text-neutral-300 hover:text-white px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap border border-brand-border min-h-[44px] flex items-center">Seafood &amp; Noodles</button>
+      </nav>
+    </div>
+
+    <!-- DYNAMIC PRODUCT GRID -->
+    <div id="foodGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Injected by JavaScript -->
+    </div>
+  </main>
+
+  <!-- HOW ORDERING WORKS -->
+  <section class="py-12 sm:py-16 px-4 sm:px-6 bg-brand-surface border-t border-brand-border">
+    <div class="max-w-6xl mx-auto text-center space-y-10">
+      
+      <div class="space-y-2">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-amber">Simple Lagos Ordering</span>
+        <h3 class="font-display font-black text-2xl sm:text-3xl text-white">How Food Rascals Works</h3>
+        <p class="text-xs sm:text-sm text-neutral-400 max-w-md mx-auto">No confusing app signups. Your entire tray order compiles straight to Food Rascals' official WhatsApp line.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="bg-brand-card p-6 rounded-3xl border border-brand-border text-left space-y-3">
+          <div class="w-10 h-10 rounded-2xl bg-brand-red/20 text-brand-red flex items-center justify-center font-display font-black text-lg border border-brand-red/30">
+            1
+          </div>
+          <h4 class="font-display font-bold text-white text-base">Select Your Trays</h4>
+          <p class="text-xs text-neutral-400 leading-relaxed">
+            Pick from 1.5L Asun Jollof, 3L Singapore Noodles, Seafood Boils, or 6–8 Person Party Platters with golden yam &amp; dodo.
+          </p>
+        </div>
+
+        <div class="bg-brand-card p-6 rounded-3xl border border-brand-border text-left space-y-3">
+          <div class="w-10 h-10 rounded-2xl bg-brand-orange/20 text-brand-orange flex items-center justify-center font-display font-black text-lg border border-brand-orange/30">
+            2
+          </div>
+          <h4 class="font-display font-bold text-white text-base">Compile on WhatsApp</h4>
+          <p class="text-xs text-neutral-400 leading-relaxed">
+            Click "Order via WhatsApp". Your exact meals, portion sizes, delivery notes, and totals are formatted automatically into a clean message.
+          </p>
+        </div>
+
+        <div class="bg-brand-card p-6 rounded-3xl border border-brand-border text-left space-y-3">
+          <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-display font-black text-lg border border-emerald-500/30">
+            3
+          </div>
+          <h4 class="font-display font-bold text-white text-base">Cooked Fresh &amp; Dispatched</h4>
+          <p class="text-xs text-neutral-400 leading-relaxed">
+            The Galley Kitchen confirms delivery window, receives transfer payment, and dispatches piping-hot to your home, office, or event.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 px-4 sm:px-6 border-t border-brand-border bg-brand-charcoal text-center text-xs text-neutral-400">
+    <div class="max-w-7xl mx-auto space-y-4">
+      <div class="flex items-center justify-center gap-2">
+        <div class="w-6 h-6 rounded-lg bg-brand-red flex items-center justify-center text-[10px] font-black text-white">FR</div>
+        <span class="font-display font-bold text-white tracking-wide">FOOD RASCALS • THE GALLEY KITCHEN</span>
+      </div>
+      <p class="text-[11px] text-neutral-400">Lagos, Nigeria • Instagram: <a href="https://www.instagram.com/foodrascals.ng/" target="_blank" rel="noopener noreferrer" class="text-brand-orange hover:underline">@foodrascals.ng</a></p>
+      <p class="text-[10px] text-neutral-400">© 2026 Food Rascals. Interactive WhatsApp Storefront Prototype engineered by Gran Jefe.</p>
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- CART DRAWER MODAL -->
+  <!-- ======================================================== -->
+  <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex justify-end transition-opacity">
+    <div class="w-full max-w-md bg-brand-surface h-full flex flex-col border-l border-brand-border shadow-2xl">
+      
+      <!-- HEADER -->
+      <div class="p-5 border-b border-brand-border flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-orange"></i>
+          <h3 class="font-display font-black text-lg text-white">Your Food Tray Order</h3>
+        </div>
+        <button onclick="toggleCartDrawer()" aria-label="Close cart drawer" class="w-11 h-11 rounded-full bg-brand-card hover:bg-neutral-800 text-neutral-400 hover:text-white flex items-center justify-center">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- ITEMS LIST -->
+      <div id="cartItemsList" class="flex-1 overflow-y-auto p-5 space-y-4">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- DELIVERY ADDRESS & CONTACT -->
+      <div class="p-5 border-t border-brand-border bg-brand-card space-y-3">
+        <label for="deliveryArea" class="block text-xs font-bold text-neutral-300">Delivery Area (Lagos)</label>
+        <select id="deliveryArea" class="w-full bg-neutral-900 border border-brand-border text-xs text-white rounded-xl p-3 focus:outline-none focus:border-brand-orange min-h-[44px]">
+          <option value="Lekki Phase 1 / Ikoyi / Victoria Island">Lekki Phase 1 / Ikoyi / Victoria Island</option>
+          <option value="Chevron / Ajah / Sangotedo">Chevron / Ajah / Sangotedo</option>
+          <option value="Ikeja / Maryland / Magodo">Ikeja / Maryland / Magodo</option>
+          <option value="Surulere / Yaba">Surulere / Yaba</option>
+          <option value="Gbagada / Ogudu">Gbagada / Ogudu</option>
+          <option value="Outside Lagos / Event Bulk Delivery">Outside Lagos / Event Bulk Delivery</option>
+        </select>
+
+        <label for="orderNotes" class="block text-xs font-bold text-neutral-300">Special Cooking / Dietary Notes</label>
+        <input type="text" id="orderNotes" placeholder="e.g. Extra spicy, no onions, delivery by 2PM" class="w-full bg-neutral-900 border border-brand-border text-xs text-white rounded-xl p-3 focus:outline-none focus:border-brand-orange min-h-[44px]">
+
+        <!-- TOTALS -->
+        <div class="pt-2 flex justify-between items-center text-sm font-bold">
+          <span class="text-neutral-400">Total Estimate:</span>
+          <span id="cartTotalPrice" class="font-display text-xl text-brand-orange">₦0</span>
+        </div>
+
+        <button onclick="dispatchCartWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg min-h-[44px]">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Send Tray Order via WhatsApp</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- LIVE WHATSAPP SIMULATOR DRAWER (OPTION 2 DEMO) -->
+  <!-- ======================================================== -->
+  <div id="waSimulatorDrawer" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden flex justify-end transition-opacity">
+    <div class="w-full max-w-md bg-[#0B141A] h-full flex flex-col border-l border-neutral-800 shadow-2xl font-sans">
+      
+      <!-- WHATSAPP HEADER -->
+      <div class="bg-[#1F2C34] p-3.5 px-4 flex items-center justify-between border-b border-neutral-800 text-white">
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white font-black text-sm">
+              FR
+            </div>
+            <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-400 rounded-full border-2 border-[#1F2C34]"></span>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="font-bold text-sm">Food Rascals Bot</span>
+              <i data-lucide="badge-check" class="w-4 h-4 text-emerald-400 fill-emerald-400"></i>
+            </div>
+            <span class="text-[11px] text-emerald-400 block leading-tight">online • Live Store Sync</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-1">
+          <button onclick="resetMenuDemo()" title="Reset Menu Demo" aria-label="Reset Menu Demo" class="w-11 h-11 rounded-full hover:bg-neutral-700/50 text-neutral-400 hover:text-white flex items-center justify-center">
+            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+          </button>
+          <button onclick="toggleWhatsAppSimulator()" aria-label="Close WhatsApp Simulator" class="w-11 h-11 rounded-full hover:bg-neutral-700/50 text-neutral-400 hover:text-white flex items-center justify-center">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- WHATSAPP CHAT MESSAGES -->
+      <div id="waChatBody" class="flex-1 overflow-y-auto p-4 space-y-3 bg-[#0B141A] bg-opacity-95">
+        
+        <!-- INTRO BOT BUBBLE -->
+        <div class="bg-[#1F2C34] text-neutral-200 p-3 rounded-2xl rounded-tl-sm text-xs leading-relaxed max-w-[85%] border border-neutral-800/80 shadow">
+          👋 <strong class="text-white">Welcome Chef!</strong> This is the Food Rascals Store Sync Bot. 
+          <br><br>
+          You don't need any computer or website login. Whenever you drop a new tray or run out of stock, just text me right here!
+          <br><br>
+          <em class="text-brand-amber">Tap any test command below to watch your website live-update:</em>
+        </div>
+
+      </div>
+
+      <!-- INTERACTIVE SUGGESTION CHIPS -->
+      <div class="p-3 bg-[#111B21] border-t border-neutral-800 space-y-2">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block px-1">Quick Test Actions:</span>
+        <div class="flex flex-wrap gap-1.5">
+          <button onclick="simulateSendText('Sold out: Seafood Boil')" class="bg-[#1F2C34] hover:bg-neutral-700 text-rose-400 text-[11px] font-semibold px-2.5 py-1.5 rounded-lg border border-rose-500/30">
+            🔴 Sold out: Seafood Boil
+          </button>
+          <button onclick="simulateSendText('Restock: Seafood Boil')" class="bg-[#1F2C34] hover:bg-neutral-700 text-emerald-400 text-[11px] font-semibold px-2.5 py-1.5 rounded-lg border border-emerald-500/30">
+            🟢 Restock: Seafood Boil
+          </button>
+          <button onclick="simulateSendText('Price: Asun Smokey, 38000')" class="bg-[#1F2C34] hover:bg-neutral-700 text-brand-amber text-[11px] font-semibold px-2.5 py-1.5 rounded-lg border border-brand-amber/30">
+            💰 Price: Asun Smokey, 38,000
+          </button>
+          <button onclick="simulateSendText('Add: Peppered Snails Tray, 45000, Giant grilled ocean snails in hot pepper glaze')" class="bg-[#1F2C34] hover:bg-neutral-700 text-sky-400 text-[11px] font-semibold px-2.5 py-1.5 rounded-lg border border-sky-500/30">
+            ✨ Add: Peppered Snails Tray
+          </button>
+          <button onclick="simulateSendText('Catalog')" class="bg-[#1F2C34] hover:bg-neutral-700 text-neutral-300 text-[11px] font-semibold px-2.5 py-1.5 rounded-lg border border-neutral-700">
+            📋 Catalog
+          </button>
+        </div>
+      </div>
+
+      <!-- INPUT BAR -->
+      <form onsubmit="handleChatSubmit(event)" class="bg-[#1F2C34] p-2.5 flex items-center gap-2 border-t border-neutral-800">
+        <input type="text" id="waCustomInput" placeholder="Type command (e.g. Sold out: Singapore noodles)" class="flex-1 bg-[#2A3942] text-white placeholder-neutral-400 text-xs rounded-full px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-emerald-500 min-h-[44px]">
+        <button type="submit" aria-label="Send WhatsApp command" class="w-11 h-11 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center shrink-0">
+          <i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- FLOATING SYNC DEMO TOGGLE BUTTON -->
+  <button onclick="toggleWhatsAppSimulator()" class="fixed bottom-6 right-6 z-40 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-3 rounded-full shadow-2xl flex items-center gap-2 border border-emerald-400/40 text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all min-h-[44px]">
+    <span class="relative flex h-3 w-3" aria-hidden="true">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+    </span>
+    <i data-lucide="message-circle" class="w-4 h-4"></i>
+    <span>Try WhatsApp Store Sync</span>
+  </button>
+
+  <!-- FLOATING TOAST -->
+  <div id="liveToast" class="fixed top-20 right-4 z-50 bg-brand-surface border border-brand-orange/50 text-white p-3 px-4 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-[-100px] opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="w-8 h-8 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0">
+      <i data-lucide="sparkles" class="w-4 h-4"></i>
+    </div>
+    <div id="toastContent" class="text-xs font-medium"></div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- JAVASCRIPT APP LOGIC -->
+  <!-- ======================================================== -->
+  <script>
+    // INITIAL EXACT MENU FROM THEIR WHATSAPP CATALOG
+    const DEFAULT_FOODS = [
+      {
+        id: 'asun-jollof',
+        name: 'Asun Smokey Jollof Rice',
+        portion: '1.5 Liters • Comes with 3 Jumbo Turkey cuts',
+        price: 35000,
+        category: 'jollof',
+        img: '/foodrascals/images/asun-smokey-jollof.jpg',
+        badge: 'Signature Wood-Smoked',
+        inStock: true,
+        desc: 'Deeply aromatic firewood-infused party jollof with spicy tender chopped goat meat (asun) and 3 large fried turkey cuts.'
+      },
+      {
+        id: 'me-you-platter-50k',
+        name: 'Rascals Special ME & YOU PLATTER',
+        portion: 'Feeds 6–8 People • Grand Feast Edition',
+        price: 50000,
+        category: 'platters',
+        img: '/foodrascals/images/rascals-me-you-platter-50k.jpg',
+        badge: 'Feeds 6–8 People',
+        inStock: true,
+        desc: 'Massive party platter packed with golden roasted fries, crispy plantains, grilled peppered chicken, sausages, beef skewers, and dipping sauces.'
+      },
+      {
+        id: 'seafood-boil',
+        name: 'Seafood Boil Feast',
+        portion: 'Full Feast Tray • Feeds 3–4',
+        price: 50000,
+        category: 'seafood',
+        img: '/foodrascals/images/seafood-boil.jpg',
+        badge: 'Cajun-Lagos Fusion',
+        inStock: true,
+        desc: 'Fresh crab, jumbo tiger prawns, sweet corn on the cob, and spiced red potatoes drenched in garlic butter scotch bonnet pepper broth.'
+      },
+      {
+        id: 'singapore-noodles',
+        name: 'Singapore Noodles 🍜',
+        portion: '3 Liters Mega Tray',
+        price: 35000,
+        category: 'seafood',
+        img: '/foodrascals/images/singapore-noodles.jpg',
+        badge: '3-Liter Tray',
+        inStock: true,
+        desc: 'Wok-tossed vermicelli noodles with shredded chicken breast, beef stripes, bell peppers, fresh prawns, and authentic chili aromatics.'
+      },
+      {
+        id: 'me-you-platter-35k',
+        name: 'Rascals Special ME & YOU PLATTER (Yam & Dodo)',
+        portion: 'Feeds 6–8 People • Traditional Grills',
+        price: 35000,
+        category: 'platters',
+        img: '/foodrascals/images/rascals-me-you-platter-35k.jpg',
+        badge: 'Crowd Bestseller',
+        inStock: true,
+        desc: 'Crispy golden fried yam fingers, caramelized sweet plantains (dodo), peppered gizzard, grilled fish cuts, and signature Galley hot dip.'
+      },
+      {
+        id: 'me-you-platter-sides',
+        name: 'Rascals Special ME & YOU PLATTER 😉',
+        portion: 'Can Feed 6–8 People 😉',
+        price: 35000,
+        category: 'platters',
+        img: '/foodrascals/images/rascals-platter-yam-dodo.jpg',
+        badge: 'Snack & Share Platter',
+        inStock: true,
+        desc: 'The ultimate Lagos hangout platter. Endless yam chips, seasoned plantain discs, peppered protein cuts, and double dipping pots.'
+      }
+    ];
+
+    let currentFoods = JSON.parse(JSON.stringify(DEFAULT_FOODS));
+    let cart = [];
+    let currentFilter = 'all';
+
+    // RENDER MENU ITEMS
+    function renderFoods() {
+      const grid = document.getElementById('foodGrid');
+      grid.innerHTML = '';
+
+      const filtered = currentFilter === 'all' 
+        ? currentFoods 
+        : currentFoods.filter(f => f.category === currentFilter);
+
+      filtered.forEach(food => {
+        const card = document.createElement('div');
+        card.id = `card-${food.id}`;
+        card.className = `food-card bg-brand-card rounded-3xl p-4 border border-brand-border flex flex-col justify-between space-y-4 ${!food.inStock ? 'opacity-65' : ''}`;
+
+        card.innerHTML = `
+          <div class="space-y-3">
+            <div class="relative h-60 w-full rounded-2xl overflow-hidden bg-neutral-900 border border-brand-border">
+              <img src="${food.img}" alt="${food.name}" class="w-full h-full object-cover">
+              
+              <span class="absolute top-2.5 left-2.5 ${food.inStock ? 'bg-brand-charcoal/90 text-brand-amber border-brand-amber/30' : 'bg-rose-950/90 text-rose-400 border-rose-500/40'} text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border">
+                ${food.inStock ? food.badge : '🔴 SOLD OUT'}
+              </span>
+
+              <span class="absolute bottom-2.5 right-2.5 bg-brand-charcoal/90 text-white font-display font-extrabold text-sm px-3 py-1 rounded-xl border border-brand-border">
+                ₦${food.price.toLocaleString()}
+              </span>
+            </div>
+
+            <div>
+              <h3 class="font-display font-bold text-lg text-white leading-snug">${food.name}</h3>
+              <span class="text-xs font-semibold text-brand-orange block mt-0.5">${food.portion}</span>
+              <p class="text-xs text-neutral-400 mt-1.5 leading-relaxed line-clamp-2">${food.desc}</p>
+            </div>
+          </div>
+
+          <div class="pt-2 flex gap-2">
+            ${food.inStock ? `
+              <button onclick="quickAddFood('${food.id}')" class="flex-1 bg-gradient-to-r from-brand-orange to-brand-red hover:brightness-110 text-white py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow min-h-[44px]">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i> Add Tray
+              </button>
+              <button onclick="orderDirectWhatsApp('${food.name}', '₦${food.price.toLocaleString()}', '${food.portion}')" title="Order directly on WhatsApp" aria-label="Order ${food.name} directly on WhatsApp" class="w-11 h-11 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl flex items-center justify-center shrink-0 min-h-[44px] min-w-[44px]">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+              </button>
+            ` : `
+              <button disabled class="w-full bg-neutral-800 text-neutral-500 py-3 rounded-xl text-xs font-bold uppercase tracking-wider cursor-not-allowed border border-neutral-700 min-h-[44px]">
+                Currently Sold Out
+              </button>
+            `}
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+
+      lucide.createIcons();
+    }
+
+    // CATEGORY FILTER
+    function filterCategory(cat, btn) {
+      currentFilter = cat;
+      document.querySelectorAll('.category-btn').forEach(b => {
+        b.className = 'category-btn bg-brand-card text-neutral-300 hover:text-white px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap border border-brand-border min-h-[44px] flex items-center';
+      });
+      btn.className = 'category-btn active bg-brand-orange text-white px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap min-h-[44px] flex items-center';
+      renderFoods();
+    }
+
+    // CART OPERATIONS
+    function quickAddFood(foodId) {
+      const item = currentFoods.find(f => f.id === foodId);
+      if (!item) return;
+
+      const existing = cart.find(c => c.id === foodId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...item, qty: 1 });
+      }
+
+      updateCartBadge();
+      showToast(`Added 1x ${item.name} to order tray!`);
+    }
+
+    function updateCartBadge() {
+      const totalCount = cart.reduce((acc, item) => acc + item.qty, 0);
+      document.getElementById('cartCountBadge').innerText = totalCount;
+      renderCartItems();
+    }
+
+    function toggleCartDrawer() {
+      const drawer = document.getElementById('cartDrawer');
+      drawer.classList.toggle('hidden');
+      renderCartItems();
+    }
+
+    function renderCartItems() {
+      const list = document.getElementById('cartItemsList');
+      if (!list) return;
+
+      if (cart.length === 0) {
+        list.innerHTML = `
+          <div class="h-64 flex flex-col items-center justify-center text-center space-y-3 text-neutral-500">
+            <i data-lucide="utensils" class="w-10 h-10 opacity-40"></i>
+            <p class="text-xs">Your tray cart is currently empty.<br>Add some Asun Jollof or a Me &amp; You Platter!</p>
+          </div>
+        `;
+        document.getElementById('cartTotalPrice').innerText = '₦0';
+        lucide.createIcons();
+        return;
+      }
+
+      let total = 0;
+      list.innerHTML = '';
+
+      cart.forEach((item, idx) => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+
+        const row = document.createElement('div');
+        row.className = 'bg-brand-card p-3 rounded-2xl border border-brand-border flex items-center justify-between gap-3';
+        row.innerHTML = `
+          <div class="flex items-center gap-3">
+            <img src="${item.img}" class="w-12 h-12 rounded-xl object-cover border border-brand-border">
+            <div>
+              <h4 class="font-bold text-xs text-white leading-tight">${item.name}</h4>
+              <span class="text-[11px] text-brand-orange font-semibold">₦${item.price.toLocaleString()}</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button onclick="changeQty(${idx}, -1)" class="w-7 h-7 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-white font-bold text-xs flex items-center justify-center">-</button>
+            <span class="text-xs font-bold text-white w-4 text-center">${item.qty}</span>
+            <button onclick="changeQty(${idx}, 1)" class="w-7 h-7 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-white font-bold text-xs flex items-center justify-center">+</button>
+          </div>
+        `;
+        list.appendChild(row);
+      });
+
+      document.getElementById('cartTotalPrice').innerText = `₦${total.toLocaleString()}`;
+      lucide.createIcons();
+    }
+
+    function changeQty(idx, delta) {
+      if (!cart[idx]) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      updateCartBadge();
+    }
+
+    // DISPATCH COMPILED CART TO WHATSAPP
+    function dispatchCartWhatsApp() {
+      if (cart.length === 0) {
+        alert('Please add at least one meal to your cart first.');
+        return;
+      }
+
+      const area = document.getElementById('deliveryArea').value;
+      const notes = document.getElementById('orderNotes').value || 'None';
+      const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+      let itemsSummary = '';
+      cart.forEach((item, i) => {
+        itemsSummary += `${i + 1}. *${item.name}* (${item.portion})\n   Qty: ${item.qty} tray(s) - ₦${(item.price * item.qty).toLocaleString()}\n`;
+      });
+
+      const message = `*NEW FOOD TRAY ORDER - FOOD RASCALS*\n` +
+                      `_The Galley Kitchen Lagos_\n\n` +
+                      `🍱 *ORDER DETAILS:*\n${itemsSummary}\n` +
+                      `📍 *Delivery Area:* ${area}\n` +
+                      `📝 *Dietary / Cooking Notes:* ${notes}\n` +
+                      `💰 *ESTIMATED TOTAL:* ₦${total.toLocaleString()}\n\n` +
+                      `Hello Food Rascals! I would like to place this food tray order. Please confirm availability and send account payment details!`;
+
+      // Official Food Rascals Lagos order routing line
+      window.open(`https://wa.me/2348000000000?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    // DIRECT SINGLE ITEM ORDER
+    function orderDirectWhatsApp(name, price, portion) {
+      const message = `*FOOD RASCALS ORDER INQUIRY*\n\n` +
+                      `🍱 *Dish:* ${name}\n` +
+                      `📦 *Portion:* ${portion}\n` +
+                      `💰 *Price:* ${price}\n` +
+                      `📍 *Delivery:* Lagos (Island / Mainland)\n\n` +
+                      `Hello Food Rascals! Is the *${name}* available for dispatch today?`;
+
+      window.open(`https://wa.me/2348000000000?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    // ========================================================
+    // WHATSAPP LIVE STORE SYNC SIMULATOR
+    // ========================================================
+    function toggleWhatsAppSimulator() {
+      const drawer = document.getElementById('waSimulatorDrawer');
+      drawer.classList.toggle('hidden');
+    }
+
+    function simulateSendText(text) {
+      document.getElementById('waCustomInput').value = text;
+      handleChatSubmit(new Event('submit'));
+    }
+
+    function handleChatSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('waCustomInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      input.value = '';
+      appendUserBubble(text);
+
+      // Simulate bot processing delay
+      setTimeout(() => {
+        processBotCommand(text);
+      }, 400);
+    }
+
+    function appendUserBubble(text) {
+      const body = document.getElementById('waChatBody');
+      const bubble = document.createElement('div');
+      bubble.className = 'chat-bubble bg-[#005C4B] text-white p-3 rounded-2xl rounded-tr-sm text-xs leading-relaxed max-w-[85%] ml-auto shadow border border-emerald-700/50 flex flex-col items-end';
+      
+      const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      bubble.innerHTML = `
+        <span>${text}</span>
+        <span class="text-[9px] text-emerald-200/80 mt-1 flex items-center gap-1">
+          ${time} <i data-lucide="check-check" class="w-3 h-3 text-cyan-300"></i>
+        </span>
+      `;
+      body.appendChild(bubble);
+      body.scrollTop = body.scrollHeight;
+      lucide.createIcons();
+    }
+
+    function appendBotBubble(replyText) {
+      const body = document.getElementById('waChatBody');
+      const bubble = document.createElement('div');
+      bubble.className = 'chat-bubble bg-[#1F2C34] text-neutral-200 p-3 rounded-2xl rounded-tl-sm text-xs leading-relaxed max-w-[85%] border border-neutral-800 shadow';
+      
+      const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      bubble.innerHTML = `
+        <div>${replyText.replace(/\n/g, '<br>').replace(/\*(.*?)\*/g, '<strong class="text-white">$1</strong>')}</div>
+        <span class="text-[9px] text-neutral-400 mt-1 block text-right">${time}</span>
+      `;
+      body.appendChild(bubble);
+      body.scrollTop = body.scrollHeight;
+      lucide.createIcons();
+    }
+
+    function processBotCommand(rawText) {
+      const lower = rawText.toLowerCase().trim();
+
+      // 1. SOLD OUT: [Item]
+      if (lower.startsWith('sold out:') || lower.startsWith('soldout:')) {
+        const query = lower.replace(/^sold\s*out:\s*/, '');
+        const target = currentFoods.find(f => f.name.toLowerCase().includes(query) || f.id.includes(query));
+
+        if (target) {
+          target.inStock = false;
+          renderFoods();
+          flashCard(target.id, 'border-rose-500');
+          appendBotBubble(`🔴 Done Chef! *${target.name}* is now marked as *SOLD OUT* on your website.\n\n🌐 Customers visiting foodrascals.ng can see it is unavailable.`);
+          showToast(`⚡ WhatsApp Sync: "${target.name}" marked as SOLD OUT`);
+          return;
+        }
+      }
+
+      // 2. RESTOCK: [Item]
+      if (lower.startsWith('restock:') || lower.startsWith('available:')) {
+        const query = lower.replace(/^(restock|available):\s*/, '');
+        const target = currentFoods.find(f => f.name.toLowerCase().includes(query) || f.id.includes(query));
+
+        if (target) {
+          target.inStock = true;
+          renderFoods();
+          flashCard(target.id, 'border-emerald-500');
+          appendBotBubble(`🟢 Restocked! *${target.name}* is back *AVAILABLE* and open for tray orders on your website.`);
+          showToast(`⚡ WhatsApp Sync: "${target.name}" is now RESTOCKED!`);
+          return;
+        }
+      }
+
+      // 3. PRICE: [Item], [NewPrice]
+      if (lower.startsWith('price:')) {
+        const parts = rawText.replace(/^price:\s*/i, '').split(/[,:]/);
+        if (parts.length >= 2) {
+          const query = parts[0].toLowerCase().trim();
+          const newPrice = parseInt(parts[1].replace(/[^0-9]/g, ''), 10);
+          const target = currentFoods.find(f => f.name.toLowerCase().includes(query) || f.id.includes(query));
+
+          if (target && !isNaN(newPrice)) {
+            target.price = newPrice;
+            renderFoods();
+            flashCard(target.id, 'border-brand-amber');
+            appendBotBubble(`💰 Updated! Price for *${target.name}* changed to *₦${newPrice.toLocaleString()}* on the website.`);
+            showToast(`⚡ WhatsApp Sync: "${target.name}" price updated to ₦${newPrice.toLocaleString()}`);
+            return;
+          }
+        }
+      }
+
+      // 4. ADD: [Name], [Price], [Desc]
+      if (lower.startsWith('add:')) {
+        const parts = rawText.replace(/^add:\s*/i, '').split(',');
+        if (parts.length >= 2) {
+          const name = parts[0].trim();
+          const price = parseInt(parts[1].replace(/[^0-9]/g, ''), 10);
+          const desc = parts[2]?.trim() || 'Freshly prepared specialty tray from The Galley Kitchen.';
+
+          if (name && !isNaN(price)) {
+            const newFood = {
+              id: 'custom-' + Date.now(),
+              name: name,
+              portion: 'Specialty Menu Drop',
+              price: price,
+              category: 'platters',
+              img: '/foodrascals/images/rascals-me-you-platter-50k.jpg',
+              badge: '🔥 New Menu Drop',
+              inStock: true,
+              desc: desc
+            };
+            currentFoods.unshift(newFood);
+            renderFoods();
+            flashCard(newFood.id, 'border-brand-orange');
+            appendBotBubble(`✨ *New Menu Drop Live!* Added *${name}* at *₦${price.toLocaleString()}* directly to the top of your website!`);
+            showToast(`⚡ WhatsApp Sync: Added "${name}" to live menu!`);
+            return;
+          }
+        }
+      }
+
+      // 5. CATALOG
+      if (lower === 'catalog' || lower === 'menu') {
+        const summary = currentFoods.map((f, i) => `${i + 1}. *${f.name}* - ₦${f.price.toLocaleString()} [${f.inStock ? '✅ In Stock' : '❌ Sold Out'}]`).join('\n');
+        appendBotBubble(`📋 *ACTIVE LAGOS MENU:*\n\n${summary}`);
+        return;
+      }
+
+      // DEFAULT
+      appendBotBubble(`👋 Try one of these quick commands:\n• *Sold out: Seafood Boil*\n• *Restock: Seafood Boil*\n• *Price: Asun Smokey, 38000*\n• *Add: Peppered Snails Tray, 45000, Giant grilled snails*\n• *Catalog*`);
+    }
+
+    function flashCard(cardId, borderColorClass) {
+      setTimeout(() => {
+        const el = document.getElementById(`card-${cardId}`);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.classList.add(borderColorClass, 'ring-2', 'ring-brand-orange');
+          setTimeout(() => {
+            el.classList.remove(borderColorClass, 'ring-2', 'ring-brand-orange');
+          }, 2000);
+        }
+      }, 200);
+    }
+
+    function resetMenuDemo() {
+      currentFoods = JSON.parse(JSON.stringify(DEFAULT_FOODS));
+      renderFoods();
+      appendBotBubble(`🔄 *Menu Reset:* All food items and prices restored to authentic defaults!`);
+      showToast('Restored default menu.');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('liveToast');
+      const content = document.getElementById('toastContent');
+      content.innerText = msg;
+      toast.classList.remove('translate-y-[-100px]', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-[-100px]', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3500);
+    }
+
+    // INITIALIZE ON LOAD
+    renderFoods();
+  </script>
+</body>
+</html>
