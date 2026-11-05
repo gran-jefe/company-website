@@ -418,7 +418,7 @@ function auditFile(filePath, themeColors) {
 
     // Interactive page with no focus styling at all
     const interactive = /<(?:button|a\s[^>]*href|input|select|textarea)\b/i.test(content);
-    if (interactive && !/:focus-visible|focus-visible:|:focus\b|focus:ring|focus:outline/.test(content)) {
+    if (interactive && !/:focus-visible|focus-visible:|:focus\b|focus:ring|focus:outline-(?!none)|focus:border/.test(content)) {
       addFinding({
         severity: 'critical',
         pillar: 'Pillar 1 (Functional UX)',
@@ -638,6 +638,18 @@ function auditFile(filePath, themeColors) {
         pillar: 'Pillar 1 (Functional UX)',
         rule: RULES.deepLink,
         message: 'WhatsApp link has no phone number, so messages go to whoever the visitor picks. Use `https://wa.me/<countrycode><number>?text=...`.',
+        file: filePath,
+        line: lineNum,
+      });
+    }
+
+    // D3b. Placeholder phone numbers in messaging or tel: links
+    if (!isComment && /(?:wa\.me\/|phone=|tel:\+?)\d*?(?:0{6,}|1234567|9{7,})/.test(lineText)) {
+      addFinding({
+        severity: 'critical',
+        pillar: 'Pillar 1 (Functional UX)',
+        rule: RULES.deepLink,
+        message: 'Messaging or call link uses a placeholder number (e.g. 2348000000000). Every order or call goes nowhere.',
         file: filePath,
         line: lineNum,
       });

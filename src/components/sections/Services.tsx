@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
-import { Smartphone, Layout, Server, ShieldCheck, Cpu, Rocket, ArrowUpRight, Zap, Clock, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react'
+import { Smartphone, Layout, Server, ShieldCheck, Cpu, Rocket, ArrowUpRight, Zap, Clock, CheckCircle2, ArrowRight, Sparkles, Tag } from 'lucide-react'
 
 interface ServiceItem {
   id: string
@@ -103,6 +103,36 @@ export function Services({ isPage = false }: { isPage?: boolean }) {
             <p className="font-mono text-xs text-[#7A4A38] dark:text-[#B88E7D] max-w-xs">
               {"// Built with proven, widely supported tools: Next.js, React Native, Node.js and Python."}
             </p>
+          </div>
+        </AnimatedSection>
+
+        {/* Active SME Growth Promo Alert */}
+        <AnimatedSection delay={0.02}>
+          <div className="mt-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-950/70 via-[#1F111B] to-[#1F111B] border border-emerald-500/40 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-400/30">
+                <Tag size={18} />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-syne font-bold text-sm text-[#FFF0E3]">Active SME Growth Promo</span>
+                  <span className="text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-400/30">
+                    33% Slashed
+                  </span>
+                </div>
+                <p className="text-xs font-dm text-[#EAD3C4]">
+                  Zero-computer WhatsApp storefront for Nigerian food vendors, fashion houses, &amp; creators. <strong>₦80,000 setup</strong> + <strong>₦5,000/mo</strong>.
+                </p>
+              </div>
+            </div>
+
+            <Link
+              href="/pricing"
+              className="w-full sm:w-auto shrink-0 min-h-[44px] px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-dm font-bold text-xs flex items-center justify-center gap-2 transition-all shadow"
+            >
+              <span>View Promo Details</span>
+              <ArrowRight size={14} />
+            </Link>
           </div>
         </AnimatedSection>
 
