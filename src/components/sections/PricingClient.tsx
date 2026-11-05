@@ -4,25 +4,15 @@ import React, { useState } from 'react'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import {
-  Sparkles,
   CheckCircle2,
   ArrowRight,
   MessageCircle,
   ShieldCheck,
   HelpCircle,
-  ExternalLink,
   Lock,
-  Tag,
-  ShoppingBag
+  Tag
 } from 'lucide-react'
 import { services, formatPrice } from '@/components/sections/Services'
-
-// Static HTML demos served from /public, so plain anchors rather than next/link
-const DEMO_STOREFRONTS = [
-  { href: '/foodrascals/', label: 'Food Rascals (cloud kitchen)', Icon: ShoppingBag, iconClass: 'text-brand-ember' },
-  { href: '/craftycottage/', label: 'Crafty Cottage (beaded bags)', Icon: Sparkles, iconClass: 'text-amber-400' },
-  { href: '/hafsy-couture/', label: 'Hafsy Couture (everyday essentials)', Icon: Tag, iconClass: 'text-purple-300' },
-]
 
 export function PricingClient() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('annual')
@@ -120,26 +110,6 @@ export function PricingClient() {
                     </div>
                   </div>
 
-                  {/* SAMPLES ROW */}
-                  <div className="pt-4 border-t border-[#EAD3C4]/20 space-y-2">
-                    <span className="text-xs font-mono text-[#E6C5B8] block">Try the demo storefronts:</span>
-                    <div className="flex flex-wrap gap-2">
-                      {DEMO_STOREFRONTS.map(({ href, label, Icon, iconClass }) => (
-                        <a
-                          key={href}
-                          href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 min-h-[44px] px-3 rounded-[10px] bg-[#2D1625] hover:bg-[#3D1E32] active:bg-[#4A2540] text-xs font-semibold text-white border border-[#EAD3C4]/20 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terra focus-visible:ring-offset-2 focus-visible:ring-offset-[#1F0E18]"
-                        >
-                          <Icon size={14} className={iconClass} aria-hidden="true" />
-                          <span>{label}</span>
-                          <ExternalLink size={12} className="opacity-70" aria-hidden="true" />
-                          <span className="sr-only">(opens in a new tab)</span>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
 
                 </div>
 
