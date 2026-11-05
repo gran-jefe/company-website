@@ -63,6 +63,12 @@ const RULES = {
   seriousArchetype: 'Serious Archetype Mismatch',
   playfulArchetype: 'Playful Archetype Mismatch',
   surfaceEffects: 'Premium Traps: Gradient & Glass Restraint',
+  zoomBlock: 'Pinch Zoom Allowed (WCAG 1.4.4)',
+  formLabels: 'Form Labels Bound to Controls (Rule 2)',
+  blockingAlert: 'Non-Blocking Feedback, No alert() (Rule 10)',
+  deepLink: 'Messaging Links Reach the Business',
+  stockImagery: 'Real Imagery, No Stock Placeholders',
+  pinnedDeps: 'Pinned Production Dependencies',
 };
 
 const MANUAL_REVIEW = [
@@ -81,6 +87,12 @@ function getCandidateDirs(baseDir) {
     .map(d => path.join(baseDir, d))
     .filter(p => fs.existsSync(p));
   return candidates.length > 0 ? candidates : [baseDir];
+}
+
+// Static HTML pages (prototypes, landing pages) usually live in public/ or at the root
+function getHtmlDirs(baseDir, scanDirs) {
+  const extra = ['public', 'static'].map(d => path.join(baseDir, d)).filter(p => fs.existsSync(p));
+  return [...new Set([...scanDirs, ...extra])];
 }
 
 function getAllFiles(dirs, extensions = ['.tsx', '.jsx', '.ts', '.js']) {
@@ -119,7 +131,7 @@ function lineAt(content, index) {
 
 function isCommentLine(lineText) {
   const t = lineText.trim();
-  return t.startsWith('//') || t.startsWith('*') || t.startsWith('/*') || t.startsWith('{/*');
+  return t.startsWith('//') || t.startsWith('*') || t.startsWith('/*') || t.startsWith('{/*') || t.startsWith('<!--');
 }
 
 // Walks back from `index` through unmatched braces looking for an enclosing `try {`
@@ -266,7 +278,8 @@ function* classStrings(content) {
 function auditFile(filePath, themeColors) {
   const content = fs.readFileSync(filePath, 'utf-8');
   const lines = content.split('\n');
-  const isReactNative = /from\s+['"](react-native|expo|@react-navigation)/.test(content);
+  const isHtml = path.extname(filePath) === '.html';
+  const isReactNative = !isHtml && /from\s+['"](react-native|expo|@react-navigation)/.test(content);
 
   // ==========================================
   // 1. WEB BUTTON AUDIT (<button>)
@@ -281,7 +294,9 @@ function auditFile(filePath, themeColors) {
 
     // Submit buttons without disabled state (Playbook 01, Rule 3)
     if (buttonTag.includes('type="submit"') || buttonTag.includes("type='submit'")) {
-      if (!buttonTag.includes('disabled')) {
+      // Static HTML toggles `disabled` from script rather than in markup
+      const disabledInScript = isHtml && /\.disabled\s*=|setAttribute\(\s*['"]disabled['"]/.test(content);
+      if (!buttonTag.includes('disabled') && !disabledInScript) {
         addFinding({
           severity: 'critical',
           pillar: 'Pillar 1 (Functional UX)',
@@ -300,7 +315,8 @@ function auditFile(filePath, themeColors) {
         />[^<>{}]*[A-Za-z][^<>{}]*</.test(`>${buttonInner}<`) ||
         /\{[^}]*['"`][^'"`]*[A-Za-z]/.test(buttonInner) ||
         /\{\s*[\w.]+\s*\}/.test(buttonInner);
-      if (/<[A-Z]\w*[^>]*\/>/.test(buttonInner) && !hasText) {
+      const hasIcon = /<[A-Z]\w*[^>]*\/>|<svg\b|<i\b[^>]*(?:data-lucide|class=["'][^"']*\bicon)/.test(buttonInner);
+      if (hasIcon && !hasText) {
         addFinding({
           severity: 'warning',
           pillar: 'Pillar 1 (Functional UX)',
@@ -380,6 +396,84 @@ function auditFile(filePath, themeColors) {
   if (!isReactNative) {
     for (const { value, index } of classStrings(content)) {
       checkContrast(value, filePath, lineAt(content, index), themeColors);
+    }
+  }
+
+  // ==========================================
+  // 4b. STATIC HTML PAGE AUDIT
+  // ==========================================
+  if (isHtml) {
+    // Viewport that blocks pinch zoom
+    const viewport = /<meta[^>]+name=["']viewport["'][^>]*>/i.exec(content);
+    if (viewport && /maximum-scale\s*=\s*1(?:\.0)?\b|user-scalable\s*=\s*(?:no|0)/i.test(viewport[0])) {
+      addFinding({
+        severity: 'critical',
+        pillar: 'Pillar 1 (Functional UX)',
+        rule: RULES.zoomBlock,
+        message: 'Viewport meta blocks pinch zoom (`maximum-scale=1` or `user-scalable=no`). Low-vision users cannot enlarge text.',
+        file: filePath,
+        line: lineAt(content, viewport.index),
+      });
+    }
+
+    // Interactive page with no focus styling at all
+    const interactive = /<(?:button|a\s[^>]*href|input|select|textarea)\b/i.test(content);
+    if (interactive && !/:focus-visible|focus-visible:|:focus\b|focus:ring|focus:outline/.test(content)) {
+      addFinding({
+        severity: 'critical',
+        pillar: 'Pillar 1 (Functional UX)',
+        rule: RULES.focus,
+        message: 'Page has interactive controls but no focus styles. Add a global `:focus-visible` outline or `focus-visible:ring-2` classes.',
+        file: filePath,
+        line: 1,
+      });
+    }
+
+    // <label> that neither points at a control (for=) nor wraps one
+    const labelRegex = /<label\b([^>]*)>([\s\S]*?)<\/label>/gi;
+    let labelMatch;
+    while ((labelMatch = labelRegex.exec(content)) !== null) {
+      const [, attrs, inner] = labelMatch;
+      if (!/\bfor=/.test(attrs) && !/<(?:input|select|textarea)\b/i.test(inner)) {
+        addFinding({
+          severity: 'critical',
+          pillar: 'Pillar 1 (Functional UX)',
+          rule: RULES.formLabels,
+          message: '`<label>` is not bound to a control. Add `for="id"`, wrap the input, or use `<fieldset>`/`<legend>` for a group of buttons.',
+          file: filePath,
+          line: lineAt(content, labelMatch.index),
+        });
+      }
+    }
+
+    // Each static page is standalone, so it needs its own reduced-motion guard
+    const motion = /@keyframes|\banimate-(?!none)[\w-]+|hover:scale-|transition[^;"']*transform/.exec(content);
+    if (motion && !/prefers-reduced-motion|motion-reduce:|motion-safe:/.test(content)) {
+      addFinding({
+        severity: 'critical',
+        pillar: 'Pillar 1 (Functional UX)',
+        rule: RULES.reducedMotion,
+        message: 'Page animates but never honours `prefers-reduced-motion`. Add a `@media (prefers-reduced-motion: reduce)` guard.',
+        file: filePath,
+        line: lineAt(content, motion.index),
+      });
+    }
+
+    // Unpinned or development-only CDN scripts
+    const scriptRegex = /<script[^>]+src=["']([^"']+)["']/gi;
+    let scriptMatch;
+    while ((scriptMatch = scriptRegex.exec(content)) !== null) {
+      const src = scriptMatch[1];
+      if (/cdn\.tailwindcss\.com|@latest\b/.test(src)) {
+        addFinding({
+          severity: 'warning',
+          pillar: 'Pillar 1 (Functional UX)',
+          rule: RULES.pinnedDeps,
+          message: `Script "${src}" is unpinned or development-only. Pin an exact version or ship compiled CSS/JS so the page cannot change or break on its own.`,
+          file: filePath,
+          line: lineAt(content, scriptMatch.index),
+        });
+      }
     }
   }
 
@@ -520,6 +614,42 @@ function auditFile(filePath, themeColors) {
         pillar: 'Mobile UX (React Native)',
         rule: RULES.nativePersistence,
         message: 'AsyncStorage call outside a try/catch block. Native mobile I/O failures can crash the app.',
+        file: filePath,
+        line: lineNum,
+      });
+    }
+
+    // D2. Blocking alert() used as feedback (Web)
+    if (!isReactNative && !isComment && /(?:^|[^\w.])(?:window\.)?alert\(/.test(lineText)) {
+      addFinding({
+        severity: 'warning',
+        pillar: 'Pillar 1 (Functional UX)',
+        rule: RULES.blockingAlert,
+        message: '`alert()` blocks the page and cannot be styled. Use an inline message, a disabled state with a reason, or a toast.',
+        file: filePath,
+        line: lineNum,
+      });
+    }
+
+    // D3. WhatsApp links without a recipient number open a share sheet, not the business chat
+    if (!isComment && /wa\.me\/\?|api\.whatsapp\.com\/send\/?\?(?![^"'`\s]*phone=)/.test(lineText)) {
+      addFinding({
+        severity: 'critical',
+        pillar: 'Pillar 1 (Functional UX)',
+        rule: RULES.deepLink,
+        message: 'WhatsApp link has no phone number, so messages go to whoever the visitor picks. Use `https://wa.me/<countrycode><number>?text=...`.',
+        file: filePath,
+        line: lineNum,
+      });
+    }
+
+    // D4. Stock photography standing in for real products or people
+    if (!isComment && /images\.unsplash\.com|images\.pexels\.com|source\.unsplash\.com|picsum\.photos/.test(lineText)) {
+      addFinding({
+        severity: 'warning',
+        pillar: 'Pillar 4 (Intent & Anti-Generic)',
+        rule: RULES.stockImagery,
+        message: 'Stock image URL found. Replace with the client\'s real product or venue photography before showing it as theirs.',
         file: filePath,
         line: lineNum,
       });
@@ -713,12 +843,15 @@ function runAudit() {
   console.log(`${COLORS.bold}${COLORS.cyan}================================================================${COLORS.reset}\n`);
 
   const scanDirs = getCandidateDirs(TARGET_DIR);
-  const files = getAllFiles(scanDirs);
+  const htmlDirs = getHtmlDirs(TARGET_DIR, scanDirs);
+  const componentFiles = getAllFiles(scanDirs);
+  const htmlFiles = getAllFiles(htmlDirs, ['.html']);
+  const files = [...new Set([...componentFiles, ...htmlFiles])];
   const cssFiles = getAllFiles(scanDirs, ['.css', '.scss']);
-  console.log(`${COLORS.dim}Scanning ${files.length} UI files and ${cssFiles.length} stylesheets across: ${scanDirs.map(d => path.relative(TARGET_DIR, d) || '.').join(', ')}...${COLORS.reset}\n`);
+  console.log(`${COLORS.dim}Scanning ${componentFiles.length} UI files, ${htmlFiles.length} HTML pages and ${cssFiles.length} stylesheets across: ${htmlDirs.map(d => path.relative(TARGET_DIR, d) || '.').join(', ')}...${COLORS.reset}\n`);
 
   if (files.length === 0) {
-    console.log(`${COLORS.yellow}No UI component files (.tsx, .jsx, etc.) found in target directory.${COLORS.reset}\n`);
+    console.log(`${COLORS.yellow}No UI files (.tsx, .jsx, .html, etc.) found in target directory.${COLORS.reset}\n`);
     process.exit(0);
   }
 
@@ -726,7 +859,7 @@ function runAudit() {
   for (const file of files) {
     auditFile(file, themeColors);
   }
-  auditProject(files, cssFiles);
+  auditProject(componentFiles, cssFiles); // static HTML pages are checked per file above
 
   const criticals = findings.filter(f => f.severity === 'critical');
   const warnings = findings.filter(f => f.severity === 'warning');

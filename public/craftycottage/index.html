@@ -2,558 +2,663 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Crafty Cottage | Bead to Perfection • Handcrafted Beaded Bags</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            forest: {
-              950: '#111B07',
-              900: '#1A2A0C',
-              850: '#20330D',
-              800: '#263E0F', // Official Crafty Cottage brand green
-              700: '#355416',
-              600: '#4A7322',
-              100: '#EAF2DE',
-            },
-            linen: {
-              50: '#FAF8F4',
-              100: '#F4EFE6',
-              200: '#E8DEC8',
-              300: '#D5C4A3',
-            },
-            gold: {
-              300: '#F5E4B5',
-              400: '#E6C975',
-              500: '#D4AF37',
-              600: '#B89228',
-            },
-            amethyst: '#5B2C6F',
-          },
-          fontFamily: {
-            serif: ['"Playfair Display"', 'serif'],
-            cormorant: ['"Cormorant Garamond"', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Crafty Cottage | Hand-beaded bags made in Ibadan</title>
+  <meta name="description" content="The Prima collection of hand-beaded bags from Crafty Cottage, Ibadan. Order on WhatsApp or design a bag in your own colours.">
+  <meta name="theme-color" content="#263E0F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .product-img {
-      transition: transform 0.4s ease;
+    :root {
+      color-scheme: light;
+      /* Brand */
+      --forest-950: #111B07;
+      --forest-900: #1A2A0C;
+      --forest-800: #263E0F; /* official Crafty Cottage green */
+      --forest-700: #355416;
+      --forest-100: #EAF2DE;
+      --linen-50: #FAF8F4;
+      --linen-100: #F4EFE6;
+      --linen-200: #E8DEC8;
+      --gold-400: #E6C975;
+      --gold-600: #8A6A12; /* gold for text on light backgrounds */
+      /* Neutrals */
+      --ink: #17210E;
+      --ink-2: #4A5240;
+      --line: #E2DACA;
+      --on-dark: #F4EFE6;
+      --on-dark-2: #CFC6B2;
+      --line-dark: #3A5222;
+      --white: #FFFFFF;
+      /* Status */
+      --error: #B42318;
+      --success: #146C43;
+      /* Radii */
+      --r-6: 6px; --r-10: 10px; --r-14: 14px; --r-20: 20px;
+      --ease: 160ms ease;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
-    .product-card:hover .product-img {
-      transform: scale(1.04);
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 16px; line-height: 1.6;
+      color: var(--ink); background: var(--linen-50);
+      overflow-x: hidden; -webkit-font-smoothing: antialiased;
+      padding-bottom: calc(76px + var(--safe-bottom));
+    }
+    @media (min-width: 640px) { body { padding-bottom: 0; } }
+    img { display: block; max-width: 100%; height: auto; }
+    h1, h2, h3, p { margin: 0; }
+    a { color: inherit; }
+    button, input, textarea { font: inherit; color: inherit; }
+    .serif { font-family: "Playfair Display", Georgia, serif; }
+
+    :where(a, button, input, textarea):focus-visible { outline: 2px solid var(--forest-800); outline-offset: 2px; }
+    .dark :where(a, button, input, textarea):focus-visible { outline-color: var(--gold-400); }
+
+    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+    @media (min-width: 640px) { .container { padding: 0 24px; } }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .icon { width: 20px; height: 20px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-sm { width: 16px; height: 16px; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px; padding: 0 20px; border-radius: var(--r-10); border: 1px solid transparent;
+      font-size: 15px; font-weight: 700; line-height: 1.2; text-decoration: none; cursor: pointer;
+      transition: background-color var(--ease), border-color var(--ease), color var(--ease), transform var(--ease);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:active:not(:disabled) { transform: translateY(1px); }
+    .btn:disabled { cursor: not-allowed; opacity: .55; }
+    .btn-primary { background: var(--forest-800); color: var(--white); }
+    .btn-primary:hover:not(:disabled) { background: var(--forest-950); }
+    .btn-gold { background: var(--gold-400); color: var(--forest-950); }
+    .btn-gold:hover:not(:disabled) { background: #F1DA9A; }
+    .btn-outline { background: transparent; color: var(--forest-800); border-color: var(--forest-800); }
+    .btn-outline:hover:not(:disabled) { background: var(--forest-100); }
+    .btn-block { width: 100%; }
+    .btn-text {
+      display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 4px;
+      background: none; border: 0; color: var(--forest-800); font-weight: 700; font-size: 15px;
+      text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; cursor: pointer;
+    }
+    .btn-text:hover { text-decoration-thickness: 2px; }
+    .spinner { width: 16px; height: 16px; border-radius: 50%; border: 2px solid currentColor; border-right-color: transparent; animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ---------- Header ---------- */
+    .preview-strip { background: var(--forest-950); color: var(--on-dark); font-size: 12px; text-align: center; padding: 8px 16px; line-height: 1.4; }
+    .site-header { position: sticky; top: 0; z-index: 30; background: var(--linen-50); border-bottom: 1px solid var(--line); }
+    .header-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; min-height: 44px; }
+    .brand-mark { width: 40px; height: 40px; border-radius: var(--r-10); background: var(--forest-800); color: var(--gold-400); display: grid; place-items: center; font-family: "Playfair Display", serif; font-weight: 700; font-size: 22px; }
+    .brand-name { display: block; font-family: "Playfair Display", serif; font-weight: 700; font-size: 18px; line-height: 1.1; white-space: nowrap; }
+    @media (min-width: 640px) { .brand-name { font-size: 20px; } }
+    .brand-sub { display: block; font-size: 12px; color: var(--ink-2); margin-top: 2px; }
+    .main-nav { display: none; gap: 4px; }
+    .main-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: var(--r-6); font-size: 15px; font-weight: 600; color: var(--ink-2); text-decoration: none; transition: color var(--ease), background-color var(--ease); }
+    .main-nav a:hover { color: var(--forest-800); background: var(--linen-100); }
+    @media (min-width: 900px) { .main-nav { display: flex; } }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 40px 0 48px; border-bottom: 1px solid var(--line); }
+    @media (min-width: 900px) { .hero { padding: 72px 0; } }
+    .hero-grid { display: grid; gap: 40px; align-items: center; }
+    @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 56px; } }
+    .eyebrow { font-size: 14px; font-weight: 700; color: var(--forest-700); }
+    .hero h1 { margin-top: 12px; font-family: "Playfair Display", serif; font-weight: 700; font-size: clamp(34px, 5.6vw, 54px); line-height: 1.08; letter-spacing: -0.01em; color: var(--forest-950); }
+    .hero h1 em { font-weight: 500; color: var(--forest-700); }
+    .lead { margin-top: 16px; font-size: 17px; line-height: 1.65; color: var(--ink-2); max-width: 54ch; }
+    .hero-actions { margin-top: 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+    .facts { margin: 32px 0 0; padding: 24px 0 0; border-top: 1px solid var(--line); list-style: none; display: grid; gap: 12px; }
+    @media (min-width: 640px) { .facts { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+    .facts li { display: flex; gap: 10px; font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+    .facts strong { display: block; color: var(--ink); }
+    .facts .icon { color: var(--forest-700); margin-top: 2px; }
+
+    .mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 440px; margin: 0 auto; width: 100%; }
+    .mosaic a { display: block; border-radius: var(--r-14); overflow: hidden; background: var(--linen-200); }
+    .mosaic img { width: 100%; aspect-ratio: 1; object-fit: cover; transition: transform 200ms ease; }
+    .mosaic a:hover img { transform: scale(1.03); }
+    .mosaic a:nth-child(2) { margin-top: 24px; }
+    .mosaic a:nth-child(3) { margin-top: -24px; }
+    .mosaic-caption { grid-column: 1 / -1; font-size: 14px; color: var(--ink-2); text-align: center; margin-top: 4px; }
+
+    /* ---------- Sections ---------- */
+    .section { padding: 56px 0; }
+    @media (min-width: 900px) { .section { padding: 80px 0; } }
+    .section-head { display: grid; gap: 8px; margin-bottom: 32px; max-width: 640px; }
+    .section-head h2 { font-family: "Playfair Display", serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 36px); line-height: 1.15; color: var(--forest-950); }
+    .section-head p { color: var(--ink-2); }
+    .dark .section-head h2 { color: var(--white); }
+    .dark .section-head p { color: var(--on-dark-2); }
+    .dark .eyebrow { color: var(--gold-400); }
+
+    /* ---------- Prima collection ---------- */
+    .product-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
+    @media (min-width: 900px) { .product-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
+    .product { display: flex; flex-direction: column; gap: 12px; }
+    .product-img { position: relative; border-radius: var(--r-14); overflow: hidden; background: var(--linen-200); }
+    .product-img img { width: 100%; aspect-ratio: 1; object-fit: cover; transition: transform 200ms ease; }
+    .product:hover .product-img img { transform: scale(1.03); }
+    .tag { position: absolute; top: 8px; left: 8px; background: var(--forest-900); color: var(--on-dark); font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: var(--r-6); }
+    .product h3 { font-family: "Playfair Display", serif; font-size: 19px; font-weight: 700; line-height: 1.25; }
+    .price { font-weight: 800; font-size: 17px; color: var(--forest-800); font-variant-numeric: tabular-nums; }
+    .product-note { display: none; font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+    @media (min-width: 640px) { .product-note { display: block; } }
+    .product-body { display: grid; gap: 4px; flex: 1; align-content: start; }
+    .product .btn { width: 100%; padding: 0 12px; }
+
+    /* ---------- Custom studio (dark) ---------- */
+    .dark { background: var(--forest-900); color: var(--on-dark); }
+    .studio-grid { display: grid; gap: 32px; }
+    @media (min-width: 900px) { .studio-grid { grid-template-columns: 1.35fr 1fr; gap: 48px; align-items: start; } }
+    .studio-form { display: grid; gap: 28px; }
+    fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+    legend { padding: 0; margin-bottom: 12px; font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+    .step-num { width: 28px; height: 28px; border-radius: var(--r-6); background: var(--gold-400); color: var(--forest-950); display: inline-grid; place-items: center; font-size: 14px; font-weight: 800; }
+    .options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .option { position: relative; display: block; }
+    .option input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+    .option span.card {
+      display: flex; align-items: center; gap: 10px; min-height: 56px; height: 100%; padding: 10px 12px;
+      border: 1px solid #7E9364; border-radius: var(--r-10); background: var(--forest-950);
+      transition: border-color var(--ease), background-color var(--ease);
+    }
+    .option:hover span.card { border-color: var(--gold-400); }
+    .option input:checked + span.card { border-color: var(--gold-400); background: #2A3E14; box-shadow: inset 0 0 0 1px var(--gold-400); }
+    .option input:focus-visible + span.card { outline: 2px solid var(--gold-400); outline-offset: 2px; }
+    .option b { display: block; font-size: 15px; line-height: 1.3; }
+    .option small { display: block; font-size: 13px; color: var(--on-dark-2); }
+    .swatch { width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; border: 1px solid rgba(255,255,255,.35); }
+    .check { margin-left: auto; color: var(--gold-400); opacity: 0; transition: opacity var(--ease); }
+    .option input:checked + span.card .check { opacity: 1; }
+    .field { display: grid; gap: 6px; }
+    .field label { font-size: 15px; font-weight: 700; }
+    .field .opt { font-weight: 500; color: var(--on-dark-2); }
+    .field-meta { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--on-dark-2); }
+    .input {
+      width: 100%; min-height: 96px; padding: 12px 14px; resize: vertical;
+      border: 1px solid #7E9364; border-radius: var(--r-10); background: var(--forest-950); color: var(--on-dark);
+      font-size: 16px; line-height: 1.5; transition: border-color var(--ease), box-shadow var(--ease);
+    }
+    .input::placeholder { color: #A9B39A; }
+    .input:hover { border-color: var(--gold-400); }
+    .input:focus-visible { outline: none; border-color: var(--gold-400); box-shadow: 0 0 0 3px rgba(230, 201, 117, .3); }
+
+    .summary { border: 1px solid var(--line-dark); border-radius: var(--r-20); padding: 24px; display: grid; gap: 20px; }
+    @media (min-width: 900px) { .summary { position: sticky; top: 96px; } }
+    .summary-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--line-dark); }
+    .summary-head h3 { font-size: 18px; font-weight: 800; }
+    .summary-head span { font-size: 13px; color: var(--on-dark-2); }
+    .summary dl { margin: 0; display: grid; gap: 12px; }
+    .summary dt { font-size: 13px; color: var(--on-dark-2); }
+    .summary dd { margin: 0; font-family: "Playfair Display", serif; font-size: 19px; font-weight: 700; }
+    .total { padding-top: 16px; border-top: 1px solid var(--line-dark); }
+    .total .amount { font-size: 32px; font-weight: 800; color: var(--gold-400); font-variant-numeric: tabular-nums; line-height: 1.2; }
+    .total p { font-size: 13px; color: var(--on-dark-2); margin-top: 4px; }
+
+    /* ---------- Accessories ---------- */
+    .acc-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+    .acc-row { display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: center; }
+    @media (min-width: 640px) { .acc-row { grid-template-columns: 48px 1fr auto; } }
+    .acc-icon { width: 48px; height: 48px; border-radius: var(--r-10); background: var(--forest-100); color: var(--forest-800); display: grid; place-items: center; }
+    .acc-row h3 { font-family: "Playfair Display", serif; font-size: 19px; font-weight: 700; }
+    .acc-row p { font-size: 15px; color: var(--ink-2); }
+    .acc-row .btn { grid-column: 1 / -1; }
+    @media (min-width: 640px) { .acc-row .btn { grid-column: auto; } }
+
+    /* ---------- Story ---------- */
+    .story { background: var(--linen-100); border-top: 1px solid var(--line); }
+    .story-grid { display: grid; gap: 32px; }
+    @media (min-width: 900px) { .story-grid { grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; } }
+    .story blockquote { margin: 0; font-family: "Playfair Display", serif; font-style: italic; font-weight: 500; font-size: clamp(22px, 2.8vw, 28px); line-height: 1.4; color: var(--forest-950); }
+    .story cite { display: block; margin-top: 16px; font-style: normal; font-size: 14px; font-weight: 700; color: var(--ink-2); }
+    .contact { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+    .contact a { display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: center; min-height: 56px; padding: 8px 0; text-decoration: none; border-bottom: 1px solid var(--line); }
+    .contact a:hover strong { text-decoration: underline; text-underline-offset: 3px; }
+    .contact .ci { width: 40px; height: 40px; border-radius: var(--r-10); background: var(--white); border: 1px solid var(--line); color: var(--forest-800); display: grid; place-items: center; }
+    .contact span { font-size: 13px; color: var(--ink-2); display: block; }
+    .contact strong { font-size: 15px; }
+
+    /* ---------- Footer ---------- */
+    .site-footer { background: var(--forest-950); color: var(--on-dark-2); padding: 40px 0; font-size: 14px; }
+    .site-footer .foot-name { font-family: "Playfair Display", serif; font-weight: 700; font-size: 20px; color: var(--white); }
+    .site-footer p { margin-top: 8px; }
+
+    /* ---------- Sticky mobile bar ---------- */
+    .sticky-bar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 25;
+      background: var(--white); border-top: 1px solid var(--line);
+      padding: 12px 16px calc(12px + var(--safe-bottom));
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      box-shadow: 0 -4px 16px rgba(17, 27, 7, .08);
+    }
+    .sticky-bar .meta { font-size: 13px; color: var(--ink-2); line-height: 1.35; min-width: 0; }
+    .sticky-bar .meta strong { display: block; font-size: 15px; color: var(--ink); }
+    .sticky-bar .btn { white-space: nowrap; flex-shrink: 0; }
+    @media (min-width: 640px) { .sticky-bar { display: none; } }
+
+    /* ---------- Toast ---------- */
+    .toast-region { position: fixed; z-index: 60; left: 16px; right: 16px; bottom: calc(92px + var(--safe-bottom)); display: grid; justify-items: center; pointer-events: none; }
+    @media (min-width: 640px) { .toast-region { left: auto; right: 24px; bottom: 24px; justify-items: end; } }
+    .toast { pointer-events: auto; display: flex; align-items: center; gap: 12px; max-width: 420px; width: 100%; padding: 14px 16px; background: var(--forest-950); color: var(--white); border-radius: var(--r-14); font-size: 15px; line-height: 1.4; box-shadow: 0 8px 24px rgba(17, 27, 7, .25); animation: toast-in 180ms ease-out; }
+    .toast .icon { color: #B8F0CF; }
+    @keyframes toast-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
     }
   </style>
 </head>
-<body class="bg-linen-50 text-forest-950 font-sans antialiased selection:bg-forest-800 selection:text-linen-50 pb-20 sm:pb-0">
+<body>
+  <!-- Inline icon set (Lucide paths, ISC licence) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></symbol>
+    <symbol id="i-gem" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.56-2.5 5.56-5.55C21.97 6.01 17.46 2 12 2z"/></symbol>
+    <symbol id="i-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M3 12h18"/><path d="m5.6 5.6 12.8 12.8"/><path d="m18.4 5.6-12.8 12.8"/></symbol>
+  </svg>
 
-  <!-- TOP ANNOUNCEMENT STRIP -->
-  <div class="bg-forest-900 text-linen-100 text-[11px] sm:text-xs py-2 px-3 text-center tracking-wider uppercase font-sans border-b border-gold-500/30 flex items-center justify-center gap-2">
-    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-400 flex-shrink-0"></i>
-    <span class="truncate">Bead to Perfection • Handcrafted at University of Ibadan • Nigeria &amp; Worldwide Delivery</span>
-    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-400 flex-shrink-0"></i>
-  </div>
+  <a href="#prima" class="sr-only">Skip to the Prima collection</a>
 
-  <!-- NAVIGATION -->
-  <header class="bg-linen-50/95 backdrop-blur-md sticky top-0 z-40 border-b border-forest-800/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 sm:py-4 flex justify-between items-center gap-3">
-      
-      <!-- LOGO & BRAND -->
-      <a href="#" class="flex items-center gap-2.5 sm:gap-3">
-        <div class="w-10 h-10 rounded-2xl bg-forest-800 text-linen-50 flex items-center justify-center font-serif text-xl font-bold shadow-md border border-gold-500/30 flex-shrink-0">
-          C
-        </div>
-        <div>
-          <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-forest-950 block leading-none">Crafty Cottage</span>
-          <span class="text-[9px] sm:text-[10px] tracking-[0.25em] text-forest-700 font-sans uppercase block mt-1">Bead to perfection</span>
-        </div>
+  <div class="preview-strip">Concept preview for Crafty Cottage, prepared by Gran Jefe</div>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a href="#top" class="brand" aria-label="Crafty Cottage, back to top">
+        <span class="brand-mark" aria-hidden="true">C</span>
+        <span>
+          <span class="brand-name">Crafty Cottage</span>
+          <span class="brand-sub">Bead to perfection</span>
+        </span>
       </a>
-
-      <!-- DESKTOP NAV -->
-      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-forest-850">
-        <a href="#prima-collection" class="hover:text-forest-600 transition-colors">Prima Collection</a>
-        <a href="#custom-studio" class="hover:text-forest-600 transition-colors">Custom Color Studio</a>
-        <a href="#waist-beads" class="hover:text-forest-600 transition-colors">Waist Beads &amp; Anklets</a>
-        <a href="#story" class="hover:text-forest-600 transition-colors">Our Ibadan Studio</a>
+      <nav class="main-nav" aria-label="Main">
+        <a href="#prima">Prima collection</a>
+        <a href="#custom">Custom order</a>
+        <a href="#accessories">Accessories</a>
+        <a href="#studio">Studio</a>
       </nav>
-
-      <!-- DIRECT WHATSAPP ACTION -->
-      <a href="https://wa.me/2347035596492?text=Hello%20Crafty%20Cottage!%20I%20would%20like%20to%20order%20from%20your%20beaded%20bags%20collection." target="_blank" class="bg-forest-800 hover:bg-forest-900 text-linen-50 px-4 sm:px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase flex items-center gap-1.5 shadow transition-all hover:scale-105 border border-gold-500/30">
-        <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
-        <span class="hidden sm:inline">WhatsApp Order</span>
-        <span class="sm:hidden">Order</span>
+      <a class="btn btn-outline" data-wa="general" href="https://wa.me/2347035596492" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>
+        <span>WhatsApp</span>
       </a>
-
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="relative py-10 sm:py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-linen-100 via-linen-50 to-linen-50 border-b border-forest-800/10 overflow-hidden">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
-      
-      <div class="md:col-span-7 space-y-4 sm:space-y-6 text-center md:text-left">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-forest-800/10 text-forest-800 text-[10px] sm:text-xs font-semibold uppercase tracking-widest border border-forest-800/15">
-          <i data-lucide="gem" class="w-3.5 h-3.5 text-forest-700"></i> The Signature Prima Collection
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">The Prima collection</p>
+          <h1>Hand-beaded bags, <em>made in Ibadan.</em></h1>
+          <p class="lead">Sculptural heart bags, pearl carryalls and fringe clutches, each one beaded by hand at the Crafty Cottage studio. Order a Prima piece as it is, or have one made in your event colours.</p>
+          <div class="hero-actions">
+            <a href="#prima" class="btn btn-primary">
+              <svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg>
+              Shop the Prima collection
+            </a>
+            <a href="#custom" class="btn-text">Design one in your colours</a>
+          </div>
+          <ul class="facts">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-hand"/></svg><span><strong>Beaded by hand</strong>At the studio in Ibadan</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-palette"/></svg><span><strong>Custom colours</strong>Match your wedding or event</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span><strong>Order on WhatsApp</strong>Price and delivery confirmed first</span></li>
+          </ul>
         </div>
 
-        <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-forest-950 font-bold leading-tight">
-          Intricate Craft. <br class="hidden sm:inline"/>
-          <span class="italic text-forest-800 font-cormorant font-normal">Woven to Perfection.</span>
-        </h1>
-
-        <p class="text-forest-850 text-sm sm:text-base max-w-xl mx-auto md:mx-0 font-cormorant italic text-lg sm:text-xl leading-relaxed">
-          "Crafty Cottage is a bead haven where creativity meets simplicity. Hand-woven crystal heart silhouettes, pearl carryalls, and textural evening bags crafted to complement your royalty."
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-3 pt-2 justify-center md:justify-start">
-          <a href="#prima-collection" class="bg-forest-800 hover:bg-forest-900 text-linen-50 px-7 py-3.5 rounded-full text-xs font-semibold tracking-wider uppercase flex items-center justify-center gap-2 shadow-lg transition-all border border-gold-500/30">
-            <i data-lucide="shopping-bag" class="w-4 h-4 text-gold-400"></i>
-            <span>Shop The Prima Collection</span>
-          </a>
-          <a href="#custom-studio" class="border-2 border-forest-800/30 hover:border-forest-800 text-forest-900 px-7 py-3.5 rounded-full text-xs font-semibold tracking-wider uppercase flex items-center justify-center gap-2 transition-all">
-            <i data-lucide="palette" class="w-4 h-4 text-forest-700"></i>
-            <span>Custom Color Order</span>
-          </a>
-        </div>
-
-        <!-- TRUST BADGES -->
-        <div class="pt-6 flex flex-wrap items-center justify-center md:justify-start gap-6 border-t border-forest-800/10 text-xs font-medium text-forest-800">
-          <div class="flex items-center gap-1.5">
-            <i data-lucide="check-circle" class="w-4 h-4 text-forest-600"></i> 100% Hand-Woven in Ibadan
-          </div>
-          <div class="flex items-center gap-1.5">
-            <i data-lucide="check-circle" class="w-4 h-4 text-forest-600"></i> High-Grade Crystal &amp; Pearl Beads
-          </div>
-          <div class="flex items-center gap-1.5">
-            <i data-lucide="check-circle" class="w-4 h-4 text-forest-600"></i> Instant WhatsApp Checkout
-          </div>
+        <div class="mosaic" aria-label="Pieces from the Prima collection">
+          <a href="#prima"><img src="/craftycottage/products/dupree-gold.jpg" alt="Dupree Midi heart bag in gold beads" width="206" height="208"></a>
+          <a href="#prima"><img src="/craftycottage/products/pearly.jpg" alt="Pearly bag in large white pearls" width="206" height="208"></a>
+          <a href="#prima"><img src="/craftycottage/products/dupree-purple.jpg" alt="Dupree Midi heart bag in purple beads" width="206" height="208"></a>
+          <a href="#prima"><img src="/craftycottage/products/first-lady.jpg" alt="First Lady loop-fringe clutch in ivory champagne" width="206" height="208"></a>
+          <p class="mosaic-caption">Four Prima pieces, from ₦35,000</p>
         </div>
       </div>
+    </section>
 
-      <!-- HERO SHOWCASE: DUPREE MIDI GOLD -->
-      <div class="md:col-span-5 relative max-w-sm mx-auto w-full">
-        <div class="relative bg-linen-100 p-3 sm:p-4 rounded-3xl shadow-2xl border border-forest-800/15">
-          <div class="relative h-80 sm:h-96 w-full rounded-2xl overflow-hidden shadow-inner bg-linen-200">
-            <img src="/craftycottage/products/dupree-gold.jpg" alt="Dupree Midi - Gold Beaded Heart Bag" class="w-full h-full object-cover">
-            
-            <span class="absolute top-3 left-3 bg-forest-950/85 backdrop-blur-md text-gold-400 text-[10px] font-serif font-bold px-3 py-1 rounded-full border border-gold-500/30">
-              Prima Signature
-            </span>
-          </div>
+    <!-- PRIMA COLLECTION -->
+    <section class="section" id="prima" aria-labelledby="primaTitle">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Ready to order</p>
+          <h2 id="primaTitle">The Prima collection</h2>
+          <p>Tap a piece to order it on WhatsApp. Crafty Cottage confirms availability, delivery and the final price before you pay.</p>
+        </div>
+        <ul class="product-grid" id="productGrid"></ul>
+      </div>
+    </section>
 
-          <div class="p-3.5 text-center space-y-2">
-            <span class="text-[10px] uppercase font-sans tracking-widest text-forest-700 block">Faceted Crystal Heart Silhouette</span>
-            <h3 class="font-serif text-xl font-bold text-forest-950">DUPREE MIDI — GOLD</h3>
-            <p class="text-xs text-forest-800 font-cormorant italic">Gleaming gold crystal beads hand-woven into a sculptural heart statement bag.</p>
-            
-            <div class="pt-2 flex justify-between items-center px-1">
-              <span class="font-serif font-bold text-forest-900 text-2xl">₦45,000</span>
-              <button onclick="orderItemDirect('Dupree Midi - Gold', '₦45,000')" class="bg-forest-800 hover:bg-forest-900 text-linen-50 px-4 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 shadow">
-                <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Order via WhatsApp
-              </button>
+    <!-- CUSTOM STUDIO -->
+    <section class="section dark" id="custom" aria-labelledby="customTitle">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Made to order</p>
+          <h2 id="customTitle">Design a bag in your colours</h2>
+          <p>Planning a wedding or an event? Pick a shape and a bead colour, add your date, and send the design straight to Crafty Cottage.</p>
+        </div>
+
+        <div class="studio-grid">
+          <form class="studio-form" id="studioForm" novalidate>
+            <fieldset>
+              <legend><span class="step-num" aria-hidden="true">1</span>Choose a shape</legend>
+              <div class="options" id="shapeOptions"></div>
+            </fieldset>
+            <fieldset>
+              <legend><span class="step-num" aria-hidden="true">2</span>Choose a bead colour</legend>
+              <div class="options" id="beadOptions"></div>
+            </fieldset>
+            <div class="field">
+              <label for="customNotes"><span class="step-num" aria-hidden="true" style="margin-right:10px">3</span>Event date and notes <span class="opt">(optional)</span></label>
+              <textarea class="input" id="customNotes" maxlength="300" aria-describedby="notesMeta"
+                placeholder="For example: wedding on 14 December, would like a silver chain strap"></textarea>
+              <div class="field-meta" id="notesMeta"><span>Your notes are added to the WhatsApp message.</span><span id="notesCount">0 / 300</span></div>
             </div>
-          </div>
-        </div>
-      </div>
+          </form>
 
-    </div>
-  </section>
-
-  <!-- THE PRIMA COLLECTION SHOWCASE (HER EXACT PRODUCTS) -->
-  <section id="prima-collection" class="py-14 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto">
-    <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
-      <div class="inline-block px-3 py-1 bg-gold-400/20 text-forest-900 text-[10px] sm:text-xs font-bold uppercase tracking-widest rounded-full">
-        Featured Collection
-      </div>
-      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-950">The Prima Beaded Collection</h2>
-      <p class="text-xs sm:text-sm text-forest-800 font-cormorant italic text-base">The exact handcrafted masterpieces from Crafty Cottage's Prima drop. Tap any piece to order or customize via WhatsApp.</p>
-    </div>
-
-    <!-- 4 PRODUCTS FROM BUMPA GRID -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      
-      <!-- PRODUCT 1: DUPREE MIDI GOLD -->
-      <div class="product-card bg-linen-100 rounded-3xl p-4 border border-forest-800/15 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between space-y-4">
-        <div class="space-y-3">
-          <div class="relative h-64 w-full rounded-2xl overflow-hidden bg-linen-200">
-            <img src="/craftycottage/products/dupree-gold.jpg" alt="Dupree Midi - Gold" class="product-img w-full h-full object-cover">
-            <span class="absolute top-2.5 left-2.5 bg-forest-900/90 text-gold-400 text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-gold-500/20">
-              Gold Crystal
-            </span>
-          </div>
-
-          <div>
-            <div class="flex justify-between items-start">
-              <h3 class="font-serif text-lg font-bold text-forest-950">Dupree Midi — Gold</h3>
+          <aside class="summary" aria-labelledby="summaryTitle">
+            <div class="summary-head">
+              <h3 id="summaryTitle">Your design</h3>
+              <span>Made to order</span>
             </div>
-            <span class="font-serif font-bold text-forest-900 text-xl block mt-1">₦45,000</span>
-            <p class="text-[11px] text-forest-800 mt-1 leading-relaxed">
-              Sculptural heart-shaped bag crafted with gleaming amber-gold faceted crystal beads and sturdy top handle.
-            </p>
-          </div>
-        </div>
-
-        <button onclick="orderItemDirect('Dupree Midi - Gold', '₦45,000')" class="w-full bg-forest-800 hover:bg-forest-900 text-linen-50 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow">
-          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i> Order via WhatsApp
-        </button>
-      </div>
-
-      <!-- PRODUCT 2: DUPREE MIDI PURPLE -->
-      <div class="product-card bg-linen-100 rounded-3xl p-4 border border-forest-800/15 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between space-y-4">
-        <div class="space-y-3">
-          <div class="relative h-64 w-full rounded-2xl overflow-hidden bg-linen-200">
-            <img src="/craftycottage/products/dupree-purple.jpg" alt="Dupree Midi - Royal Purple" class="product-img w-full h-full object-cover">
-            <span class="absolute top-2.5 left-2.5 bg-amethyst/90 text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
-              Royal Amethyst
-            </span>
-          </div>
-
-          <div>
-            <div class="flex justify-between items-start">
-              <h3 class="font-serif text-lg font-bold text-forest-950">Dupree Midi — Purple</h3>
+            <dl>
+              <div><dt>Shape</dt><dd id="sumShape"></dd></div>
+              <div><dt>Bead colour</dt><dd id="sumBead"></dd></div>
+            </dl>
+            <div class="total">
+              <div class="sr-only">Estimated price</div>
+              <div class="amount" id="estTotal" aria-live="polite"></div>
+              <p>Estimate. Crafty Cottage confirms the final price and making time on WhatsApp.</p>
             </div>
-            <span class="font-serif font-bold text-forest-900 text-xl block mt-1">₦45,000</span>
-            <p class="text-[11px] text-forest-800 mt-1 leading-relaxed">
-              Vibrant deep purple faceted crystal beads woven into the signature heart silhouette. Catches light dramatically.
-            </p>
-          </div>
+            <button type="button" class="btn btn-gold btn-block" id="sendDesign">
+              <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>
+              <span>Send design on WhatsApp</span>
+            </button>
+          </aside>
         </div>
-
-        <button onclick="orderItemDirect('Dupree Midi - Royal Purple', '₦45,000')" class="w-full bg-forest-800 hover:bg-forest-900 text-linen-50 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow">
-          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i> Order via WhatsApp
-        </button>
       </div>
+    </section>
 
-      <!-- PRODUCT 3: PEARLY -->
-      <div class="product-card bg-linen-100 rounded-3xl p-4 border border-forest-800/15 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between space-y-4">
-        <div class="space-y-3">
-          <div class="relative h-64 w-full rounded-2xl overflow-hidden bg-linen-200">
-            <img src="/craftycottage/products/pearly.jpg" alt="Pearly Handbag" class="product-img w-full h-full object-cover">
-            <span class="absolute top-2.5 left-2.5 bg-forest-900/90 text-gold-400 text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-gold-500/20">
-              Oversized Pearls
-            </span>
-          </div>
-
-          <div>
-            <div class="flex justify-between items-start">
-              <h3 class="font-serif text-lg font-bold text-forest-950">Pearly</h3>
-            </div>
-            <span class="font-serif font-bold text-forest-900 text-xl block mt-1">₦35,000</span>
-            <p class="text-[11px] text-forest-800 mt-1 leading-relaxed">
-              Lustrous jumbo faux-pearl beads with an oversized pearl arch handle and satin lining. Timeless bridal &amp; dinner glamour.
-            </p>
-          </div>
+    <!-- ACCESSORIES -->
+    <section class="section" id="accessories" aria-labelledby="accTitle">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Made to your measurements</p>
+          <h2 id="accTitle">Waist beads, neckpieces and anklets</h2>
+          <p>Smaller beaded pieces are made to order. Send your size and colours and Crafty Cottage will reply with a price.</p>
         </div>
-
-        <button onclick="orderItemDirect('Pearly Handbag', '₦35,000')" class="w-full bg-forest-800 hover:bg-forest-900 text-linen-50 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow">
-          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i> Order via WhatsApp
-        </button>
+        <ul class="acc-list" id="accList"></ul>
       </div>
+    </section>
 
-      <!-- PRODUCT 4: FIRST LADY -->
-      <div class="product-card bg-linen-100 rounded-3xl p-4 border border-forest-800/15 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between space-y-4">
-        <div class="space-y-3">
-          <div class="relative h-64 w-full rounded-2xl overflow-hidden bg-linen-200">
-            <img src="/craftycottage/products/first-lady.jpg" alt="First Lady Loop Fringe Clutch" class="product-img w-full h-full object-cover">
-            <span class="absolute top-2.5 left-2.5 bg-forest-900/90 text-gold-400 text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-gold-500/20">
-              Loop Fringe Clutch
-            </span>
-          </div>
-
-          <div>
-            <div class="flex justify-between items-start">
-              <h3 class="font-serif text-lg font-bold text-forest-950">First Lady</h3>
-            </div>
-            <span class="font-serif font-bold text-forest-900 text-xl block mt-1">₦40,000</span>
-            <p class="text-[11px] text-forest-800 mt-1 leading-relaxed">
-              Statement loop-fringe textural beadwork in ivory champagne. A head-turning clutch for high-society weddings and galas.
-            </p>
-          </div>
+    <!-- STORY + CONTACT -->
+    <section class="section story" id="studio" aria-labelledby="studioTitle">
+      <div class="container story-grid">
+        <div>
+          <h2 id="studioTitle" class="sr-only">About the studio</h2>
+          <blockquote>
+            “Crafty Cottage is a bead haven where creativity meets simplicity. We source beads that are skin-friendly and fabric-friendly, so every piece helps you stand out on the occasion.”
+            <cite>Crafty Cottage studio, University of Ibadan</cite>
+          </blockquote>
         </div>
-
-        <button onclick="orderItemDirect('First Lady Textured Clutch', '₦40,000')" class="w-full bg-forest-800 hover:bg-forest-900 text-linen-50 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow">
-          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i> Order via WhatsApp
-        </button>
+        <ul class="contact">
+          <li>
+            <a href="https://www.google.com/maps/search/?api=1&query=University%20of%20Ibadan%2C%20Ibadan%2C%20Oyo%20State" target="_blank" rel="noopener">
+              <span class="ci"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <span><span>Studio</span><strong>University of Ibadan, Oyo State</strong></span>
+            </a>
+          </li>
+          <li>
+            <a href="tel:+2347035596492">
+              <span class="ci"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+              <span><span>Call or WhatsApp</span><strong>+234 703 559 6492</strong></span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/craftycottage.ng/" target="_blank" rel="noopener">
+              <span class="ci"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg></span>
+              <span><span>Instagram</span><strong>@craftycottage.ng</strong></span>
+            </a>
+          </li>
+        </ul>
       </div>
+    </section>
+  </main>
 
-    </div>
-  </section>
-
-  <!-- INTERACTIVE CUSTOM COLOR & SILHOUETTE STUDIO -->
-  <section id="custom-studio" class="py-14 sm:py-20 px-4 sm:px-6 bg-forest-900 text-linen-50">
-    <div class="max-w-6xl mx-auto">
-      
-      <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
-        <span class="text-xs font-bold uppercase tracking-[0.3em] text-gold-400">Bespoke Handcraft</span>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-linen-50">Custom Color &amp; Bead Studio</h2>
-        <p class="text-xs sm:text-sm text-linen-200/70 font-cormorant italic text-base">Want a Dupree Heart or Pearly in your wedding theme colors? Select below to build your custom spec and send to WhatsApp.</p>
-      </div>
-
-      <div class="bg-forest-850 rounded-3xl border border-gold-500/30 p-5 sm:p-8 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
-        <!-- CONTROLS (7 COLS) -->
-        <div class="lg:col-span-7 space-y-6">
-          
-          <!-- STEP 1: SILHOUETTE -->
-          <div class="space-y-2.5">
-            <label class="text-xs font-bold uppercase tracking-wider text-gold-400 flex items-center gap-2">
-              <span class="w-5 h-5 rounded-full bg-forest-900 text-gold-400 text-xs flex items-center justify-center border border-gold-500/30">1</span>
-              <span>Select Model Silhouette</span>
-            </label>
-            <div class="grid grid-cols-2 gap-2.5" id="silhouetteOptions">
-              <button onclick="setSilhouette('Dupree Heart Bag', 45000, this)" class="sil-btn bg-gold-500 text-forest-950 font-bold p-3 rounded-xl text-xs text-left shadow">
-                💛 Dupree Heart
-                <span class="block text-[10px] text-forest-900 font-normal mt-0.5">₦45,000 Base</span>
-              </button>
-              <button onclick="setSilhouette('Pearly Bag', 35000, this)" class="sil-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
-                ⚪ Pearly Bag
-                <span class="block text-[10px] text-linen-200/60 font-normal mt-0.5">₦35,000 Base</span>
-              </button>
-              <button onclick="setSilhouette('First Lady Loop Fringe', 40000, this)" class="sil-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
-                ✨ First Lady Fringe
-                <span class="block text-[10px] text-linen-200/60 font-normal mt-0.5">₦40,000 Base</span>
-              </button>
-              <button onclick="setSilhouette('Custom Evening Box', 32000, this)" class="sil-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
-                📦 Structured Box
-                <span class="block text-[10px] text-linen-200/60 font-normal mt-0.5">₦32,000 Base</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- STEP 2: BEAD COLOR/TEXTURE -->
-          <div class="space-y-2.5">
-            <label class="text-xs font-bold uppercase tracking-wider text-gold-400 flex items-center gap-2">
-              <span class="w-5 h-5 rounded-full bg-forest-900 text-gold-400 text-xs flex items-center justify-center border border-gold-500/30">2</span>
-              <span>Select Bead Color / Material</span>
-            </label>
-            <div class="grid grid-cols-2 gap-2.5" id="beadOptions">
-              <button onclick="setBeadFinish('Gold Amber Crystal', 0, this)" class="bead-btn bg-gold-500 text-forest-950 font-bold p-3 rounded-xl text-xs text-left shadow">
-                🍯 Gold Amber Crystal
-              </button>
-              <button onclick="setBeadFinish('Royal Amethyst Purple Crystal', 0, this)" class="bead-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
-                💜 Royal Purple Crystal
-              </button>
-              <button onclick="setBeadFinish('Lustrous White Pearl', 0, this)" class="bead-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
-                ⚪ Lustrous Pearl
-              </button>
-              <button onclick="setBeadFinish('Emerald Green & Crystal Mix', 3000, this)" class="bead-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
-                🌿 Emerald &amp; Clear (+₦3k)
-              </button>
-            </div>
-          </div>
-
-          <!-- STEP 3: SPECIAL REQUEST -->
-          <div>
-            <label class="text-xs font-bold uppercase tracking-wider text-gold-400 block mb-1.5">Special Notes / Event Date</label>
-            <input type="text" id="customNotes" placeholder="e.g. Wedding on Dec 14, need matching silver chain..." class="w-full bg-forest-950 border border-gold-500/25 rounded-xl px-4 py-2.5 text-xs text-linen-50 focus:outline-none focus:border-gold-400">
-          </div>
-
-        </div>
-
-        <!-- LIVE SUMMARY & DISPATCH CARD (5 COLS) -->
-        <div class="lg:col-span-5 bg-gradient-to-b from-forest-950 to-forest-900 p-6 rounded-2xl border border-gold-500/30 space-y-5 shadow-2xl">
-          <div class="flex justify-between items-center border-b border-gold-500/20 pb-3">
-            <span class="text-xs uppercase font-bold tracking-widest text-gold-400">Bespoke Spec Summary</span>
-            <span class="text-[10px] bg-forest-800 text-linen-100 font-bold px-2.5 py-0.5 rounded-full border border-gold-500/30">3-5 Days Handcraft</span>
-          </div>
-
-          <div class="space-y-3 text-xs text-linen-200">
-            <div>
-              <span class="text-[10px] uppercase tracking-wider text-linen-200/50 block">Selected Model</span>
-              <p id="sumSil" class="font-serif text-lg font-bold text-linen-50">Dupree Heart Bag</p>
-            </div>
-            <div>
-              <span class="text-[10px] uppercase tracking-wider text-linen-200/50 block">Bead Shade</span>
-              <p id="sumBead" class="font-serif text-base font-bold text-gold-400">Gold Amber Crystal</p>
-            </div>
-          </div>
-
-          <div class="pt-4 border-t border-gold-500/20 space-y-1">
-            <span class="text-[10px] uppercase tracking-widest text-linen-200/50 block">Estimated Price</span>
-            <div id="estTotal" class="font-serif text-3xl font-bold text-gold-400">₦45,000</div>
-            <span class="text-[10px] text-linen-200/60 block">*Includes protective dustbag</span>
-          </div>
-
-          <button onclick="dispatchCustomBagWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-widest py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-[1.02]">
-            <i data-lucide="message-circle" class="w-4 h-4"></i> Dispatch Spec to WhatsApp
-          </button>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- WAIST BEADS, NECKPIECES & ANKLETS -->
-  <section id="waist-beads" class="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-forest-800/10">
-    <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
-      <span class="text-xs font-bold tracking-[0.25em] uppercase text-forest-700">Artisanal Accessories</span>
-      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-950">Waist Beads, Neckpieces &amp; Anklets</h2>
-      <p class="text-xs sm:text-sm text-forest-800">Customized to your exact waist size in inches (Tie-on or Screw Clasp).</p>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-      
-      <div class="bg-linen-100 rounded-3xl p-4 sm:p-5 border border-forest-800/10 space-y-3 flex flex-col justify-between">
-        <div class="space-y-2">
-          <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80" alt="Waist Beads Set" class="w-full h-48 object-cover rounded-2xl">
-          <div class="flex justify-between items-start">
-            <h3 class="font-serif text-lg font-bold text-forest-950">Royal Coral &amp; Gold Waist Beads</h3>
-            <span class="font-serif font-bold text-forest-900 text-base">₦4,500 <span class="text-[10px] font-normal text-forest-700">/ strand</span></span>
-          </div>
-          <p class="text-xs text-forest-800">Skin-friendly glass seed beads with genuine coral accents. Custom tie-on or screw clasp.</p>
-        </div>
-        <button onclick="orderItemDirect('Royal Coral Waist Beads (Strand)', '₦4,500')" class="w-full bg-forest-800 hover:bg-forest-900 text-linen-50 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5">
-          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Order via WhatsApp
-        </button>
-      </div>
-
-      <div class="bg-linen-100 rounded-3xl p-4 sm:p-5 border border-forest-800/10 space-y-3 flex flex-col justify-between">
-        <div class="space-y-2">
-          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80" alt="Beaded Neckpiece" class="w-full h-48 object-cover rounded-2xl">
-          <div class="flex justify-between items-start">
-            <h3 class="font-serif text-lg font-bold text-forest-950">Statement Pearl Collar Choker</h3>
-            <span class="font-serif font-bold text-forest-900 text-base">₦12,000</span>
-          </div>
-          <p class="text-xs text-forest-800">Multi-strand woven pearl necklace with adjustable gold extender chain.</p>
-        </div>
-        <button onclick="orderItemDirect('Statement Pearl Collar Choker', '₦12,000')" class="w-full bg-forest-800 hover:bg-forest-900 text-linen-50 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5">
-          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Order via WhatsApp
-        </button>
-      </div>
-
-      <div class="bg-linen-100 rounded-3xl p-4 sm:p-5 border border-forest-800/10 space-y-3 flex flex-col justify-between">
-        <div class="space-y-2">
-          <img src="https://images.unsplash.com/photo-1611591475883-207a99f1fa0a?auto=format&fit=crop&w=800&q=80" alt="Crystal Beaded Anklet" class="w-full h-48 object-cover rounded-2xl">
-          <div class="flex justify-between items-start">
-            <h3 class="font-serif text-lg font-bold text-forest-950">Crystal Cascade Anklet Pair</h3>
-            <span class="font-serif font-bold text-forest-900 text-base">₦6,000 <span class="text-[10px] font-normal text-forest-700">/ pair</span></span>
-          </div>
-          <p class="text-xs text-forest-800">Dainty, water-resistant crystal anklets that don't fade or discolor.</p>
-        </div>
-        <button onclick="orderItemDirect('Crystal Cascade Anklet Pair', '₦6,000')" class="w-full bg-forest-800 hover:bg-forest-900 text-linen-50 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5">
-          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Order via WhatsApp
-        </button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- STUDIO STORY & DIRECT CONTACT -->
-  <section id="story" class="py-14 sm:py-20 px-4 sm:px-6 bg-linen-100 border-t border-forest-800/10">
-    <div class="max-w-4xl mx-auto text-center space-y-4">
-      <div class="w-10 h-10 rounded-2xl bg-forest-800 text-gold-400 flex items-center justify-center font-serif font-bold text-lg mx-auto shadow">
-        C
-      </div>
-      <span class="text-xs font-bold uppercase tracking-[0.25em] text-forest-700">The Crafty Cottage Promise</span>
-      <h3 class="font-serif text-2xl sm:text-3xl font-bold text-forest-950">Bead to Perfection • Ibadan Haven</h3>
-      <p class="text-xs sm:text-sm text-forest-850 leading-relaxed font-cormorant italic text-base sm:text-lg max-w-2xl mx-auto">
-        "Crafty Cottage is a bead haven where creativity meets simplicity. Handcrafted at the University of Ibadan, we source premium beads that are skin-friendly and fabric-friendly to make you stand out on every occasion."
-      </p>
-      <div class="pt-2 flex flex-wrap justify-center gap-6 text-xs text-forest-800">
-        <div><strong>📍 Studio:</strong> University of Ibadan, Ibadan, Oyo State</div>
-        <div><strong>📞 Phone / WhatsApp:</strong> +234 703 559 6492</div>
-        <div><strong>📸 Instagram:</strong> @Craftycottage.ng</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STICKY MOBILE BOTTOM BAR -->
-  <div class="fixed bottom-0 left-0 right-0 bg-forest-900/95 backdrop-blur-md text-linen-50 p-3 border-t border-gold-500/30 shadow-2xl flex items-center justify-between sm:hidden z-40">
-    <div class="flex items-center gap-2">
-      <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
-      <div>
-        <span class="text-[9px] uppercase tracking-wider text-gold-400 block font-bold">Crafty Cottage</span>
-        <span class="text-xs font-bold">Direct WhatsApp Orders</span>
-      </div>
-    </div>
-    <a href="https://wa.me/2347035596492?text=Hello%20Crafty%20Cottage!%20I%20would%20like%20to%20order%20the%20Dupree%20Midi." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl flex items-center gap-1.5 shadow">
-      <i data-lucide="message-circle" class="w-4 h-4"></i> Order Now
-    </a>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="bg-forest-950 text-linen-200/60 py-10 px-4 text-center text-xs border-t border-forest-900">
-    <div class="max-w-4xl mx-auto space-y-2">
-      <div class="font-serif text-xl font-bold text-linen-50 tracking-wider">CRAFTY COTTAGE</div>
-      <p class="text-[11px] text-linen-200/50">Bead to Perfection • Handcrafted at University of Ibadan, Nigeria</p>
-      <div class="text-[10px] text-linen-200/30 pt-3 border-t border-forest-900/60">
-        © 2026 Crafty Cottage. Direct WhatsApp Ordering Prototype by Gran Jefe.
-      </div>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="foot-name">Crafty Cottage</div>
+      <p>Bead to perfection · Hand-beaded bags and accessories, University of Ibadan</p>
+      <p>© 2026 Crafty Cottage. Concept preview by Gran Jefe.</p>
     </div>
   </footer>
 
-  <script>
-    lucide.createIcons();
+  <div class="sticky-bar">
+    <div class="meta"><strong>Crafty Cottage</strong>Orders and custom requests</div>
+    <a class="btn btn-primary" data-wa="general" href="https://wa.me/2347035596492" target="_blank" rel="noopener">
+      <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span>WhatsApp</span>
+    </a>
+  </div>
 
-    // CUSTOM BAG BUILDER STATE
-    let customState = {
-      sil: 'Dupree Heart Bag',
-      silPrice: 45000,
-      bead: 'Gold Amber Crystal',
-      beadExtra: 0
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+
+  <script>
+    'use strict';
+
+    const WHATSAPP_NUMBER = '2347035596492';
+    const DRAFT_KEY = 'crafty-design-v1';
+    const DRAFT_TTL_MS = 14 * 24 * 60 * 60 * 1000; // 14 days
+
+    const PRIMA = [
+      { id: 'dupree-gold', name: 'Dupree Midi, gold', price: 45000, tag: 'Signature', note: 'Sculptural heart bag in faceted gold beads with a top handle.', img: 'dupree-gold', alt: 'Dupree Midi heart bag in gold beads' },
+      { id: 'dupree-purple', name: 'Dupree Midi, purple', price: 45000, tag: 'Royal purple', note: 'The signature heart shape in deep purple beads that catch the light.', img: 'dupree-purple', alt: 'Dupree Midi heart bag in purple beads' },
+      { id: 'pearly', name: 'Pearly', price: 35000, tag: 'Pearls', note: 'Large faux pearls with an arched pearl handle. Made for weddings and dinners.', img: 'pearly', alt: 'Pearly bag in large white pearls' },
+      { id: 'first-lady', name: 'First Lady', price: 40000, tag: 'Fringe clutch', note: 'Loop-fringe beadwork in ivory champagne. A statement clutch for galas.', img: 'first-lady', alt: 'First Lady loop-fringe clutch in ivory champagne' },
+    ];
+
+    const SHAPES = [
+      { id: 'dupree', name: 'Dupree heart', price: 45000 },
+      { id: 'pearly', name: 'Pearly', price: 35000 },
+      { id: 'first-lady', name: 'First Lady fringe', price: 40000 },
+      { id: 'box', name: 'Structured box', price: 32000 },
+    ];
+    const BEADS = [
+      { id: 'gold', name: 'Gold', extra: 0, swatch: 'linear-gradient(135deg,#F3D27A,#B8860B)' },
+      { id: 'purple', name: 'Royal purple', extra: 0, swatch: 'linear-gradient(135deg,#9B59B6,#4A235A)' },
+      { id: 'pearl', name: 'White pearl', extra: 0, swatch: 'radial-gradient(circle at 35% 35%,#FFFFFF,#DCD6CC)' },
+      { id: 'emerald', name: 'Emerald and clear', extra: 3000, swatch: 'linear-gradient(135deg,#2ECC71 0 50%,#E8F6EF 50% 100%)' },
+    ];
+
+    const ACCESSORIES = [
+      { id: 'waist', name: 'Waist beads', icon: 'i-circle', note: 'Glass seed beads, tie-on or screw clasp, made to your waist size in inches.' },
+      { id: 'neck', name: 'Beaded neckpieces', icon: 'i-gem', note: 'Pearl and bead collars and necklaces to match your outfit.' },
+      { id: 'anklet', name: 'Anklets', icon: 'i-sparkle', note: 'Light beaded anklets, single or in pairs, in your colours.' },
+    ];
+
+    const naira = n => '₦' + Number(n).toLocaleString('en-NG');
+    const $ = id => document.getElementById(id);
+    const waUrl = text => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+
+    /* ---------- Toast ---------- */
+    let toastTimer;
+    function toast(message) {
+      const region = $('toastRegion');
+      clearTimeout(toastTimer);
+      region.innerHTML = '<div class="toast"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><p></p></div>';
+      region.querySelector('p').textContent = message;
+      toastTimer = setTimeout(() => { region.innerHTML = ''; }, 4000);
+    }
+
+    /* ---------- WhatsApp ---------- */
+    function openWhatsApp(text, btn) {
+      const url = waUrl(text);
+      let label;
+      if (btn) {
+        label = btn.innerHTML;
+        btn.disabled = true;
+        btn.setAttribute('aria-busy', 'true');
+        btn.innerHTML = '<span class="spinner" aria-hidden="true"></span><span>Opening WhatsApp…</span>';
+      }
+      const win = window.open(url, '_blank');
+      if (win) win.opener = null;
+      else window.location.href = url; // pop-up blocked: open in the same tab
+      setTimeout(() => {
+        if (btn) { btn.innerHTML = label; btn.disabled = false; btn.removeAttribute('aria-busy'); }
+      }, 1500);
+    }
+
+    // General chat links get a short pre-filled greeting
+    document.querySelectorAll('[data-wa="general"]').forEach(a => {
+      a.href = waUrl('Hello Crafty Cottage, I have a question about your beaded bags.');
+    });
+
+    /* ---------- Prima collection ---------- */
+    $('productGrid').innerHTML = PRIMA.map(p => `
+      <li class="product">
+        <div class="product-img">
+          <img src="/craftycottage/products/${p.img}.jpg" alt="${p.alt}" width="206" height="208" loading="lazy" decoding="async">
+          <span class="tag">${p.tag}</span>
+        </div>
+        <div class="product-body">
+          <h3>${p.name}</h3>
+          <span class="price">${naira(p.price)}</span>
+          <p class="product-note">${p.note}</p>
+        </div>
+        <button type="button" class="btn btn-outline" data-order="${p.id}" aria-label="Order ${p.name} on WhatsApp">
+          <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span>Order</span>
+        </button>
+      </li>`).join('');
+
+    /* ---------- Accessories ---------- */
+    $('accList').innerHTML = ACCESSORIES.map(a => `
+      <li class="acc-row">
+        <span class="acc-icon"><svg class="icon" aria-hidden="true"><use href="#${a.icon}"/></svg></span>
+        <div><h3>${a.name}</h3><p>${a.note}</p></div>
+        <button type="button" class="btn btn-outline" data-quote="${a.id}" aria-label="Ask for a quote on ${a.name.toLowerCase()}">
+          <svg class="icon" aria-hidden="true"><use href="#i-ruler"/></svg><span>Ask for a quote</span>
+        </button>
+      </li>`).join('');
+
+    /* ---------- Custom studio ---------- */
+    function loadDraft() {
+      try {
+        const d = JSON.parse(localStorage.getItem(DRAFT_KEY) || 'null');
+        if (!d || typeof d.savedAt !== 'number' || Date.now() - d.savedAt > DRAFT_TTL_MS) {
+          localStorage.removeItem(DRAFT_KEY);
+          return null;
+        }
+        return d;
+      } catch (e) { return null; }
+    }
+    function saveDraft() {
+      try {
+        localStorage.setItem(DRAFT_KEY, JSON.stringify({ shape: state.shape, bead: state.bead, notes: $('customNotes').value, savedAt: Date.now() }));
+      } catch (e) { /* storage unavailable: design still works for this visit */ }
+    }
+
+    const draft = loadDraft();
+    const state = {
+      shape: SHAPES.some(s => s.id === draft?.shape) ? draft.shape : 'dupree',
+      bead: BEADS.some(b => b.id === draft?.bead) ? draft.bead : 'gold',
     };
 
-    function setSilhouette(name, price, btn) {
-      customState.sil = name;
-      customState.silPrice = price;
-      document.querySelectorAll('.sil-btn').forEach(b => {
-        b.className = "sil-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500";
-      });
-      btn.className = "sil-btn bg-gold-500 text-forest-950 font-bold p-3 rounded-xl text-xs text-left shadow";
-      updateBuilder();
+    $('shapeOptions').innerHTML = SHAPES.map(s => `
+      <label class="option">
+        <input type="radio" name="shape" value="${s.id}" ${s.id === state.shape ? 'checked' : ''}>
+        <span class="card"><span><b>${s.name}</b><small>From ${naira(s.price)}</small></span>
+        <svg class="icon check" aria-hidden="true"><use href="#i-check"/></svg></span>
+      </label>`).join('');
+    $('beadOptions').innerHTML = BEADS.map(b => `
+      <label class="option">
+        <input type="radio" name="bead" value="${b.id}" ${b.id === state.bead ? 'checked' : ''}>
+        <span class="card"><span class="swatch" style="background:${b.swatch}" aria-hidden="true"></span>
+        <span><b>${b.name}</b><small>${b.extra ? `+${naira(b.extra)}` : 'No extra cost'}</small></span>
+        <svg class="icon check" aria-hidden="true"><use href="#i-check"/></svg></span>
+      </label>`).join('');
+    if (draft?.notes) $('customNotes').value = draft.notes;
+
+    const shapeOf = () => SHAPES.find(s => s.id === state.shape);
+    const beadOf = () => BEADS.find(b => b.id === state.bead);
+    const designTotal = () => shapeOf().price + beadOf().extra;
+
+    function renderSummary() {
+      $('sumShape').textContent = shapeOf().name;
+      $('sumBead').textContent = beadOf().name;
+      $('estTotal').textContent = naira(designTotal());
+      $('notesCount').textContent = `${$('customNotes').value.length} / 300`;
     }
 
-    function setBeadFinish(name, extra, btn) {
-      customState.bead = name;
-      customState.beadExtra = extra;
-      document.querySelectorAll('.bead-btn').forEach(b => {
-        b.className = "bead-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500";
-      });
-      btn.className = "bead-btn bg-gold-500 text-forest-950 font-bold p-3 rounded-xl text-xs text-left shadow";
-      updateBuilder();
-    }
+    $('studioForm').addEventListener('change', e => {
+      if (e.target.name === 'shape') state.shape = e.target.value;
+      if (e.target.name === 'bead') state.bead = e.target.value;
+      renderSummary();
+      saveDraft();
+    });
+    $('customNotes').addEventListener('input', () => { renderSummary(); saveDraft(); });
 
-    function updateBuilder() {
-      const total = customState.silPrice + customState.beadExtra;
-      document.getElementById('sumSil').innerText = customState.sil;
-      document.getElementById('sumBead').innerText = customState.bead;
-      document.getElementById('estTotal').innerText = `₦${total.toLocaleString()}`;
-    }
+    $('sendDesign').addEventListener('click', e => {
+      const notes = $('customNotes').value.trim();
+      const msg = [
+        'Hello Crafty Cottage, I would like a custom beaded bag:',
+        '',
+        `*Shape:* ${shapeOf().name}`,
+        `*Bead colour:* ${beadOf().name}`,
+        notes ? `*Date and notes:* ${notes}` : null,
+        `*Estimate from the website:* ${naira(designTotal())}`,
+        '',
+        'Please confirm the price and how long it will take. Thank you!',
+      ].filter(l => l !== null).join('\n');
+      openWhatsApp(msg, e.currentTarget);
+      toast('WhatsApp opened with your design. Tap send so Crafty Cottage receives it.');
+    });
 
-    function dispatchCustomBagWhatsApp() {
-      const total = customState.silPrice + customState.beadExtra;
-      const notes = document.getElementById('customNotes').value || 'None';
+    /* ---------- Order + quote buttons ---------- */
+    document.addEventListener('click', e => {
+      const btn = e.target.closest('button[data-order], button[data-quote]');
+      if (!btn) return;
+      if (btn.dataset.order) {
+        const p = PRIMA.find(x => x.id === btn.dataset.order);
+        const msg = [
+          'Hello Crafty Cottage, I would like to order:',
+          '',
+          `*Bag:* ${p.name} (Prima collection)`,
+          `*Listed price:* ${naira(p.price)}`,
+          '',
+          'Is it available, and how much is delivery to me?',
+        ].join('\n');
+        openWhatsApp(msg, btn);
+        toast(`WhatsApp opened for ${p.name}. Tap send to place your order.`);
+      } else {
+        const a = ACCESSORIES.find(x => x.id === btn.dataset.quote);
+        const msg = [
+          `Hello Crafty Cottage, I would like a quote for ${a.name.toLowerCase()}.`,
+          '',
+          '*Size:* ',
+          '*Colours:* ',
+          '*Quantity:* ',
+        ].join('\n');
+        openWhatsApp(msg, btn);
+        toast('WhatsApp opened. Fill in your size and colours, then tap send.');
+      }
+    });
 
-      const msg = `*CUSTOM BEADED BAG SPEC - CRAFTY COTTAGE*\n\n` +
-                  `👜 *Model Silhouette:* ${customState.sil}\n` +
-                  `✨ *Bead Color & Texture:* ${customState.bead}\n` +
-                  `📝 *Special Notes:* ${notes}\n` +
-                  `💰 *Estimated Total:* ₦${total.toLocaleString()}\n\n` +
-                  `Hello Crafty Cottage! I would like to place this custom beaded bag order!`;
-
-      window.open(`https://wa.me/2347035596492?text=${encodeURIComponent(msg)}`, '_blank');
-    }
-
-    function orderItemDirect(itemName, price) {
-      const msg = `*ORDER INQUIRY - CRAFTY COTTAGE*\n\n` +
-                  `👜 *Bag:* ${itemName}\n` +
-                  `💰 *Price:* ${price}\n` +
-                  `📍 *Collection:* The Prima Collection\n` +
-                  `🚚 *Delivery:* Ibadan / Lagos / Nationwide\n\n` +
-                  `Hello Crafty Cottage! Is the ${itemName} available for order?`;
-
-      window.open(`https://wa.me/2347035596492?text=${encodeURIComponent(msg)}`, '_blank');
-    }
+    renderSummary();
   </script>
 </body>
 </html>
