@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Crafty Cottage | Handcrafted Beaded Bags & Artisanal Accessories</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              950: '#111B07',
+              900: '#1A2A0C',
+              850: '#20330D',
+              800: '#263E0F', // Crafty Cottage signature brand green
+              700: '#355416',
+              600: '#4A7322',
+              100: '#EAF2DE',
+            },
+            linen: {
+              50: '#FAF8F4',
+              100: '#F4EFE6',
+              200: '#E8DEC8',
+              300: '#D5C4A3',
+            },
+            gold: {
+              400: '#E6C975',
+              500: '#D4AF37',
+              600: '#B89228',
+            },
+            coral: '#C86D51',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            cormorant: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-linen-50 text-forest-950 font-sans antialiased selection:bg-forest-800 selection:text-linen-50 pb-20 sm:pb-0">
+
+  <!-- TOP ANNOUNCEMENT STRIP -->
+  <div class="bg-forest-900 text-linen-100 text-[11px] sm:text-xs py-2 px-3 text-center tracking-wider uppercase font-sans border-b border-gold-500/30 flex items-center justify-center gap-2">
+    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-400 flex-shrink-0"></i>
+    <span class="truncate">Bead to Perfection • Handcrafted at University of Ibadan, Nigeria • Nationwide Delivery</span>
+    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-400 flex-shrink-0"></i>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="bg-linen-50/95 backdrop-blur-md sticky top-0 z-40 border-b border-forest-800/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 sm:py-4 flex justify-between items-center gap-3">
+      
+      <!-- LOGO & BRAND -->
+      <a href="#" class="flex items-center gap-2.5 sm:gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-forest-800 text-linen-50 flex items-center justify-center font-serif text-xl font-bold shadow-md border border-gold-500/30 flex-shrink-0">
+          C
+        </div>
+        <div>
+          <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-forest-950 block leading-none">Crafty Cottage</span>
+          <span class="text-[9px] sm:text-[10px] tracking-[0.25em] text-forest-700 font-sans uppercase block mt-1">Bead to perfection</span>
+        </div>
+      </a>
+
+      <!-- DESKTOP NAV -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-forest-850">
+        <a href="#collection" class="hover:text-forest-600 transition-colors">Beaded Bags</a>
+        <a href="#waist-beads" class="hover:text-forest-600 transition-colors">Waist Beads</a>
+        <a href="#custom-studio" class="hover:text-forest-600 transition-colors">Custom Studio</a>
+        <a href="#craft" class="hover:text-forest-600 transition-colors">Our Craft</a>
+      </nav>
+
+      <!-- DIRECT WHATSAPP ACTION -->
+      <a href="https://wa.me/2347035596492?text=Hello%20Crafty%20Cottage!%20I%20would%20like%20to%20order%20from%20your%20beaded%20accessories%20collection." target="_blank" class="bg-forest-800 hover:bg-forest-900 text-linen-50 px-4 sm:px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase flex items-center gap-1.5 shadow transition-all hover:scale-105 border border-gold-500/30">
+        <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+        <span class="hidden sm:inline">WhatsApp Order</span>
+        <span class="sm:hidden">Order</span>
+      </a>
+
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative py-12 sm:py-20 md:py-28 px-4 sm:px-6 bg-gradient-to-b from-linen-100 via-linen-50 to-linen-50 border-b border-forest-800/10 overflow-hidden">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+      
+      <div class="md:col-span-7 space-y-4 sm:space-y-6 text-center md:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-forest-800/10 text-forest-800 text-[10px] sm:text-xs font-semibold uppercase tracking-widest border border-forest-800/15">
+          <i data-lucide="gem" class="w-3.5 h-3.5 text-forest-700"></i> Premium Skin &amp; Fabric-Friendly Beads
+        </div>
+
+        <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-forest-950 font-bold leading-tight">
+          Where Creativity <br class="hidden sm:inline"/>
+          <span class="italic text-forest-800 font-cormorant font-normal">Meets Simplicity.</span>
+        </h1>
+
+        <p class="text-forest-850 text-sm sm:text-base max-w-xl mx-auto md:mx-0 font-cormorant italic text-lg sm:text-xl leading-relaxed">
+          "Handcrafted beaded bags, intricate waist beads, statement neckpieces, and anklets designed from premium, non-tarnish crystal and pearl beads to complement your individuality."
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 pt-2 justify-center md:justify-start">
+          <a href="#collection" class="bg-forest-800 hover:bg-forest-900 text-linen-50 px-7 py-3.5 rounded-full text-xs font-semibold tracking-wider uppercase flex items-center justify-center gap-2 shadow-lg transition-all border border-gold-500/30">
+            <i data-lucide="shopping-bag" class="w-4 h-4 text-gold-400"></i>
+            <span>Browse Beaded Bags</span>
+          </a>
+          <a href="#custom-studio" class="border-2 border-forest-800/30 hover:border-forest-800 text-forest-900 px-7 py-3.5 rounded-full text-xs font-semibold tracking-wider uppercase flex items-center justify-center gap-2 transition-all">
+            <i data-lucide="sparkles" class="w-4 h-4 text-forest-700"></i>
+            <span>Build Custom Bag</span>
+          </a>
+        </div>
+
+        <!-- TRUST BADGES -->
+        <div class="pt-6 flex flex-wrap items-center justify-center md:justify-start gap-6 border-t border-forest-800/10 text-xs font-medium text-forest-800">
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="check-circle" class="w-4 h-4 text-forest-600"></i> 100% Hand-Woven
+          </div>
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="check-circle" class="w-4 h-4 text-forest-600"></i> Ibadan &amp; Nationwide Delivery
+          </div>
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="check-circle" class="w-4 h-4 text-forest-600"></i> Fast WhatsApp Customizer
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO SHOWCASE CARD -->
+      <div class="md:col-span-5 relative max-w-md mx-auto w-full">
+        <div class="relative bg-linen-100 p-3 sm:p-4 rounded-3xl shadow-2xl border border-forest-800/15">
+          <div class="relative h-72 sm:h-84 w-full rounded-2xl overflow-hidden shadow-inner">
+            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80" alt="The Emerald Pearl Handbag" class="w-full h-full object-cover">
+            
+            <span class="absolute top-3 left-3 bg-forest-950/85 backdrop-blur-md text-gold-400 text-[10px] font-serif font-bold px-3 py-1 rounded-full border border-gold-500/30">
+              Signature Bestseller
+            </span>
+          </div>
+
+          <div class="p-3.5 text-center space-y-2">
+            <span class="text-[10px] uppercase font-sans tracking-widest text-forest-700 block">Artisanal Pearl &amp; Crystal Handbag</span>
+            <h3 class="font-serif text-xl font-bold text-forest-950">THE EMERALD HERITAGE TOTE</h3>
+            <p class="text-xs text-forest-800 font-cormorant italic">Crafted with 1,200+ crystal beads. Fits phone, gloss, keys, and cards.</p>
+            
+            <div class="pt-2 flex justify-between items-center px-1">
+              <span class="font-serif font-bold text-forest-900 text-xl">₦28,500</span>
+              <button onclick="orderItemDirect('The Emerald Heritage Tote', '₦28,500')" class="bg-forest-800 hover:bg-forest-900 text-linen-50 px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 shadow">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BEADED BAGS COLLECTION -->
+  <section id="collection" class="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+      <span class="text-xs font-bold tracking-[0.25em] uppercase text-forest-700">Artisanal Carryalls</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-950">Handcrafted Beaded Bags</h2>
+      <p class="text-xs sm:text-sm text-forest-800">Select any bag below to order directly via WhatsApp or request custom color variations.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      
+      <!-- BAG 1 -->
+      <div class="bg-linen-100 rounded-3xl p-4 sm:p-5 border border-forest-800/10 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between space-y-4 group">
+        <div class="space-y-3">
+          <div class="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80" alt="Pearl Moon Bag" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-forest-900/90 text-gold-400 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-gold-500/20">
+              Lustrous Pearls
+            </span>
+          </div>
+
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-forest-950">Ivory Pearl Moon Bag</h3>
+              <span class="text-[11px] text-forest-700 font-sans block mt-0.5">Dual Beaded Top Handle</span>
+            </div>
+            <span class="font-serif font-bold text-forest-900 text-xl">₦25,000</span>
+          </div>
+          <p class="text-xs text-forest-800 leading-relaxed font-sans">
+            Woven with premium lustrous faux-pearl beads with reinforced double-weave interior for evening events and weddings.
+          </p>
+        </div>
+
+        <button onclick="orderItemDirect('Ivory Pearl Moon Bag', '₦25,000')" class="w-full bg-forest-800 hover:bg-forest-900 text-linen-50 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 border border-gold-500/20 shadow">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i> Order on WhatsApp
+        </button>
+      </div>
+
+      <!-- BAG 2 -->
+      <div class="bg-linen-100 rounded-3xl p-4 sm:p-5 border border-forest-800/10 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between space-y-4 group">
+        <div class="space-y-3">
+          <div class="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=800&q=80" alt="Crystal Prism Clutch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-forest-900/90 text-gold-400 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-gold-500/20">
+              Crystal Glass
+            </span>
+          </div>
+
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-forest-950">Crystal Prism Evening Clutch</h3>
+              <span class="text-[11px] text-forest-700 font-sans block mt-0.5">Includes Detachable Gold Chain</span>
+            </div>
+            <span class="font-serif font-bold text-forest-900 text-xl">₦22,000</span>
+          </div>
+          <p class="text-xs text-forest-800 leading-relaxed font-sans">
+            Ultra-reflective multifaceted crystal beads that catch light from every angle. Ideal for dinner dates, galas, and parties.
+          </p>
+        </div>
+
+        <button onclick="orderItemDirect('Crystal Prism Evening Clutch', '₦22,000')" class="w-full bg-forest-800 hover:bg-forest-900 text-linen-50 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 border border-gold-500/20 shadow">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i> Order on WhatsApp
+        </button>
+      </div>
+
+      <!-- BAG 3 -->
+      <div class="bg-linen-100 rounded-3xl p-4 sm:p-5 border border-forest-800/10 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between space-y-4 group">
+        <div class="space-y-3">
+          <div class="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80" alt="Amber Crossbody" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-forest-900/90 text-gold-400 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-gold-500/20">
+              Everyday Chic
+            </span>
+          </div>
+
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-forest-950">Amber Gold Crossbody</h3>
+              <span class="text-[11px] text-forest-700 font-sans block mt-0.5">Solid Structured Base</span>
+            </div>
+            <span class="font-serif font-bold text-forest-900 text-xl">₦26,500</span>
+          </div>
+          <p class="text-xs text-forest-800 leading-relaxed font-sans">
+            Warm honey amber beads with sturdy top handle and crossbody strap. Comfortable weight and easy magnetic snap closure.
+          </p>
+        </div>
+
+        <button onclick="orderItemDirect('Amber Gold Crossbody Bag', '₦26,500')" class="w-full bg-forest-800 hover:bg-forest-900 text-linen-50 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 border border-gold-500/20 shadow">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i> Order on WhatsApp
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERACTIVE CUSTOM BAG BUILDER STUDIO -->
+  <section id="custom-studio" class="py-14 sm:py-20 px-4 sm:px-6 bg-forest-900 text-linen-50">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+        <span class="text-xs font-bold uppercase tracking-[0.3em] text-gold-400">Bespoke Handcraft</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-linen-50">Custom Beaded Bag Studio</h2>
+        <p class="text-xs sm:text-sm text-linen-200/70 font-cormorant italic text-base">Select your silhouette, bead style, strap preference, and send your custom spec directly to Crafty Cottage's WhatsApp.</p>
+      </div>
+
+      <div class="bg-forest-850 rounded-3xl border border-gold-500/30 p-5 sm:p-8 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- BUILDER CONTROLS (7 COLS) -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- STEP 1: SILHOUETTE -->
+          <div class="space-y-2.5">
+            <label class="text-xs font-bold uppercase tracking-wider text-gold-400 flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-forest-900 text-gold-400 text-xs flex items-center justify-center border border-gold-500/30">1</span>
+              <span>Select Bag Silhouette</span>
+            </label>
+            <div class="grid grid-cols-2 gap-2.5" id="silhouetteOptions">
+              <button onclick="setSilhouette('Structured Pearl Tote', 28000, this)" class="sil-btn bg-gold-500 text-forest-950 font-bold p-3 rounded-xl text-xs text-left shadow">
+                👜 Structured Tote
+                <span class="block text-[10px] text-forest-900 font-normal mt-0.5">Base: ₦28,000</span>
+              </button>
+              <button onclick="setSilhouette('Crescent Moon Clutch', 22000, this)" class="sil-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
+                🌙 Crescent Clutch
+                <span class="block text-[10px] text-linen-200/60 font-normal mt-0.5">Base: ₦22,000</span>
+              </button>
+              <button onclick="setSilhouette('Mini Box Crossbody', 25000, this)" class="sil-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
+                📦 Mini Box Crossbody
+                <span class="block text-[10px] text-linen-200/60 font-normal mt-0.5">Base: ₦25,000</span>
+              </button>
+              <button onclick="setSilhouette('Bucket Bag with Drawstring', 30000, this)" class="sil-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
+                🪣 Bucket Bag + Pouch
+                <span class="block text-[10px] text-linen-200/60 font-normal mt-0.5">Base: ₦30,000</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2: BEAD FINISH -->
+          <div class="space-y-2.5">
+            <label class="text-xs font-bold uppercase tracking-wider text-gold-400 flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-forest-900 text-gold-400 text-xs flex items-center justify-center border border-gold-500/30">2</span>
+              <span>Choose Bead Texture &amp; Tone</span>
+            </label>
+            <div class="grid grid-cols-2 gap-2.5" id="beadOptions">
+              <button onclick="setBeadFinish('Lustrous Ivory Pearls', 0, this)" class="bead-btn bg-gold-500 text-forest-950 font-bold p-3 rounded-xl text-xs text-left shadow">
+                ⚪ Lustrous Ivory Pearls
+              </button>
+              <button onclick="setBeadFinish('Faceted Crystal Glass (Clear)', 2000, this)" class="bead-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
+                💎 Faceted Clear Crystal (+₦2k)
+              </button>
+              <button onclick="setBeadFinish('Emerald Green & Gold Accents', 3000, this)" class="bead-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
+                🌿 Forest Emerald &amp; Gold (+₦3k)
+              </button>
+              <button onclick="setBeadFinish('Warm Amber & Honey Glass', 2500, this)" class="bead-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
+                🍯 Warm Amber Honey (+₦2.5k)
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3: STRAP OPTION -->
+          <div class="space-y-2.5">
+            <label class="text-xs font-bold uppercase tracking-wider text-gold-400 flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-forest-900 text-gold-400 text-xs flex items-center justify-center border border-gold-500/30">3</span>
+              <span>Strap Preference</span>
+            </label>
+            <div class="grid grid-cols-3 gap-2 text-xs">
+              <button onclick="setStrap('Woven Beaded Handle', 0, this)" class="strap-btn bg-gold-500 text-forest-950 font-bold p-2.5 rounded-xl text-center shadow">
+                Beaded Handle
+              </button>
+              <button onclick="setStrap('Detachable Gold Metal Chain', 1500, this)" class="strap-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-2.5 rounded-xl text-center hover:border-gold-500">
+                Gold Chain (+₦1.5k)
+              </button>
+              <button onclick="setStrap('Dual Strap (Beaded + Chain)', 3000, this)" class="strap-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-2.5 rounded-xl text-center hover:border-gold-500">
+                Dual Combo (+₦3k)
+              </button>
+            </div>
+          </div>
+
+          <!-- SPECIAL NOTES -->
+          <div>
+            <label class="text-xs font-bold uppercase tracking-wider text-gold-400 block mb-1.5">Special Dimensions / Color Request (Optional)</label>
+            <input type="text" id="customNotes" placeholder="e.g., Must fit Samsung S24 Ultra, prefer silver hardware..." class="w-full bg-forest-950 border border-gold-500/25 rounded-xl px-4 py-2.5 text-xs text-linen-50 focus:outline-none focus:border-gold-400">
+          </div>
+
+        </div>
+
+        <!-- LIVE SUMMARY & DISPATCH CARD (5 COLS) -->
+        <div class="lg:col-span-5 bg-gradient-to-b from-forest-950 to-forest-900 p-6 rounded-2xl border border-gold-500/30 space-y-5 shadow-2xl">
+          <div class="flex justify-between items-center border-b border-gold-500/20 pb-3">
+            <span class="text-xs uppercase font-bold tracking-widest text-gold-400">Your Custom Spec</span>
+            <span class="text-[10px] bg-forest-800 text-linen-100 font-bold px-2.5 py-0.5 rounded-full border border-gold-500/30">3-5 Days Crafting</span>
+          </div>
+
+          <div class="space-y-3 text-xs text-linen-200">
+            <div>
+              <span class="text-[10px] uppercase tracking-wider text-linen-200/50 block">Silhouette</span>
+              <p id="sumSil" class="font-serif text-lg font-bold text-linen-50">Structured Pearl Tote</p>
+            </div>
+            <div>
+              <span class="text-[10px] uppercase tracking-wider text-linen-200/50 block">Bead Texture</span>
+              <p id="sumBead" class="font-serif text-base font-bold text-gold-400">Lustrous Ivory Pearls</p>
+            </div>
+            <div>
+              <span class="text-[10px] uppercase tracking-wider text-linen-200/50 block">Strap Style</span>
+              <p id="sumStrap" class="font-serif text-sm font-semibold text-linen-100">Woven Beaded Handle</p>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-gold-500/20 space-y-1">
+            <span class="text-[10px] uppercase tracking-widest text-linen-200/50 block">Estimated Custom Quote</span>
+            <div id="estTotal" class="font-serif text-3xl font-bold text-gold-400">₦28,000</div>
+            <span class="text-[10px] text-linen-200/60 block">*Includes dustbag &amp; custom sizing</span>
+          </div>
+
+          <button onclick="dispatchCustomBagWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-widest py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-[1.02]">
+            <i data-lucide="message-circle" class="w-4 h-4"></i> Dispatch Spec to WhatsApp
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WAIST BEADS & ACCESSORIES -->
+  <section id="waist-beads" class="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto border-t border-forest-800/10">
+    <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+      <span class="text-xs font-bold tracking-[0.25em] uppercase text-forest-700">Adornments</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-950">Waist Beads, Neckpieces &amp; Anklets</h2>
+      <p class="text-xs sm:text-sm text-forest-800">Customized to your exact waist size in inches (Tie-on or Screw Clasp).</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      
+      <div class="bg-linen-100 rounded-3xl p-4 sm:p-5 border border-forest-800/10 space-y-3 flex flex-col justify-between">
+        <div class="space-y-2">
+          <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80" alt="Waist Beads Set" class="w-full h-48 object-cover rounded-2xl">
+          <div class="flex justify-between items-start">
+            <h3 class="font-serif text-lg font-bold text-forest-950">Royal Coral &amp; Gold Waist Beads</h3>
+            <span class="font-serif font-bold text-forest-900 text-base">₦4,500 <span class="text-[10px] font-normal text-forest-700">/ strand</span></span>
+          </div>
+          <p class="text-xs text-forest-800">Skin-friendly glass seed beads with genuine coral accents. Custom tie-on or screw clasp.</p>
+        </div>
+        <button onclick="orderItemDirect('Royal Coral Waist Beads (Strand)', '₦4,500')" class="w-full bg-forest-800 hover:bg-forest-900 text-linen-50 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Order via WhatsApp
+        </button>
+      </div>
+
+      <div class="bg-linen-100 rounded-3xl p-4 sm:p-5 border border-forest-800/10 space-y-3 flex flex-col justify-between">
+        <div class="space-y-2">
+          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80" alt="Beaded Neckpiece" class="w-full h-48 object-cover rounded-2xl">
+          <div class="flex justify-between items-start">
+            <h3 class="font-serif text-lg font-bold text-forest-950">Statement Pearl Collar Choker</h3>
+            <span class="font-serif font-bold text-forest-900 text-base">₦12,000</span>
+          </div>
+          <p class="text-xs text-forest-800">Multi-strand woven pearl necklace with adjustable gold extender chain.</p>
+        </div>
+        <button onclick="orderItemDirect('Statement Pearl Collar Choker', '₦12,000')" class="w-full bg-forest-800 hover:bg-forest-900 text-linen-50 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Order via WhatsApp
+        </button>
+      </div>
+
+      <div class="bg-linen-100 rounded-3xl p-4 sm:p-5 border border-forest-800/10 space-y-3 flex flex-col justify-between">
+        <div class="space-y-2">
+          <img src="https://images.unsplash.com/photo-1611591475883-207a99f1fa0a?auto=format&fit=crop&w=800&q=80" alt="Crystal Beaded Anklet" class="w-full h-48 object-cover rounded-2xl">
+          <div class="flex justify-between items-start">
+            <h3 class="font-serif text-lg font-bold text-forest-950">Crystal Cascade Anklet Pair</h3>
+            <span class="font-serif font-bold text-forest-900 text-base">₦6,000 <span class="text-[10px] font-normal text-forest-700">/ pair</span></span>
+          </div>
+          <p class="text-xs text-forest-800">Dainty, water-resistant crystal anklets that don't fade or discolor.</p>
+        </div>
+        <button onclick="orderItemDirect('Crystal Cascade Anklet Pair', '₦6,000')" class="w-full bg-forest-800 hover:bg-forest-900 text-linen-50 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Order via WhatsApp
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT & LOCATION -->
+  <section id="craft" class="py-14 sm:py-20 px-4 sm:px-6 bg-linen-100 border-t border-forest-800/10">
+    <div class="max-w-4xl mx-auto text-center space-y-4">
+      <div class="w-10 h-10 rounded-2xl bg-forest-800 text-gold-400 flex items-center justify-center font-serif font-bold text-lg mx-auto shadow">
+        C
+      </div>
+      <span class="text-xs font-bold uppercase tracking-[0.25em] text-forest-700">The Story of Crafty Cottage</span>
+      <h3 class="font-serif text-2xl sm:text-3xl font-bold text-forest-950">A Bead Haven Born in Ibadan</h3>
+      <p class="text-xs sm:text-sm text-forest-850 leading-relaxed font-cormorant italic text-base sm:text-lg max-w-2xl mx-auto">
+        "Crafty Cottage was founded with a single mission: to prove that beaded accessories can be luxurious, modern, and enduring. Operating from the University of Ibadan, we source the highest grade non-tarnish crystal and pearl beads, hand-weaving every stitch with precision."
+      </p>
+      <div class="pt-2 flex flex-wrap justify-center gap-6 text-xs text-forest-800">
+        <div><strong>📍 Studio:</strong> University of Ibadan, Oyo State</div>
+        <div><strong>📞 WhatsApp:</strong> +234 703 559 6492</div>
+        <div><strong>📸 Instagram:</strong> @Craftycottage.ng</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STICKY MOBILE BOTTOM BAR -->
+  <div class="fixed bottom-0 left-0 right-0 bg-forest-900/95 backdrop-blur-md text-linen-50 p-3 border-t border-gold-500/30 shadow-2xl flex items-center justify-between sm:hidden z-40">
+    <div class="flex items-center gap-2">
+      <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
+      <div>
+        <span class="text-[9px] uppercase tracking-wider text-gold-400 block font-bold">Crafty Cottage</span>
+        <span class="text-xs font-bold">WhatsApp Direct Orders</span>
+      </div>
+    </div>
+    <a href="https://wa.me/2347035596492?text=Hello%20Crafty%20Cottage!%20I%20would%20like%20to%20place%20an%20order." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl flex items-center gap-1.5 shadow">
+      <i data-lucide="message-circle" class="w-4 h-4"></i> Order Now
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-forest-950 text-linen-200/60 py-10 px-4 text-center text-xs border-t border-forest-900">
+    <div class="max-w-4xl mx-auto space-y-2">
+      <div class="font-serif text-xl font-bold text-linen-50 tracking-wider">CRAFTY COTTAGE</div>
+      <p class="text-[11px] text-linen-200/50">Bead to Perfection • Handcrafted Beaded Bags &amp; Accessories • Ibadan, Nigeria</p>
+      <div class="text-[10px] text-linen-200/30 pt-3 border-t border-forest-900/60">
+        © 2026 Crafty Cottage. Direct WhatsApp Ordering Prototype by Gran Jefe.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // CUSTOM BAG BUILDER STATE
+    let customState = {
+      sil: 'Structured Pearl Tote',
+      silPrice: 28000,
+      bead: 'Lustrous Ivory Pearls',
+      beadExtra: 0,
+      strap: 'Woven Beaded Handle',
+      strapExtra: 0
+    };
+
+    function setSilhouette(name, price, btn) {
+      customState.sil = name;
+      customState.silPrice = price;
+      document.querySelectorAll('.sil-btn').forEach(b => {
+        b.className = "sil-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500";
+      });
+      btn.className = "sil-btn bg-gold-500 text-forest-950 font-bold p-3 rounded-xl text-xs text-left shadow";
+      updateBuilder();
+    }
+
+    function setBeadFinish(name, extra, btn) {
+      customState.bead = name;
+      customState.beadExtra = extra;
+      document.querySelectorAll('.bead-btn').forEach(b => {
+        b.className = "bead-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500";
+      });
+      btn.className = "bead-btn bg-gold-500 text-forest-950 font-bold p-3 rounded-xl text-xs text-left shadow";
+      updateBuilder();
+    }
+
+    function setStrap(name, extra, btn) {
+      customState.strap = name;
+      customState.strapExtra = extra;
+      document.querySelectorAll('.strap-btn').forEach(b => {
+        b.className = "strap-btn bg-forest-900 text-linen-200 border border-gold-500/20 p-2.5 rounded-xl text-center hover:border-gold-500";
+      });
+      btn.className = "strap-btn bg-gold-500 text-forest-950 font-bold p-2.5 rounded-xl text-center shadow";
+      updateBuilder();
+    }
+
+    function updateBuilder() {
+      const total = customState.silPrice + customState.beadExtra + customState.strapExtra;
+      document.getElementById('sumSil').innerText = customState.sil;
+      document.getElementById('sumBead').innerText = customState.bead;
+      document.getElementById('sumStrap').innerText = customState.strap;
+      document.getElementById('estTotal').innerText = `₦${total.toLocaleString()}`;
+    }
+
+    function dispatchCustomBagWhatsApp() {
+      const total = customState.silPrice + customState.beadExtra + customState.strapExtra;
+      const notes = document.getElementById('customNotes').value || 'None';
+
+      const msg = `*CUSTOM BEADED BAG SPEC - CRAFTY COTTAGE*\n\n` +
+                  `👜 *Bag Silhouette:* ${customState.sil}\n` +
+                  `✨ *Bead Style & Texture:* ${customState.bead}\n` +
+                  `🔗 *Strap Preference:* ${customState.strap}\n` +
+                  `📝 *Special Notes:* ${notes}\n` +
+                  `💰 *Estimated Total:* ₦${total.toLocaleString()}\n\n` +
+                  `Hello Crafty Cottage! I would like to place this custom beaded bag order!`;
+
+      window.open(`https://wa.me/2347035596492?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function orderItemDirect(itemName, price) {
+      const msg = `*NEW ORDER - CRAFTY COTTAGE*\n\n` +
+                  `👜 *Item:* ${itemName}\n` +
+                  `💰 *Price:* ${price}\n` +
+                  `🚚 *Delivery:* Ibadan / Nationwide\n\n` +
+                  `Hello Crafty Cottage! Is this item currently available for delivery?`;
+
+      window.open(`https://wa.me/2347035596492?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
