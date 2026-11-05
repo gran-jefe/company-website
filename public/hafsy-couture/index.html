@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Hafsy Couture | Maison de Parfum & Luxury Fragrances</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: {
+              950: '#070708',
+              900: '#0D0D10',
+              850: '#131317',
+              800: '#1A1A22',
+              700: '#262633',
+            },
+            gold: {
+              300: '#F5E4B5',
+              400: '#E5C97D',
+              500: '#D4AF37',
+              600: '#B89228',
+              700: '#947218',
+            },
+            cream: {
+              50: '#FAF8F5',
+              100: '#F4EFE6',
+              200: '#E8DFD0',
+            },
+            burgundy: '#5B1724',
+          },
+          fontFamily: {
+            cinzel: ['"Cinzel"', 'serif'],
+            cormorant: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #F5E4B5 0%, #D4AF37 50%, #B89228 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border-glow {
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-obsidian-950 text-cream-50 font-sans antialiased selection:bg-gold-500 selection:text-obsidian-950 pb-20 sm:pb-0">
+
+  <!-- CLIENT PREVIEW BAR -->
+  <div class="bg-gradient-to-r from-obsidian-900 via-gold-700/30 to-obsidian-900 border-b border-gold-500/30 px-3 py-2 text-center text-[11px] sm:text-xs font-cinzel tracking-widest text-gold-300 flex items-center justify-center gap-2">
+    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-400"></i>
+    <span>Interactive Concept Crafted for <strong>Hafsy Couture</strong> • Direct WhatsApp Ordering Active</span>
+    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-400"></i>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="bg-obsidian-950/90 backdrop-blur-md sticky top-0 z-40 border-b border-gold-500/15">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center gap-4">
+      
+      <!-- LOGO -->
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full border border-gold-500/60 bg-gradient-to-br from-obsidian-850 to-obsidian-950 text-gold-400 flex items-center justify-center font-cinzel font-bold text-xl shadow-[0_0_15px_rgba(212,175,55,0.25)]">
+          H
+        </div>
+        <div>
+          <span class="font-cinzel text-xl sm:text-2xl font-bold tracking-[0.2em] text-cream-50 block leading-none">HAFSY COUTURE</span>
+          <span class="text-[9px] uppercase tracking-[0.35em] text-gold-400 font-sans block mt-1">Maison de Parfum • Luxury Scents</span>
+        </div>
+      </a>
+
+      <!-- DESKTOP NAV -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-cinzel uppercase tracking-[0.2em] text-cream-200/80 font-semibold">
+        <a href="#fragrances" class="hover:text-gold-400 transition-colors">The Collection</a>
+        <a href="#discovery-set" class="hover:text-gold-400 transition-colors">Discovery Box</a>
+        <a href="#scent-finder" class="hover:text-gold-400 transition-colors">Scent Finder</a>
+        <a href="#about" class="hover:text-gold-400 transition-colors">Maison Story</a>
+      </nav>
+
+      <!-- WHATSAPP FAST ORDER CTA -->
+      <a href="https://wa.me/?text=Hello%20Hafsy%20Couture!%20I%20would%20like%20to%20inquire%20about%20your%20luxury%20perfume%20collection." target="_blank" class="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-obsidian-950 px-4 sm:px-5 py-2.5 rounded-full text-xs font-cinzel font-bold tracking-widest uppercase flex items-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all transform hover:scale-105">
+        <i data-lucide="message-circle" class="w-4 h-4"></i>
+        <span class="hidden sm:inline">WhatsApp Order</span>
+        <span class="sm:hidden">Order</span>
+      </a>
+
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 overflow-hidden border-b border-gold-500/15">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-gold-500/10 via-transparent to-transparent pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-center relative z-10">
+      
+      <div class="md:col-span-7 space-y-6 text-center md:text-left">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-[10px] sm:text-xs font-cinzel uppercase tracking-[0.25em]">
+          <i data-lucide="crown" class="w-3.5 h-3.5"></i> Pure Extraits &amp; Artisanal Arabian Blends
+        </div>
+
+        <h1 class="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-bold text-cream-50 tracking-tight leading-[1.15]">
+          Unveil Your <br/>
+          <span class="gold-gradient-text">Signature Scent</span>
+        </h1>
+
+        <p class="text-cream-200/80 text-sm sm:text-base max-w-xl mx-auto md:mx-0 font-cormorant italic text-lg sm:text-xl leading-relaxed">
+          "A fragrance is the most intense form of memory. Handcrafted extraits infused with pure Cambodian Oud, Bourbon Vanilla, and warm amber notes that linger for 16+ hours."
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 pt-2 justify-center md:justify-start">
+          <a href="#fragrances" class="bg-gold-500 hover:bg-gold-400 text-obsidian-950 px-7 py-3.5 rounded-full text-xs font-cinzel font-bold tracking-widest uppercase shadow-xl transition-all flex items-center justify-center gap-2">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            <span>Explore Collection</span>
+          </a>
+          <a href="#discovery-set" class="border border-gold-500/40 hover:bg-gold-500/10 text-gold-400 px-7 py-3.5 rounded-full text-xs font-cinzel font-bold tracking-widest uppercase transition-all flex items-center justify-center gap-2">
+            <i data-lucide="gift" class="w-4 h-4"></i>
+            <span>Build Discovery Box</span>
+          </a>
+        </div>
+
+        <div class="pt-6 flex flex-wrap items-center justify-center md:justify-start gap-6 border-t border-gold-500/15 text-xs text-cream-200/70">
+          <div class="flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-gold-400"></i> 16+ Hours Longevity
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-gold-400"></i> 100% Oil Extraits &amp; EdP
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Direct WhatsApp Checkout
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO VISUAL HERO BOTTLE -->
+      <div class="md:col-span-5 relative max-w-sm mx-auto w-full">
+        <div class="relative rounded-3xl overflow-hidden border border-gold-500/30 bg-gradient-to-b from-obsidian-900 to-obsidian-850 p-3 gold-border-glow shadow-2xl">
+          <div class="relative h-96 w-full rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80" alt="Royal Amber Oud" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-transparent"></div>
+            
+            <span class="absolute top-3 left-3 bg-obsidian-950/85 backdrop-blur-md text-gold-400 text-[10px] font-cinzel font-bold px-3 py-1 rounded-full border border-gold-500/30">
+              Maison Bestseller
+            </span>
+          </div>
+
+          <div class="p-4 text-center space-y-2">
+            <span class="text-[10px] uppercase font-cinzel tracking-[0.25em] text-gold-400">Extrait de Parfum</span>
+            <h3 class="font-cinzel text-xl font-bold text-cream-50">SULTAN OUD IMPERIAL</h3>
+            <p class="text-xs text-cream-200/70 font-cormorant italic text-sm">Cambodian Oud • Rare Saffron • Smoked Amberwood</p>
+            
+            <div class="pt-2 flex justify-between items-center px-2">
+              <span class="font-cinzel text-gold-400 font-bold text-lg">₦65,000</span>
+              <button onclick="orderFragrance('Sultan Oud Imperial', '100ml Extrait', '₦65,000')" class="bg-gold-500 hover:bg-gold-400 text-obsidian-950 px-4 py-2 rounded-xl text-xs font-cinzel font-bold tracking-wider uppercase flex items-center gap-1.5 shadow">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Order on WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FRAGRANCE COLLECTION SECTION -->
+  <section id="fragrances" class="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+      <span class="text-xs font-cinzel font-bold uppercase tracking-[0.3em] text-gold-400">Curated Haute Parfumerie</span>
+      <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-cream-50">The Fragrance Collection</h2>
+      <p class="text-xs sm:text-sm text-cream-200/70 font-cormorant italic text-base">Select your desired bottle size and immediately generate your direct WhatsApp order.</p>
+    </div>
+
+    <!-- CATEGORY FILTER CHIPS -->
+    <div class="flex items-center justify-center gap-2 overflow-x-auto no-scrollbar pb-6 mb-8 max-w-3xl mx-auto text-xs font-cinzel">
+      <button onclick="filterFamily('all', this)" class="filter-chip active bg-gold-500 text-obsidian-950 font-bold px-4 py-2 rounded-full border border-gold-500 transition-all flex-shrink-0">
+        All Scents
+      </button>
+      <button onclick="filterFamily('oud', this)" class="filter-chip bg-obsidian-900 text-cream-200 hover:text-white px-4 py-2 rounded-full border border-gold-500/20 transition-all flex-shrink-0">
+        Arabian Oud &amp; Amber
+      </button>
+      <button onclick="filterFamily('gourmand', this)" class="filter-chip bg-obsidian-900 text-cream-200 hover:text-white px-4 py-2 rounded-full border border-gold-500/20 transition-all flex-shrink-0">
+        Warm Vanilla &amp; Gourmand
+      </button>
+      <button onclick="filterFamily('floral', this)" class="filter-chip bg-obsidian-900 text-cream-200 hover:text-white px-4 py-2 rounded-full border border-gold-500/20 transition-all flex-shrink-0">
+        Rose &amp; Exotic Florals
+      </button>
+    </div>
+
+    <!-- PRODUCTS GRID -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="fragranceGrid">
+      
+      <!-- BOTTLE 1 -->
+      <div class="fragrance-card oud bg-obsidian-900/90 rounded-2xl p-4 sm:p-5 border border-gold-500/20 hover:border-gold-500/50 transition-all flex flex-col justify-between space-y-4 group">
+        <div>
+          <div class="relative h-64 w-full rounded-xl overflow-hidden mb-4 border border-gold-500/10">
+            <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=80" alt="Velvet Noir Oud" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-obsidian-950/80 text-gold-400 text-[9px] font-cinzel font-bold px-2.5 py-1 rounded-full border border-gold-500/30">
+              Oud &amp; Amber
+            </span>
+          </div>
+
+          <div class="space-y-1">
+            <span class="text-[9px] font-cinzel tracking-widest text-gold-400/80 uppercase">Pure Extrait de Parfum</span>
+            <h3 class="font-cinzel text-xl font-bold text-cream-50">VELVET NOIR OUD</h3>
+            <p class="text-xs text-cream-200/70 font-cormorant italic">An opulent blend of dark Cambodian agarwood, roasted tonka bean, and warm leather.</p>
+          </div>
+
+          <!-- OLFACTORY NOTES BREAKDOWN -->
+          <div class="my-4 p-3 rounded-xl bg-obsidian-950/80 border border-gold-500/15 text-[11px] space-y-1 font-sans">
+            <div><strong class="text-gold-400 font-cinzel">Top:</strong> <span class="text-cream-200">Bergamot, Saffron</span></div>
+            <div><strong class="text-gold-400 font-cinzel">Heart:</strong> <span class="text-cream-200">Damascus Rose, Leather</span></div>
+            <div><strong class="text-gold-400 font-cinzel">Base:</strong> <span class="text-cream-200">Royal Oud, Tonka, Amber</span></div>
+          </div>
+
+          <!-- SIZE PICKER -->
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-cinzel tracking-wider uppercase text-cream-200/60 block">Select Bottle Volume</label>
+            <div class="grid grid-cols-3 gap-1.5 text-[11px] font-cinzel">
+              <button onclick="setCardSize(this, '50ml EdP', '₦42,000')" class="size-btn bg-gold-500 text-obsidian-950 font-bold py-1.5 rounded-lg text-center">50ml</button>
+              <button onclick="setCardSize(this, '100ml Extrait', '₦75,000')" class="size-btn bg-obsidian-850 text-cream-200 border border-gold-500/20 py-1.5 rounded-lg text-center hover:border-gold-500">100ml</button>
+              <button onclick="setCardSize(this, '12ml Pure Oil', '₦25,000')" class="size-btn bg-obsidian-850 text-cream-200 border border-gold-500/20 py-1.5 rounded-lg text-center hover:border-gold-500">12ml Oil</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-gold-500/15 flex items-center justify-between gap-3">
+          <div>
+            <span class="text-[9px] uppercase tracking-wider text-cream-200/50 block">Price</span>
+            <span class="card-price font-cinzel text-xl font-bold text-gold-400">₦42,000</span>
+          </div>
+          <button onclick="orderCardFragrance(this, 'VELVET NOIR OUD')" class="bg-gold-500 hover:bg-gold-400 text-obsidian-950 px-4 py-2.5 rounded-xl text-xs font-cinzel font-bold tracking-wider uppercase flex items-center gap-1.5 shadow transition-all">
+            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Order
+          </button>
+        </div>
+      </div>
+
+      <!-- BOTTLE 2 -->
+      <div class="fragrance-card gourmand bg-obsidian-900/90 rounded-2xl p-4 sm:p-5 border border-gold-500/20 hover:border-gold-500/50 transition-all flex flex-col justify-between space-y-4 group">
+        <div>
+          <div class="relative h-64 w-full rounded-xl overflow-hidden mb-4 border border-gold-500/10">
+            <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=80" alt="Vanilla Cashmere Elixir" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-obsidian-950/80 text-gold-400 text-[9px] font-cinzel font-bold px-2.5 py-1 rounded-full border border-gold-500/30">
+              Warm Gourmand
+            </span>
+          </div>
+
+          <div class="space-y-1">
+            <span class="text-[9px] font-cinzel tracking-widest text-gold-400/80 uppercase">Eau de Parfum Intense</span>
+            <h3 class="font-cinzel text-xl font-bold text-cream-50">VANILLA CASHMERE</h3>
+            <p class="text-xs text-cream-200/70 font-cormorant italic">Madagascar Bourbon vanilla fused with salted caramel, white musk, and roasted almond.</p>
+          </div>
+
+          <div class="my-4 p-3 rounded-xl bg-obsidian-950/80 border border-gold-500/15 text-[11px] space-y-1 font-sans">
+            <div><strong class="text-gold-400 font-cinzel">Top:</strong> <span class="text-cream-200">Sweet Almond, Marshmallow</span></div>
+            <div><strong class="text-gold-400 font-cinzel">Heart:</strong> <span class="text-cream-200">Bourbon Vanilla, Caramel</span></div>
+            <div><strong class="text-gold-400 font-cinzel">Base:</strong> <span class="text-cream-200">Cashmere Woods, White Musk</span></div>
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-cinzel tracking-wider uppercase text-cream-200/60 block">Select Bottle Volume</label>
+            <div class="grid grid-cols-3 gap-1.5 text-[11px] font-cinzel">
+              <button onclick="setCardSize(this, '50ml EdP', '₦38,000')" class="size-btn bg-gold-500 text-obsidian-950 font-bold py-1.5 rounded-lg text-center">50ml</button>
+              <button onclick="setCardSize(this, '100ml Extrait', '₦68,000')" class="size-btn bg-obsidian-850 text-cream-200 border border-gold-500/20 py-1.5 rounded-lg text-center hover:border-gold-500">100ml</button>
+              <button onclick="setCardSize(this, '12ml Pure Oil', '₦22,000')" class="size-btn bg-obsidian-850 text-cream-200 border border-gold-500/20 py-1.5 rounded-lg text-center hover:border-gold-500">12ml Oil</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-gold-500/15 flex items-center justify-between gap-3">
+          <div>
+            <span class="text-[9px] uppercase tracking-wider text-cream-200/50 block">Price</span>
+            <span class="card-price font-cinzel text-xl font-bold text-gold-400">₦38,000</span>
+          </div>
+          <button onclick="orderCardFragrance(this, 'VANILLA CASHMERE')" class="bg-gold-500 hover:bg-gold-400 text-obsidian-950 px-4 py-2.5 rounded-xl text-xs font-cinzel font-bold tracking-wider uppercase flex items-center gap-1.5 shadow transition-all">
+            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Order
+          </button>
+        </div>
+      </div>
+
+      <!-- BOTTLE 3 -->
+      <div class="fragrance-card floral bg-obsidian-900/90 rounded-2xl p-4 sm:p-5 border border-gold-500/20 hover:border-gold-500/50 transition-all flex flex-col justify-between space-y-4 group">
+        <div>
+          <div class="relative h-64 w-full rounded-xl overflow-hidden mb-4 border border-gold-500/10">
+            <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80" alt="Rose de Damas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-obsidian-950/80 text-gold-400 text-[9px] font-cinzel font-bold px-2.5 py-1 rounded-full border border-gold-500/30">
+              Rose &amp; Exotic Florals
+            </span>
+          </div>
+
+          <div class="space-y-1">
+            <span class="text-[9px] font-cinzel tracking-widest text-gold-400/80 uppercase">Extrait de Parfum</span>
+            <h3 class="font-cinzel text-xl font-bold text-cream-50">ROSE DE DAMAS</h3>
+            <p class="text-xs text-cream-200/70 font-cormorant italic">Crimson Turkish rose petals dipped in spun sugar, soft pink pepper, and creamy sandalwood.</p>
+          </div>
+
+          <div class="my-4 p-3 rounded-xl bg-obsidian-950/80 border border-gold-500/15 text-[11px] space-y-1 font-sans">
+            <div><strong class="text-gold-400 font-cinzel">Top:</strong> <span class="text-cream-200">Pink Pepper, Lychee</span></div>
+            <div><strong class="text-gold-400 font-cinzel">Heart:</strong> <span class="text-cream-200">Turkish Rose, Peony</span></div>
+            <div><strong class="text-gold-400 font-cinzel">Base:</strong> <span class="text-cream-200">Sandalwood, Ambergris</span></div>
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-cinzel tracking-wider uppercase text-cream-200/60 block">Select Bottle Volume</label>
+            <div class="grid grid-cols-3 gap-1.5 text-[11px] font-cinzel">
+              <button onclick="setCardSize(this, '50ml EdP', '₦40,000')" class="size-btn bg-gold-500 text-obsidian-950 font-bold py-1.5 rounded-lg text-center">50ml</button>
+              <button onclick="setCardSize(this, '100ml Extrait', '₦72,000')" class="size-btn bg-obsidian-850 text-cream-200 border border-gold-500/20 py-1.5 rounded-lg text-center hover:border-gold-500">100ml</button>
+              <button onclick="setCardSize(this, '12ml Pure Oil', '₦24,000')" class="size-btn bg-obsidian-850 text-cream-200 border border-gold-500/20 py-1.5 rounded-lg text-center hover:border-gold-500">12ml Oil</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-gold-500/15 flex items-center justify-between gap-3">
+          <div>
+            <span class="text-[9px] uppercase tracking-wider text-cream-200/50 block">Price</span>
+            <span class="card-price font-cinzel text-xl font-bold text-gold-400">₦40,000</span>
+          </div>
+          <button onclick="orderCardFragrance(this, 'ROSE DE DAMAS')" class="bg-gold-500 hover:bg-gold-400 text-obsidian-950 px-4 py-2.5 rounded-xl text-xs font-cinzel font-bold tracking-wider uppercase flex items-center gap-1.5 shadow transition-all">
+            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Order
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERACTIVE DISCOVERY GIFT BOX BUILDER -->
+  <section id="discovery-set" class="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-obsidian-950 via-obsidian-900 to-obsidian-950 border-t border-b border-gold-500/20">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+        <span class="text-xs font-cinzel font-bold uppercase tracking-[0.3em] text-gold-400">The Ultimate Gifting Experience</span>
+        <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-cream-50">Build Your 3-Piece Discovery Box</h2>
+        <p class="text-xs sm:text-sm text-cream-200/70 font-cormorant italic text-base">Select any 3 luxury miniature extraits (15ml each) packaged in our signature gold-embossed velvet box.</p>
+      </div>
+
+      <div class="bg-obsidian-850 rounded-3xl border border-gold-500/30 p-5 sm:p-8 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- SELECTION OPTIONS (7 COLS) -->
+        <div class="lg:col-span-7 space-y-4">
+          <h4 class="font-cinzel text-xs font-bold uppercase tracking-wider text-gold-400">Select 3 Miniature Scents:</h4>
+
+          <div class="space-y-2.5" id="miniSelectionList">
+            
+            <div class="flex items-center justify-between p-3 rounded-xl bg-obsidian-900 border border-gold-500/20">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gold-500/20 text-gold-400 flex items-center justify-center font-cinzel font-bold text-xs">01</div>
+                <div>
+                  <h5 class="font-cinzel text-xs font-bold text-cream-50">Velvet Noir Oud (15ml)</h5>
+                  <span class="text-[10px] text-cream-200/60 font-cormorant italic">Cambodian Oud &amp; Tonka</span>
+                </div>
+              </div>
+              <button onclick="toggleBoxMini('Velvet Noir Oud', this)" class="mini-btn px-3 py-1.5 rounded-lg bg-gold-500 text-obsidian-950 text-xs font-cinzel font-bold uppercase tracking-wider">
+                Added ✓
+              </button>
+            </div>
+
+            <div class="flex items-center justify-between p-3 rounded-xl bg-obsidian-900 border border-gold-500/20">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gold-500/20 text-gold-400 flex items-center justify-center font-cinzel font-bold text-xs">02</div>
+                <div>
+                  <h5 class="font-cinzel text-xs font-bold text-cream-50">Vanilla Cashmere (15ml)</h5>
+                  <span class="text-[10px] text-cream-200/60 font-cormorant italic">Bourbon Vanilla &amp; Salted Caramel</span>
+                </div>
+              </div>
+              <button onclick="toggleBoxMini('Vanilla Cashmere', this)" class="mini-btn px-3 py-1.5 rounded-lg bg-gold-500 text-obsidian-950 text-xs font-cinzel font-bold uppercase tracking-wider">
+                Added ✓
+              </button>
+            </div>
+
+            <div class="flex items-center justify-between p-3 rounded-xl bg-obsidian-900 border border-gold-500/20">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gold-500/20 text-gold-400 flex items-center justify-center font-cinzel font-bold text-xs">03</div>
+                <div>
+                  <h5 class="font-cinzel text-xs font-bold text-cream-50">Rose de Damas (15ml)</h5>
+                  <span class="text-[10px] text-cream-200/60 font-cormorant italic">Turkish Rose &amp; Sandalwood</span>
+                </div>
+              </div>
+              <button onclick="toggleBoxMini('Rose de Damas', this)" class="mini-btn px-3 py-1.5 rounded-lg bg-gold-500 text-obsidian-950 text-xs font-cinzel font-bold uppercase tracking-wider">
+                Added ✓
+              </button>
+            </div>
+
+            <div class="flex items-center justify-between p-3 rounded-xl bg-obsidian-900 border border-gold-500/20">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gold-500/20 text-gold-400 flex items-center justify-center font-cinzel font-bold text-xs">04</div>
+                <div>
+                  <h5 class="font-cinzel text-xs font-bold text-cream-50">Sultan Oud Imperial (15ml)</h5>
+                  <span class="text-[10px] text-cream-200/60 font-cormorant italic">Smoked Amberwood &amp; Saffron</span>
+                </div>
+              </div>
+              <button onclick="toggleBoxMini('Sultan Oud Imperial', this)" class="mini-btn px-3 py-1.5 rounded-lg bg-obsidian-800 text-cream-200 border border-gold-500/30 text-xs font-cinzel font-bold uppercase tracking-wider hover:border-gold-500">
+                + Add
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- LIVE GIFT BOX SUMMARY (5 COLS) -->
+        <div class="lg:col-span-5 bg-gradient-to-b from-obsidian-950 to-obsidian-900 p-6 rounded-2xl border border-gold-500/40 space-y-5 text-center shadow-inner">
+          <div class="w-14 h-14 rounded-full bg-gold-500/10 border border-gold-500/40 text-gold-400 flex items-center justify-center mx-auto shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+            <i data-lucide="gift" class="w-7 h-7"></i>
+          </div>
+
+          <div>
+            <span class="text-[10px] font-cinzel uppercase tracking-[0.25em] text-gold-400 block">Velvet Presentation Set</span>
+            <h4 class="font-cinzel text-xl font-bold text-cream-50 mt-1">Custom Discovery Box</h4>
+            <div id="boxCountText" class="text-xs text-gold-300 font-semibold mt-0.5">3 of 3 Selected</div>
+          </div>
+
+          <div id="boxSelectedNames" class="text-xs text-cream-200/80 space-y-1 font-cormorant italic text-sm">
+            <div>• Velvet Noir Oud (15ml)</div>
+            <div>• Vanilla Cashmere (15ml)</div>
+            <div>• Rose de Damas (15ml)</div>
+          </div>
+
+          <div class="pt-2 border-t border-gold-500/20">
+            <span class="text-[10px] uppercase font-cinzel tracking-widest text-cream-200/50 block">Set Price (Special Offer)</span>
+            <div class="font-cinzel text-3xl font-bold text-gold-400 mt-1">₦35,000</div>
+          </div>
+
+          <button onclick="dispatchDiscoveryBoxWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-cinzel font-bold text-xs uppercase tracking-widest py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-[1.02]">
+            <i data-lucide="message-circle" class="w-4 h-4"></i> Dispatch Box to WhatsApp
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SCENT FINDER QUIZ -->
+  <section id="scent-finder" class="py-16 sm:py-24 px-4 sm:px-6 max-w-4xl mx-auto">
+    <div class="bg-obsidian-900/90 rounded-3xl border border-gold-500/30 p-6 sm:p-10 shadow-2xl space-y-8">
+      
+      <div class="text-center space-y-2">
+        <span class="text-xs font-cinzel font-bold uppercase tracking-[0.3em] text-gold-400">Bespoke Olfactory Concierge</span>
+        <h3 class="font-cinzel text-2xl sm:text-3xl font-bold text-cream-50">Find Your Signature Fragrance</h3>
+        <p class="text-xs sm:text-sm text-cream-200/70 font-cormorant italic">Answer two questions to discover which Hafsy Couture creation matches your aura.</p>
+      </div>
+
+      <div class="space-y-6">
+        <!-- Q1 -->
+        <div class="space-y-2.5">
+          <label class="font-cinzel text-xs font-bold uppercase tracking-wider text-gold-400 block">1. When do you plan to wear it most?</label>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            <button onclick="setOccasion('Evening Galas & Red Carpet', this)" class="quiz-btn q1 bg-gold-500 text-obsidian-950 font-bold p-3 rounded-xl text-xs text-left shadow">
+              🌙 Evening Galas &amp; Night Out
+            </button>
+            <button onclick="setOccasion('Daily Office & Everyday Luxury', this)" class="quiz-btn q1 bg-obsidian-850 text-cream-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
+              💼 Daily Luxury &amp; Office
+            </button>
+            <button onclick="setOccasion('Romantic Dates & Special Moments', this)" class="quiz-btn q1 bg-obsidian-850 text-cream-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
+              🌹 Intimate Dates &amp; Romance
+            </button>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="space-y-2.5">
+          <label class="font-cinzel text-xs font-bold uppercase tracking-wider text-gold-400 block">2. What scent vibe makes you feel most confident?</label>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            <button onclick="setVibe('Bold, Smoked Arabian Oud', this)" class="quiz-btn q2 bg-gold-500 text-obsidian-950 font-bold p-3 rounded-xl text-xs text-left shadow">
+              👑 Royal, Powerful &amp; Smoked Oud
+            </button>
+            <button onclick="setVibe('Warm, Sweet Caramel Vanilla', this)" class="quiz-btn q2 bg-obsidian-850 text-cream-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
+              🍯 Warm, Cozy &amp; Gourmand Vanilla
+            </button>
+            <button onclick="setVibe('Sensual, Luxurious Rose Amber', this)" class="quiz-btn q2 bg-obsidian-850 text-cream-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500">
+              🌸 Sensual Crimson Rose &amp; Amber
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULT RECOMMENDATION -->
+      <div id="quizResult" class="bg-obsidian-950 p-5 rounded-2xl border border-gold-500/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="space-y-1 text-center sm:text-left">
+          <span class="text-[10px] uppercase font-cinzel tracking-widest text-gold-400">Your Recommended Match:</span>
+          <h4 id="recTitle" class="font-cinzel text-xl font-bold text-cream-50">VELVET NOIR OUD EXTRAIT</h4>
+          <p id="recDesc" class="text-xs text-cream-200/70 font-cormorant italic text-sm">Perfect for making an unforgettable, regal impression that lingers for hours.</p>
+        </div>
+        <button onclick="orderRecommendedWhatsApp()" class="bg-gold-500 hover:bg-gold-400 text-obsidian-950 px-5 py-3 rounded-xl text-xs font-cinzel font-bold tracking-wider uppercase flex items-center gap-1.5 shadow-lg flex-shrink-0">
+          <i data-lucide="message-circle" class="w-4 h-4"></i> Order This Match
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAISON STORY / ABOUT -->
+  <section id="about" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-gold-500/15 max-w-5xl mx-auto text-center space-y-6">
+    <div class="w-12 h-12 rounded-full border border-gold-500/50 bg-obsidian-900 text-gold-400 flex items-center justify-center font-cinzel font-bold text-xl mx-auto shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+      H
+    </div>
+    <span class="text-xs font-cinzel font-bold uppercase tracking-[0.3em] text-gold-400">The Hafsy Couture Philosophy</span>
+    <h3 class="font-cinzel text-3xl sm:text-4xl font-bold text-cream-50 leading-tight">
+      Crafting Scents That Outlive The Moment
+    </h3>
+    <p class="text-cream-200/80 text-sm sm:text-base max-w-2xl mx-auto font-cormorant italic text-lg sm:text-xl leading-relaxed">
+      "At Hafsy Couture, every bottle is a testament to timeless luxury. Sourced from the finest distilleries across the Middle East and Grasse, our fragrance blends are engineered for maximum projection and unmatched longevity."
+    </p>
+    <div class="pt-4">
+      <a href="https://wa.me/?text=Hello%20Hafsy%20Couture!%20I%20would%20like%20to%20consult%20with%20you%20on%20choosing%20a%20signature%20perfume." target="_blank" class="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 font-cinzel text-xs uppercase tracking-widest border-b border-gold-500/40 pb-1">
+        <span>Speak with our Fragrance Specialist</span>
+        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- STICKY MOBILE WHATSAPP BAR -->
+  <div class="fixed bottom-0 left-0 right-0 bg-obsidian-900/95 backdrop-blur-md text-cream-50 p-3 border-t border-gold-500/30 shadow-2xl flex items-center justify-between sm:hidden z-40">
+    <div class="flex items-center gap-2">
+      <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
+      <div>
+        <span class="text-[9px] uppercase font-cinzel tracking-wider text-gold-400 block">Hafsy Couture</span>
+        <span class="text-xs font-bold">WhatsApp Direct Orders</span>
+      </div>
+    </div>
+    <a href="https://wa.me/?text=Hello%20Hafsy%20Couture!%20I%20would%20like%20to%20order%20from%20your%20luxury%20perfume%20collection." target="_blank" class="bg-gradient-to-r from-gold-500 to-gold-600 text-obsidian-950 text-xs font-cinzel font-bold px-4 py-2.5 rounded-xl flex items-center gap-1.5 shadow">
+      <i data-lucide="message-circle" class="w-4 h-4"></i> Order Now
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-obsidian-950 text-cream-200/60 py-12 px-4 border-t border-gold-500/15 text-center text-xs">
+    <div class="max-w-4xl mx-auto space-y-3">
+      <div class="font-cinzel text-2xl font-bold tracking-[0.2em] text-gold-400">HAFSY COUTURE</div>
+      <p class="font-cinzel text-[10px] uppercase tracking-widest text-cream-200/40">Luxury Perfumes • Pure Extraits &amp; Arabian Ouds • Lagos &amp; Nationwide Delivery</p>
+      <div class="text-[10px] text-cream-200/30 pt-4 border-t border-gold-500/10">
+        © 2026 Hafsy Couture. All rights reserved. Direct WhatsApp Order Prototype by Gran Jefe.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // CARD SIZE SELECTION LOGIC
+    function setCardSize(btn, sizeName, price) {
+      const card = btn.closest('.fragrance-card');
+      card.querySelectorAll('.size-btn').forEach(b => {
+        b.className = "size-btn bg-obsidian-850 text-cream-200 border border-gold-500/20 py-1.5 rounded-lg text-center hover:border-gold-500";
+      });
+      btn.className = "size-btn bg-gold-500 text-obsidian-950 font-bold py-1.5 rounded-lg text-center";
+      card.querySelector('.card-price').innerText = price;
+      card.dataset.selectedSize = sizeName;
+      card.dataset.selectedPrice = price;
+    }
+
+    // ORDER VIA WHATSAPP FROM CARD
+    function orderCardFragrance(btn, perfumeName) {
+      const card = btn.closest('.fragrance-card');
+      const size = card.dataset.selectedSize || '50ml EdP';
+      const price = card.querySelector('.card-price').innerText;
+
+      const msg = `*NEW FRAGRANCE ORDER - HAFSY COUTURE*\n\n` +
+                  `💎 *Perfume:* ${perfumeName}\n` +
+                  `📏 *Bottle Size:* ${size}\n` +
+                  `💰 *Price:* ${price}\n` +
+                  `🚚 *Delivery:* Lagos / Nationwide\n\n` +
+                  `Hello Hafsy Couture! Is this available for delivery?`;
+
+      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function orderFragrance(name, size, price) {
+      const msg = `*NEW FRAGRANCE INQUIRY - HAFSY COUTURE*\n\n` +
+                  `💎 *Perfume:* ${name}\n` +
+                  `📏 *Bottle Size:* ${size}\n` +
+                  `💰 *Price:* ${price}\n\n` +
+                  `Hello Hafsy Couture! I'd like to place an order for this fragrance.`;
+
+      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // CATEGORY FILTER
+    function filterFamily(category, btn) {
+      document.querySelectorAll('.filter-chip').forEach(c => {
+        c.className = "filter-chip bg-obsidian-900 text-cream-200 hover:text-white px-4 py-2 rounded-full border border-gold-500/20 transition-all flex-shrink-0";
+      });
+      btn.className = "filter-chip active bg-gold-500 text-obsidian-950 font-bold px-4 py-2 rounded-full border border-gold-500 transition-all flex-shrink-0";
+
+      const cards = document.querySelectorAll('.fragrance-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // DISCOVERY BOX BUILDER LOGIC
+    let selectedBox = ['Velvet Noir Oud', 'Vanilla Cashmere', 'Rose de Damas'];
+
+    function toggleBoxMini(name, btn) {
+      const index = selectedBox.indexOf(name);
+      if (index > -1) {
+        selectedBox.splice(index, 1);
+        btn.className = "mini-btn px-3 py-1.5 rounded-lg bg-obsidian-800 text-cream-200 border border-gold-500/30 text-xs font-cinzel font-bold uppercase tracking-wider hover:border-gold-500";
+        btn.innerText = "+ Add";
+      } else {
+        if (selectedBox.length >= 3) {
+          alert("You can select up to 3 luxury miniatures for the Discovery Box!");
+          return;
+        }
+        selectedBox.push(name);
+        btn.className = "mini-btn px-3 py-1.5 rounded-lg bg-gold-500 text-obsidian-950 text-xs font-cinzel font-bold uppercase tracking-wider";
+        btn.innerText = "Added ✓";
+      }
+      renderBox();
+    }
+
+    function renderBox() {
+      document.getElementById('boxCountText').innerText = `${selectedBox.length} of 3 Selected`;
+      const container = document.getElementById('boxSelectedNames');
+      if (selectedBox.length === 0) {
+        container.innerHTML = '<span class="text-cream-200/40">No miniatures selected yet.</span>';
+      } else {
+        container.innerHTML = selectedBox.map(s => `<div>• ${s} (15ml)</div>`).join('');
+      }
+    }
+
+    function dispatchDiscoveryBoxWhatsApp() {
+      if (selectedBox.length < 3) {
+        alert("Please choose 3 fragrances to complete your Discovery Box!");
+        return;
+      }
+      const list = selectedBox.map(s => `  • ${s} (15ml)`).join('\n');
+      const msg = `*CUSTOM DISCOVERY BOX ORDER - HAFSY COUTURE*\n\n` +
+                  `🎁 *Discovery Set Assortment (3 Pieces):*\n${list}\n\n` +
+                  `💰 *Set Total:* ₦35,000\n` +
+                  `📦 *Packaging:* Signature Gold-Embossed Velvet Box\n\n` +
+                  `Hello Hafsy Couture! Please confirm availability for my custom discovery box!`;
+
+      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // SCENT FINDER QUIZ LOGIC
+    let quiz = {
+      occasion: 'Evening Galas & Red Carpet',
+      vibe: 'Bold, Smoked Arabian Oud'
+    };
+
+    function setOccasion(val, btn) {
+      quiz.occasion = val;
+      document.querySelectorAll('.quiz-btn.q1').forEach(b => {
+        b.className = "quiz-btn q1 bg-obsidian-850 text-cream-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500";
+      });
+      btn.className = "quiz-btn q1 bg-gold-500 text-obsidian-950 font-bold p-3 rounded-xl text-xs text-left shadow";
+      updateRecommendation();
+    }
+
+    function setVibe(val, btn) {
+      quiz.vibe = val;
+      document.querySelectorAll('.quiz-btn.q2').forEach(b => {
+        b.className = "quiz-btn q2 bg-obsidian-850 text-cream-200 border border-gold-500/20 p-3 rounded-xl text-xs text-left hover:border-gold-500";
+      });
+      btn.className = "quiz-btn q2 bg-gold-500 text-obsidian-950 font-bold p-3 rounded-xl text-xs text-left shadow";
+      updateRecommendation();
+    }
+
+    function updateRecommendation() {
+      const title = document.getElementById('recTitle');
+      const desc = document.getElementById('recDesc');
+
+      if (quiz.vibe.includes('Vanilla')) {
+        title.innerText = "VANILLA CASHMERE ELIXIR";
+        desc.innerText = "A comforting, irresistible aura of Bourbon Vanilla and salted caramel that turns heads effortlessly.";
+      } else if (quiz.vibe.includes('Rose')) {
+        title.innerText = "ROSE DE DAMAS EXTRAIT";
+        desc.innerText = "Romance bottled in spun sugar and crimson petals with deep sandalwood undertones.";
+      } else {
+        title.innerText = "VELVET NOIR OUD EXTRAIT";
+        desc.innerText = "Regal, commanding, and unforgettable with smoked agarwood and rare saffron.";
+      }
+    }
+
+    function orderRecommendedWhatsApp() {
+      const title = document.getElementById('recTitle').innerText;
+      const msg = `*SCENT FINDER QUIZ MATCH - HAFSY COUTURE*\n\n` +
+                  `✨ *My Recommended Match:* ${title}\n` +
+                  `🎯 *My Occasion:* ${quiz.occasion}\n` +
+                  `💫 *My Vibe:* ${quiz.vibe}\n\n` +
+                  `Hello Hafsy Couture! I took your Scent Finder Quiz and got this match. What sizes do you have available?`;
+
+      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
