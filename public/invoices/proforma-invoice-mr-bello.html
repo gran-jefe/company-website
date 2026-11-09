@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proforma Invoice - Mr. Bello | Gran Jefe Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; color: #1F2937; }
+    .display { font-family: 'Syne', sans-serif; }
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #FFF !important; }
+      .no-print { display: none !important; }
+      .page-container { border: none !important; box-shadow: none !important; margin: 0 !important; max-width: 100% !important; padding: 0 !important; }
+    }
+  </style>
+</head>
+<body class="bg-neutral-100 min-h-screen py-8 sm:py-12 px-4 sm:px-6">
+
+  <!-- PRINT TOOLBAR (SCREEN ONLY) -->
+  <div class="max-w-4xl mx-auto mb-6 flex items-center justify-between no-print">
+    <div class="text-xs text-neutral-500 font-medium">
+      Official Proforma Invoice for <strong>Mr. Bello</strong>
+    </div>
+    <button onclick="window.print()" class="bg-neutral-900 hover:bg-black text-white text-xs font-bold px-5 py-2.5 rounded-xl shadow flex items-center gap-2 transition-all">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+      <span>Print / Save as PDF</span>
+    </button>
+  </div>
+
+  <!-- INVOICE SHEET -->
+  <div class="page-container max-w-4xl mx-auto bg-white rounded-3xl shadow-xl border border-neutral-200 p-8 sm:p-14 space-y-10">
+    
+    <!-- HEADER -->
+    <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6 border-b border-neutral-200 pb-8">
+      <div>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-neutral-900 text-white font-black flex items-center justify-center text-lg display">
+            GJ
+          </div>
+          <div>
+            <h1 class="display font-extrabold text-2xl text-neutral-900 leading-none">GRAN JEFE</h1>
+            <span class="text-[11px] font-semibold text-neutral-500 uppercase tracking-widest">Digital Systems &amp; Web Studio</span>
+          </div>
+        </div>
+        <p class="text-xs text-neutral-500 mt-3 leading-relaxed">
+          Lagos / Ibadan, Nigeria<br>
+          Tel: 09061770885 / 07013216317 (+234 906 177 0885)<br>
+          Email: info@thegranjefe.com | thegranjefe.com
+        </p>
+      </div>
+
+      <div class="sm:text-right">
+        <span class="inline-block px-3 py-1 bg-neutral-900 text-white text-[11px] font-bold uppercase tracking-wider rounded-lg mb-2">
+          PROFORMA INVOICE
+        </span>
+        <div class="text-xs text-neutral-500 space-y-1">
+          <div><strong class="text-neutral-900">Invoice No:</strong> PI-SCH-2026-0042</div>
+          <div><strong class="text-neutral-900">Date:</strong> November 9, 2026</div>
+          <div><strong class="text-neutral-900">Validity:</strong> 30 Days</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BILLED TO -->
+    <div class="bg-neutral-50 rounded-2xl p-6 border border-neutral-200/80">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 block mb-1">Billed To:</span>
+      <h2 class="text-xl font-bold text-neutral-900">Mr. Bello</h2>
+      <p class="text-xs text-neutral-600 mt-1">
+        School Proprietor / Management<br>
+        Startup Primary &amp; Secondary School Project • Nigeria
+      </p>
+    </div>
+
+    <!-- 1. PROJECT SCOPE -->
+    <div class="space-y-3">
+      <div class="flex items-center justify-between border-b border-neutral-200 pb-2">
+        <h3 class="font-bold text-sm uppercase tracking-wider text-neutral-900">1. Website Scope of Work (Primary &amp; Secondary School)</h3>
+        <span class="text-xs font-bold text-neutral-900 bg-neutral-100 px-3 py-1 rounded-md">Fixed Basic Fee</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-neutral-600">
+        <div class="space-y-1.5">
+          <div class="flex items-start gap-2">
+            <span class="text-neutral-900 font-bold">•</span>
+            <span><strong>Home:</strong> Modern hero campus showcase, proprietor's address, vision, motto, and accreditation.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-neutral-900 font-bold">•</span>
+            <span><strong>About Us:</strong> History, leadership, teaching philosophy, and core moral values.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-neutral-900 font-bold">•</span>
+            <span><strong>Nursery &amp; Primary Wing:</strong> Early foundation learning, primary curriculum, and care standards.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-neutral-900 font-bold">•</span>
+            <span><strong>Secondary Wing:</strong> JSS/SSS academic curriculum, WAEC/NECO/Cambridge prep, STEM &amp; ICT.</span>
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <div class="flex items-start gap-2">
+            <span class="text-neutral-900 font-bold">•</span>
+            <span><strong>Admissions &amp; Prospectus:</strong> Entry requirements, downloadable prospectus PDF, and online enquiry form.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-neutral-900 font-bold">•</span>
+            <span><strong>Facilities Gallery:</strong> Science laboratories, computer suites, sports field, and library.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-neutral-900 font-bold">•</span>
+            <span><strong>Contact &amp; Campus Tour:</strong> Interactive location map, contact forms, and campus tour bookings.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-neutral-900 font-bold">•</span>
+            <span><strong>Direct Routing:</strong> Parent enquiries route automatically to official email &amp; WhatsApp lines.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-neutral-900 text-white p-4 rounded-xl flex items-center justify-between mt-4">
+        <div>
+          <span class="text-xs font-semibold block text-neutral-300">Basic Website Development Fee (One-Time)</span>
+          <span class="text-[11px] text-neutral-400">Complete multi-page school design, mobile optimization &amp; coding</span>
+        </div>
+        <span class="display text-2xl font-bold text-white">₦250,000.00</span>
+      </div>
+    </div>
+
+    <!-- 2. INFRASTRUCTURE PLANS (OPTION A, B, C) -->
+    <div class="space-y-4">
+      <div class="border-b border-neutral-200 pb-2">
+        <h3 class="font-bold text-sm uppercase tracking-wider text-neutral-900">2. Domain &amp; High-Speed Cloud Hosting Options</h3>
+        <p class="text-xs text-neutral-500 mt-0.5">Domain and cloud server hosting are recurring subscriptions. We strongly recommend Option A (5-Year Plan) to shield against dollar exchange rate inflation and prevent accidental domain expiration.</p>
+      </div>
+
+      <!-- TABLE OF OPTIONS -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="border-b-2 border-neutral-300 text-neutral-900">
+              <th class="py-3 px-3 font-bold">Plan Option</th>
+              <th class="py-3 px-3 font-bold">Duration</th>
+              <th class="py-3 px-3 font-bold">Cloud Hosting &amp; SSL</th>
+              <th class="py-3 px-3 font-bold">Domain Quotes in Naira</th>
+              <th class="py-3 px-3 font-bold text-right">Total Payable</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-neutral-200">
+            <!-- OPTION A -->
+            <tr class="bg-emerald-50/60 font-medium">
+              <td class="py-3 px-3">
+                <span class="font-bold text-emerald-900">OPTION A ⭐</span>
+                <span class="block text-[10px] text-emerald-700 font-bold uppercase">Recommended Plan</span>
+              </td>
+              <td class="py-3 px-3 font-bold text-neutral-900">5 Years</td>
+              <td class="py-3 px-3">₦180,000.00</td>
+              <td class="py-3 px-3">
+                <div>• .com: ₦98,783.39 ($70.61)</div>
+                <div>• .org: ₦94,292.60 ($67.40)</div>
+                <div>• .com.ng: ₦31,000.00</div>
+              </td>
+              <td class="py-3 px-3 text-right font-bold text-emerald-900">
+                <div>₦528,783.39 (.com)</div>
+                <div>₦524,292.60 (.org)</div>
+                <div class="text-neutral-700">₦461,000.00 (.com.ng)</div>
+              </td>
+            </tr>
+
+            <!-- OPTION B -->
+            <tr>
+              <td class="py-3 px-3 font-bold text-neutral-900">OPTION B</td>
+              <td class="py-3 px-3">2 Years</td>
+              <td class="py-3 px-3">₦85,000.00</td>
+              <td class="py-3 px-3">
+                <div>• .com: ₦42,000.00</div>
+                <div>• .org: ₦40,000.00</div>
+                <div>• .com.ng: ₦13,500.00</div>
+              </td>
+              <td class="py-3 px-3 text-right font-bold text-neutral-900">
+                <div>₦377,000.00 (.com)</div>
+                <div>₦375,000.00 (.org)</div>
+                <div class="text-neutral-600">₦348,500.00 (.com.ng)</div>
+              </td>
+            </tr>
+
+            <!-- OPTION C -->
+            <tr>
+              <td class="py-3 px-3 font-bold text-neutral-900">OPTION C</td>
+              <td class="py-3 px-3">1 Year</td>
+              <td class="py-3 px-3">₦45,000.00</td>
+              <td class="py-3 px-3">
+                <div>• .com: ₦22,000.00</div>
+                <div>• .org: ₦21,000.00</div>
+                <div>• .com.ng: ₦7,000.00</div>
+              </td>
+              <td class="py-3 px-3 text-right font-bold text-neutral-900">
+                <div>₦317,000.00 (.com)</div>
+                <div>₦316,000.00 (.org)</div>
+                <div class="text-neutral-600">₦302,000.00 (.com.ng)</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 3. TERMS AND CONDITIONS -->
+    <div class="space-y-3 pt-2 border-t border-neutral-200">
+      <h3 class="font-bold text-xs uppercase tracking-wider text-neutral-900">3. Terms &amp; Conditions</h3>
+      <ol class="list-decimal pl-4 space-y-1.5 text-xs text-neutral-600 leading-relaxed">
+        <li><strong>One-Time vs. Subscription Payments:</strong> The <strong>₦250,000 Website Development Fee</strong> is a one-time capital payment. Domain and hosting are periodic recurring subscriptions renewed after your chosen duration (1, 2, or 5 years) to maintain public online access.</li>
+        <li><strong>Payment Milestones:</strong> <strong>60% Initial Deposit</strong> is required to secure server infrastructure, register domain name, and commence design; <strong>40% Final Balance</strong> is payable upon completion, review, and prior to final public DNS launch.</li>
+        <li><strong>Delivery Schedule:</strong> Handover is within <strong>10 to 15 business days</strong> following receipt of initial deposit and school content materials.</li>
+        <li><strong>Warranty &amp; Maintenance:</strong> Includes <strong>30 days complimentary post-launch support</strong> for text corrections and adjustments at no additional charge.</li>
+      </ol>
+    </div>
+
+    <!-- PAYMENT DETAILS & SIGN-OFF -->
+    <div class="pt-6 border-t-2 border-neutral-900 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
+      <div class="space-y-1 text-xs">
+        <span class="font-bold text-neutral-900 uppercase tracking-wider block">Direct Bank Transfer Details:</span>
+        <div class="text-neutral-700">Bank Name: [Your Bank Name]</div>
+        <div class="text-neutral-700">Account Name: [Your Account Name]</div>
+        <div class="text-neutral-700 font-mono font-bold text-sm">Account Number: [0000000000]</div>
+      </div>
+
+      <div class="sm:text-right text-xs space-y-1">
+        <div class="font-bold text-neutral-900">Adeleke Sherifdeen</div>
+        <div class="text-neutral-500">Lead Architect, Gran Jefe Studio</div>
+        <div class="text-neutral-800 font-medium">WhatsApp / Tel: 09061770885 / 07013216317</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
