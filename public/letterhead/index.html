@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letterhead | Gran Jefe Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --plum: #2E0E1D;
+      --terra: #C42C00;
+      --muted: #6C4B59;
+      --line: #EAD3C4;
+    }
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #EDE7E2;
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      color: var(--plum);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .toolbar {
+      max-width: 210mm; margin: 24px auto 12px; padding: 0 4px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      font-size: 13px; color: var(--muted);
+    }
+    .toolbar button {
+      min-height: 44px; padding: 0 20px; border: 0; border-radius: 10px;
+      background: var(--plum); color: #fff; font: inherit; font-weight: 600; cursor: pointer;
+      transition: background 160ms ease;
+    }
+    .toolbar button:hover { background: #4A1830; }
+    .toolbar button:focus-visible { outline: 2px solid var(--terra); outline-offset: 2px; }
+
+    .page {
+      width: 210mm; min-height: 297mm; margin: 0 auto 32px;
+      background: #fff; position: relative;
+      display: flex; flex-direction: column;
+      box-shadow: 0 8px 30px rgba(46, 14, 29, 0.12);
+    }
+
+    /* Top accent bar */
+    .accent { height: 6mm; background: var(--plum); position: relative; }
+    .accent::after {
+      content: ""; position: absolute; right: 0; top: 0; height: 100%; width: 38mm; background: var(--terra);
+    }
+
+    header {
+      padding: 10mm 18mm 6mm;
+      display: flex; align-items: center; justify-content: space-between; gap: 10mm;
+      border-bottom: 0.4mm solid var(--line);
+    }
+    header img { height: 18mm; width: auto; display: block; }
+    .contact {
+      text-align: right; font-size: 8.5pt; line-height: 1.65; color: var(--muted);
+    }
+    .contact strong { color: var(--plum); font-weight: 600; }
+
+    main {
+      flex: 1; padding: 12mm 18mm;
+      font-size: 10.5pt; line-height: 1.7;
+      outline: none;
+    }
+    main:focus-visible { box-shadow: inset 0 0 0 2px var(--line); }
+    main p { margin: 0 0 4mm; }
+    .meta { margin-bottom: 8mm; }
+    .placeholder { color: #9A7F8A; }
+
+    /* Watermark mark */
+    .watermark {
+      position: absolute; right: 14mm; bottom: 34mm; width: 70mm; opacity: 0.04; pointer-events: none;
+    }
+
+    footer {
+      padding: 5mm 18mm 0;
+      border-top: 0.4mm solid var(--line);
+      display: flex; justify-content: space-between; align-items: center; gap: 6mm;
+      font-size: 8pt; color: var(--muted);
+    }
+    footer .tag { color: var(--plum); font-weight: 600; letter-spacing: 0.02em; }
+    .bottom-bar { height: 3mm; background: var(--plum); margin-top: 5mm; }
+
+    @media print {
+      body { background: #fff; }
+      .toolbar { display: none; }
+      .page { margin: 0; box-shadow: none; }
+      main:focus-visible { box-shadow: none; }
+      .placeholder { color: var(--plum); }
+    }
+    @media (max-width: 820px) {
+      .page { width: 100%; min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <span>Click anywhere in the body to type your letter, then save as PDF.</span>
+    <button type="button" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <div class="page">
+    <div class="accent" aria-hidden="true"></div>
+
+    <header>
+      <img src="/logo_light_clean.png" alt="Gran Jefe Solutions" width="180" height="71">
+      <div class="contact">
+        <strong>Gran Jefe Solutions</strong><br>
+        Lagos / Ibadan, Nigeria<br>
+        09061770885 &nbsp;|&nbsp; 07013216317<br>
+        info@thegranjefe.com &nbsp;|&nbsp; thegranjefe.com
+      </div>
+    </header>
+
+    <main contenteditable="true" spellcheck="true" aria-label="Letter body">
+      <div class="meta">
+        <p><strong>Date:</strong> <span class="placeholder">November 9, 2026</span><br>
+        <strong>Ref:</strong> <span class="placeholder">GJS/2026/001</span></p>
+      </div>
+
+      <p class="placeholder">Recipient Name<br>Title / Organisation<br>Address</p>
+
+      <p><strong class="placeholder">Subject: Enter subject line</strong></p>
+
+      <p class="placeholder">Dear Sir / Madam,</p>
+
+      <p class="placeholder">Start typing your letter here. This area is editable directly in your browser. When you are done, use the Print / Save as PDF button above to export a clean A4 document on Gran Jefe Solutions letterhead.</p>
+
+      <p class="placeholder">Yours faithfully,</p>
+
+      <p style="margin-top:14mm"><strong>Adeleke Sherifdeen</strong><br>
+      Lead Architect, Gran Jefe Solutions</p>
+    </main>
+
+    <img class="watermark" src="/favicon.png" alt="" aria-hidden="true">
+
+    <footer>
+      <span class="tag">Websites · Mobile Apps · Backend Systems · Payments</span>
+      <span>thegranjefe.com</span>
+    </footer>
+    <div class="bottom-bar" aria-hidden="true"></div>
+  </div>
+
+</body>
+</html>
