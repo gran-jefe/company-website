@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FSY Stores — Shop Supermarket, Fresh Provisions, Wholesale Cartons & Salon | Ibadan</title>
+  <title>FSY Stores — Supermarket, B2B Wholesale & Unisex Salon | Ajibode, Ibadan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
@@ -14,15 +14,14 @@
       theme: {
         extend: {
           colors: {
-            brand: {
-              green: '#039D55',
-              darkGreen: '#094528',
-              mint: '#EBF7F1',
-              navy: '#0A192F',
-              slate: '#0F294A',
+            fsy: {
+              navy: '#0C1E3C',
+              dark: '#071224',
+              surface: '#F8FAFC',
               amber: '#F59E0B',
-              coral: '#E11D48',
-              surface: '#F5FAF8'
+              gold: '#D97706',
+              border: '#E2E8F0',
+              accent: '#2563EB'
             }
           },
           fontFamily: {
@@ -36,82 +35,81 @@
   <style>
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .pulse-dot {
-      box-shadow: 0 0 0 0 rgba(3, 157, 85, 0.7);
-      animation: pulse-green 2s infinite;
+    .live-pulse {
+      box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+      animation: pulse-amber 2s infinite;
     }
-    @keyframes pulse-green {
-      0% { box-shadow: 0 0 0 0 rgba(3, 157, 85, 0.7); }
-      70% { box-shadow: 0 0 0 8px rgba(3, 157, 85, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(3, 157, 85, 0); }
+    @keyframes pulse-amber {
+      0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
     }
   </style>
 </head>
-<body class="bg-[#F5FAF8] text-slate-900 font-sans antialiased selection:bg-brand-green selection:text-white pb-20 md:pb-0">
+<body class="bg-[#F8FAFC] text-slate-900 font-sans antialiased selection:bg-fsy-amber selection:text-slate-950 pb-20 md:pb-0">
 
-  <!-- TOP UTILITY & LOCATION STRIP (FOODCO-INSPIRED) -->
-  <div class="bg-brand-darkGreen text-slate-200 text-xs py-2 px-4 border-b border-emerald-950">
+  <!-- TOP STORE ANNOUNCEMENT & LOCATION BANNER -->
+  <div class="bg-fsy-dark text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
       <div class="flex items-center gap-3">
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-900/80 text-emerald-300 font-medium text-[11px] border border-emerald-700/60">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
-          Ajibode Flagship Store • Open 8:00 AM - 9:30 PM
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-800/80 text-amber-400 font-medium text-[11px] border border-amber-500/30">
+          <span class="w-2 h-2 rounded-full bg-amber-400 live-pulse"></span>
+          Ajibode Junction, UI Road • Store Open 8:00 AM - 9:30 PM
         </span>
-        <span class="text-emerald-700 hidden sm:inline">•</span>
-        <span class="hidden sm:inline text-slate-300 text-[11px]">Serving Bodija, UI, Agbowo, Sango, Akobo, Ring Road & Nationwide B2B Freight</span>
+        <span class="text-slate-700 hidden sm:inline">•</span>
+        <span class="hidden sm:inline text-slate-300 text-[11px]">Direct Supermarket Retailing, Bulk Carton Distribution & Luxury Salon</span>
       </div>
 
       <div class="flex items-center gap-3 text-[11px]">
-        <!-- Pitch Deck Modal Trigger -->
-        <button onclick="openPitchModal()" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold transition shadow-sm">
+        <button onclick="openPitchModal()" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-fsy-amber hover:bg-amber-400 text-slate-950 font-bold transition shadow-sm text-xs">
           <i data-lucide="presentation" class="w-3.5 h-3.5"></i>
           Executive Pitch Briefing
         </button>
-        <span class="text-emerald-700">•</span>
-        <span class="text-slate-300">Helpline: <strong class="text-white font-mono">0800-FSY-STORES</strong></span>
+        <span class="text-slate-700">•</span>
+        <span class="text-slate-300">Customer Desk: <strong class="text-white font-mono">0800-FSY-STORES</strong></span>
       </div>
     </div>
   </div>
 
-  <!-- MAIN APP HEADER -->
+  <!-- MAIN NAVIGATION BAR -->
   <header class="sticky top-0 z-40 bg-white border-b border-slate-200/90 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
       
-      <!-- Brand Logo -->
+      <!-- FSY Distinct Brand Identity -->
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-green to-brand-darkGreen flex items-center justify-center font-extrabold text-white text-lg shadow-md shadow-brand-green/20 font-mono tracking-tight">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-fsy-navy via-slate-900 to-fsy-dark flex items-center justify-center font-extrabold text-amber-400 text-lg shadow-md font-mono tracking-tight border border-amber-500/30">
           FSY
         </div>
         <div>
-          <div class="flex items-center gap-1.5">
-            <span class="font-extrabold text-lg tracking-tight text-slate-950 font-mono">FSY STORES</span>
-            <span class="hidden sm:inline-block px-1.5 py-0.5 text-[9px] uppercase font-bold tracking-wider rounded bg-emerald-100 text-emerald-800">Ibadan</span>
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-lg sm:text-xl tracking-tight text-fsy-navy font-mono">FSY STORES</span>
+            <span class="hidden sm:inline-block px-2 py-0.5 text-[9px] uppercase font-bold tracking-wider rounded bg-amber-100 text-amber-900 border border-amber-200">Ajibode Flagship</span>
           </div>
-          <p class="text-[10px] text-slate-500 font-medium">Supermarket • B2B Wholesale • Salon</p>
+          <p class="text-[10px] text-slate-500 font-medium">Mega Supermarket • B2B Wholesale Hub • Unisex Salon</p>
         </div>
       </div>
 
-      <!-- FoodCo-Inspired Delivery vs Takeaway (Pickup) Pill Switcher -->
+      <!-- In-Store Collection vs Home Delivery Selector -->
       <div class="hidden md:flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs font-semibold">
-        <button onclick="setFulfillmentType('pickup')" id="headerBtnPickup" class="px-3.5 py-1.5 rounded-lg bg-white text-slate-900 shadow-sm font-bold flex items-center gap-1.5 transition">
-          <i data-lucide="store" class="w-3.5 h-3.5 text-brand-green"></i>
-          <span>Takeaway (Pickup at Ajibode)</span>
+        <button onclick="setFulfillmentType('pickup')" id="headerBtnPickup" class="px-3.5 py-1.5 rounded-lg bg-white text-slate-950 shadow-sm font-bold flex items-center gap-1.5 transition">
+          <i data-lucide="store" class="w-3.5 h-3.5 text-fsy-amber"></i>
+          <span>Click & Collect (Ajibode Counter)</span>
         </button>
         <button onclick="setFulfillmentType('delivery')" id="headerBtnDelivery" class="px-3.5 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition">
           <i data-lucide="truck" class="w-3.5 h-3.5"></i>
-          <span>Home Delivery</span>
+          <span>Ibadan Delivery</span>
         </button>
       </div>
 
-      <!-- Real-time Live Search Input -->
+      <!-- Real-time Live Product Search -->
       <div class="flex-1 max-w-md mx-2 hidden lg:block">
         <div class="relative">
           <input 
             type="text" 
             id="searchInput"
             onkeyup="handleLiveSearch(this.value)"
-            placeholder="Search 1,200+ groceries, bread, drinks, cartons..."
-            class="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 rounded-xl pl-10 pr-4 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-brand-green/30 focus:border-brand-green transition"
+            placeholder="Search groceries, daily bread, chilled drinks, cartons..."
+            class="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 rounded-xl pl-10 pr-4 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-fsy-amber/50 focus:border-fsy-amber transition"
           />
           <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
         </div>
@@ -119,94 +117,95 @@
 
       <!-- Right Header Tools -->
       <div class="flex items-center gap-3">
-        <!-- Cart Drawer Button -->
-        <button onclick="openCartDrawer()" class="flex items-center gap-2 bg-brand-green hover:bg-emerald-600 active:scale-95 text-white font-bold px-3.5 py-2 rounded-xl transition shadow-sm text-xs">
-          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+        <button onclick="openCartDrawer()" class="flex items-center gap-2 bg-fsy-navy hover:bg-slate-800 active:scale-95 text-white font-bold px-4 py-2 rounded-xl transition shadow text-xs">
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-fsy-amber"></i>
           <span class="hidden sm:inline">My Basket</span>
-          <span id="cartCountBadge" class="w-5 h-5 rounded-full bg-white text-brand-green text-[11px] font-mono flex items-center justify-center font-bold">0</span>
+          <span id="cartCountBadge" class="w-5 h-5 rounded-full bg-fsy-amber text-slate-950 text-[11px] font-mono flex items-center justify-center font-bold">0</span>
         </button>
       </div>
     </div>
 
-    <!-- MAIN NAVIGATION TABS (FOODCO + ENTERPRISE HYBRID) -->
+    <!-- 4 OPERATIONAL TIERS NAVIGATION -->
     <div class="border-t border-slate-100 bg-white px-4">
       <div class="max-w-7xl mx-auto flex items-center gap-2 overflow-x-auto hide-scrollbar py-2 text-xs font-semibold">
-        <button onclick="switchMode('supermarket')" id="tab-supermarket" class="pillar-tab flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-brand-green text-white shadow-sm font-bold whitespace-nowrap transition">
-          <i data-lucide="shopping-basket" class="w-3.5 h-3.5"></i>
+        <button onclick="switchMode('supermarket')" id="tab-supermarket" class="pillar-tab flex items-center gap-2 px-4 py-2 rounded-xl bg-fsy-navy text-white shadow-sm font-bold whitespace-nowrap transition">
+          <i data-lucide="shopping-basket" class="w-3.5 h-3.5 text-fsy-amber"></i>
           Supermarket Groceries
         </button>
-        <button onclick="switchMode('personal')" id="tab-personal" class="pillar-tab flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
-          <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
+        <button onclick="switchMode('personal')" id="tab-personal" class="pillar-tab flex items-center gap-2 px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+          <i data-lucide="zap" class="w-3.5 h-3.5 text-fsy-amber"></i>
           Express Personal (Grab & Go)
         </button>
-        <button onclick="switchMode('wholesale')" id="tab-wholesale" class="pillar-tab flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+        <button onclick="switchMode('wholesale')" id="tab-wholesale" class="pillar-tab flex items-center gap-2 px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
           <i data-lucide="boxes" class="w-3.5 h-3.5 text-blue-600"></i>
           B2B Wholesale Carton Trade
         </button>
-        <button onclick="switchMode('salon')" id="tab-salon" class="pillar-tab flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+        <button onclick="switchMode('salon')" id="tab-salon" class="pillar-tab flex items-center gap-2 px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
           <i data-lucide="scissors" class="w-3.5 h-3.5 text-pink-600"></i>
-          Unisex Salon & Grooming
+          Unisex Salon & Spa Lounge
         </button>
       </div>
     </div>
   </header>
 
-  <!-- MOBILE SEARCH BAR (VISIBLE ON PHONES) -->
+  <!-- MOBILE SEARCH BAR -->
   <div class="p-3 bg-white border-b border-slate-200 lg:hidden">
     <div class="relative">
       <input 
         type="text" 
         onkeyup="handleLiveSearch(this.value)"
         placeholder="Search groceries, provisions, bakery, cartons..."
-        class="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 rounded-xl pl-9 pr-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-brand-green"
+        class="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 rounded-xl pl-9 pr-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-fsy-amber"
       />
       <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
     </div>
   </div>
 
-  <!-- HERO PROMO CAROUSEL (FOODCO STYLE PROMOTIONS) -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 pt-4 pb-2">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+  <!-- HERO COMMERCIAL SHOWCASE -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 pt-5 pb-3">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       
-      <!-- Main Featured Banner -->
-      <div class="md:col-span-2 rounded-2xl bg-gradient-to-r from-brand-darkGreen to-emerald-800 text-white p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden shadow-sm">
-        <div class="absolute right-0 bottom-0 opacity-15 translate-x-8 translate-y-8">
-          <i data-lucide="shopping-cart" class="w-64 h-64 text-white"></i>
+      <!-- Primary Feature Banner -->
+      <div class="md:col-span-2 rounded-2xl bg-gradient-to-br from-fsy-navy via-slate-900 to-fsy-dark text-white p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden shadow-lg border border-slate-800">
+        <div class="absolute right-0 bottom-0 opacity-10 translate-x-10 translate-y-10">
+          <i data-lucide="store" class="w-72 h-72 text-white"></i>
         </div>
-        <div class="relative z-10 space-y-2 max-w-lg">
-          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-700/80 text-emerald-200 text-[10px] font-bold uppercase tracking-wider">
-            Ibadan Best Supermarket Value
+        <div class="relative z-10 space-y-3 max-w-lg">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-fsy-amber text-[10px] font-bold uppercase tracking-wider">
+            Ibadan’s Trusted Mega Retailer & Wholesaler
           </span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Stock Your Home & Pantry at Direct Supermarket Prices</h2>
-          <p class="text-xs sm:text-sm text-emerald-100/90 leading-relaxed">
-            From daily fresh partner-supplied bread and cold drinks to 50kg rice, pasta, and bulk cartons for retailers. Order online, pickup at Ajibode or get same-day home delivery.
+          <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+            The Complete FSY Store Experience. At Your Fingertips.
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Order your household groceries, daily fresh bread supplied by partner bakeries, chilled drinks, or bulk wholesale cartons. Pick up at our Ajibode express counter without queueing, or get doorstep delivery across Ibadan.
           </p>
         </div>
-        <div class="relative z-10 pt-4 flex items-center gap-3">
-          <button onclick="scrollToGrid()" class="px-4 py-2 bg-white text-brand-darkGreen rounded-xl text-xs font-extrabold hover:bg-slate-100 transition shadow">
+        <div class="relative z-10 pt-5 flex items-center gap-3">
+          <button onclick="scrollToGrid()" class="px-5 py-2.5 bg-fsy-amber text-slate-950 font-bold rounded-xl text-xs hover:bg-amber-400 transition shadow">
             Shop Groceries Now
           </button>
-          <button onclick="switchMode('wholesale')" class="px-4 py-2 bg-emerald-900/60 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold border border-emerald-600/40 transition">
-            View Wholesale Cartons
+          <button onclick="switchMode('wholesale')" class="px-4 py-2.5 bg-slate-800/80 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold border border-slate-700 transition">
+            Wholesale Carton Rates →
           </button>
         </div>
       </div>
 
-      <!-- Side Promotional Card (Click & Collect Promo) -->
-      <div class="rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 text-slate-950 p-6 flex flex-col justify-between shadow-sm">
+      <!-- Express Grab & Collect Card -->
+      <div class="rounded-2xl bg-gradient-to-br from-amber-500 to-fsy-gold text-slate-950 p-6 flex flex-col justify-between shadow-lg">
         <div>
-          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[10px] font-bold uppercase tracking-wider">
-            ⚡ 20-Min Takeaway
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-950 text-amber-400 text-[10px] font-bold uppercase tracking-wider">
+            ⚡ 20-Min Express Pickup
           </span>
-          <h3 class="text-xl font-extrabold tracking-tight mt-2">Skip Supermarket Queues</h3>
-          <p class="text-xs text-slate-900/90 mt-1 leading-relaxed">
-            Order your meat pies, cold drinks, or groceries on your phone. We pack everything before you arrive at our Ajibode counter.
+          <h3 class="text-xl font-extrabold tracking-tight mt-2.5 leading-snug">Zero Queueing at the Counter</h3>
+          <p class="text-xs text-slate-900/90 mt-1.5 leading-relaxed">
+            Grabbing lunch meat pies, cold drinks, or personal toiletries? Place your order on your phone. Our floor team pre-packs your order before you arrive at Ajibode.
           </p>
         </div>
-        <div class="pt-4">
-          <button onclick="setFulfillmentType('pickup'); openCartDrawer();" class="w-full bg-slate-950 text-white hover:bg-slate-900 py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5">
-            <i data-lucide="store" class="w-3.5 h-3.5 text-amber-400"></i>
-            <span>Set to Ajibode Pickup</span>
+        <div class="pt-5">
+          <button onclick="switchMode('personal');" class="w-full bg-slate-950 text-white hover:bg-slate-900 py-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2">
+            <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span>Browse Grab & Go Essentials</span>
           </button>
         </div>
       </div>
@@ -214,14 +213,14 @@
     </div>
   </section>
 
-  <!-- HORIZONTAL CATEGORY ICON RAIL (FOODCO INITIATIVE) -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+  <!-- DEPARTMENT HORIZONTAL FILTER STRIP -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-3">
     <div class="flex items-center justify-between mb-2">
-      <h3 class="text-sm font-extrabold text-slate-900">Explore Departments</h3>
-      <span class="text-xs text-slate-400">Ajibode Flagship Inventory</span>
+      <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500">Store Departments</h3>
+      <span class="text-xs text-slate-400 font-mono">Ajibode Main Catalog</span>
     </div>
     
-    <div id="categoryIconRail" class="flex items-center gap-3 overflow-x-auto hide-scrollbar py-2">
+    <div id="categoryIconRail" class="flex items-center gap-2.5 overflow-x-auto hide-scrollbar py-1">
       <!-- Injected via JavaScript -->
     </div>
   </section>
@@ -233,37 +232,37 @@
     <section id="productGridContainer">
       <div class="flex items-center justify-between mb-4">
         <div>
-          <h2 id="gridTitle" class="text-base font-extrabold text-slate-900">Featured Household Groceries</h2>
-          <p id="gridSubtitle" class="text-xs text-slate-500">Quality, authentic items verified in stock at FSY Stores.</p>
+          <h2 id="gridTitle" class="text-base font-extrabold text-slate-900">Featured Supermarket Inventory</h2>
+          <p id="gridSubtitle" class="text-xs text-slate-500">Authentic products stocked and verified at FSY Ajibode.</p>
         </div>
         <span class="text-xs text-slate-500 font-medium">
-          Showing <strong id="displayedItemCount" class="text-slate-900">0</strong> products
+          Showing <strong id="displayedItemCount" class="text-slate-900">0</strong> items in stock
         </span>
       </div>
 
-      <!-- Product Cards Grid with FoodCo-style Inline Steppers -->
-      <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+      <!-- Product Cards Grid with Fast Quantity Stepper -->
+      <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
         <!-- Rendered via JS -->
       </div>
     </section>
 
-    <!-- VIEW 2: B2B WHOLESALE TRADE TABLE (SPECIAL HIGH-SPEED BULK ORDER MATRIX) -->
+    <!-- VIEW 2: B2B WHOLESALE TRADE TABLE (FAST BULK RE-ORDER MATRIX) -->
     <section id="wholesaleTradeView" class="hidden">
       <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <div class="p-5 bg-gradient-to-r from-slate-900 to-brand-slate text-white flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="p-5 bg-gradient-to-r from-fsy-navy to-slate-900 text-white flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 rounded bg-emerald-500 text-slate-950 font-bold text-xs uppercase font-mono">B2B Portal</span>
+              <span class="px-2.5 py-0.5 rounded bg-fsy-amber text-slate-950 font-bold text-xs uppercase font-mono">B2B Trade Portal</span>
               <h2 class="text-base font-bold">Fast Carton & Bulk Re-Order Matrix</h2>
             </div>
             <p class="text-xs text-slate-300 mt-1">For neighborhood supermarkets, mini-marts, hotels, and bulk retailers across Oyo State.</p>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="generateProformaPDF()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-white border border-slate-700 transition">
+            <button onclick="generateProformaPDF()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-white border border-slate-700 transition">
               <i data-lucide="file-text" class="w-3.5 h-3.5 text-amber-400"></i>
               Instant Proforma Invoice
             </button>
-            <button onclick="openCartDrawer()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-brand-green hover:bg-emerald-600 text-xs font-bold text-white transition">
+            <button onclick="openCartDrawer()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-fsy-amber hover:bg-amber-400 text-slate-950 text-xs font-bold transition">
               <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
               Review Basket
             </button>
@@ -366,7 +365,7 @@
 
               <div>
                 <label class="block text-xs font-bold text-slate-700 mb-1">Your Full Name</label>
-                <input type="text" id="salonCustomerName" required placeholder="Babatunde Adeleke" class="w-full text-xs p-2 rounded-xl border border-slate-200 focus:ring-1 focus:ring-pink-500 focus:outline-none">
+                <input type="text" id="salonCustomerName" required placeholder="Dr. / Mr. / Mrs." class="w-full text-xs p-2 rounded-xl border border-slate-200 focus:ring-1 focus:ring-pink-500 focus:outline-none">
               </div>
 
               <div>
@@ -387,28 +386,28 @@
 
   </main>
 
-  <!-- MOBILE BOTTOM NAVIGATION (FOODCO INITIATIVE) -->
+  <!-- MOBILE BOTTOM NAVIGATION -->
   <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-40 flex items-center justify-around py-2 md:hidden text-[10px] font-semibold text-slate-600 shadow-lg">
-    <button onclick="switchMode('supermarket')" class="flex flex-col items-center gap-1 text-brand-green">
-      <i data-lucide="shopping-basket" class="w-5 h-5"></i>
+    <button onclick="switchMode('supermarket')" class="flex flex-col items-center gap-1 text-fsy-navy font-bold">
+      <i data-lucide="shopping-basket" class="w-5 h-5 text-fsy-amber"></i>
       <span>Groceries</span>
     </button>
-    <button onclick="switchMode('personal')" class="flex flex-col items-center gap-1 hover:text-brand-green">
-      <i data-lucide="zap" class="w-5 h-5 text-amber-500"></i>
+    <button onclick="switchMode('personal')" class="flex flex-col items-center gap-1 hover:text-fsy-navy">
+      <i data-lucide="zap" class="w-5 h-5 text-fsy-amber"></i>
       <span>Grab & Go</span>
     </button>
-    <button onclick="switchMode('wholesale')" class="flex flex-col items-center gap-1 hover:text-brand-green">
+    <button onclick="switchMode('wholesale')" class="flex flex-col items-center gap-1 hover:text-fsy-navy">
       <i data-lucide="boxes" class="w-5 h-5 text-blue-600"></i>
       <span>Wholesale</span>
     </button>
-    <button onclick="switchMode('salon')" class="flex flex-col items-center gap-1 hover:text-brand-green">
+    <button onclick="switchMode('salon')" class="flex flex-col items-center gap-1 hover:text-fsy-navy">
       <i data-lucide="scissors" class="w-5 h-5 text-pink-600"></i>
       <span>Salon</span>
     </button>
-    <button onclick="openCartDrawer()" class="flex flex-col items-center gap-1 relative hover:text-brand-green">
+    <button onclick="openCartDrawer()" class="flex flex-col items-center gap-1 relative hover:text-fsy-navy">
       <i data-lucide="shopping-bag" class="w-5 h-5"></i>
       <span>Cart</span>
-      <span id="mobileCartCount" class="absolute -top-1 right-1 w-4 h-4 rounded-full bg-brand-green text-white text-[9px] font-bold flex items-center justify-center">0</span>
+      <span id="mobileCartCount" class="absolute -top-1 right-1 w-4 h-4 rounded-full bg-fsy-amber text-slate-950 text-[9px] font-bold flex items-center justify-center">0</span>
     </button>
   </nav>
 
@@ -416,28 +415,28 @@
   <div id="cartDrawerBackdrop" onclick="closeCartDrawer()" class="fixed inset-0 bg-slate-950/70 z-50 backdrop-blur-sm hidden transition-opacity"></div>
   <aside id="cartDrawer" class="fixed right-0 top-0 h-full w-full max-w-md bg-white z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out">
     
-    <div class="p-4 bg-brand-darkGreen text-white flex items-center justify-between border-b border-emerald-900">
+    <div class="p-4 bg-fsy-navy text-white flex items-center justify-between border-b border-slate-800">
       <div class="flex items-center gap-2">
-        <i data-lucide="shopping-bag" class="w-5 h-5 text-emerald-300"></i>
+        <i data-lucide="shopping-bag" class="w-5 h-5 text-fsy-amber"></i>
         <div>
           <h3 class="font-bold text-sm">Your Shopping Basket</h3>
-          <span id="drawerFulfillmentSummary" class="text-[10px] text-emerald-200">Takeaway (Pickup at Ajibode Flagship)</span>
+          <span id="drawerFulfillmentSummary" class="text-[10px] text-slate-300">Click & Collect (Pickup at Ajibode Flagship)</span>
         </div>
       </div>
-      <button onclick="closeCartDrawer()" class="w-8 h-8 rounded-lg bg-emerald-900 text-slate-300 hover:text-white flex items-center justify-center">
+      <button onclick="closeCartDrawer()" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
     </div>
 
     <!-- Fulfillment Switcher in Cart -->
     <div class="p-3 bg-slate-50 border-b border-slate-200 flex gap-2 text-xs">
-      <button onclick="setFulfillmentType('pickup')" id="cartBtnPickup" class="flex-1 py-2 px-3 rounded-xl border border-brand-green bg-brand-mint text-brand-darkGreen font-bold flex items-center justify-center gap-1.5 transition">
-        <i data-lucide="store" class="w-3.5 h-3.5 text-brand-green"></i>
-        Takeaway (Pickup)
+      <button onclick="setFulfillmentType('pickup')" id="cartBtnPickup" class="flex-1 py-2 px-3 rounded-xl border border-fsy-amber bg-amber-50 text-slate-950 font-bold flex items-center justify-center gap-1.5 transition">
+        <i data-lucide="store" class="w-3.5 h-3.5 text-fsy-amber"></i>
+        Click & Collect (Ajibode)
       </button>
       <button onclick="setFulfillmentType('delivery')" id="cartBtnDelivery" class="flex-1 py-2 px-3 rounded-xl border border-slate-300 bg-white text-slate-600 font-semibold flex items-center justify-center gap-1.5 transition">
         <i data-lucide="truck" class="w-3.5 h-3.5"></i>
-        Home Delivery
+        Ibadan Delivery
       </button>
     </div>
 
@@ -446,10 +445,10 @@
       <!-- Injected dynamically -->
     </div>
 
-    <!-- Delivery Zone Selector (Shown if delivery chosen) -->
-    <div id="deliveryZoneSelector" class="hidden px-4 py-3 bg-emerald-50/50 border-t border-slate-200">
+    <!-- Delivery Zone Selector -->
+    <div id="deliveryZoneSelector" class="hidden px-4 py-3 bg-amber-50/50 border-t border-slate-200">
       <label class="block text-[11px] font-bold text-slate-700 mb-1">Select Ibadan Delivery Destination:</label>
-      <select id="ibadanLocationSelect" onchange="updateDeliveryFee(this.value)" class="w-full text-xs p-2 rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-1 focus:ring-brand-green">
+      <select id="ibadanLocationSelect" onchange="updateDeliveryFee(this.value)" class="w-full text-xs p-2 rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-1 focus:ring-fsy-amber">
         <option value="ajibode">Ajibode / UI / Agbowo / Samonda — ₦1,000 (Express 30 Mins)</option>
         <option value="bodija">Bodija / Sango / Mokola — ₦1,500</option>
         <option value="akobo">Akobo / General Gas / Orogun — ₦2,000</option>
@@ -472,7 +471,7 @@
         </div>
         <div class="flex justify-between text-sm font-extrabold text-slate-950 pt-2 border-t border-slate-200">
           <span>Grand Total:</span>
-          <span id="cartGrandTotal" class="font-mono text-base text-brand-darkGreen">₦0</span>
+          <span id="cartGrandTotal" class="font-mono text-base text-fsy-amber">₦0</span>
         </div>
       </div>
 
@@ -483,19 +482,19 @@
     </div>
   </aside>
 
-  <!-- SECURE CHECKOUT MODAL (PAYSTACK / DEDICATED VIRTUAL ACCOUNT) -->
+  <!-- SECURE CHECKOUT MODAL -->
   <div id="checkoutModalBackdrop" class="fixed inset-0 bg-slate-950/80 z-50 backdrop-blur-md hidden flex items-center justify-center p-4 overflow-y-auto">
     <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl border border-slate-200 overflow-hidden my-8">
       
-      <div class="bg-brand-darkGreen p-4 text-white flex items-center justify-between">
+      <div class="bg-fsy-navy p-4 text-white flex items-center justify-between">
         <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg bg-brand-green flex items-center justify-center text-white font-bold font-mono">FSY</div>
+          <div class="w-8 h-8 rounded-lg bg-fsy-amber flex items-center justify-center text-slate-950 font-bold font-mono">FSY</div>
           <div>
             <h3 class="text-sm font-bold">Automated Secure Checkout</h3>
-            <span class="text-[10px] text-emerald-200">Paystack & Dedicated Virtual Account Rails</span>
+            <span class="text-[10px] text-slate-300">Dedicated Virtual Account & Card Channels</span>
           </div>
         </div>
-        <button onclick="closeCheckoutModal()" class="w-7 h-7 rounded-lg bg-emerald-900 text-slate-300 hover:text-white flex items-center justify-center">
+        <button onclick="closeCheckoutModal()" class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center">
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
       </div>
@@ -506,20 +505,20 @@
           <div class="grid grid-cols-2 gap-2">
             <div>
               <label class="block text-[11px] font-bold text-slate-700 mb-1">Full Name</label>
-              <input type="text" id="custName" required placeholder="Babatunde Adeleke" class="w-full text-xs p-2.5 rounded-xl border border-slate-300 focus:ring-1 focus:ring-brand-green focus:outline-none">
+              <input type="text" id="custName" required placeholder="Babatunde Adeleke" class="w-full text-xs p-2.5 rounded-xl border border-slate-300 focus:ring-1 focus:ring-fsy-amber focus:outline-none">
             </div>
             <div>
               <label class="block text-[11px] font-bold text-slate-700 mb-1">Phone Number</label>
-              <input type="tel" id="custPhone" required placeholder="0803 123 4567" class="w-full text-xs p-2.5 rounded-xl border border-slate-300 focus:ring-1 focus:ring-brand-green focus:outline-none">
+              <input type="tel" id="custPhone" required placeholder="0803 123 4567" class="w-full text-xs p-2.5 rounded-xl border border-slate-300 focus:ring-1 focus:ring-fsy-amber focus:outline-none">
             </div>
           </div>
           <div>
             <label class="block text-[11px] font-bold text-slate-700 mb-1">Email (For Digital Receipt & Packing Slip)</label>
-            <input type="email" id="custEmail" required placeholder="tunde@gmail.com" class="w-full text-xs p-2.5 rounded-xl border border-slate-300 focus:ring-1 focus:ring-brand-green focus:outline-none">
+            <input type="email" id="custEmail" required placeholder="tunde@gmail.com" class="w-full text-xs p-2.5 rounded-xl border border-slate-300 focus:ring-1 focus:ring-fsy-amber focus:outline-none">
           </div>
           <div id="checkoutDeliveryAddressField" class="hidden">
             <label class="block text-[11px] font-bold text-slate-700 mb-1">Ibadan Delivery Address</label>
-            <input type="text" id="custAddress" placeholder="e.g. 14, Awolowo Avenue, Old Bodija" class="w-full text-xs p-2.5 rounded-xl border border-slate-300 focus:ring-1 focus:ring-brand-green focus:outline-none">
+            <input type="text" id="custAddress" placeholder="e.g. 14, Awolowo Avenue, Old Bodija" class="w-full text-xs p-2.5 rounded-xl border border-slate-300 focus:ring-1 focus:ring-fsy-amber focus:outline-none">
           </div>
         </div>
 
@@ -527,22 +526,22 @@
           <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">2. Automated Payment Rails</h4>
           
           <div class="space-y-2">
-            <label class="flex items-center justify-between p-3 rounded-xl border-2 border-brand-green bg-brand-mint/40 cursor-pointer">
+            <label class="flex items-center justify-between p-3 rounded-xl border-2 border-fsy-amber bg-amber-50/50 cursor-pointer">
               <div class="flex items-center gap-2.5">
-                <input type="radio" name="paymentChannel" value="virtual_account" checked class="text-brand-green focus:ring-brand-green">
+                <input type="radio" name="paymentChannel" value="virtual_account" checked class="text-fsy-amber focus:ring-fsy-amber">
                 <div>
                   <span class="text-xs font-bold text-slate-900 block">Dedicated Virtual Bank Account</span>
                   <span class="text-[10px] text-slate-500">Generates instant dynamic account with 3-second auto-reconciliation.</span>
                 </div>
               </div>
-              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold">Recommended</span>
+              <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-900 text-[10px] font-bold">Recommended</span>
             </label>
 
             <label class="flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-slate-300 cursor-pointer">
               <div class="flex items-center gap-2.5">
-                <input type="radio" name="paymentChannel" value="paystack_card" class="text-brand-green focus:ring-brand-green">
+                <input type="radio" name="paymentChannel" value="paystack_card" class="text-fsy-amber focus:ring-fsy-amber">
                 <div>
-                  <span class="text-xs font-bold text-slate-900 block">Paystack (Debit Cards / Apple Pay / USSD)</span>
+                  <span class="text-xs font-bold text-slate-900 block">Debit Cards / Apple Pay / USSD</span>
                   <span class="text-[10px] text-slate-500">Mastercard, Visa, Verve.</span>
                 </div>
               </div>
@@ -553,11 +552,11 @@
 
         <div class="p-3 bg-slate-100 rounded-xl flex items-center justify-between text-xs">
           <span class="font-bold text-slate-600">Total Payable:</span>
-          <span id="checkoutPayableAmount" class="font-mono text-base font-extrabold text-brand-darkGreen">₦0</span>
+          <span id="checkoutPayableAmount" class="font-mono text-base font-extrabold text-fsy-navy">₦0</span>
         </div>
 
-        <button type="submit" id="btnSubmitOrder" class="w-full bg-brand-green hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow flex items-center justify-center gap-2">
-          <i data-lucide="lock" class="w-4 h-4"></i>
+        <button type="submit" id="btnSubmitOrder" class="w-full bg-fsy-navy hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow flex items-center justify-center gap-2">
+          <i data-lucide="lock" class="w-4 h-4 text-fsy-amber"></i>
           <span id="checkoutSubmitLabel">Pay & Generate Instant Packing Code</span>
         </button>
       </form>
@@ -567,11 +566,11 @@
   <!-- ORDER SUCCESS SCREEN MODAL -->
   <div id="orderSuccessModal" class="fixed inset-0 bg-slate-950/90 z-50 backdrop-blur-md hidden flex items-center justify-center p-4">
     <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl p-6 text-center space-y-4">
-      <div class="w-16 h-16 rounded-full bg-emerald-100 text-brand-green flex items-center justify-center mx-auto text-2xl">
+      <div class="w-16 h-16 rounded-full bg-amber-100 text-fsy-gold flex items-center justify-center mx-auto text-2xl">
         <i data-lucide="check-circle" class="w-9 h-9"></i>
       </div>
       <div>
-        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-600 font-mono">Payment Confirmed • Order #FSY-<span id="confirmedOrderId">9821</span></span>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-amber-700 font-mono">Payment Confirmed • Order #FSY-<span id="confirmedOrderId">9821</span></span>
         <h3 class="text-xl font-extrabold text-slate-900 mt-1">Order Placed Successfully!</h3>
         <p class="text-xs text-slate-500 mt-1" id="successFulfillmentMsg">Your items are being packed right now at FSY Ajibode Supermarket.</p>
       </div>
@@ -589,24 +588,24 @@
           <i data-lucide="printer" class="w-3.5 h-3.5"></i>
           Print Receipt
         </button>
-        <button onclick="closeSuccessModal()" class="flex-1 py-2.5 rounded-xl bg-brand-green hover:bg-emerald-600 text-white text-xs font-bold transition">
+        <button onclick="closeSuccessModal()" class="flex-1 py-2.5 rounded-xl bg-fsy-navy hover:bg-slate-800 text-white text-xs font-bold transition">
           Continue Shopping
         </button>
       </div>
     </div>
   </div>
 
-  <!-- EXECUTIVE PITCH DECK BRIEFING MODAL (FOR THE OWNER) -->
+  <!-- EXECUTIVE PITCH DECK BRIEFING MODAL -->
   <div id="pitchModalBackdrop" class="fixed inset-0 bg-slate-950/90 z-50 backdrop-blur-md hidden flex items-center justify-center p-4 overflow-y-auto">
     <div class="bg-white w-full max-w-4xl rounded-2xl shadow-2xl border border-slate-200 overflow-hidden my-8 max-h-[90vh] flex flex-col">
       
-      <div class="bg-brand-darkGreen p-6 text-white flex items-center justify-between border-b border-emerald-950">
+      <div class="bg-fsy-navy p-6 text-white flex items-center justify-between border-b border-slate-800">
         <div>
-          <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 font-mono">Confidential Proposal • Gran Jefe Solutions</span>
-          <h2 class="text-xl font-extrabold text-white">FSY Stores: Digital Retail & Wholesale Dominance</h2>
-          <p class="text-xs text-slate-300">Taking initiative from modern retail platforms (FoodCo, Ebeano) and elevating FSY into an all-in-one Ibadan leader.</p>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-fsy-amber font-mono">Confidential Proposal • Gran Jefe Solutions</span>
+          <h2 class="text-xl font-extrabold text-white">FSY Stores: Digital Retail & Wholesale Expansion</h2>
+          <p class="text-xs text-slate-300">Uniting Supermarket Retailing, B2B Bulk Carton Trade, and Salon Grooming into Oyo State's Premier Platform.</p>
         </div>
-        <button onclick="closePitchModal()" class="w-8 h-8 rounded-lg bg-emerald-900 text-slate-300 hover:text-white flex items-center justify-center">
+        <button onclick="closePitchModal()" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center">
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
       </div>
@@ -614,36 +613,30 @@
       <div class="p-6 overflow-y-auto space-y-6 text-xs text-slate-700 leading-relaxed">
         <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
           <h4 class="font-bold text-sm text-slate-900 mb-2 flex items-center gap-2">
-            <span class="w-5 h-5 rounded-full bg-brand-green text-white flex items-center justify-center text-xs font-bold">1</span>
-            Why FoodCo's Model Works (And Where FSY Can Beat Them)
+            <span class="w-5 h-5 rounded-full bg-fsy-navy text-amber-400 flex items-center justify-center text-xs font-bold">1</span>
+            The Strategic Opportunity for FSY Stores
           </h4>
           <p class="mb-3">
-            FoodCo has set the modern benchmark in Ibadan with their app: easy grocery ordering, Takeaway vs Delivery toggles, and multi-department browsing.
+            FSY commands immense goodwill and high foot-traffic at Ajibode. However, corporate workers, lecturers, and doctors across Ibadan dread 45-minute traffic delays, parking struggles, and supermarket queues. By providing 20-minute Click & Collect and doorstep delivery, FSY captures these high-ticket weekly baskets.
           </p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 font-medium">
-            <div class="p-3 bg-emerald-50 text-emerald-950 rounded-lg border border-emerald-200">
-              <span class="font-bold block text-brand-darkGreen mb-1">What We Adopt from FoodCo:</span>
-              <ul class="list-disc list-inside space-y-1 text-[11px] text-slate-700">
-                <li>Sleek, image-first department rails (Groceries, Bakery, Drinks, Personal Care).</li>
-                <li>One-tap Takeaway (Click & Collect) vs Doorstep Delivery toggle.</li>
-                <li>Inline quantity steppers directly on product cards.</li>
-                <li>Paystack & automated card payment flows.</li>
-              </ul>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 font-medium">
+            <div class="p-3 bg-blue-50 text-blue-950 rounded-lg border border-blue-200">
+              <span class="font-bold block text-blue-900 mb-1">Retail Supermarket</span>
+              Full pantry restocking, daily bread & snacks, toiletries, and instant collection.
             </div>
             <div class="p-3 bg-amber-50 text-amber-950 rounded-lg border border-amber-200">
-              <span class="font-bold block text-amber-800 mb-1">How FSY Surpasses FoodCo:</span>
-              <ul class="list-disc list-inside space-y-1 text-[11px] text-slate-700">
-                <li><strong>B2B Wholesale Portal:</strong> FoodCo only sells retail. FSY sells cartons and sacks directly to smaller stores across Oyo State.</li>
-                <li><strong>Unisex Salon Integration:</strong> FoodCo has no salon. FSY cross-sells beauty services and hair products.</li>
-                <li><strong>Dedicated Virtual Accounts:</strong> 3-second instant transfer verification without POS delays.</li>
-              </ul>
+              <span class="font-bold block text-amber-900 mb-1">B2B Wholesale Portal</span>
+              Single-screen carton re-ordering, MOQ enforcement, and automated proforma invoices.
+            </div>
+            <div class="p-3 bg-pink-50 text-pink-950 rounded-lg border border-pink-200">
+              <span class="font-bold block text-pink-900 mb-1">Unisex Salon</span>
+              Zero-wait chair slot booking, specialist assignment, and product cross-selling.
             </div>
           </div>
         </div>
 
-        <!-- Slide 2: Revenue Matrix -->
-        <div class="bg-gradient-to-r from-slate-900 to-brand-darkGreen text-white p-5 rounded-xl space-y-3">
-          <h4 class="font-bold text-sm text-emerald-300">Projected Monthly Digital Gross for FSY Stores</h4>
+        <div class="bg-gradient-to-r from-fsy-navy to-slate-900 text-white p-5 rounded-xl space-y-3">
+          <h4 class="font-bold text-sm text-fsy-amber">Projected Monthly Digital Gross for FSY Stores</h4>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
             <div class="p-3 bg-slate-800/80 rounded-lg border border-slate-700">
               <span class="text-slate-400 text-[10px] block uppercase">Retail Supermarket</span>
@@ -663,12 +656,12 @@
           </div>
         </div>
 
-        <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="p-4 bg-amber-50 rounded-xl border border-amber-200 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <h5 class="font-bold text-slate-900 text-xs">Turnkey Engineering by Gran Jefe Solutions</h5>
             <p class="text-[11px] text-slate-600">Built to nationwide standards, deployed with on-site staff enablement at Ajibode.</p>
           </div>
-          <button onclick="closePitchModal()" class="px-4 py-2 bg-brand-darkGreen text-white rounded-xl font-bold text-xs hover:bg-slate-900 transition whitespace-nowrap">
+          <button onclick="closePitchModal()" class="px-4 py-2 bg-fsy-navy text-white rounded-xl font-bold text-xs hover:bg-slate-800 transition whitespace-nowrap">
             Back to Interactive Demo
           </button>
         </div>
@@ -867,14 +860,13 @@
       if (dateInput) dateInput.value = today;
     }
 
-    // DEPARTMENT RAIL (FOODCO INITIATIVE)
     function renderDepartmentRail() {
       const rail = document.getElementById('categoryIconRail');
       rail.innerHTML = DEPARTMENTS.map(dept => `
         <button 
           onclick="filterDepartment('${dept.id}')"
-          class="dept-pill flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition border ${currentDept === dept.id ? 'bg-brand-green text-white border-brand-green shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300'}">
-          <i data-lucide="${dept.icon}" class="w-4 h-4"></i>
+          class="dept-pill flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition border ${currentDept === dept.id ? 'bg-fsy-navy text-white border-fsy-navy shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300'}">
+          <i data-lucide="${dept.icon}" class="w-4 h-4 text-fsy-amber"></i>
           <span>${dept.name}</span>
         </button>
       `).join('');
@@ -887,17 +879,16 @@
       renderProductGrid();
     }
 
-    // PILLAR SWITCHER
     function switchMode(pillar) {
       currentPillar = pillar;
       document.querySelectorAll('.pillar-tab').forEach(t => {
-        t.classList.remove('bg-brand-green', 'text-white', 'shadow-sm', 'font-bold');
+        t.classList.remove('bg-fsy-navy', 'text-white', 'shadow-sm', 'font-bold');
         t.classList.add('text-slate-600');
       });
 
       const activeTab = document.getElementById(`tab-${pillar}`);
       if (activeTab) {
-        activeTab.classList.add('bg-brand-green', 'text-white', 'shadow-sm', 'font-bold');
+        activeTab.classList.add('bg-fsy-navy', 'text-white', 'shadow-sm', 'font-bold');
         activeTab.classList.remove('text-slate-600');
       }
 
@@ -911,7 +902,7 @@
 
       if (pillar === 'supermarket' || pillar === 'personal') {
         grid.classList.remove('hidden');
-        document.getElementById('gridTitle').innerText = pillar === 'personal' ? 'Express Grab & Go Essentials' : 'Featured Household Groceries';
+        document.getElementById('gridTitle').innerText = pillar === 'personal' ? 'Express Grab & Go Essentials' : 'Featured Supermarket Inventory';
         document.getElementById('gridSubtitle').innerText = pillar === 'personal' ? 'Daily bread supplies, meat pies, chilled drinks, and toiletries ready for fast pickup.' : 'Quality provisions verified in stock at Ajibode Flagship.';
         renderProductGrid();
       } else if (pillar === 'wholesale') {
@@ -924,7 +915,6 @@
       lucide.createIcons();
     }
 
-    // PRODUCT GRID WITH FOODCO INLINE STEPPER
     function renderProductGrid(searchQuery = '') {
       const grid = document.getElementById('productGrid');
       const countLabel = document.getElementById('displayedItemCount');
@@ -943,7 +933,7 @@
           <div class="col-span-full py-12 text-center text-slate-400">
             <i data-lucide="package-search" class="w-12 h-12 mx-auto text-slate-300 mb-2"></i>
             <p class="text-xs font-semibold text-slate-600">No items match your selected department.</p>
-            <button onclick="filterDepartment('all')" class="mt-2 px-3 py-1 bg-brand-green text-white text-xs rounded-lg font-bold">Reset Department</button>
+            <button onclick="filterDepartment('all')" class="mt-2 px-3 py-1 bg-fsy-navy text-white text-xs rounded-lg font-bold">Reset Department</button>
           </div>
         `;
         lucide.createIcons();
@@ -955,14 +945,14 @@
         const qtyInCart = cartItem ? cartItem.qty : 0;
 
         return `
-          <div class="bg-white rounded-2xl border border-slate-200/90 hover:border-brand-green/60 shadow-sm hover:shadow transition overflow-hidden flex flex-col justify-between group">
+          <div class="bg-white rounded-2xl border border-slate-200/90 hover:border-amber-400/80 shadow-sm hover:shadow transition overflow-hidden flex flex-col justify-between group">
             
             <div class="relative h-36 sm:h-40 bg-slate-50 overflow-hidden">
               <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-              <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-white/95 text-slate-900 font-bold text-[9px] shadow-sm">
+              <span class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-slate-900/90 text-amber-300 font-bold text-[9px] shadow-sm">
                 ${item.badge}
               </span>
-              <span class="absolute bottom-2 left-2 px-1.5 py-0.5 rounded bg-slate-900/80 text-white font-medium text-[9px]">
+              <span class="absolute bottom-2 left-2 px-1.5 py-0.5 rounded bg-white/90 text-slate-800 font-medium text-[9px]">
                 ${item.packSize}
               </span>
             </div>
@@ -976,20 +966,20 @@
                 </div>
               </div>
 
-              <!-- FoodCo Inline Quantity Stepper Button -->
+              <!-- Quick Increment / Add -->
               <div class="pt-2 border-t border-slate-100">
                 ${qtyInCart === 0 ? `
                   <button 
                     onclick="addToCart('${item.id}', 'single')"
-                    class="w-full py-2 px-3 rounded-xl bg-brand-mint text-brand-darkGreen hover:bg-brand-green hover:text-white font-bold text-xs transition flex items-center justify-center gap-1">
+                    class="w-full py-2 px-3 rounded-xl bg-amber-50 text-slate-950 hover:bg-fsy-amber font-bold text-xs transition flex items-center justify-center gap-1 border border-amber-200">
                     <i data-lucide="plus" class="w-3.5 h-3.5"></i>
                     <span>Add to Basket</span>
                   </button>
                 ` : `
-                  <div class="flex items-center justify-between bg-brand-green text-white rounded-xl p-1">
-                    <button onclick="decrementCartItemById('${item.id}', 'single')" class="w-7 h-7 rounded-lg bg-emerald-700/80 hover:bg-emerald-800 flex items-center justify-center font-bold text-sm">-</button>
+                  <div class="flex items-center justify-between bg-fsy-navy text-white rounded-xl p-1">
+                    <button onclick="decrementCartItemById('${item.id}', 'single')" class="w-7 h-7 rounded-lg bg-slate-800 hover:bg-slate-700 flex items-center justify-center font-bold text-sm">-</button>
                     <span class="font-mono font-bold text-xs px-2">${qtyInCart} in basket</span>
-                    <button onclick="incrementCartItemById('${item.id}', 'single')" class="w-7 h-7 rounded-lg bg-emerald-700/80 hover:bg-emerald-800 flex items-center justify-center font-bold text-sm">+</button>
+                    <button onclick="incrementCartItemById('${item.id}', 'single')" class="w-7 h-7 rounded-lg bg-slate-800 hover:bg-slate-700 flex items-center justify-center font-bold text-sm">+</button>
                   </div>
                 `}
               </div>
@@ -1002,7 +992,6 @@
       lucide.createIcons();
     }
 
-    // B2B WHOLESALE TABLE
     function renderWholesaleTable() {
       const tbody = document.getElementById('wholesaleTableBody');
       const items = CATALOG.filter(i => i.cartonPrice !== null);
@@ -1023,12 +1012,12 @@
             <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-bold font-mono text-[10px]">Min. 1 Carton</span>
           </td>
           <td class="py-3 px-4 text-right font-mono text-slate-500 text-xs">₦${item.singlePrice.toLocaleString()}</td>
-          <td class="py-3 px-4 text-right font-mono font-extrabold text-emerald-700 text-xs">₦${item.cartonPrice.toLocaleString()}</td>
+          <td class="py-3 px-4 text-right font-mono font-extrabold text-amber-600 text-xs">₦${item.cartonPrice.toLocaleString()}</td>
           <td class="py-3 px-4 text-center">
             <input type="number" id="qty-${item.id}" min="1" value="1" class="w-14 text-center text-xs p-1 border border-slate-300 rounded font-mono font-bold">
           </td>
           <td class="py-3 px-4 text-right">
-            <button onclick="addWholesaleCartonToCart('${item.id}')" class="px-2.5 py-1 rounded-lg bg-brand-green hover:bg-emerald-600 text-white font-bold text-xs transition">
+            <button onclick="addWholesaleCartonToCart('${item.id}')" class="px-3 py-1 rounded-lg bg-fsy-navy hover:bg-slate-800 text-white font-bold text-xs transition">
               Add Carton
             </button>
           </td>
@@ -1036,7 +1025,6 @@
       `).join('');
     }
 
-    // SALON SERVICES
     function renderSalonServices(catFilter = 'men') {
       const container = document.getElementById('salonServicesList');
       const filtered = SALON_SERVICES.filter(s => s.category === catFilter);
@@ -1098,7 +1086,6 @@
       setDefaultDate();
     }
 
-    // CART ENGINE
     function addToCart(itemId, type = 'single') {
       const item = CATALOG.find(i => i.id === itemId);
       if (!item) return;
@@ -1179,7 +1166,7 @@
         document.getElementById('cartGrandTotal').innerText = '₦0';
         checkoutBtn.disabled = true;
         checkoutBtn.classList.add('bg-slate-300', 'text-slate-500', 'cursor-not-allowed');
-        checkoutBtn.classList.remove('bg-brand-green', 'text-white', 'hover:bg-emerald-600');
+        checkoutBtn.classList.remove('bg-fsy-navy', 'text-white', 'hover:bg-slate-800');
         lucide.createIcons();
         return;
       }
@@ -1213,7 +1200,7 @@
 
       checkoutBtn.disabled = false;
       checkoutBtn.classList.remove('bg-slate-300', 'text-slate-500', 'cursor-not-allowed');
-      checkoutBtn.classList.add('bg-brand-green', 'text-white', 'hover:bg-emerald-600');
+      checkoutBtn.classList.add('bg-fsy-navy', 'text-white', 'hover:bg-slate-800');
       lucide.createIcons();
     }
 
@@ -1228,7 +1215,6 @@
       document.getElementById('cartDrawer').classList.add('translate-x-full');
     }
 
-    // FULFILLMENT TOGGLE (PICKUP VS DELIVERY)
     function setFulfillmentType(type) {
       fulfillmentMode = type;
       const headerPickup = document.getElementById('headerBtnPickup');
@@ -1241,31 +1227,31 @@
 
       if (type === 'pickup') {
         if (headerPickup) {
-          headerPickup.classList.add('bg-white', 'text-slate-900', 'shadow-sm', 'font-bold');
+          headerPickup.classList.add('bg-white', 'text-slate-950', 'shadow-sm', 'font-bold');
           headerPickup.classList.remove('text-slate-600');
-          headerDelivery.classList.remove('bg-white', 'text-slate-900', 'shadow-sm', 'font-bold');
+          headerDelivery.classList.remove('bg-white', 'text-slate-950', 'shadow-sm', 'font-bold');
           headerDelivery.classList.add('text-slate-600');
         }
-        cartPickup.classList.add('border-brand-green', 'bg-brand-mint', 'text-brand-darkGreen', 'font-bold');
+        cartPickup.classList.add('border-fsy-amber', 'bg-amber-50', 'text-slate-950', 'font-bold');
         cartPickup.classList.remove('border-slate-300', 'bg-white', 'text-slate-600');
-        cartDelivery.classList.remove('border-brand-green', 'bg-brand-mint', 'text-brand-darkGreen', 'font-bold');
+        cartDelivery.classList.remove('border-fsy-amber', 'bg-amber-50', 'text-slate-950', 'font-bold');
         cartDelivery.classList.add('border-slate-300', 'bg-white', 'text-slate-600');
         zoneSelector.classList.add('hidden');
         addressField.classList.add('hidden');
         deliveryFee = 0;
         document.getElementById('cartDeliveryFee').innerText = 'FREE';
         document.getElementById('fulfillmentFeeLabel').innerText = 'Pickup Fee:';
-        drawerSummary.innerText = 'Takeaway (Pickup at Ajibode Flagship)';
+        drawerSummary.innerText = 'Click & Collect (Pickup at Ajibode Flagship)';
       } else {
         if (headerPickup) {
-          headerDelivery.classList.add('bg-white', 'text-slate-900', 'shadow-sm', 'font-bold');
+          headerDelivery.classList.add('bg-white', 'text-slate-950', 'shadow-sm', 'font-bold');
           headerDelivery.classList.remove('text-slate-600');
-          headerPickup.classList.remove('bg-white', 'text-slate-900', 'shadow-sm', 'font-bold');
+          headerPickup.classList.remove('bg-white', 'text-slate-950', 'shadow-sm', 'font-bold');
           headerPickup.classList.add('text-slate-600');
         }
-        cartDelivery.classList.add('border-brand-green', 'bg-brand-mint', 'text-brand-darkGreen', 'font-bold');
+        cartDelivery.classList.add('border-fsy-amber', 'bg-amber-50', 'text-slate-950', 'font-bold');
         cartDelivery.classList.remove('border-slate-300', 'bg-white', 'text-slate-600');
-        cartPickup.classList.remove('border-brand-green', 'bg-brand-mint', 'text-brand-darkGreen', 'font-bold');
+        cartPickup.classList.remove('border-fsy-amber', 'bg-amber-50', 'text-slate-950', 'font-bold');
         cartPickup.classList.add('border-slate-300', 'bg-white', 'text-slate-600');
         zoneSelector.classList.remove('hidden');
         addressField.classList.remove('hidden');
@@ -1284,7 +1270,6 @@
       renderCartDrawerItems();
     }
 
-    // CHECKOUT FLOW
     function openCheckoutModal() {
       closeCartDrawer();
       const subtotal = cart.reduce((acc, c) => acc + (c.price * c.qty), 0);
