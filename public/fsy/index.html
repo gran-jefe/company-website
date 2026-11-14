@@ -172,7 +172,7 @@
           Everything You Need For Your Day — In One Fast Stop.
         </h1>
         <p id="heroSubtitle" class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
-          From freshly baked morning pastries and chilled energy drinks to monthly household groceries, bulk carton trade, and executive salon grooming — FSY Mega Stores is built for Ibadan.
+          From fresh morning bread and pastries supplied daily by top bakers, to chilled drinks, monthly household groceries, bulk carton trade, and executive salon grooming — FSY Mega Stores is built for Ibadan.
         </p>
 
         <!-- Quick Value Badges -->
@@ -204,8 +204,8 @@
           </div>
           <div class="py-4 space-y-3">
             <div class="flex justify-between items-center text-xs">
-              <span class="text-slate-400">Bakery Status:</span>
-              <span class="text-emerald-400 font-semibold">Hot Meat Pies & Bread Fresh Out</span>
+              <span class="text-slate-400">Daily Bread & Pastry Racks:</span>
+              <span class="text-emerald-400 font-semibold">Fresh Morning Supply In Stock</span>
             </div>
             <div class="flex justify-between items-center text-xs">
               <span class="text-slate-400">Chiller Temperature:</span>
@@ -743,29 +743,29 @@
       // EXPRESS PERSONAL SHOPPER & QUICK GRABS
       {
         id: 'FSY-EX-01',
-        name: 'FSY Fresh Baked Meat Pie (Jumbo Flaky Crust)',
-        category: 'Fresh Bakery & Quick Snacks',
+        name: 'Gourmet Beef Meat Pie (Flaky Crust)',
+        category: 'Daily Bread & Bakery Supplies',
         pillar: 'personal',
         singlePrice: 900,
         cartonPrice: null,
         packSize: 'Single Snack',
         moq: 1,
         image: 'https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&auto=format&fit=crop&q=80',
-        badge: 'Hot From Oven',
-        desc: 'Minced lean beef, diced potatoes, and authentic Nigerian spices wrapped in golden flaky pastry.'
+        badge: 'Supplied Fresh Daily',
+        desc: 'Minced lean beef, diced potatoes, and authentic Nigerian spices. Delivered fresh every morning from top certified partner bakeries.'
       },
       {
         id: 'FSY-EX-02',
-        name: 'Freshly Baked Sweet Butter Bread (Loaf)',
-        category: 'Fresh Bakery & Quick Snacks',
+        name: 'Special Butter Bread (Large Family Loaf)',
+        category: 'Daily Bread & Bakery Supplies',
         pillar: 'personal',
         singlePrice: 1400,
         cartonPrice: 12000,
         packSize: 'Crate of 10 Loaves',
         moq: 1,
         image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&auto=format&fit=crop&q=80',
-        badge: 'Best Seller',
-        desc: 'Soft, buttery, sweet oven-fresh bread baked daily in the FSY in-house bakery.'
+        badge: 'Daily Baker Supply',
+        desc: 'Soft, sweet, and buttery sliced bread supplied fresh daily from reputable commercial bakeries in Ibadan.'
       },
       {
         id: 'FSY-EX-03',
@@ -1055,7 +1055,7 @@
 
       if (pillar === 'personal') {
         title.innerText = 'Grab Your Personal Essentials in 20 Minutes Flat.';
-        subtitle.innerText = 'Hot baked meat pies, ice-cold energy drinks, daily toiletries, and sweet treats. Order on your phone, pick up at our Ajibode express counter without queueing.';
+        subtitle.innerText = 'Daily fresh bread and meat pies supplied by top bakers, ice-cold drinks, toiletries, and snacks. Order on your phone, pick up at our Ajibode express counter without queueing.';
       } else if (pillar === 'supermarket') {
         title.innerText = 'The Full FSY Supermarket. Delivered to Your Kitchen.';
         subtitle.innerText = 'Stock your entire home with fresh provisions, pasta, cooking oils, beverages, laundry detergents, and cleaning goods at genuine supermarket prices.';
@@ -1074,7 +1074,7 @@
       let categories = ['All'];
 
       if (currentPillar === 'personal') {
-        categories = ['All', 'Fresh Bakery & Quick Snacks', 'Chilled Drinks & Beverages', 'Personal Care & Toiletries', 'Snacks & Confectionery'];
+        categories = ['All', 'Daily Bread & Bakery Supplies', 'Chilled Drinks & Beverages', 'Personal Care & Toiletries', 'Snacks & Confectionery'];
       } else {
         categories = ['All', 'Groceries & Foodstuffs', 'Cleaning & Household', 'Chilled Drinks & Beverages', 'Personal Care & Toiletries'];
       }

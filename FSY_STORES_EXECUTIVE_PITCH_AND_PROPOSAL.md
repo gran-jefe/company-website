@@ -28,7 +28,7 @@ However, modern retail in Nigeria is undergoing a seismic structural shift:
 ├────────────────────┬────────────────────┬───────────────┬──────────────┤
 │ 1. EXPRESS SHOPPER │ 2. MEGA SUPERMARKET│ 3. B2B TRADE  │ 4. SALON/SPA │
 ├────────────────────┼────────────────────┼───────────────┼──────────────┤
-│ • Hot Bakery Items │ • Full Pantry      │ • Carton MOQ  │ • Precision  │
+│ • Fresh Bread Racks│ • Full Pantry      │ • Carton MOQ  │ • Precision  │
 │ • Ice-Cold Drinks  │ • Household goods  │ • Bulk Matrix │   Fades      │
 │ • Toiletries/Soaps │ • Baby & Family    │ • Proforma PDF│ • Braids/Wigs│
 │ • 20-Min Pickup    │ • Ibadan Delivery  │ • Virtual Acc │ • Slot locks │
@@ -37,7 +37,7 @@ However, modern retail in Nigeria is undergoing a seismic structural shift:
 
 ### Engine 1: Express Personal Shopper (Grab & Go)
 *Designed for students, commuters, university staff, and workers who need quick personal essentials right now.*
-- Hot fresh bakery items (Jumbo Meat Pies, Sausage rolls, Freshly Baked Sweet Bread).
+- Daily fresh bread & confectionery rack (Jumbo Meat Pies, Sausage rolls, fresh sliced sweet butter bread supplied daily by certified partner bakeries).
 - Ice-cold beverages, energy drinks, and dairy treats.
 - Personal toiletries, soaps, oral hygiene, and cosmetic quick grabs.
 - **20-Minute Click & Collect**: Order on the phone, walk to the dedicated Ajibode express counter, show the 4-digit code, and collect without queueing behind shoppers with full grocery carts.
